@@ -9,6 +9,8 @@ import Partners from "./Components/Partners/Partners";
 import { AnimatedPinDemo } from "./Components/TeamDisplay/AnimatedPinDemo";
 import Showcase from "./Components/ttt/Showcase";
 import { CanvasRevealEffectDemo3 } from "./Components/RevealEffect/CanvasRevealEffectDemo3";
+import DisplayOptions from "./Components/DisplayOptions/DisplayOptions";
+import HomeTeam from "./Components/home-team/HomeTeam";
 
 
 
@@ -17,15 +19,15 @@ export default function Home() {
         <div>
             <NavBar></NavBar>
             <HeroHome></HeroHome>
-            <div className="flex justify-center items-center h-20rem ">
+            <div className="flex absolute top-[26rem] left-[28.5rem] justify-center items-center h-20rem ">
                 <div className="text-center  w-[60rem]">
                     <TextGenerateEffect words="Creamos Aspa con el objetivo de poder brindar a las empresas un software o sistemas de información que puedan ayudar a cumplir sus objetivos." />
                 </div>
             </div>
             <CardHomeTriple></CardHomeTriple>
             <Showcase></Showcase>
-            <CanvasRevealEffectDemo3></CanvasRevealEffectDemo3>
-            <AnimatedPinDemo></AnimatedPinDemo>
+            
+            <HomeTeam></HomeTeam>
             <Partners></Partners>
         </div>
     );

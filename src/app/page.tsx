@@ -19,10 +19,8 @@ export default function Home() {
         <div>
             <NavBar></NavBar>
             <HeroHome></HeroHome>
-            
             <CardHomeTriple></CardHomeTriple>
             <Showcase></Showcase>
-            
             <HomeTeam></HomeTeam>
             <Partners></Partners>
         </div>

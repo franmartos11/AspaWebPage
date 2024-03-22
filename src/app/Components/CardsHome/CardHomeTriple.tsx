@@ -4,14 +4,15 @@ import { CardHome3 } from "./CardHome3";
 
 export default function(){
     return(
-        <div className="p-[10rem] pt-[15rem] ">
-            <p className="text-5xl font-bold">EN QUE NOS DIFERENCIAMOS</p>
+        <div className="container mx-auto px-4 py-16">
+  <p className="text-5xl font-bold text-center mb-12">EN QUE NOS DIFERENCIAMOS</p>
+
+  <div className=" flex align-middle justify-evenly">
+        <CardHome></CardHome>
+        <CardHome2></CardHome2>
         
-        <div className="flex justify-around  align-middle ">
-            <CardHome></CardHome>
-            <CardHome2></CardHome2>
-            <CardHome3></CardHome3>
-        </div>
-        </div>
+  </div>
+  <CardHome3></CardHome3>
+</div>
     )
 }

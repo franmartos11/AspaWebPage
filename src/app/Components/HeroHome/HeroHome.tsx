@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "./SparklesCore";
+import { TextGenerateEffect } from "../GenerativeText/TextGenerateEffect";
 
 export function HeroHome() {
   return (
@@ -21,12 +22,18 @@ export function HeroHome() {
           minSize={0.4}
           maxSize={1}
           particleDensity={1200}
-          className="w-full h-full"
+          className="w-full h-full  relative"
           particleColor="#FFFFFF"
         />
 
         {/* Radial Gradient to prevent sharp edges */}
-        <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_0%,white)]">
+        <div className="flex pt-[0.5rem] justify-center items-center  ">
+                <div className="text-center pb-10 w-[60rem]">
+                    <TextGenerateEffect words="Creamos Aspa con el objetivo de poder brindar a las empresas un software o sistemas de información que puedan ayudar a cumplir sus objetivos." />
+                </div>
+            </div>
+        </div>
       </div>
     </div>
   );

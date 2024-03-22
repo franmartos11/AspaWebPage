@@ -4,7 +4,7 @@ import { CardHome3 } from "./CardHome3";
 
 export default function(){
     return(
-        <div className="p-[10rem] pt-[30rem]">
+        <div className="p-[10rem] pt-[15rem] ">
             <p className="text-5xl font-bold">EN QUE NOS DIFERENCIAMOS</p>
         
         <div className="flex justify-around  align-middle ">

@@ -8,6 +8,7 @@ import CardHomeTriple from "./Components/CardsHome/CardHomeTriple";
 import Partners from "./Components/Partners/Partners";
 import { AnimatedPinDemo } from "./Components/TeamDisplay/AnimatedPinDemo";
 import Showcase from "./Components/ttt/Showcase";
+import { CanvasRevealEffectDemo3 } from "./Components/RevealEffect/CanvasRevealEffectDemo3";
 
 
 
@@ -23,6 +24,7 @@ export default function Home() {
             </div>
             <CardHomeTriple></CardHomeTriple>
             <Showcase></Showcase>
+            <CanvasRevealEffectDemo3></CanvasRevealEffectDemo3>
             <AnimatedPinDemo></AnimatedPinDemo>
             <Partners></Partners>
         </div>

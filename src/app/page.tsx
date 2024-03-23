@@ -11,6 +11,7 @@ import Showcase from "./Components/ttt/Showcase";
 import { CanvasRevealEffectDemo3 } from "./Components/RevealEffect/CanvasRevealEffectDemo3";
 import DisplayOptions from "./Components/DisplayOptions/DisplayOptions";
 import HomeTeam from "./Components/home-team/HomeTeam";
+import Footer from "./Components/Footer/Footer";
 
 
 
@@ -23,6 +24,7 @@ export default function Home() {
             <Showcase></Showcase>
             <HomeTeam></HomeTeam>
             <Partners></Partners>
+            
         </div>
     );
 }

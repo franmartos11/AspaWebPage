@@ -26,7 +26,7 @@ export default function () {
                 </a>
             </nav>
             <p className="py-10 text-center text-gray-300">
-                © 2022 Boleno | All Rights Reserved
+                © 2024 Aspa Software | All Rights Reserved
             </p>
         </footer>
     );

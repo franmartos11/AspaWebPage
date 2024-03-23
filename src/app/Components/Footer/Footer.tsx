@@ -1,10 +1,11 @@
 export default function () {
     return (
-        <footer className="relative mt-20 bg-gray-900 px-4 pt-20">
-            <div className="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-white p-2">
+        <footer className="relative mt-20 bg-black px-4 pt-20">
+            <hr className="h-px mb-[5rem] mt-[-5.5rem] bg-gray-200  dark:bg-gray-700"></hr>
+            <div className="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-black p-1">
                 <img
                     className="h-full object-contain"
-                    src="/images/logo-circle.png"
+                    src="https://lh3.googleusercontent.com/p/AF1QipOArs2fh8wX0a6dnEvIAMZv3DJrx006D9qzB4E=s680-w680-h510"
                     alt=""
                 />
             </div>

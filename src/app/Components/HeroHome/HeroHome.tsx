@@ -17,19 +17,26 @@ export function HeroHome() {
                 <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
                 {/* Core component */}
+                <div className="">
+
+                
                 <SparklesCore
                     background="transparent"
                     minSize={0.4}
                     maxSize={1}
                     particleDensity={1200}
                     className="w-full h-full  relative"
-                    particleColor="#FFFFFF"
+                    particleColor="#87CEFA"
                 />
+                </div>
 
                 {/* Radial Gradient to prevent sharp edges */}
-                <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_0%,white)]">
+                <div className="absolute  inset-0 w-full h-full bg-black [mask-image:radial-gradient(500px_190px_at_top,transparent_10%,white)]">
+                    
+                </div>
+                <div className="absolute  inset-0 w-full h-full">
                     <div className="flex flex-col items-center pt-[0.5rem]  ">
-                        <div className="text-center pb-12  h-[150%] w-[60vw] ">
+                        <div className="text-center pb-12 z-50  h-[150%] w-[60vw] ">
                             <TextGenerateEffect words="Creamos Aspa con el objetivo de poder brindar a las empresas un software o sistemas de información que puedan ayudar a cumplir sus objetivos." />
                         </div>
                     </div>

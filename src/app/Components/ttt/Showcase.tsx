@@ -1,7 +1,7 @@
 export default function () {
     return (
         <section className="p-[10rem]">
-            <p className="text-5xl font-bold">NUESTROS SERVICIOS</p>
+            <p className="text-5xl pt-10 font-bold">NUESTROS SERVICIOS</p>
             <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
                 <div className=" grid grid-cols-1 items-center gap-12 sm:gap-20 lg:grid-cols-2">
                     <div className=" relative left-4 h-full max-h-[560px] w-[85%] overflow-visible md:left-0 md:w-[95%] lg:w-full">

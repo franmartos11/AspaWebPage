@@ -8,12 +8,10 @@ export default function () {
             <p className="text-5xl font-bold text-center mb-12">
                 EN QUE NOS DIFERENCIAMOS
             </p>
-
             <div className="flex flex-wrap justify-evenly items-center">
                 <CardHome></CardHome>
                 <CardHome2></CardHome2>
             </div>
-
             <CardHome3></CardHome3>
         </div>
     );

@@ -14,14 +14,14 @@ export function CardHome3() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Servicio al Cliente
+          Orientacion al cliente
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          En Aspa, nos comprometemos a brindar un servicio al cliente excepcional y un soporte técnico confiable en cada etapa, asegurando que nuestros clientes reciban la atención y ayuda que necesitan para maximizar el valor de nuestros productos.
+          En cada paso que damos, el cliente está en el centro de nuestras decisiones. Priorizamos sus necesidades y objetivos, proporcionando un servicio que va más allá de las expectativas. Nuestra dedicación a la satisfacción del cliente no conoce límites, y cada interacción refleja nuestro compromiso inquebrantable con el éxito de quienes confían en nosotros.
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image

@@ -14,14 +14,14 @@ export function CardHome2() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Innovación Tecnológica
+          Calidad
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          En aspa, nuestra pasión por la innovación nos impulsa a estar a la vanguardia de la tecnología. Nos comprometemos a desarrollar soluciones tecnológicas que no solo aborden las necesidades actuales del mercado, sino que anticipen y las demandas futuras.
+          Estamos comprometidos con la excelencia, nos esforzamos por ofrecer soluciones de software y servicios que no solo cumplen con los estándares más rigurosos, sino que también superan las expectativas.
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image

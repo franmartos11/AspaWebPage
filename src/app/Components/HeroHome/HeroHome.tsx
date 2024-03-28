@@ -37,7 +37,7 @@ export function HeroHome() {
                 <div className="absolute  inset-0 w-full h-full">
                     <div className="flex flex-col items-center pt-[0.5rem]  ">
                         <div className="text-center pb-12 z-50  h-[150%] w-[60vw] ">
-                            <TextGenerateEffect words="Creamos Aspa con el objetivo de poder brindar a las empresas un software o sistemas de información que puedan ayudar a cumplir sus objetivos." />
+                            <TextGenerateEffect words="Impulsamos tu negocio digitalizando procesos con sistemas a medida." />
                         </div>
                     </div>
                 </div>

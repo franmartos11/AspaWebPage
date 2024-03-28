@@ -2,7 +2,11 @@ export default function(){
     return(
         
 <section>
-    <div className="py-[12rem]">
+    <div className="flex justify-center align-middle text-center">
+       <p className="text-5xl pt-[10rem] font-bold">NUESTROS SERVICIOS</p> 
+    </div>
+    <div className="pb-[12rem] pt-[5rem]">
+    
         <div className="mx-auto px-6 max-w-6xl text-gray-500">
             <div className="relative">
                 <div className="relative z-10 grid gap-3 grid-cols-6">

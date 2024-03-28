@@ -14,14 +14,15 @@ export function CardHome() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Experiencia del Usuario
+          Personalizacion
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          En Aspa, creamos interfaces intuitivas y atractivas que proporcionan una experiencia del usuario excepcional, adaptándonos a las necesidades y preferencias específicas de nuestros clientes para garantizar su satisfacción.
+          Desde Aspa creemos en la singularidad de cada cliente. Nuestras soluciones no siguen un enfoque estándar, más bien, se moldean de manera personalizada para satisfacer las necesidades y objetivos específicos de cada individuo o empresa.
+Reconocemos que la personalización es la clave para el éxito, y nos enorgullece ofrecer soluciones únicas para desafíos únicos.
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image

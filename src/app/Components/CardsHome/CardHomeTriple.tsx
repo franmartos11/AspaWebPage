@@ -9,10 +9,11 @@ export default function () {
                 EN QUE NOS DIFERENCIAMOS
             </p>
             <div className="flex flex-wrap justify-evenly items-center">
-                <CardHome></CardHome>
+                <CardHome></CardHome>               
+                <CardHome3></CardHome3>
                 <CardHome2></CardHome2>
             </div>
-            <CardHome3></CardHome3>
+            
         </div>
     );
 }

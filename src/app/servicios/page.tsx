@@ -7,9 +7,10 @@ export default function(){
     return(
         <div>
             <NavBar></NavBar>
+            <ShowServices></ShowServices>
             <BentoGrid></BentoGrid>
             <GrowStats></GrowStats>
-            <ShowServices></ShowServices>
+            
         </div>
     )
 }

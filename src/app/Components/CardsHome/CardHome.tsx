@@ -21,9 +21,7 @@ export function CardHome() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Desde Aspa creemos en la singularidad de cada cliente. Nuestras soluciones no siguen un enfoque estándar, más bien, se moldean de manera personalizada para satisfacer las necesidades y objetivos específicos de cada individuo o empresa.
-Reconocemos que la personalización es la clave para el éxito, y nos enorgullece ofrecer soluciones únicas para desafíos únicos.
-        </CardItem>
+          Despídete de las soluciones genéricas. En Aspa, creamos estrategias personalizadas que se adaptan a tus necesidades y te ayudan a alcanzar tus objetivos.</CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
             src="https://img.freepik.com/vector-premium/ilustracion-vector-grafico-personaje-dibujos-animados-ideas-creativas-innovacion-puesta-marcha_516790-1309.jpg"

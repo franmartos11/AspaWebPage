@@ -21,8 +21,7 @@ export function CardHome2() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          Estamos comprometidos con la excelencia, nos esforzamos por ofrecer soluciones de software y servicios que no solo cumplen con los estándares más rigurosos, sino que también superan las expectativas.
-        </CardItem>
+         Más que cumplir, superamos expectativas. Te ofrecemos software y servicios de la más alta calidad, diseñados para impulsar tu éxito.</CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
             src="https://blog.debmedia.com/wp-content/uploads/2019/12/%C2%BFCanal-Anal%C3%B3gico-o-Digital-en-Atenci%C3%B3n-al-Cliente_-Amigos-y-No-Enemigos.jpg"

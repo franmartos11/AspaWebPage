@@ -1,16 +1,16 @@
 import Image from "next/image";
 export default function ContactCardImg() {
     return (
-        <section className="min-h-screen bg-gray-800">
+        <section className="min-h-screen ">
             <div className="container px-6 py-10 mx-auto">
                 <div className="lg:flex lg:items-center lg:-mx-10">
                     <div className="lg:w-1/2 lg:mx-10">
-                        <h1 className="text-3xl font-semibold  capitalize text-white lg:text-5xl">
+                        <h1 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">
                             Contactame
                         </h1>
 
                         <p className="mt-4 text-gray-400 text-center">
-                            ¡Hazme saber cómo puedo ayudarte! Completa el formulario de contacto y estaré encantado de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
+                            ¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
                         </p>
 
                         <form className="mt-12" action="https://formsubmit.co/alfonsolozita@gmail.com" method="POST">
@@ -21,7 +21,7 @@ export default function ContactCardImg() {
                                     </label>
                                     <input
                                         type="Nombre"
-                                        placeholder="Nombre Apellido"
+                                        placeholder=""
                                         className="block w-full px-5 py-3 mt-2 border  rounded-md placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
@@ -32,7 +32,7 @@ export default function ContactCardImg() {
                                     </label>
                                     <input
                                         type="email"
-                                        placeholder="alfonso@gmail.com"
+                                        placeholder=""
                                         className="block w-full px-5 py-3 mt-2   border  rounded-md placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
@@ -42,7 +42,7 @@ export default function ContactCardImg() {
                                     </label>
                                     <input
                                         type="telefono"
-                                        placeholder="54 3518753260"
+                                        placeholder=""
                                         className="block w-full px-5 py-3 mt-2  border  rounded-md placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>

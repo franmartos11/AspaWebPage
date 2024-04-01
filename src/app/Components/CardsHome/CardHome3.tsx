@@ -21,8 +21,7 @@ export function CardHome3() {
           translateZ="60"
           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
         >
-          En cada paso que damos, el cliente está en el centro de nuestras decisiones. Priorizamos sus necesidades y objetivos, proporcionando un servicio que va más allá de las expectativas. Nuestra dedicación a la satisfacción del cliente no conoce límites, y cada interacción refleja nuestro compromiso inquebrantable con el éxito de quienes confían en nosotros.
-        </CardItem>
+         Tu éxito es nuestro norte. Priorizamos tus necesidades y te brindamos un servicio excepcional que va más allá de lo esperado. Tu satisfacción es nuestro compromiso.</CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
             src="https://www.collectivemexico.com/blog/wp-content/uploads/2017/05/2.Dise%C3%B1o-de-experiencia-de-usuario.jpg"

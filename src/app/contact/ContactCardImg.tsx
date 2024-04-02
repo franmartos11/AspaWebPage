@@ -6,10 +6,10 @@ export default function ContactCardImg() {
                 <div className="lg:flex lg:items-center lg:-mx-10">
                     <div className="lg:w-1/2 lg:mx-10">
                         <h1 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">
-                            Contactame
+                            Contactanos
                         </h1>
 
-                        <p className="mt-4 text-gray-400 text-center">
+                        <p className="mt-4 text-gray-400 ">
                             ¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
                         </p>
 
@@ -22,7 +22,7 @@ export default function ContactCardImg() {
                                     <input
                                         type="Nombre"
                                         placeholder=""
-                                        className="block w-full px-5 py-3 mt-2 border  rounded-md placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-5 py-3 mt-2 border  rounded-md placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
 
@@ -33,7 +33,7 @@ export default function ContactCardImg() {
                                     <input
                                         type="email"
                                         placeholder=""
-                                        className="block w-full px-5 py-3 mt-2   border  rounded-md placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-5 py-3 mt-2   border  rounded-md placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
                                 <div className="flex-1 px-2 mt-4 md:mt-0">
@@ -43,7 +43,7 @@ export default function ContactCardImg() {
                                     <input
                                         type="telefono"
                                         placeholder=""
-                                        className="block w-full px-5 py-3 mt-2  border  rounded-md placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-5 py-3 mt-2  border  rounded-md placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
                             </div>
@@ -54,12 +54,12 @@ export default function ContactCardImg() {
                                 </label>
                                 <input
                                     type="telefono"
-                                    className="block w-full h-32 px-5 py-3 mt-2  border  rounded-md md:h-56 placeholder-gray-600 bg-gray-700 text-gray-300 border-gray-700 focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    className="block w-full h-32 px-5 py-3 mt-2  border  rounded-md md:h-56 placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     placeholder=""
                                 ></input>
                             </div>
 
-                            <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform rounded-md bg-gray-950 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                            <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform rounded-md bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                 Enviar
                             </button>
                         </form>
@@ -68,12 +68,13 @@ export default function ContactCardImg() {
                     <div className="mt-12 pt-[3rem] lg:flex lg:mt-0 lg:flex-col lg:items-center lg:w-1/2 lg:mx-10">
                         <Image
                             className="hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96"
-                            src="/alfonso.jpeg"
+                            src="https://lh3.googleusercontent.com/p/AF1QipOArs2fh8wX0a6dnEvIAMZv3DJrx006D9qzB4E=s680-w680-h510"
                             alt=""
                             width={612}
                             height={612}
                         ></Image>
                         <div className="mt-6 space-y-8 md:mt-8">
+                           
                             <p className="flex items-start -mx-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -97,36 +98,8 @@ export default function ContactCardImg() {
 
                                 <span className="mx-2  truncate w-72 text-gray-400">
                                     
-                                    <a href="https://www.google.com/maps/place/Escribania+Marchini+Lozita/@-32.4098858,-63.2461997,21z/data=!4m15!1m8!3m7!1s0x95cc42de3d51e521:0x5941c72cd92141b1!2sCatamarca+1026,+X5900+Villa+María,+Córdoba!3b1!8m2!3d-32.4098261!4d-63.2459734!16s%2Fg%2F11gj4ns674!3m5!1s0x95cc42de3b64ab53:0x9e37e72e900171e1!8m2!3d-32.4098197!4d-63.245979!16s%2Fg%2F1hc421vl0?entry=ttu">
-                                        Catamarca 1026, Villa María. 
-                                    </a>
-                                </span>
-                            </p>
-                            <p className="flex items-start -mx-2">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="w-6 h-6 mx-2 text-blue-400 "
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-
-                                <span className="mx-2  truncate w-72 text-gray-400">
-                                    
-                                    <a href="https://www.google.com/maps/place/Valle+Escondido,+Córdoba/@-31.3707721,-64.2981891,14z/data=!3m1!4b1!4m6!3m5!1s0x94329e8dba3295b9:0x3eb6a826c688a264!8m2!3d-31.3632999!4d-64.2824203!16s%2Fg%2F11p75rr4z8?entry=ttu">
-                                        Valle Escondido, Cordoba Capital
+                                    <a href="https://www.google.com/maps/place/ASPA+software/@-31.4105525,-64.1954704,17z/data=!3m1!4b1!4m6!3m5!1s0x94329971ec68f335:0x312ba76f9ee8aeac!8m2!3d-31.4105525!4d-64.1928955!16s%2Fg%2F11kjyf86bj?entry=ttu">
+                                        Av. Colón 730, X5003 Córdoba
                                     </a>
                                 </span>
                             </p>
@@ -148,7 +121,9 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 ms:w-50 text-gray-400">
-                                <a href="https://wa.me/5493534143284?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">+54 9 3534 14-3284</a>
+                                <a href="https://wa.me/549351 314-0217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">
+                                    +54 9 0351 314-0217
+                                    </a>
                                     
                                 </span>
                             </p>
@@ -170,7 +145,7 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 text-gray-400">
-                                    <a href="mailto:alfonsolozita@gmail.com">alfonsolozita@gmail.com</a>
+                                    <a href="mailto:aspasoftwaredevelopment@gmail.com">aspasoftwaredevelopment@gmail.com</a>
                                     
                                 </span>
                             </p>
@@ -184,7 +159,7 @@ export default function ContactCardImg() {
 
                                 <a
                                     className="mx-1.5 hover:text-blue-400 text-gray-400 transition-colors duration-300 transform "
-                                    href="https://www.linkedin.com/in/alfonso-lozita-9b8920222/?originalSubdomain=ar"
+                                    href="https://www.linkedin.com/company/85621550/admin/feed/posts/"
                                 >
                                     <svg
                                         className="w-8 h-8"
@@ -211,7 +186,7 @@ export default function ContactCardImg() {
 
                                 <a
                                     className="mx-1.5 hover:text-blue-400 text-gray-400 transition-colors duration-300 transform "
-                                    href="https://www.instagram.com/alfo_lozita/"
+                                    href="https://www.instagram.com/aspa.software"
                                 >
                                     <svg
                                         className="w-8 h-8"

@@ -14,22 +14,22 @@ export default function(){
     <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
     <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Aplicaciones a medida</p>
-        <p className="text-lg text-gray-800">Desarrollamos aplicaciones personalizadas que se ajustan perfectamente a tus procesos empresariales. Nuestras aplicaciones están diseñadas para mejorar la productividad y la experiencia del usuario.</p>
+        <p className="text-lg text-gray-400">Desarrollamos aplicaciones personalizadas que se ajustan perfectamente a tus procesos empresariales. Nuestras aplicaciones están diseñadas para mejorar la productividad y la experiencia del usuario.</p>
       </div>
 
       <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Sistemas de gestion</p>
-        <p className="text-lg text-gray-800">Optimiza tus operaciones con sistemas de gestión a medida. Diseñamos soluciones adaptadas a tus necesidades para mejorar la eficiencia y maximizar los resultados.</p>
+        <p className="text-lg text-gray-400">Optimiza tus operaciones con sistemas de gestión a medida. Diseñamos soluciones adaptadas a tus necesidades para mejorar la eficiencia y maximizar los resultados.</p>
       </div>
 
       <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Digitalizacion de procesos</p>
-        <p className="text-lg text-gray-800">Moderniza tu empresa con nuestra experiencia en digitalización de procesos. Automatiza tareas repetitivas, simplifica flujos de trabajo y mejora la colaboración entre equipos con nuestras soluciones digitales a medida.</p>
+        <p className="text-lg text-gray-400">Moderniza tu empresa con nuestra experiencia en digitalización de procesos. Automatiza tareas repetitivas, simplifica flujos de trabajo y mejora la colaboración entre equipos con nuestras soluciones digitales a medida.</p>
       </div>
 
       <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Paguinas Web</p>
-        <p className="text-lg text-gray-800">Impulsa tu presencia en línea con páginas web atractivas y funcionales. Creamos páginas web personalizadas que destacan la identidad de tu marca y generan resultados tangibles.</p>
+        <p className="text-lg text-gray-400">Impulsa tu presencia en línea con páginas web atractivas y funcionales. Creamos páginas web personalizadas que destacan la identidad de tu marca y generan resultados tangibles.</p>
       </div>
       
       

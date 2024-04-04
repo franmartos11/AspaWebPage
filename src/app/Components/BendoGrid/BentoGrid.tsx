@@ -18,7 +18,7 @@ export default function(){
                                 </svg>
                                 <span className="w-fit block mx-auto text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-pink-600 dark:from-blue-400 dark:to-pink-400">100%</span>
                             </div>
-                            <h2 className="mt-6 text-center font-semibold text-gray-950 dark:text-white text-3xl">Customizable</h2>
+                            <h2 className="mt-6 text-center font-semibold text-gray-950 dark:text-white text-3xl">Customizacion</h2>
                         </div>
                     </div>
                     <div className="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
@@ -42,7 +42,7 @@ export default function(){
                                 </svg>
                             </div>
                             <div className="mt-6 text-center relative z-10 space-y-2">
-                                <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Secure by default</h2>
+                                <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Seguridad</h2>
                                 <p className="dark:text-gray-300 text-gray-700">Provident fugit and vero voluptate. magnam magni doloribus dolores voluptates a sapiente nisi.</p>
                             </div>
                         </div>

@@ -2,16 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 export default function CardProyect() {
     return (
-        <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+        <div className="relative isolate overflow-hidden bg-black px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
                             <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                                DOS ARROYOS DESARROLLO
+                                CarCheck Workshop 
                             </h1>
                             <p className="mt-6 text-xl leading-8 text-gray-100">
-                                Un lugar para disfrutar y vivir en la montaña.
+                                alista tu car
                             </p>
                         </div>
                     </div>
@@ -80,9 +80,9 @@ export default function CardProyect() {
                                 bienestar de nuestros huéspedes y la comunidad
                                 local. Nuestras cabañas están construidas con
                                 materiales eco-amigables y de bajo impacto
-                                ambiental. Desde los materiales certificados hasta los
-                                sistemas de energía renovable, cada aspecto de
-                                nuestras construcciones se selecciona
+                                ambiental. Desde los materiales certificados
+                                hasta los sistemas de energía renovable, cada
+                                aspecto de nuestras construcciones se selecciona
                                 cuidadosamente para garantizar la máxima
                                 eficiencia y mínimos residuos. Además, nuestras
                                 cabañas están diseñadas para integrarse
@@ -90,15 +90,16 @@ export default function CardProyect() {
                                 circundante. Desde los paisajes hasta la vida
                                 silvestre, nos esforzamos por preservar y
                                 proteger la belleza única de cada ubicación
-                                donde operamos. Al elegirnos, no solo disfrutarás de un ambiente
-                                tranquilo y relajante, sino que también estarás
-                                apoyando prácticas sustentables y responsables.
+                                donde operamos. Al elegirnos, no solo
+                                disfrutarás de un ambiente tranquilo y
+                                relajante, sino que también estarás apoyando
+                                prácticas sustentables y responsables.
                             </p>
                             <p className="mt-6">
                                 ¡Únete a nosotros en nuestro viaje hacia un
-                                futuro más verde y próspero! ¡Visita la web del proyecto y
-                                descubre la belleza de la sustentabilidad en Dos
-                                Arroyos!
+                                futuro más verde y próspero! ¡Visita la web del
+                                proyecto y descubre la belleza de la
+                                sustentabilidad en Dos Arroyos!
                             </p>
                             <Link
                                 href="http://dosarroyoseldurazno.com.ar/?utm_term&utm_campaign=2A%20-%20Maximo%20Rendimiento&utm_source=adwords&utm_medium=ppc&hsa_acc=7732122384&hsa_cam=19982195984&hsa_grp&hsa_ad&hsa_src=x&hsa_tgt&hsa_kw&hsa_mt&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwwMqvBhCtARIsAIXsZpblkfcvM5a9idid-TrFtRsz-1SbIa8dSw__bjxw6YXFn1UqeUJO-xMaAqHxEALw_wcB"

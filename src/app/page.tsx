@@ -6,6 +6,7 @@ import Partners from "./Components/Partners/Partners";
 import Showcase from "./Components/ttt/Showcase";
 import HomeTeam from "./Components/home-team/HomeTeam";
 import BentoGrid from "./Components/BendoGrid/BentoGrid";
+import ShowServices from "./Components/ServicesC/ShowServices";
 
 
 
@@ -15,12 +16,10 @@ export default function Home() {
         <div>
             <NavBar></NavBar>
             <HeroHome></HeroHome>
-            <Showcase></Showcase>
-            
+            <ShowServices></ShowServices>
             <CardHomeTriple></CardHomeTriple>
             <HomeTeam></HomeTeam>
             <Partners></Partners>
-            
         </div>
     );
 }

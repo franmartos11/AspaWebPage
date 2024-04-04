@@ -4,8 +4,8 @@ export default function()
         <section className="py-24 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-20 text-center">
-                <span className="text-blue-600 text-center font-medium mb-4 block">OUR CLIENTS</span>
-                <h1 className="text-4xl text-white text-center font-bold">We work with the best clients</h1>
+                <span className="text-blue-600 text-center font-medium mb-4 block">Nuestros Clientes</span>
+                <h1 className="text-4xl text-white text-center font-bold">Quienes confian en nosotros</h1>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2  xl:grid-cols-4">
                 <a href="#"

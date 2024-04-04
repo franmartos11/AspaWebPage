@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function CardProyectImgGrid() {
     return (
-        <div className="flex items-center justify-center bg-gray-900">
+        <div className="flex items-center justify-center bg-black">
             <div className="container px-5 py-0 lg:px-32 lg:pt-0 lg:pb-[8rem]">
                 <div className="-m-1 flex flex-wrap md:-m-2">
                     <div className="flex w-1/2 flex-wrap">

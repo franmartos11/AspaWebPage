@@ -1,12 +1,12 @@
 export default function(){
     return(<div>
         
-        <div className="flex flex-wrap  mb-24 pt-[10rem] pl-[10rem]">
+        <div className="flex flex-wrap  mb-24 pt-[10rem] justify-center align-middle text-center">
                     <div className="w-full lg:w-6/12 px-4">
-                    <p className="text-5xl font-bold">Conoce el equipo</p>
+                    <p className="text-5xl font-bold pb-[1rem] ">Conoce el equipo</p>
                         
-                        <p className="text-gray-400 text-lg font-light">
-                            With over 100 years of combined experience, we've got a well-seasoned team at the helm.
+                        <p className="text-gray-400 text-lg font-light ">
+                            No somos solo una empresa, somos un equipo apasionado por lo que hacemos.
                         </p>
                     </div>
                 </div>
@@ -31,13 +31,13 @@ export default function(){
                             
                             <a href="#" className="mx-auto">
                                 <img className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                    src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"></img>
+                                    src="/agus.jpeg"></img>
                             </a>
 
                             <div className="text-center mt-6 text-white ">
                                 
                                 <h1 className=" text-xl font-bold mb-1">
-                                    Nombre
+                                    Burrenga
                                 </h1>
 
                                
@@ -72,14 +72,14 @@ export default function(){
                            
                             <a href="#" className="mx-auto">
                                 <img className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                    src="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"></img>
+                                    src="/fran.jpeg"></img>
                             </a>
 
                            
                             <div className="text-center mt-6 text-white">
                                 
                                 <h1 className="text-xl font-bold mb-1">
-                                nombre apellido
+                                franchute
                                 </h1>
 
                                 
@@ -114,14 +114,14 @@ export default function(){
                             
                             <a href="#" className="mx-auto">
                                 <img className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                    src="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"></img>
+                                    src="/haik.jpeg"></img>
                             </a>
 
                            
                             <div className="text-center mt-6 text-white">
                                
                                 <h1 className=" text-xl font-bold mb-1">
-                                nombre apellido
+                                El turco
                                 </h1>
 
                                

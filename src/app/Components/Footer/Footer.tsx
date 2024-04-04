@@ -13,17 +13,17 @@ export default function () {
                 aria-label="Footer Navigation"
                 className="mx-auto mb-10 flex max-w-lg flex-col gap-10 text-center sm:flex-row sm:text-left"
             >
-                <a href="#" className="font-medium text-white">
-                    Demo
+                <a href="/" className="font-medium text-white">
+                    Inicio
                 </a>
-                <a href="#" className="font-medium text-white">
-                    Support
+                <a href="/servicios" className="font-medium text-white">
+                    Servicios
                 </a>
-                <a href="#" className="font-medium text-white">
-                    Privacy Policy
+                <a href="/about-me" className="font-medium text-white">
+                    Nosotros
                 </a>
-                <a href="#" className="font-medium text-white">
-                    Terms & Conditions
+                <a href="/contact" className="font-medium text-white">
+                    Contacto
                 </a>
             </nav>
             <p className="py-10 text-center text-gray-300">

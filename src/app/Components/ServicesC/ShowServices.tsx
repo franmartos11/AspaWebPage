@@ -14,22 +14,22 @@ export default function(){
     <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
     <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Aplicaciones a medida</p>
-        <p className="text-lg text-gray-800">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nihil reprehenderit laboriosam, exercitationem consectetur deserunt aliquam ab maiores!</p>
+        <p className="text-lg text-gray-800">Desarrollamos aplicaciones personalizadas que se ajustan perfectamente a tus procesos empresariales. Desde herramientas de productividad hasta plataformas de comercio electrónico, nuestras aplicaciones están diseñadas para mejorar la productividad y la experiencia del usuario.</p>
       </div>
 
       <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Sistemas de gestion</p>
-        <p className="text-lg text-gray-800">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nihil reprehenderit laboriosam, exercitationem consectetur deserunt aliquam ab maiores!</p>
+        <p className="text-lg text-gray-800">Optimiza tus operaciones con sistemas de gestión a medida. Desde control de inventario hasta seguimiento de clientes, diseñamos soluciones adaptadas a tus necesidades para mejorar la eficiencia y maximizar los resultados.</p>
       </div>
 
       <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Digitalizacion de procesos</p>
-        <p className="text-lg text-gray-800">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nihil reprehenderit laboriosam, exercitationem consectetur deserunt aliquam ab maiores!</p>
+        <p className="text-lg text-gray-800">Moderniza tu empresa con nuestra experiencia en digitalización de procesos. Automatiza tareas repetitivas, simplifica flujos de trabajo y mejora la colaboración entre equipos con nuestras soluciones digitales a medida.</p>
       </div>
 
       <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Paguinas Web</p>
-        <p className="text-lg text-gray-800">Nos encargamos del diseno y programamos tu paguina web 100% adaptada a las necesidades de tu negocio.</p>
+        <p className="text-lg text-gray-800">Impulsa tu presencia en línea con páginas web atractivas y funcionales. Desde sitios corporativos hasta tiendas en línea, creamos páginas web personalizadas que destacan la identidad de tu marca y generan resultados tangibles.</p>
       </div>
       
       

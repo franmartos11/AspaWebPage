@@ -1,6 +1,6 @@
 export default function(){
     return(
-        <section className="mx-auto pt-[15rem] pb-[4rem] flex max-w-lg flex-col px-4 py-10 lg:max-w-screen-xl lg:flex-row">
+        <section className="mx-auto pt-[5rem] pb-[7rem] flex max-w-lg flex-col px-4 py-10 lg:max-w-screen-xl lg:flex-row">
   <div className="max-w-md pr-20 lg:pt-28">
     <img src="https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/601074ed0f05cd25097215a4_6002086f72b7277e1f01d682_ryan-morrison-illustration-1.png" alt="" />
   </div>
@@ -10,7 +10,7 @@ export default function(){
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
       </svg>
     </div>
-    <h2 className="mb-10 max-w-lg text-4xl font-bold leading-snug lg:text-4xl lg:leading-snug">Una Forma<span className="text-blue-500"> Revolucionaria</span> De Digitalizar Tu Negocio</h2>
+    <h2 className="mb-10 max-w-lg text-4xl font-bold leading-snug lg:text-4xl lg:leading-snug">Nuestras<span className="text-blue-500"> Soluciones</span> Para Innovar Tu Negocio</h2>
     <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
     <div>
         <p className="mb-6 border-l-4 border-blue-500 pl-4 text-2xl leading-10">Aplicaciones A Medida</p>

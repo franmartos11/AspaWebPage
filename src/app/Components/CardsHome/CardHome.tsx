@@ -24,7 +24,7 @@ export function CardHome() {
           Despídete de las soluciones genéricas. En Aspa, creamos estrategias personalizadas que se adaptan a tus necesidades y te ayudan a alcanzar tus objetivos.</CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="https://img.freepik.com/vector-premium/ilustracion-vector-grafico-personaje-dibujos-animados-ideas-creativas-innovacion-puesta-marcha_516790-1309.jpg"
+            src="https://fc-abogados.com/es/wp-content/uploads/2021/12/Diseno-sin-titulo-5.png"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

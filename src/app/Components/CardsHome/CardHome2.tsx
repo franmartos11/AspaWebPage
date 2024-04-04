@@ -24,7 +24,7 @@ export function CardHome2() {
          Más que cumplir, superamos expectativas. Te ofrecemos software y servicios de la más alta calidad, diseñados para impulsar tu éxito.</CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="https://blog.debmedia.com/wp-content/uploads/2019/12/%C2%BFCanal-Anal%C3%B3gico-o-Digital-en-Atenci%C3%B3n-al-Cliente_-Amigos-y-No-Enemigos.jpg"
+            src="https://inteligenciaemocionalaplicada.com/wp-content/uploads/2021/03/MASTER-2.png"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

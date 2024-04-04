@@ -24,7 +24,7 @@ export function CardHome3() {
          Tu éxito es nuestro norte. Priorizamos tus necesidades y te brindamos un servicio excepcional que va más allá de lo esperado. Tu satisfacción es nuestro compromiso.</CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src="https://www.collectivemexico.com/blog/wp-content/uploads/2017/05/2.Dise%C3%B1o-de-experiencia-de-usuario.jpg"
+            src="https://lh4.googleusercontent.com/1sCJiMOSRxYGbu6lsYD4y9-G-gSaQ3hckcI35ElV_7jUB1iVuwwP8Adau8U7ea4kRxkyhBgoSLrmw6KUK9MBLmKc_JJwvBQ0DFXkaiyTNB7D9lniM8A5wLyjj-BIm935v1K1gUOY"
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

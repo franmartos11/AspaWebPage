@@ -15,8 +15,9 @@ export default function Home() {
             <Nav page={"home"}></Nav>
             <HeroHome></HeroHome>
             <HeroScrollDemo></HeroScrollDemo>
-            <ShowServices></ShowServices>
             <CardHomeTriple></CardHomeTriple>
+            <ShowServices></ShowServices>
+            
             <HomeTeam></HomeTeam>
             <Partners></Partners>
         </div>

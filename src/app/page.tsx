@@ -7,6 +7,7 @@ import Showcase from "./Components/ttt/Showcase";
 import HomeTeam from "./Components/home-team/HomeTeam";
 import BentoGrid from "./Components/BendoGrid/BentoGrid";
 import ShowServices from "./Components/ServicesC/ShowServices";
+import Nav from "./Components/nav/Nav";
 
 
 
@@ -14,7 +15,7 @@ import ShowServices from "./Components/ServicesC/ShowServices";
 export default function Home() {
     return (
         <div>
-            <NavBar></NavBar>
+            <Nav page={"home"}></Nav>
             <HeroHome></HeroHome>
             <ShowServices></ShowServices>
             <CardHomeTriple></CardHomeTriple>

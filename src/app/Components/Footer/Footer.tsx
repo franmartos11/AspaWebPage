@@ -5,8 +5,8 @@ export default function () {
             <div className="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-black p-1">
                 <img
                     className="h-full object-contain"
-                    src="https://lh3.googleusercontent.com/p/AF1QipOArs2fh8wX0a6dnEvIAMZv3DJrx006D9qzB4E=s680-w680-h510"
-                    alt=""
+                    src="/aspaLogo.webp"
+                    alt="aspa logo"
                 />
             </div>
             <nav

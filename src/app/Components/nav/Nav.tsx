@@ -16,7 +16,7 @@ export default function Nav({page}:{page:string}) {
                     href="/"
                     className="flex items-center space-x-3 rtl:space-x-reverse"
                 >
-                    <img className="h-[5rem]" src="https://www.aspasoftware.com/img/aspaLogo.png" alt="Logo"/>
+                    <img className="h-[5rem]" src="/aspafulllogo.webp" alt="Logo"/>
                 </Link>
                 <button
                     onClick={toggleMenu}

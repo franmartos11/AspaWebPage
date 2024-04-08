@@ -13,7 +13,7 @@ export default function ContactCardImg() {
                             ¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
                         </p>
 
-                        <form className="mt-12" action="https://formsubmit.co/alfonsolozita@gmail.com" method="POST">
+                        <form className="mt-12" action="https://formsubmit.co/aspasoftwaredevelopment@gmail.com" method="POST">
                             <div className="-mx-2 md:items-center md:flex">
                                 <div className="flex-1 px-2">
                                     <label className="block mb-2 text-sm text-gray-200">
@@ -68,8 +68,8 @@ export default function ContactCardImg() {
                     <div className="mt-12 pt-[3rem] lg:flex lg:mt-0 lg:flex-col lg:items-center lg:w-1/2 lg:mx-10">
                         <Image
                             className="hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96"
-                            src="https://lh3.googleusercontent.com/p/AF1QipOArs2fh8wX0a6dnEvIAMZv3DJrx006D9qzB4E=s680-w680-h510"
-                            alt=""
+                            src="/aspaLogo.webp"
+                            alt="aspa logo"
                             width={612}
                             height={612}
                         ></Image>

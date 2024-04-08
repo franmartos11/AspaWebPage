@@ -3,7 +3,7 @@ export default function(){
         
 <section>
     <div className="flex justify-center align-middle text-center">
-       <p className="sm:text-7xl text-4xl sm:pt-[10rem] pt-[3rem] pb-[0rem] font-bold sm:pb-[4rem]">NUESTROS SERVICIOS</p> 
+       <p className="sm:text-7xl text-4xl sm:pt-[10rem] pt-[3rem] pb-[0rem] font-bold sm:pb-[4rem]">Que Ofrecemos</p> 
     </div>
     <div className="pb-[12rem] pt-[5rem]">
     

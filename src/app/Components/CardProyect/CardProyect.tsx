@@ -26,7 +26,7 @@ export default function CardProyect() {
                     <div className="flex justify-center">
                         <Image
                             className="max-w-[48rem] w-full rounded-xl bg-gray-400 shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
-                            src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2023/03/qs.jpg"
+                            src="/carcheck.webp"
                             alt=""
                             width={612}
                             height={612}

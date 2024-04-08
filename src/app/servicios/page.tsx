@@ -10,9 +10,10 @@ export default function(){
     return(
         <div>
             <Nav page={"servicios"}></Nav>
+            <BentoGrid></BentoGrid>
             <CardProyect></CardProyect>
             <CardProyectImgGrid></CardProyectImgGrid>
-            <BentoGrid></BentoGrid>
+            
             <GrowStats></GrowStats>           
         </div>
     )

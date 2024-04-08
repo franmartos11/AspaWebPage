@@ -5,7 +5,7 @@ import { TextGenerateEffect } from "../GenerativeText/TextGenerateEffect";
 
 export function HeroHome() {
     return (
-        <div className="h-[40rem] pt-[10rem] sm:pt-[5rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+        <div className="h-[40rem]  w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
             <h1 className="md:text-7xl text-6xl lg:text-9xl font-bold text-center text-white relative z-20">
                 Aspa Software
             </h1>

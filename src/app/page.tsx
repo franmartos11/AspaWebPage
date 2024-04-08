@@ -6,9 +6,6 @@ import ShowServices from "./Components/ServicesC/ShowServices";
 import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 
-
-
-
 export default function Home() {
     return (
         <div>

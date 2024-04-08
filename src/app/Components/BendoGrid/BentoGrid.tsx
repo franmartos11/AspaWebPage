@@ -3,7 +3,7 @@ export default function(){
         
 <section>
     <div className="flex justify-center align-middle text-center">
-       <p className="text-5xl pt-[10rem] font-bold">NUESTROS SERVICIOS</p> 
+       <p className="sm:text-7xl text-4xl sm:pt-[10rem] pt-[3rem] pb-[0rem] font-bold sm:pb-[4rem]">NUESTROS SERVICIOS</p> 
     </div>
     <div className="pb-[12rem] pt-[5rem]">
     
@@ -43,7 +43,7 @@ export default function(){
                             </div>
                             <div className="mt-6 text-center relative z-10 space-y-2">
                                 <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Seguridad</h2>
-                                <p className="dark:text-gray-300 text-gray-700">Nos encargamos de </p>
+                                <p className="dark:text-gray-300 text-gray-700">Implementamos medidas de seguridad robustas para proteger los datos de nuestros clientes.</p>
                             </div>
                         </div>
                     </div>
@@ -73,8 +73,8 @@ export default function(){
                                 </svg>
                             </div>
                             <div className="mt-14 text-center relative z-10 space-y-2">
-                                <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Faster than light</h2>
-                                <p className="dark:text-gray-300 text-gray-700">Provident fugit vero voluptate. magnam magni doloribus dolores voluptates inventore nisi.</p>
+                                <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Rendimiento optimizado</h2>
+                                <p className="dark:text-gray-300 text-gray-700">Desarrollamos software que funciona de manera rápida y eficiente, incluso con grandes cantidades de datos o bajo condiciones exigentes.</p>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@ export default function(){
                                     </svg>
                                     </div>
                                 <div className="space-y-2">
-                                    <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Faster than light</h2>
-                                    <p className="dark:text-gray-300 text-gray-700">Provident fugit vero voluptate. Voluptates a sapiente inventore nisi.</p>
+                                    <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Escalabilidad</h2>
+                                    <p className="dark:text-gray-300 text-gray-700">Nuestras soluciones de software se adaptan a las necesidades cambiantes. Ofrecemos planes flexibles según el crecimiento o la demanda.</p>
                                 </div>
                             </div>
                             <div className="overflow-hidden relative mt-6 sm:mt-auto h-fit -mb-[34px] -mr-[34px] sm:ml-6 py-6 p-6 border rounded-tl-lg dark:bg-white/5 dark:border-white/10">
@@ -122,8 +122,8 @@ export default function(){
                                     </svg>
                                     </div>
                                 <div className="space-y-2">
-                                    <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Keep your loved ones safe</h2>
-                                    <p className="dark:text-gray-300 text-gray-700">Voluptate. magnam magni doloribus dolores voluptates a sapiente inventore nisi.</p>
+                                    <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Soporte y mantenimiento</h2>
+                                    <p className="dark:text-gray-300 text-gray-700">Ofrecemos asistencia técnica rápida y eficaz para resolver cualquier problema que pueda surgir con el software.</p>
                                 </div>
                             </div>
                             <div className="mt-6 relative sm:-mr-[--card-padding] sm:-my-8 before:absolute before:w-px before:inset-0 before:mx-auto before:bg-gray-200 dark:before:bg-gray-800">

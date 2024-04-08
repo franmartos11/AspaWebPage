@@ -17,7 +17,6 @@ export default function Home() {
             <HeroScrollDemo></HeroScrollDemo>
             <CardHomeTriple></CardHomeTriple>
             <ShowServices></ShowServices>
-            
             <HomeTeam></HomeTeam>
             <Partners></Partners>
         </div>

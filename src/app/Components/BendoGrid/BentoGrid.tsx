@@ -43,7 +43,7 @@ export default function(){
                             </div>
                             <div className="mt-6 text-center relative z-10 space-y-2">
                                 <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Seguridad</h2>
-                                <p className="dark:text-gray-300 text-gray-700">Provident fugit and vero voluptate. magnam magni doloribus dolores voluptates a sapiente nisi.</p>
+                                <p className="dark:text-gray-300 text-gray-700">Nos encargamos de </p>
                             </div>
                         </div>
                     </div>

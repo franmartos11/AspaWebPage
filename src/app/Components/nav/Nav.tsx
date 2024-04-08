@@ -82,7 +82,7 @@ export default function Nav({page}:{page:string}) {
                             <Link
                                 onClick={toggleMenu}
                                 href="/contact"
-                                className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${page === 'contact' ? ' text-blue-700' : 'text-white'}`}
+                                className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${page === 'contacto' ? ' text-blue-700' : 'text-white'}`}
                             >
                                 Contacto
                             </Link>

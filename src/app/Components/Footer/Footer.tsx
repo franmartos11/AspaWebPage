@@ -1,6 +1,6 @@
 export default function () {
     return (
-        <footer className="relative mt-20 bg-black px-4 pt-20">
+        <div className="relative mt-20  px-4 pt-20">
             <hr className="h-px mb-[5rem] mt-[-5.5rem] bg-gray-200  dark:bg-gray-700"></hr>
             <div className="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-black p-1">
                 <img
@@ -29,6 +29,6 @@ export default function () {
             <p className="py-10 text-center text-gray-300">
                 © 2024 Aspa Software | All Rights Reserved
             </p>
-        </footer>
+        </div>
     );
 }

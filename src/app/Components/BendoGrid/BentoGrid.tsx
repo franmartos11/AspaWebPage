@@ -1,10 +1,23 @@
 export default function(){
     return(
         
-<section>
-    <div className="flex justify-center align-middle text-center">
-       <p className="sm:text-7xl text-4xl sm:pt-[10rem] pt-[3rem] pb-[0rem] font-bold sm:pb-[4rem]">Que Ofrecemos</p> 
-    </div>
+<section className="pt-[8rem]">
+<div className="h-[10rem] ">
+                
+                <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0 sm:pb-12 ">
+                    <h1 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
+                        Que Ofrecemos
+                    </h1>
+
+                    <div className="flex justify-center mx-auto mt-6">
+                        <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
+                    </div>
+
+                    
+                </div>
+            </div>
     <div className="pb-[12rem] pt-[5rem]">
     
         <div className="mx-auto px-6 max-w-6xl text-gray-500">

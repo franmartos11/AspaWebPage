@@ -1,7 +1,7 @@
 export default function(){
     return(<div>
         
-        <div className="flex flex-wrap  mb-24 pt-[10rem] justify-center align-middle text-center">
+        <div className="flex flex-wrap  mb-24 pt-[6rem] justify-center align-middle text-center">
                     <div className="w-full lg:w-6/12 px-4">
                     <p className="text-5xl font-bold pb-[1rem] ">Conoce el equipo</p>
                         

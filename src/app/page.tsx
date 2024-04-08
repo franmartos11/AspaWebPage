@@ -5,6 +5,7 @@ import HomeTeam from "./Components/home-team/HomeTeam";
 import ShowServices from "./Components/ServicesC/ShowServices";
 import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
+import BentoGrid from "./Components/BendoGrid/BentoGrid";
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
             <HeroHome></HeroHome>
             <HeroScrollDemo></HeroScrollDemo>
             <CardHomeTriple></CardHomeTriple>
+            <BentoGrid></BentoGrid>
             <ShowServices></ShowServices>
             <HomeTeam></HomeTeam>
             <Partners></Partners>

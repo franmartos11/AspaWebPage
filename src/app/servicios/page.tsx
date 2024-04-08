@@ -10,10 +10,13 @@ export default function(){
     return(
         <div>
             <Nav page={"servicios"}></Nav>
-            <BentoGrid></BentoGrid>
-            <CardProyect></CardProyect>
-            <CardProyectImgGrid></CardProyectImgGrid>
             
+            <div className="flex justify-center align-middle text-center">
+       <p className="sm:text-7xl text-4xl sm:pt-[10rem] pt-[3rem] pb-[0rem] font-bold sm:pb-[4rem]">NUESTROS SERVICIOS</p> 
+    </div>
+            <CardProyect></CardProyect>
+            <BentoGrid></BentoGrid>
+            <CardProyectImgGrid></CardProyectImgGrid>
             <GrowStats></GrowStats>           
         </div>
     )

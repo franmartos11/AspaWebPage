@@ -94,7 +94,7 @@ export const FadeInDiv = ({
   };
 
   return (
-    <div>
+    <div >
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}

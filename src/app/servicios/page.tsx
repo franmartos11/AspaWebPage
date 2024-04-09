@@ -1,6 +1,8 @@
 import BentoGrid from "../Components/BendoGrid/BentoGrid";
 import CardProyect from "../Components/CardProyect/CardProyect";
+import CardProyectApp from "../Components/CardProyect/CardProyectApp";
 import CardProyectImgGrid from "../Components/CardProyect/CardProyectImgGrid";
+import CardProyectWeb from "../Components/CardProyect/CardProyectWebs";
 import GrowStats from "../Components/GrowStats/GrowStats";
 import ShowServices from "../Components/ServicesC/ShowServices";
 import Nav from "../Components/nav/Nav";
@@ -12,14 +14,12 @@ export default function(){
     return (
         <div>
             <Nav page={"servicios"}></Nav>
-            <div className="flex justify-center align-middle text-center">
-                <p className="sm:text-7xl text-4xl sm:pt-[10rem] pt-[3rem] pb-[0rem] font-bold sm:pb-[4rem]">
-                    NUESTROS SERVICIOS
-                </p>
-            </div>
             <CardProyect></CardProyect>
             <CardProyectImgGrid></CardProyectImgGrid>
-            <GrowStats></GrowStats>
+            <CardProyectWeb></CardProyectWeb>
+            <CardProyectImgGrid></CardProyectImgGrid>
+            <CardProyectApp></CardProyectApp>
+            <CardProyectImgGrid></CardProyectImgGrid>
         </div>
     );
 }

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 export default function CardProyect() {
     return (
         <div className="relative isolate overflow-hidden bg-black px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
@@ -11,7 +10,6 @@ export default function CardProyect() {
                                 CarCheck Workshop
                             </h1>
                             <p className="mt-6 text-xl leading-8 text-gray-100">
-                                
                                 Olvídate de los procesos manuales y las
                                 herramientas desorganizadas. Nuestra aplicación
                                 personalizada te permite gestionar tu taller de
@@ -57,7 +55,7 @@ export default function CardProyect() {
                                 <br />
                             </p>
                             <h3>Administrar vehículos</h3>
-                            
+
                             <p className="mt-6">
                                 Registra y actualiza información de vehículos:
                                 Almacena datos como marca, modelo, matrícula,
@@ -74,7 +72,7 @@ export default function CardProyect() {
                             </p>
 
                             <h2>Crear y gestionar ordenes de trabajo</h2>
-                            
+
                             <p className="mt-6">
                                 Digitaliza tus procesos: Genera ordenes de
                                 trabajo personalizadas con detalles del
@@ -91,7 +89,7 @@ export default function CardProyect() {
                                 <br />
                             </p>
                             <h2> Elaborar presupuestos y facturas</h2>
-                            
+
                             <p className="mt-6">
                                 Genera presupuestos detallados: Personaliza
                                 presupuestos con el desglose de mano de obra,
@@ -106,7 +104,7 @@ export default function CardProyect() {
                                 <br />
                             </p>
                             <h2>Personalización a tu medida</h2>
-                            
+
                             <p className="mt-6">
                                 Adapta la aplicación a las necesidades de tu
                                 taller: Configura campos, permisos, flujos de
@@ -120,12 +118,6 @@ export default function CardProyect() {
                                 <br />
                                 <br />
                             </p>
-                            <Link
-                                href="http://dosarroyoseldurazno.com.ar/?utm_term&utm_campaign=2A%20-%20Maximo%20Rendimiento&utm_source=adwords&utm_medium=ppc&hsa_acc=7732122384&hsa_cam=19982195984&hsa_grp&hsa_ad&hsa_src=x&hsa_tgt&hsa_kw&hsa_mt&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwwMqvBhCtARIsAIXsZpblkfcvM5a9idid-TrFtRsz-1SbIa8dSw__bjxw6YXFn1UqeUJO-xMaAqHxEALw_wcB"
-                                className="mt-[2rem] inline-block rounded border-blue-950 bg-blue-950 px-12 py-3 text-sm font-medium text-white  hover:bg-blue-900 focus:outline-none focus:ring active:text-blue-950"
-                            >
-                                Visita la web
-                            </Link>
                         </div>
                     </div>
                 </div>

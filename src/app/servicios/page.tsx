@@ -18,7 +18,6 @@ export default function(){
                 </p>
             </div>
             <CardProyect></CardProyect>
-            
             <CardProyectImgGrid></CardProyectImgGrid>
             <GrowStats></GrowStats>
         </div>

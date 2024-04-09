@@ -7,6 +7,7 @@ export function TabsDemo() {
         {
             title: "Carcheck ",
             value: "product",
+            link: '/servicios',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-center align-middle justify-center font-bold text-white bg-gradient-to-br from-blue-500 to-blue-900">
                     <p className="md:text-4xl text-xl pb-[1rem] text-center ">Aspa Carcheck</p>
@@ -24,6 +25,7 @@ export function TabsDemo() {
         {
             title: "Auditorias",
             value: "services",
+            link: 'a',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-blue-500 to-blue-900">
                     <p>Services tab</p>
@@ -34,6 +36,7 @@ export function TabsDemo() {
         {
             title: "Paginas Web",
             value: "playground",
+            link: 'a',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-blue-500 to-blue-900">
                     <p>Playground tab</p>
@@ -44,6 +47,7 @@ export function TabsDemo() {
         {
             title: "Automatizacion Procesos",
             value: "content",
+            link: 'a',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-blue-500 to-blue-900">
                     <p>Content tab</p>

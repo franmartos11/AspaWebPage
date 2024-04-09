@@ -22,14 +22,15 @@ export default function CardProyectWeb() {
                 </div>
 
                 <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                    <div className="flex justify-center">
+                    <div className="flex justify-center flex-col ">
                         <Image
-                            className="max-w-[48rem] w-full rounded-xl bg-gray-400 shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
-                            src="/carcheck.webp"
+                            className="max-w-[48rem]  w-full rounded-xl  shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
+                            src="/imageweb.png"
                             alt=""
-                            width={612}
-                            height={612}
+                            width={1920}
+                            height={1080}
                         ></Image>
+                        
                     </div>
                 </div>
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">

@@ -70,7 +70,7 @@ export default function Nav({page}:{page:string}) {
                         <li>
                             <Link
                                 onClick={toggleMenu}
-                                href="/about-me"
+                                href="/nosotros"
                                 className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${page === 'about-me' ? ' text-blue-700' : 'text-white'}`}
                             >
                                 Nosotros

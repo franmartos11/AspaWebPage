@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function CarrouselMamado() {
-    
     return (
         <section className="pb-[10rem]">
             <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
@@ -14,11 +13,18 @@ export default function CarrouselMamado() {
                     <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
                     <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
                 </div>
+                <p className="text-gray-400 text-center text-lg font-light pt-[2rem] ">
+                    Selecciona el servicio del que desees conocer mas.
+                </p>
             </div>
+            <div>
+                
+            </div>
+
             <div className="h-[27rem] "></div>
             <div className="container px-6 mx-auto -mt-72 sm:-mt-80 md:-mt-96">
                 <div className="grid grid-cols-1 gap-8 mt-0 xl:mt-1 md:grid-cols-2 xl:grid-cols-3">
-                    <a  href="#desarrollo-medida">
+                    <a href="#desarrollo-medida">
                         <div className="flex flex-col items-center p-4 border sm:p-6 rounded-sm dark:border-gray-700">
                             <Image
                                 className="object-cover w-full rounded-sm aspect-square"
@@ -37,7 +43,7 @@ export default function CarrouselMamado() {
                             <div className="flex mt-3 -mx-2"></div>
                         </div>
                     </a>
-                    <a  href="#carcheck">
+                    <a href="#carcheck">
                         <div className="flex flex-col items-center p-4 border sm:p-6 rounded-sm dark:border-gray-700">
                             <Image
                                 className="object-cover w-full rounded-sm aspect-square"

@@ -42,19 +42,20 @@ const dummyContent = [
         title: "",
         description: (
             <div>
-                <CardProyectWeb></CardProyectWeb>
                 <MacbookScrollDemo></MacbookScrollDemo>
+                <CardProyectWeb></CardProyectWeb>
             </div>
         ),
         badge: "",
     },
     {
         title: "",
-        description: 
-        <div>
-            <CardProyectApp></CardProyectApp>
-            <Partners></Partners>
-        </div>,
+        description: (
+            <div>
+                <CardProyectApp></CardProyectApp>
+                <Partners></Partners>
+            </div>
+        ),
         badge: "",
     },
 ];

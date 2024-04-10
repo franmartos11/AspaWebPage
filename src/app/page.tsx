@@ -7,6 +7,7 @@ import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 
 import { TabsDemo } from "./Components/tabs/TabsDemo";
+import Contact from "./Components/Contact/Contact";
 
 export default function Home() {
     return (
@@ -29,6 +30,7 @@ export default function Home() {
             <CardHomeTriple></CardHomeTriple>            
             <HomeTeam></HomeTeam>
             <Partners></Partners>
+            
         </div>
     );
 }

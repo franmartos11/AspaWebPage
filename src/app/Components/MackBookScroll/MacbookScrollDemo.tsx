@@ -8,8 +8,8 @@ export function MacbookScrollDemo() {
         <div className="overflow-hidden  w-full">
             <MacbookScroll
                 title={
-                    <span>
-                        Estás listo para aprovechar las ventajas del desarrollo web? <br /> Te crearemos un sitio web personalizado
+                    <span className=" text-5xl" >
+                        Estás listo para aprovechar las ventajas<br/>del desarrollo web?
                     </span>
                 }
                 badge={

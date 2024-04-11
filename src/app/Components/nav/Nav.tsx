@@ -14,7 +14,7 @@ export default function Nav({ page }: { page: string }) {
     };
 
     return (
-        <nav id="top-page">
+        <nav className="pb-[6rem]" id="top-page">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link
                     href="/"

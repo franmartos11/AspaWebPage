@@ -6,10 +6,13 @@ import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
 
+
+
 export default function Home() {
     return (
         <div>
             <Nav page={"home"}></Nav>
+            
             <HeroHome></HeroHome>
             <HeroScrollDemo></HeroScrollDemo>
             <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">

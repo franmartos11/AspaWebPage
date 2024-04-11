@@ -1,13 +1,16 @@
+import Link from "next/link";
+
 export default function () {
     return (
         <div className="relative mt-20  px-4 pt-20">
             <hr className="h-px mb-[5rem] mt-[-5.5rem] bg-gray-200  dark:bg-gray-700"></hr>
             <div className="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-black p-1">
+                <Link href={'#top-page'}>
                 <img
                     className="h-full object-contain"
                     src="/aspaLogo.webp"
                     alt="aspa logo"
-                />
+                /></Link>
             </div>
             <nav
                 aria-label="Footer Navigation"

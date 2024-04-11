@@ -2,13 +2,10 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
-import CardProyect from "../CardProyect/CardProyect";
-import CardProyectApp from "../CardProyect/CardProyectApp";
-import CardProyectWeb from "../CardProyect/CardProyectWebs";
 import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
-import Partners from "../Partners/Partners";
+import CardProyectWeb from "../CardProyect/CardProyectWebs";
 
-export function TracingBeamDemo() {
+export function TracingBeamWeb() {
     return (
         <TracingBeam className="">
             <div className=" mx-auto antialiased pt-4 relative">
@@ -33,15 +30,6 @@ export function TracingBeamDemo() {
 const dummyContent = [
     {
         title: "",
-        description: <div>
-            <div id="carcheck"></div><CardProyect></CardProyect>
-        </div>
-        ,
-        badge: "",
-    },
-
-    {
-        title: "",
         description: (
             <div>
                 <div id="desarrollo-web"></div>
@@ -50,17 +38,4 @@ const dummyContent = [
             </div>
         ),
         badge: "",
-
-    },
-    {
-        title: "",
-        description: (
-            <div>
-                <div id="desarrollo-medida"></div>
-                <CardProyectApp></CardProyectApp>
-                <Partners></Partners>
-            </div>
-        ),
-        badge: "",
-    },
-];
+    }]

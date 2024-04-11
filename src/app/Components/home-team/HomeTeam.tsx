@@ -1,20 +1,25 @@
+"use client";
+import { useState } from "react";
+
 export default function () {
+    const [hovered, setHovered] = useState(false);
+    const [hovered1, setHovered1] = useState(false);
+    const [hovered2, setHovered2] = useState(false);
     return (
         <div>
             <div className="flex flex-wrap  mb-24 pt-[6rem] justify-center align-middle text-center">
                 <div className="w-full lg:w-6/12 px-4">
-                <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
-                    <h1 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
-                        Nuestros Servicios
-                    </h1>
+                    <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
+                        <h1 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
+                            Nuestros Servicios
+                        </h1>
 
-                    <div className="flex justify-center mx-auto mt-6">
-                        <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
-                        <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
-                        <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
+                        <div className="flex justify-center mx-auto mt-6">
+                            <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
+                            <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
+                            <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
+                        </div>
                     </div>
-            </div>
-
                     <p className="text-gray-400 text-lg font-light pt-[2rem] ">
                         No somos solo una empresa, somos un equipo apasionado
                         por lo que hacemos.
@@ -28,10 +33,23 @@ export default function () {
                             <div className="flex flex-wrap justify-center align-middle">
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
                                     <div className="flex flex-col">
-                                        <a href="https://www.linkedin.com/in/agustin-luque/" className="mx-auto">
+                                        <a
+                                            href="https://www.linkedin.com/in/agustin-luque/"
+                                            className="mx-auto"
+                                        >
                                             <img
-                                                className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                                src="/agus.jpeg"
+                                                className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                src={
+                                                    hovered
+                                                        ? "/agusbitm2.png"
+                                                        : "/agus.jpeg"
+                                                }
+                                                onMouseEnter={() =>
+                                                    setHovered(true)
+                                                }
+                                                onMouseLeave={() =>
+                                                    setHovered(false)
+                                                }
                                             ></img>
                                         </a>
 
@@ -68,13 +86,24 @@ export default function () {
 
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
+                                        
                                         <a
                                             href="https://www.linkedin.com/in/francisco-martos-7a8850226/"
                                             className="mx-auto"
                                         >
                                             <img
-                                                className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                                src="/fran.jpeg"
+                                                className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                src={
+                                                    hovered1
+                                                        ? "/franbitm.png"
+                                                        : "/fran.jpeg"
+                                                }
+                                                onMouseEnter={() =>
+                                                    setHovered1(true)
+                                                }
+                                                onMouseLeave={() =>
+                                                    setHovered1(false)
+                                                }
                                             ></img>
                                         </a>
 
@@ -109,12 +138,26 @@ export default function () {
                                     </div>
                                 </div>
 
-                                <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
+                                <div className="w-[50rem] md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
-                                        <a href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar" className="mx-auto">
+                                        
+                                        <a
+                                            href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar"
+                                            className="mx-auto"
+                                        >
                                             <img
-                                                className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                                src="/haik.jpeg"
+                                                className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                src={
+                                                    hovered2
+                                                        ? "/haikbitm2.png"
+                                                        : "/haik.jpeg"
+                                                }
+                                                onMouseEnter={() =>
+                                                    setHovered2(true)
+                                                }
+                                                onMouseLeave={() =>
+                                                    setHovered2(false)
+                                                }
                                             ></img>
                                         </a>
 

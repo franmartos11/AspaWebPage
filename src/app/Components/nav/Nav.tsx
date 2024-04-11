@@ -106,19 +106,19 @@ export default function Nav({ page }: { page: string }) {
                                         Todos los servicios
                                     </Link>
                                     <Link
-                                        href="/products/category1"
+                                        href="/desarrollo-web"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Desarrollo Web
                                     </Link>
                                     <Link
-                                        href="/products/category2"
+                                        href="/apps-a-medida"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Apps a medida
                                     </Link>
                                     <Link
-                                        href="/products/category2"
+                                        href="/carcheck"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Carcheck

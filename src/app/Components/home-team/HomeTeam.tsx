@@ -28,7 +28,7 @@ export default function () {
                             <div className="flex flex-wrap justify-center align-middle">
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
                                     <div className="flex flex-col">
-                                        <a href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADYMTXMB4WcRe_2xACQSst8k9AnaADnRh2Q&keywords=agustin%20luque&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=63d7d1bc-32e7-4a19-8faa-00469ac6dfe1&sid=rt2&spellCorrectionEnabled=true" className="mx-auto">
+                                        <a href="https://www.linkedin.com/in/agustin-luque/" className="mx-auto">
                                             <img
                                                 className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 src="/agus.jpeg"
@@ -49,7 +49,7 @@ export default function () {
                                 transition-opacity duration-300"
                                             >
                                                 <a
-                                                    href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADYMTXMB4WcRe_2xACQSst8k9AnaADnRh2Q&keywords=agustin%20luque&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=63d7d1bc-32e7-4a19-8faa-00469ac6dfe1&sid=rt2&spellCorrectionEnabled=true"
+                                                    href="https://www.linkedin.com/in/agustin-luque/"
                                                     className="flex rounded-full justify-center align-middle hover:bg-blue-600 pt-2 h-10 w-10"
                                                 >
                                                     <svg

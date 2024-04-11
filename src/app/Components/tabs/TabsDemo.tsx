@@ -51,7 +51,7 @@ export function TabsDemo() {
             ),
         },
         {
-            title: "Automatizacion Procesos",
+            title: "Apps a Medida",
             value: "content",
             link: 'a',
             content: (

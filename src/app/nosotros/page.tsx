@@ -7,8 +7,7 @@ export default function () {
     return (
         <div>
             <Nav page={"nosotros"}></Nav>
-            <ServicesPage></ServicesPage>
-            <TracingBeamDemo></TracingBeamDemo>
+            
         </div>
     );
 

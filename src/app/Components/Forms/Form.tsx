@@ -1,4 +1,4 @@
-export default function Contact() {
+export default function Form(service: {service: string}) {
     return (
         <section className=" pt-[3rem]">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -6,9 +6,16 @@ export default function Contact() {
                     Contactanos
                 </h2>
                 <p className="mb-8 lg:mb-16 font-light text-center text-gray-400 sm:text-xl">
-                    ¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
+                    ¡Haznos saber cómo podemos ayudarte! Completa el formulario
+                    de contacto y estaremos encantados de responder a tus
+                    preguntas, discutir colaboraciones o simplemente charlar
+                    sobre tus ideas.
                 </p>
-                <form action="https://formsubmit.co/" method="POST" className="space-y-8">
+                <form
+                    action="https://formsubmit.co/aspasoftwaredevelopment@gmail.com"
+                    method="POST"
+                    className="space-y-8"
+                >
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-300">
                             Email
@@ -33,6 +40,7 @@ export default function Contact() {
                             required
                         />
                     </div>
+
                     <div className="sm:col-span-2">
                         <label className="block mb-2 text-sm font-medium text-gray-300">
                             Mensaje
@@ -44,15 +52,17 @@ export default function Contact() {
                             placeholder="Deja tu mensaje..."
                         ></input>
                     </div>
+
+                    <input type="hidden" name="service" value={service.service} />
+
                     <div className=" text-center ">
-                      <button
-                        type="submit"
-                        className="py-3 px-9 text-sm font-medium text-center bg-gray-700 text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 "
-                    >
-                        Enviar Mensaje
-                    </button>  
+                        <button
+                            type="submit"
+                            className="py-3 px-9 text-sm font-medium text-center bg-gray-700 text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 "
+                        >
+                            Enviar Mensaje
+                        </button>
                     </div>
-                    
                 </form>
             </div>
         </section>

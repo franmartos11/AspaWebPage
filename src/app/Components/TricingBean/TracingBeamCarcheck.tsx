@@ -3,6 +3,7 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
 import CardProyect from "../CardProyect/CardProyect";
+import Partners from "../Partners/Partners";
 
 export function TracingBeamCarcheck() {
     return (
@@ -32,6 +33,7 @@ const dummyContent = [
         description: (
             <div>
                 <CardProyect></CardProyect>
+                <Partners></Partners>
             </div>
         ),
         badge: "",

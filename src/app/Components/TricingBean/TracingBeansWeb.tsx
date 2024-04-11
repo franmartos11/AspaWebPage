@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
 import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
 import CardProyectWeb from "../CardProyect/CardProyectWebs";
+import Partners from "../Partners/Partners";
 
 export function TracingBeamWeb() {
     return (
@@ -35,6 +36,7 @@ const dummyContent = [
                 <div id="desarrollo-web"></div>
                 <MacbookScrollDemo></MacbookScrollDemo>
                 <CardProyectWeb></CardProyectWeb>
+                <Partners></Partners>
             </div>
         ),
         badge: "",

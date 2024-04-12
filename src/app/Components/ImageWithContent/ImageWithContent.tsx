@@ -8,7 +8,7 @@ export default function ImageWithContent() {
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
                         <Image
                             alt="crecimiento"
-                            src="/crecimiento.jpg"
+                            src="/crecimientoSoftware.webp"
                             className="absolute inset-0 h-full w-full object-cover"
                             width={1000}
                             height={800}

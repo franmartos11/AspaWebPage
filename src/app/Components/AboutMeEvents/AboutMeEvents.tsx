@@ -18,7 +18,7 @@ export default function AboutMeEvents() {
                             <div className=" max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4">
                                 <img
                                     className="w-full h-72 object-cover object-center"
-                                    src="/fran.jpeg"
+                                    src="/impulso21.jpg"
                                     alt="avatar"
                                 ></img>
                                 <div className="flex items-center px-6 py-3 bg-gray-800">
@@ -29,7 +29,7 @@ export default function AboutMeEvents() {
                                 </div>
                                 <div className="py-4 px-6">
                                     <h1 className="text-2xl font-semibold text-gray-800">
-                                        Congresos
+                                        Impulso 21
                                     </h1>
                                     <p className="py-2 text-lg text-gray-700">
                                         Participé como oyente en congresos de
@@ -67,7 +67,7 @@ export default function AboutMeEvents() {
                             <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4">
                                 <img
                                     className="w-full h-72 object-cover object-center"
-                                    src="/fran.jpeg"
+                                    src="/feria21.jpg"
                                     alt="avatar"
                                 ></img>
                                 <div className="flex items-center px-6 py-3 bg-gray-800">

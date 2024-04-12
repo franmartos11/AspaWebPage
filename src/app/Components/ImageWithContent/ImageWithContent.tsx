@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function ImageWithContent() {
     return (
-        <section >
+        <section>
             <div className="mx-auto  max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
@@ -10,7 +10,7 @@ export default function ImageWithContent() {
                             alt="crecimiento"
                             src="/crecimientoSoftware.webp"
                             className="absolute inset-0 h-full w-full object-cover"
-                            width={1000}
+                            width={1500}
                             height={800}
                         ></Image>
                     </div>
@@ -20,27 +20,34 @@ export default function ImageWithContent() {
                         </h2>
 
                         <p className="mt-4 text-base text-gray-300">
-                            Como desarrollador inmobiliario especializado en
-                            urbanización, mi compromiso es crear entornos
-                            residenciales que destaquen por su calidad,
-                            excelencia y profesionalismo. Cada proyecto que
-                            emprendo se caracteriza por cumplir con los más
-                            altos estándares de construcción y diseño,
-                            asegurando así un estilo de vida excepcional para
-                            quienes eligen formar parte de estas comunidades.
+                            Creamos Aspa con el objetivo de poder brindar a las
+                            empresas un software o sistemas de información que
+                            pueda ayudar a cumplir los objetivos que tengan. El
+                            ideal de Aspa se encuentra en conocer realmente la
+                            necesidad de nuestros clientes y poder acercarnos de
+                            la mejor manera para desarrollar una plataforma
+                            adecuada que solucione un problema, agilice un
+                            proceso o brinde información relevante para la
+                            obtención de mejores resultados.
                             <br />
                             <br />
-                            Desde la cuidadosa planificación urbana hasta la
-                            selección estratégica de ubicaciones, me esfuerzo
-                            por ofrecer más que simples edificaciones; busco
-                            proporcionar hogares que reflejen un equilibrio
-                            armonioso con su entorno. La atención meticulosa a
-                            los detalles y mi compromiso con prácticas
-                            sostenibles son elementos esenciales que contribuyen
-                            a la creación de espacios habitables que no solo
-                            satisfacen las necesidades de los residentes, sino
-                            que también promueven un bienestar duradero en la
-                            comunidad.
+                            Para nosotros en Aspa, cada proyecto es una
+                            oportunidad para demostrar nuestro compromiso con la
+                            excelencia y la satisfacción del cliente. Nos
+                            esforzamos por entender a fondo las necesidades y
+                            desafíos específicos de cada empresa con la que
+                            trabajamos, y así diseñar soluciones a medida que no
+                            solo resuelvan problemas inmediatos, sino que
+                            también establezcan bases sólidas para el
+                            crecimiento y la innovación a largo plazo. Nuestro
+                            enfoque se centra en la colaboración estrecha y la
+                            comunicación transparente, asegurando que cada paso
+                            del proceso de desarrollo esté alineado con las
+                            expectativas y metas del cliente. En Aspa, no solo
+                            entregamos software de calidad, sino que también
+                            cultivamos relaciones de confianza y éxito mutuo con
+                            quienes confían en nosotros para impulsar su
+                            progreso tecnológico y empresarial.
                         </p>
                         <div className="mt-12 mb-10 text-center">
                             <Link

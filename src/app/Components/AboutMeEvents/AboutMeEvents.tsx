@@ -5,13 +5,13 @@ export default function AboutMeEvents() {
         <div>
 
         
-        <div className="h-[12rem] pt-10 flex items-center justify-center ">
+        <div className="h-[12rem] pt-10 pb-4 flex items-center justify-center ">
                 <p className="text-3xl font-bold sm:text-6xl text-white ">
                     EVENTOS
                 </p>
             </div>
         <div className=" align-middle ">
-            <div className="container   py-24 mx-auto md:px-6">
+            <div className="container   pb-24 mx-auto md:px-6">
                 <section className="mb-32 text-center">
                     <div className="flex justify-center items-center">
                         <div className="grid gap-6 lg:grid-cols-3 xl:gap-x-12 ">
@@ -115,8 +115,8 @@ export default function AboutMeEvents() {
                             <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4">
                                 <img
                                     className="w-full h-72 object-cover object-center"
-                                    src="/fran.jpeg"
-                                    alt="avatar"
+                                    src="/evento3.jpeg"
+                                    alt="evento"
                                 ></img>
                                 <div className="flex items-center px-6 py-3 bg-gray-800">
                                     

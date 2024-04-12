@@ -98,8 +98,8 @@ export default function Nav({ page }: { page: string }) {
                             </button>
 
                             {dropdown && (
-                                <div className="absolute flex align-middle justify-center flex-col border  border-blue-700 p-2 rounded-md mt-2">
-                                    <Link
+                                <div className="absolute bg-black flex align-middle justify-center flex-col border  border-blue-700 p-2 rounded-md mt-2">
+                                    <Link 
                                         href="/servicios"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >

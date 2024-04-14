@@ -8,10 +8,10 @@ export default function ImageWithContent2() {
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:h-full">
                         <Image
                             alt="Party"
-                            src="/image2.png"
+                            src="/impulso21.jpg"
                             className="absolute inset-0 h-full w-full object-cover"
-                            width={1200}
-                            height={800}
+                            width={1000}
+                            height={700}
                         ></Image>
                     </div>
                     <div className="lg:py-24">

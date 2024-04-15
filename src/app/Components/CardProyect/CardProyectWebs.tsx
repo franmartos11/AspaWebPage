@@ -26,7 +26,8 @@ export default function CardProyectWeb() {
                         <Image
                             className="max-w-[48rem]  w-full rounded-xl  shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
                             src="/imageweb.png"
-                            alt=""
+                            alt="desarrollo web"
+                            title="desarrollo web"
                             width={1920}
                             height={1080}
                         ></Image>

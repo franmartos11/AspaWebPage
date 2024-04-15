@@ -10,9 +10,9 @@ export default function () {
             <div className="flex flex-wrap  mb-5 justify-center align-middle text-center">
                 <div className="w-full lg:w-6/12 px-4">
                     <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
-                        <h1 className="text-4xl   font-semibold text-center  capitalize lg:text-6xl text-white">
+                        <h2 className="text-4xl   font-semibold text-center  capitalize lg:text-6xl text-white">
                             Nuestro Equipo
-                        </h1>
+                        </h2>
 
                         <div className="flex justify-center mx-auto mt-6">
                             <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
@@ -39,6 +39,8 @@ export default function () {
                                         >
                                             <img
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona"
+                                                title="persona"
                                                 src={
                                                     hovered
                                                         ? "/agusPjAspa.png"
@@ -93,6 +95,8 @@ export default function () {
                                         >
                                             <img
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona"
+                                                title="persona"
                                                 src={
                                                     hovered1
                                                         ? "/franPjAspa.png"
@@ -147,6 +151,8 @@ export default function () {
                                         >
                                             <img
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona"
+                                                title="persona"
                                                 src={
                                                     hovered2
                                                         ? "/haikPjAspa.png"

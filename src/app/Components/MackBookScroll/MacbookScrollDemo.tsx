@@ -8,9 +8,9 @@ export function MacbookScrollDemo() {
         <div className="overflow-hidden  w-full">
             <MacbookScroll
                 title={
-                    <h2 className=" text-5xl" >
+                    <span className=" text-5xl" >
                         Estás listo para aprovechar las ventajas<br/>del desarrollo web?
-                    </h2>
+                    </span>
                 }
                 badge={
                     <Link href="/https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A85621550&keywords=aspa&origin=RICH_QUERY_SUGGESTION&position=0&searchId=21a66180-1022-4554-805c-4a49c9de9c92&sid=80)&spellCorrectionEnabled=false">
@@ -27,7 +27,8 @@ export function MacbookScrollDemo() {
 const Badge = ({ className }: { className?: string }) => {
     return (
         <Image
-            alt="gallery"
+            alt="badge"
+            title="badge"
             className="block h-full w-full rounded-lg object-cover object-center"
             src="/aspaLogo.webp"
             width={50}

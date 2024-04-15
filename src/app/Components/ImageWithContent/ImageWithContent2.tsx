@@ -7,7 +7,8 @@ export default function ImageWithContent2() {
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:h-full">
                         <Image
-                            alt="Party"
+                            alt="quienes somos"
+                            title="quienes somos"
                             src="/quienes-somos2.jpg"
                             className="  h-full w-full object-cover"
                             width={1000}

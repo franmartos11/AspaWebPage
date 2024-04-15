@@ -8,6 +8,7 @@ export default function CardProyectImgGrid() {
                         <div className="w-1/2 p-1 md:p-2">
                             <Image
                                 alt="gallery"
+                                title="gallery"
                                 className="block h-full w-full rounded-lg object-cover object-center"
                                 src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2023/03/slider-img-e1690579354218.jpg"
                                 width={612}
@@ -17,6 +18,7 @@ export default function CardProyectImgGrid() {
                         <div className="w-1/2 p-1 md:p-2">
                             <Image
                                 alt="gallery"
+                                title="gallery"
                                 className="block h-full w-full rounded-lg object-cover object-center"
                                 src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2024/01/lote-13-1-scaled-800x533.jpg"
                                 width={612}
@@ -27,6 +29,7 @@ export default function CardProyectImgGrid() {
                         <div className="w-full p-1 md:p-2">
                             <Image
                                 alt="gallery"
+                                title="gallery"
                                 className="block h-full w-full rounded-lg object-cover object-center"
                                 src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2023/03/laguna.jpg"
                                 width={612}
@@ -38,6 +41,7 @@ export default function CardProyectImgGrid() {
                         <div className="w-full p-1 md:p-2">
                             <Image
                                 alt="gallery"
+                                title="gallery"
                                 className="block h-full w-full rounded-lg object-cover object-center"
                                 src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2023/03/atardeceres.png"
                                 width={612}
@@ -47,6 +51,7 @@ export default function CardProyectImgGrid() {
                         <div className="w-1/2 p-1 md:p-2">
                             <Image
                                 alt="gallery"
+                                title="gallery"
                                 className="block h-full w-full rounded-lg object-cover object-center"
                                 src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2023/03/pinares-e1690579305107.jpg"
                                 width={612}
@@ -56,6 +61,7 @@ export default function CardProyectImgGrid() {
                         <div className="w-1/2 p-1 md:p-2">
                             <Image
                                 alt="gallery"
+                                title="gallery"
                                 className="block h-full w-full rounded-lg object-cover object-center"
                                 src="https://dosarroyoseldurazno.com.ar/wp-content/uploads/2023/03/arroyos.jpg"
                                 width={612}

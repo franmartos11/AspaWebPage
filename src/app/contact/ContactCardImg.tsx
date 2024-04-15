@@ -70,6 +70,7 @@ export default function ContactCardImg() {
                             className="hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96"
                             src="/aspaLogo.webp"
                             alt="aspa logo"
+                            title="aspa logo"
                             width={612}
                             height={612}
                         ></Image>

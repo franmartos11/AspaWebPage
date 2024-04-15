@@ -13,8 +13,8 @@ export function TabsDemo() {
                     
                     <img
                         src="/aspa-carcheck.png"
-                        alt="image"
-                        
+                        alt="carcheck-data"
+                        title="carcheck-data"
                         className="rounded-2xl"
                     />
                 </div>
@@ -29,8 +29,8 @@ export function TabsDemo() {
                     
                     <img
                         src="/aspa-carcheck.png"
-                        alt="image"
-                        
+                        alt="Auditorias-data"
+                        title="Auditorias-data"
                         className="rounded-2xl"
                     />
                 </div>
@@ -45,8 +45,8 @@ export function TabsDemo() {
                     
                     <img
                         src="/aspa-carcheck.png"
-                        alt="image"
-                        
+                        alt="Paginas-Web-data"
+                        title="Paginas-Web-data"
                         className="rounded-2xl"
                     />
                 </div>
@@ -61,8 +61,8 @@ export function TabsDemo() {
                     
                     <img
                         src="/aspa-carcheck.png"
-                        alt="image"
-                        
+                        alt="Apps-a-Medida-data"
+                        title="Apps-a-Medida-data"
                         className="rounded-2xl"
                     />
                 </div>
@@ -82,6 +82,7 @@ const DummyContent = () => {
         <Image
             src="/desarrollado.jpg"
             alt="image"
+            title="image"
             width="500"
             height="500"
             className="object-cover object-left-top h-[90%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"

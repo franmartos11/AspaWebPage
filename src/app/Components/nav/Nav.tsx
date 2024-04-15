@@ -23,7 +23,8 @@ export default function Nav({ page }: { page: string }) {
                     <img
                         className="h-[5rem]"
                         src="/aspafulllogo.webp"
-                        alt="Logo"
+                        alt="Logo Aspa"
+                        title="Logo Aspa"
                     />
                 </Link>
                 <button

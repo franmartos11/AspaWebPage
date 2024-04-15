@@ -25,7 +25,8 @@ export default function CardProyect() {
                         <Image
                             className="max-w-[48rem] w-full rounded-xl bg-gray-400 shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
                             src="/carcheck.webp"
-                            alt=""
+                            alt="carcheck"
+                            title="carcheck"
                             width={612}
                             height={612}
                         ></Image>

@@ -28,7 +28,8 @@ export function CardHome2() {
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt="thumbnail"
+            alt="calidad img"
+            title="calidad img"
           />
         </CardItem>
         <div className="flex justify-between items-center mt-20">

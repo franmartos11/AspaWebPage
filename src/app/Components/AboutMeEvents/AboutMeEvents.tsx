@@ -16,6 +16,7 @@ export default function AboutMeEvents() {
                                         className="w-full h-72 object-cover object-center"
                                         src="/impulso21.jpg"
                                         alt="avatar"
+                                        title="avatar"
                                     ></img>
                                     <div className="flex items-center px-6 py-3 bg-blue-400">
                                         <h1 className="mx-3 text-white font-semibold text-lg">
@@ -64,6 +65,7 @@ export default function AboutMeEvents() {
                                         className="w-full h-72 object-cover object-center"
                                         src="/feria21.jpg"
                                         alt="avatar"
+                                        title="avatar"
                                     ></img>
                                     <div className="flex items-center px-6 py-3 bg-blue-400">
                                         <h1 className="mx-3 text-white font-semibold text-lg">
@@ -113,6 +115,7 @@ export default function AboutMeEvents() {
                                         className="w-full h-72 object-cover object-center"
                                         src="/evento3.jpeg"
                                         alt="evento"
+                                        title="evento"
                                     ></img>
                                     <div className="flex items-center px-6 py-3 bg-blue-400">
                                         <h1 className="mx-3 text-white font-semibold text-lg">

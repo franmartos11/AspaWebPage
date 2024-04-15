@@ -39,6 +39,8 @@ export default function () {
                                         >
                                             <img
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona img"
+                                                title="persona img"
                                                 src={
                                                     hovered
                                                         ? "/agusPjAspa.png"
@@ -86,13 +88,14 @@ export default function () {
 
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
-                                        
                                         <a
                                             href="https://www.linkedin.com/in/francisco-martos-7a8850226/"
                                             className="mx-auto"
                                         >
                                             <img
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona img"
+                                                title="persona img"
                                                 src={
                                                     hovered1
                                                         ? "/franPjAspa.png"
@@ -140,13 +143,14 @@ export default function () {
 
                                 <div className="w-[50rem] md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
-                                        
                                         <a
                                             href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar"
                                             className="mx-auto"
                                         >
                                             <img
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona img"
+                                                title="persona img"
                                                 src={
                                                     hovered2
                                                         ? "/haikPjAspa.png"

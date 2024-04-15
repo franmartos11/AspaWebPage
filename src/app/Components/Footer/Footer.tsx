@@ -10,6 +10,7 @@ export default function () {
                     className="h-full object-contain"
                     src="/aspaLogo.webp"
                     alt="aspa logo"
+                    title="aspa logo"
                 /></Link>
             </div>
             <nav

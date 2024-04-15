@@ -34,6 +34,7 @@ export default function () {
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
                                     <div className="flex flex-col">
                                         <a
+                                            title="link"
                                             href="https://www.linkedin.com/in/agustin-luque/"
                                             className="mx-auto"
                                         >
@@ -69,6 +70,7 @@ export default function () {
                                 transition-opacity duration-300"
                                             >
                                                 <a
+                                                    title="link"
                                                     href="https://www.linkedin.com/in/agustin-luque/"
                                                     className="flex rounded-full justify-center align-middle hover:bg-blue-600 pt-2 h-10 w-10"
                                                 >
@@ -88,8 +90,8 @@ export default function () {
 
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
-                                        
                                         <a
+                                            title="link"
                                             href="https://www.linkedin.com/in/francisco-martos-7a8850226/"
                                             className="mx-auto"
                                         >
@@ -125,6 +127,7 @@ export default function () {
                                 transition-opacity duration-300"
                                             >
                                                 <a
+                                                    title="link"
                                                     href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar"
                                                     className="flex rounded-full justify-center align-middle hover:bg-blue-600 pt-2 h-10 w-10"
                                                 >
@@ -144,8 +147,8 @@ export default function () {
 
                                 <div className="w-[50rem] md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
-                                        
                                         <a
+                                            title="link"
                                             href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar"
                                             className="mx-auto"
                                         >
@@ -181,6 +184,7 @@ export default function () {
                                 transition-opacity duration-300"
                                             >
                                                 <a
+                                                    title="link"
                                                     href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar"
                                                     className="flex rounded-full justify-center align-middle hover:bg-blue-600 pt-2 h-10 w-10"
                                                 >

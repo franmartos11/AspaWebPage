@@ -117,7 +117,7 @@ export const FadeInDiv = ({
 
           {active.value === tab.value && (
             <div className="flex align-middle justify-center">
-              <Link
+              <Link title="link"
                 className=" inline-block rounded border-blue-800 bg-blue-500 px-12 py-3 text-sm font-medium text-white hover:bg-blue-900 focus:outline-none focus:ring active:text-blue-950"
                 href={tab.link}
               >

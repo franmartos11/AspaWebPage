@@ -24,7 +24,7 @@ export default function CarrouselMamado() {
             <div className="h-[27rem] "></div>
             <div className="container px-6 mx-auto -mt-72 sm:-mt-80 md:-mt-96">
                 <div className="grid grid-cols-1 gap-8 mt-0 xl:mt-1 md:grid-cols-2 xl:grid-cols-3">
-                    <a href="#desarrollo-medida">
+                    <a title="link" href="#desarrollo-medida">
                         <div className="flex flex-col items-center p-4 border sm:p-6 rounded-sm dark:border-gray-700">
                             <Image
                                 className="object-cover w-full rounded-sm aspect-square"

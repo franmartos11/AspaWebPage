@@ -53,7 +53,7 @@ export default function AboutMeEvents() {
                                                 <path d="M437.332 80H74.668C51.199 80 32 99.198 32 122.667v266.666C32 412.802 51.199 432 74.668 432h362.664C460.801 432 480 412.802 480 389.333V122.667C480 99.198 460.801 80 437.332 80zM432 170.667L256 288 80 170.667V128l176 117.333L432 128v42.667z" />
                                             </svg>
                                             <h1 className="px-2 text-sm">
-                                                <a href="https://21.edu.ar/impulso-21">
+                                                <a title="link" href="https://21.edu.ar/impulso-21">
                                                     Impulso21.com
                                                 </a>
                                             </h1>
@@ -102,7 +102,7 @@ export default function AboutMeEvents() {
                                                 <path d="M437.332 80H74.668C51.199 80 32 99.198 32 122.667v266.666C32 412.802 51.199 432 74.668 432h362.664C460.801 432 480 412.802 480 389.333V122.667C480 99.198 460.801 80 437.332 80zM432 170.667L256 288 80 170.667V128l176 117.333L432 128v42.667z" />
                                             </svg>
                                             <h1 className="px-2 text-sm">
-                                                <a href="https://feria.21.edu.ar">
+                                                <a title="link" href="https://feria.21.edu.ar">
                                                     Feria.21.edu.ar
                                                 </a>
                                             </h1>
@@ -151,7 +151,7 @@ export default function AboutMeEvents() {
                                                 <path d="M437.332 80H74.668C51.199 80 32 99.198 32 122.667v266.666C32 412.802 51.199 432 74.668 432h362.664C460.801 432 480 412.802 480 389.333V122.667C480 99.198 460.801 80 437.332 80zM432 170.667L256 288 80 170.667V128l176 117.333L432 128v42.667z" />
                                             </svg>
                                             <h1 className="px-2 text-sm">
-                                                <a href="https://eldoce.tv/sociedad/tv-4-0-vivo-megaevento-ciencia-innovacion-tecnologia-el-doce_158243/">
+                                                <a title="link" href="https://eldoce.tv/sociedad/tv-4-0-vivo-megaevento-ciencia-innovacion-tecnologia-el-doce_158243/">
                                                     TV 4.0 Canal 12
                                                 </a>
                                             </h1>

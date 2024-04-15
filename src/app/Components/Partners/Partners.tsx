@@ -11,7 +11,7 @@ export default function () {
                     </h3>
                 </div>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2  xl:grid-cols-4">
-                    <a
+                    <a title="link"
                         href="https://www.matrimonios.cl/animacion-de-eventos/charlatanes--e132277"
                         className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl"
                     >
@@ -22,7 +22,7 @@ export default function () {
                             className=" h-[4rem]"
                         />
                     </a>
-                    <a
+                    <a  title="link"
                         href="https://www.facebook.com/Inaebnitautomotriz/?locale=es_LA"
                         className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl"
                     >
@@ -33,7 +33,7 @@ export default function () {
                             className=" h-[13rem]"
                         />
                     </a>
-                    <a
+                    <a title="link"
                         href="https://alfonsolozita.com"
                         className="flex justify-center items-center border border-solid border-gray-200  shadow-sm h-24 rounded-2xl"
                     >
@@ -44,7 +44,7 @@ export default function () {
                             className=" h-[4.4rem]"
                         />
                     </a>
-                    <a
+                    <a title="link"
                         href="https://www.facebook.com/CarRefinishesKolor/?locale=es_LA"
                         className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl"
                     >
@@ -55,7 +55,7 @@ export default function () {
                             className=" h-[11rem]"
                         />
                     </a>
-                    <a
+                    <a title="link"
                         href="https://www.facebook.com/CarRefinishesKolor/?locale=es_LA"
                         className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl"
                     >

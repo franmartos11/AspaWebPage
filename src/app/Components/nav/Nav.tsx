@@ -17,6 +17,7 @@ export default function Nav({ page }: { page: string }) {
         <nav className="pb-[6rem]" id="top-page">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link
+                    title="link"
                     href="/"
                     className="flex items-center space-x-3 rtl:space-x-reverse"
                 >
@@ -58,6 +59,7 @@ export default function Nav({ page }: { page: string }) {
                     <ul className="flex flex-col text-white font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
                             <Link
+                                title="link"
                                 onClick={toggleMenu}
                                 href="/"
                                 className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
@@ -100,25 +102,29 @@ export default function Nav({ page }: { page: string }) {
 
                             {dropdown && (
                                 <div className="absolute bg-black flex align-middle justify-center flex-col border  border-blue-700 p-2 rounded-md mt-2">
-                                    <Link 
+                                    <Link
+                                        title="link"
                                         href="/servicios"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Todos los servicios
                                     </Link>
                                     <Link
+                                        title="link"
                                         href="/desarrollo-web"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Desarrollo Web
                                     </Link>
                                     <Link
+                                        title="link"
                                         href="/apps-a-medida"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Apps a medida
                                     </Link>
                                     <Link
+                                        title="link"
                                         href="/carcheck"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
@@ -129,6 +135,7 @@ export default function Nav({ page }: { page: string }) {
                         </li>
                         <li>
                             <Link
+                                title="link"
                                 onClick={toggleMenu}
                                 href="/nosotros"
                                 className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
@@ -143,6 +150,7 @@ export default function Nav({ page }: { page: string }) {
 
                         <li>
                             <Link
+                                title="link"
                                 onClick={toggleMenu}
                                 href="/contact"
                                 className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${

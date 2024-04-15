@@ -6,20 +6,16 @@ import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
 
-
-
 export default function Home() {
     return (
         <div>
             <Nav page={"home"}></Nav>
-            
             <HeroHome></HeroHome>
             <HeroScrollDemo></HeroScrollDemo>
             <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                 <h1 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
                     Nuestros Servicios
                 </h1>
-
                 <div className="flex justify-center mx-auto mt-6">
                     <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
                     <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>

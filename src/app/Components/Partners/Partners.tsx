@@ -15,7 +15,7 @@ export default function () {
                         href="https://www.matrimonios.cl/animacion-de-eventos/charlatanes--e132277"
                         className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl"
                     >
-                        <img src="/Charlatanes_Prod_Logo.png" alt="logo" className=" h-[13rem]" />
+                        <img src="/charlatanes-logo.png" alt="logo" className=" h-[4rem]" />
                     </a>
                     <a
                         href="https://www.facebook.com/Inaebnitautomotriz/?locale=es_LA"
@@ -27,7 +27,7 @@ export default function () {
                         href="https://alfonsolozita.com"
                         className="flex justify-center items-center border border-solid border-gray-200  shadow-sm h-24 rounded-2xl"
                     >
-                        <img src="/alfonsoLogo.png" alt="logo" className="" />
+                        <img src="/alfonso-logo.png" alt="logo" className=" h-[4.4rem]" />
                     </a>
                     <a
                         href="https://www.facebook.com/CarRefinishesKolor/?locale=es_LA"
@@ -37,6 +37,16 @@ export default function () {
                             src="/Car_Refinishes_Logo.png"
                             alt="logo"
                             className=" h-[11rem]"
+                        />
+                    </a>
+                    <a
+                        href="https://www.facebook.com/CarRefinishesKolor/?locale=es_LA"
+                        className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl"
+                    >
+                        <img
+                            src="/servicios-norte-logo.png"
+                            alt="logo"
+                            className=" h-[5rem]"
                         />
                     </a>
                 </div>

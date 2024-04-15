@@ -41,7 +41,7 @@ export default function () {
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 src={
                                                     hovered
-                                                        ? "/agusbitm2.png"
+                                                        ? "/agusPjAspa.png"
                                                         : "/agus.jpeg"
                                                 }
                                                 onMouseEnter={() =>
@@ -95,7 +95,7 @@ export default function () {
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 src={
                                                     hovered1
-                                                        ? "/franbitm.png"
+                                                        ? "/franPjAspa.png"
                                                         : "/fran.jpeg"
                                                 }
                                                 onMouseEnter={() =>
@@ -149,7 +149,7 @@ export default function () {
                                                 className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 src={
                                                     hovered2
-                                                        ? "/haikbitm2.png"
+                                                        ? "/haikPjAspa.png"
                                                         : "/haik.jpeg"
                                                 }
                                                 onMouseEnter={() =>

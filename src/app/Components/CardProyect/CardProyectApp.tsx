@@ -25,11 +25,11 @@ export default function CardProyectApp() {
                     <div className="flex justify-center">
                         <Image
                             className="max-w-[48rem] w-full rounded-xl bg-gray-400 shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
-                            src="/carcheck.webp"
+                            src="/apps-a-medida-3.jpg"
                             alt="apps a medida"
                             title="apps a medida"
-                            width={612}
-                            height={612}
+                            width={812}
+                            height={812}
                         ></Image>
                     </div>
                 </div>

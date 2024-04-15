@@ -3,9 +3,9 @@ export default function () {
         <section className="py-24 ">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-20 text-center">
-                    <span className="text-blue-600 text-center font-medium mb-4 block">
+                    <h2 className="text-blue-600 text-center font-medium mb-4 block">
                         Nuestros Clientes
-                    </span>
+                    </h2>
                     <h3 className="text-4xl text-white text-center font-bold">
                         Quienes confian en nosotros
                     </h3>

@@ -7,10 +7,10 @@ export default function () {
     const [hovered2, setHovered2] = useState(false);
     return (
         <div>
-            <div className="flex flex-wrap  mb-5 pt-[0rem] justify-center align-middle text-center">
+            <div className="flex flex-wrap  mb-5 justify-center align-middle text-center">
                 <div className="w-full lg:w-6/12 px-4">
                     <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
-                        <h1 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
+                        <h1 className="text-4xl   font-semibold text-center  capitalize lg:text-6xl text-white">
                             Nuestro Equipo
                         </h1>
 

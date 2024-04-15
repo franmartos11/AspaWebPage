@@ -5,9 +5,9 @@ export default function ContactCardImg() {
             <div className="container px-6  mx-auto">
                 <div className="lg:flex lg:items-center lg:-mx-10">
                     <div className="lg:w-1/2 lg:mx-10">
-                        <h2 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">
+                        <h1 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">
                             Contactanos
-                        </h2>
+                        </h1>
 
                         <p className="mt-4 text-gray-400 ">
                             ¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
@@ -99,7 +99,7 @@ export default function ContactCardImg() {
 
                                 <span className="mx-2  truncate w-72 text-gray-400">
                                     
-                                    <a href="https://www.google.com/maps/place/ASPA+software/@-31.4105525,-64.1954704,17z/data=!3m1!4b1!4m6!3m5!1s0x94329971ec68f335:0x312ba76f9ee8aeac!8m2!3d-31.4105525!4d-64.1928955!16s%2Fg%2F11kjyf86bj?entry=ttu">
+                                    <a  title="link" href="https://www.google.com/maps/place/ASPA+software/@-31.4105525,-64.1954704,17z/data=!3m1!4b1!4m6!3m5!1s0x94329971ec68f335:0x312ba76f9ee8aeac!8m2!3d-31.4105525!4d-64.1928955!16s%2Fg%2F11kjyf86bj?entry=ttu">
                                         Av. Colón 730, X5003 Córdoba
                                     </a>
                                 </span>
@@ -122,7 +122,7 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 ms:w-50 text-gray-400">
-                                <a href="https://wa.me/549351 314-0217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">
+                                <a title="link" href="https://wa.me/549351 314-0217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">
                                     +54 9 0351 314-0217
                                     </a>
                                     
@@ -146,7 +146,7 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 text-gray-400">
-                                    <a href="mailto:aspasoftwaredevelopment@gmail.com">aspasoftwaredevelopment@gmail.com</a>
+                                    <a title="link" href="mailto:aspasoftwaredevelopment@gmail.com">aspasoftwaredevelopment@gmail.com</a>
                                     
                                 </span>
                             </p>
@@ -158,7 +158,7 @@ export default function ContactCardImg() {
                             <div className="flex mt-4 -mx-1.5 ">
                                 
 
-                                <a
+                                <a title="link"
                                     className="mx-1.5 hover:text-blue-400 text-gray-400 transition-colors duration-300 transform "
                                     href="https://www.linkedin.com/company/85621550/admin/feed/posts/"
                                 >
@@ -185,7 +185,7 @@ export default function ContactCardImg() {
 
                                 
 
-                                <a
+                                <a title="link"
                                     className="mx-1.5 hover:text-blue-400 text-gray-400 transition-colors duration-300 transform "
                                     href="https://www.instagram.com/aspa.software"
                                 >

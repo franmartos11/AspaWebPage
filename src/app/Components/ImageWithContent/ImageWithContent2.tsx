@@ -8,10 +8,10 @@ export default function ImageWithContent2() {
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:h-full">
                         <Image
                             alt="Party"
-                            src="/impulso21.jpg"
-                            className="absolute inset-0 h-full w-full object-cover"
+                            src="/quienes-somos2.jpg"
+                            className="  h-full w-full object-cover"
                             width={1000}
-                            height={700}
+                            height={500}
                         ></Image>
                     </div>
                     <div className="lg:py-24">
@@ -52,7 +52,7 @@ export default function ImageWithContent2() {
                         <div className="mt-12 mb-10 text-center">
                             <Link
                                 href="/contact"
-                                className="inline-block rounded bg-blue-950 px-[4rem] py-3 text-sm font-medium text-white transition hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-400"
+                                className="inline-block rounded bg-blue-400 px-[4rem] py-3 text-sm font-medium text-white transition hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-400"
                             >
                                 Contáctanos
                             </Link>

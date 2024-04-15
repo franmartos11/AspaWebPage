@@ -2,7 +2,7 @@ import Image from "next/image";
 export default function ContactCardImg() {
     return (
         <section className="min-h-screen ">
-            <div className="container px-6 py-10 mx-auto">
+            <div className="container px-6  mx-auto">
                 <div className="lg:flex lg:items-center lg:-mx-10">
                     <div className="lg:w-1/2 lg:mx-10">
                         <h1 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">

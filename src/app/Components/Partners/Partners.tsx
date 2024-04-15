@@ -6,9 +6,9 @@ export default function () {
                     <span className="text-blue-600 text-center font-medium mb-4 block">
                         Nuestros Clientes
                     </span>
-                    <h1 className="text-4xl text-white text-center font-bold">
+                    <h3 className="text-4xl text-white text-center font-bold">
                         Quienes confian en nosotros
-                    </h1>
+                    </h3>
                 </div>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2  xl:grid-cols-4">
                     <a

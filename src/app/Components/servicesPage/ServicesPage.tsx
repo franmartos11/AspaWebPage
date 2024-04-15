@@ -44,7 +44,7 @@ export default function CarrouselMamado() {
                             <div className="flex mt-3 -mx-2"></div>
                         </div>
                     </a>
-                    <a href="#carcheck">
+                    <a title="link" href="#carcheck">
                         <div className="flex flex-col items-center p-4 border sm:p-6 rounded-sm dark:border-gray-700">
                             <Image
                                 className="object-cover w-full rounded-sm aspect-square"
@@ -67,7 +67,7 @@ export default function CarrouselMamado() {
                             <div className="flex mt-3 -mx-2"></div>
                         </div>
                     </a>
-                    <a href="#desarrollo-web">
+                    <a title="link" href="#desarrollo-web">
                         <div className="flex flex-col items-center p-4 border sm:p-6 rounded-sm dark:border-gray-700">
                             <Image
                                 className="object-cover w-full rounded-sm aspect-square"

@@ -33,15 +33,6 @@ export function TracingBeamDemo() {
 const dummyContent = [
     {
         title: "",
-        description: <div>
-            <div id="carcheck"></div><CardProyect></CardProyect>
-        </div>
-        ,
-        badge: "",
-    },
-
-    {
-        title: "",
         description: (
             <div>
                 <div id="desarrollo-web"></div>
@@ -50,7 +41,6 @@ const dummyContent = [
             </div>
         ),
         badge: "",
-
     },
     {
         title: "",
@@ -58,6 +48,16 @@ const dummyContent = [
             <div>
                 <div id="desarrollo-medida"></div>
                 <CardProyectApp></CardProyectApp>
+            </div>
+        ),
+        badge: "",
+    },
+    {
+        title: "",
+        description: (
+            <div>
+                <div id="carcheck"></div>
+                <CardProyect></CardProyect>
                 <Partners></Partners>
             </div>
         ),

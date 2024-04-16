@@ -30,18 +30,18 @@ export default function () {
                 <div className="flex flex-col">
                     <div className="flex flex-col mt-1">
                         <div className="container max-w-7xl px-4">
-                            <div className="flex flex-wrap justify-center align-middle">
+                            <div className="flex flex-wrap justify-around align-middle">
                                 <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col align-middle justify-center">
                                         <a
                                             title="link"
                                             href="https://www.linkedin.com/in/agustin-luque/"
                                             className="mx-auto"
                                         >
                                             <img
-                                                className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                                alt="persona"
-                                                title="persona"
+                                                className=" object-cover h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona img"
+                                                title="persona img"
                                                 src={
                                                     hovered
                                                         ? "/agusPjAspa.png"
@@ -96,9 +96,9 @@ export default function () {
                                             className="mx-auto"
                                         >
                                             <img
-                                                className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                                alt="persona"
-                                                title="persona"
+                                                className=" object-cover h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona img"
+                                                title="persona img"
                                                 src={
                                                     hovered1
                                                         ? "/franPjAspa.png"
@@ -153,9 +153,9 @@ export default function () {
                                             className="mx-auto"
                                         >
                                             <img
-                                                className=" h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                                                alt="persona"
-                                                title="persona"
+                                                className=" object-cover h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                alt="persona img"
+                                                title="persona img"
                                                 src={
                                                     hovered2
                                                         ? "/haikPjAspa.png"

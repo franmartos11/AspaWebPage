@@ -6,7 +6,7 @@ export default function () {
     const [hovered1, setHovered1] = useState(false);
     const [hovered2, setHovered2] = useState(false);
     return (
-        <div>
+        <div className="pt-[5rem]">
             <div className="flex flex-wrap  mb-5 justify-center align-middle text-center">
                 <div className="w-full lg:w-6/12 px-4">
                     <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">

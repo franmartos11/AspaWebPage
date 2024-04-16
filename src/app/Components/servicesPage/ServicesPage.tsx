@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CarrouselMamado() {
     return (
-        <section className="pb-[10rem]">
+        <section className="pt-[0rem] pb-[10rem]">
             <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                 <h3 className="text-4xl pt-[3rem]  font-semibold text-center  capitalize lg:text-6xl text-white">
                     Nuestros Servicios
@@ -13,7 +13,7 @@ export default function CarrouselMamado() {
                     <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
                     <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
                 </div>
-                <p className="text-gray-400 text-center text-lg font-light pt-[2rem] ">
+                <p className="text-gray-400 text-center text-lg font-light pt-[0.5rem] ">
                     Selecciona el servicio del que desees conocer mas.
                 </p>
             </div>

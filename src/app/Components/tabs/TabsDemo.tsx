@@ -7,12 +7,12 @@ export function TabsDemo() {
         {
             title: "Carcheck ",
             value: "product",
-            link: '/servicios',
+            link: '/carcheck',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
                     
                     <img
-                        src="/aspa-carcheck.png"
+                        src="/aspacarcheckbanner.png"
                         alt="carcheck-data"
                         title="carcheck-data"
                         className="rounded-2xl"
@@ -23,12 +23,12 @@ export function TabsDemo() {
         {
             title: "Auditorias",
             value: "services",
-            link: 'a',
+            link: '/servicios',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
                     
                     <img
-                        src="/aspa-carcheck.png"
+                        src="/aspaAuditBanner.png"
                         alt="Auditorias-data"
                         title="Auditorias-data"
                         className="rounded-2xl"
@@ -39,12 +39,12 @@ export function TabsDemo() {
         {
             title: "Paginas Web",
             value: "playground",
-            link: 'a',
+            link: '/desarrollo-web',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
                     
                     <img
-                        src="/aspa-carcheck.png"
+                        src="/desarrolloWebBanner.png"
                         alt="Paginas-Web-data"
                         title="Paginas-Web-data"
                         className="rounded-2xl"
@@ -55,12 +55,12 @@ export function TabsDemo() {
         {
             title: "Apps a Medida",
             value: "content",
-            link: 'a',
+            link: '/apps-a-medida',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
                     
                     <img
-                        src="/aspa-carcheck.png"
+                        src="/appsAMedidaBanner.png"
                         alt="Apps-a-Medida-data"
                         title="Apps-a-Medida-data"
                         className="rounded-2xl"

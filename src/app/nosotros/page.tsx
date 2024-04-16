@@ -13,12 +13,10 @@ export default function () {
         <div>
             <Nav page={"nosotros"}></Nav>
             <NosotrosTeam></NosotrosTeam>
-            <ImageWithContent></ImageWithContent>
-            <AboutMeEvents></AboutMeEvents>
             <ImageWithContent2></ImageWithContent2>
+            <AboutMeEvents></AboutMeEvents>
+            <ImageWithContent></ImageWithContent>
             <Partners></Partners>
         </div>
     );
-
-
 }

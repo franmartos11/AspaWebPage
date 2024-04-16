@@ -16,8 +16,8 @@ export default function ImageWithContent2() {
                         ></Image>
                     </div>
                     <div className="lg:py-24">
-                        <h2 className="text-4xl text-white font-bold">
-                            Quiénes somos?
+                        <h2 className="text-4xl uppercase text-white font-bold">
+                            Quiénes somos ?
                         </h2>
 
                         <p className="mt-4 text-base text-gray-300">
@@ -52,6 +52,7 @@ export default function ImageWithContent2() {
                         </p>
                         <div className="mt-12 mb-10 text-center">
                             <Link
+                                title="link"
                                 href="/contact"
                                 className="inline-block rounded bg-blue-400 px-[4rem] py-3 text-sm font-medium text-white transition hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-400"
                             >

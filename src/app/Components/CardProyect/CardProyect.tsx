@@ -42,32 +42,36 @@ export default function CardProyect() {
                             <h3>Gestionar clientes</h3>
                             <br />
                             <p>
-                                Crea y actualiza perfiles de clientes: Almacena
-                                información completa, historial de vehículos y
-                                servicios, preferencias de contacto, y más.
-                                Agiliza la atención al cliente: Accede a la
-                                información del cliente en tiempo real, consulta
-                                su historial y preferencias, y ofrece un
-                                servicio personalizado. Fideliza a tus clientes:
-                                Implementa programas de fidelización, envía
-                                recordatorios de citas y ofertas personalizadas,
-                                y mejora la satisfacción de tus clientes.
+                                La app te ayuda a organizar y gestionar la
+                                información de tus clientes, mejorar la atención
+                                al cliente y optimizar tu negocio. Crea perfiles
+                                completos con toda la información de tus
+                                clientes, accede a su historial en tiempo real y
+                                ofrece un servicio personalizado. Contacta a tus
+                                clientes directamente desde la app y mantén una
+                                comunicación fluida. Descarga mi app hoy mismo y
+                                comienza a disfrutar de sus beneficios.
                                 <br />
                                 <br />
                             </p>
                             <h3>Administrar vehículos</h3>
 
                             <p className="mt-6">
-                                Registra y actualiza información de vehículos:
-                                Almacena datos como marca, modelo, matrícula,
-                                kilometraje, VIN, historial de servicios y más.
-                                Programa citas y gestiona la agenda: Visualiza
-                                la disponibilidad del taller, asigna citas a los
-                                mecánicos y envía recordatorios automáticos a
-                                los clientes. Optimiza el control de stock:
-                                Monitorea el inventario de repuestos, recibe
-                                alertas de bajo stock y agiliza la gestión de
-                                pedidos.
+                                El proceso de registro y actualización de
+                                información de vehículos es fundamental para
+                                mantener un control preciso de la flota
+                                automotriz. Esto implica almacenar detalles como
+                                marca, modelo, matrícula, kilometraje e incluso
+                                un historial detallado de servicios. Además, la
+                                capacidad de capturar imágenes del vehículo en
+                                el momento del ingreso proporciona una
+                                documentación visual invaluable, permitiendo una
+                                identificación rápida y precisa del estado del
+                                vehículo en diferentes momentos. Esta
+                                combinación de datos y imágenes facilita la
+                                gestión eficiente de la flota, asegurando un
+                                mantenimiento adecuado y una toma de decisiones
+                                informada.
                                 <br />
                                 <br />
                             </p>
@@ -78,44 +82,60 @@ export default function CardProyect() {
                                 Digitaliza tus procesos: Genera ordenes de
                                 trabajo personalizadas con detalles del
                                 vehículo, cliente, servicio solicitado,
-                                presupuesto y fecha de entrega. Agiliza la
-                                reparación: Asigna tareas a los mecánicos,
-                                rastrea el progreso de las reparaciones y
-                                notifica al cliente sobre el estado del trabajo.
-                                Mejora la comunicación: Mantén al cliente
-                                informado sobre el avance de la reparación,
-                                envía fotos y videos del proceso, y ofrece un
-                                servicio transparente.
+                                presupuesto, fecha y hora de la visita, etc.
+                                Agiliza la reparación: Asigna tareas a los
+                                mecánicos, rastrea el progreso de las
+                                reparaciones y notifica al cliente sobre el
+                                estado del trabajo. Mejora la comunicación:
+                                Mantén al cliente informado sobre el avance de
+                                la reparación, envía fotos y videos del proceso,
+                                y ofrece un servicio transparente. Registro del
+                                trabajo realizado: permite al personal del
+                                taller registrar los trabajos realizados en el
+                                vehículo, incluir una lista de tareas, repuestos
+                                utilizados y horas trabajadas. Carga de
+                                imágenes: Permite al personal del taller
+                                adjuntar fotografías del vehículo, del trabajo
+                                realizado o de cualquier otra evidencia
+                                relevante.
                                 <br />
                                 <br />
                             </p>
                             <h2> Elaborar presupuestos y facturas</h2>
 
                             <p className="mt-6">
-                                Genera presupuestos detallados: Personaliza
-                                presupuestos con el desglose de mano de obra,
-                                repuestos, costos adicionales e impuestos. Envía
-                                presupuestos electrónicos: Comparte los
-                                presupuestos con los clientes por correo
-                                electrónico o WhatsApp para su aprobación
+                                Personaliza presupuestos con el desglose de mano
+                                de obra, repuestos, costos adicionales e
+                                impuestos. Envía presupuestos electrónicos:
+                                Comparte los presupuestos con los clientes por
+                                correo electrónico o WhatsApp para su aprobación
                                 rápida. Emite facturas digitales: Genera y envía
                                 facturas electrónicas con validez legal,
                                 mejorando la eficiencia administrativa
                                 <br />
                                 <br />
                             </p>
-                            <h2>Personalización a tu medida</h2>
+                            <h2>Digitaliza tus procesos</h2>
 
                             <p className="mt-6">
-                                Adapta la aplicación a las necesidades de tu
-                                taller: Configura campos, permisos, flujos de
-                                trabajo, informes y notificaciones para
-                                optimizar tu operación. Integra tu marca:
-                                Personaliza la interfaz con tu logo, colores y
-                                diseño para ofrecer una experiencia única a tus
-                                clientes. Escalabilidad: Adapta la aplicación al
-                                tamaño y crecimiento de tu taller, con planes
-                                flexibles que se ajustan a tus necesidades.
+                                Genera ordenes de trabajo personalizadas con
+                                detalles del vehículo, cliente, servicio
+                                solicitado, presupuesto, fecha y hora de la
+                                visita, etc. Agiliza la reparación: Asigna
+                                tareas a los mecánicos, rastrea el progreso de
+                                las reparaciones y notifica al cliente sobre el
+                                estado del trabajo. Mejora la comunicación:
+                                Mantén al cliente informado sobre el avance de
+                                la reparación, envía fotos y videos del proceso,
+                                y ofrece un servicio transparente. Registro del
+                                trabajo realizado: permite al personal del
+                                taller registrar los trabajos realizados en el
+                                vehículo, incluir una lista de tareas, repuestos
+                                utilizados y horas trabajadas. Carga de
+                                imágenes: Permite al personal del taller
+                                adjuntar fotografías del vehículo, del trabajo
+                                realizado o de cualquier otra evidencia
+                                relevante.
                                 <br />
                                 <br />
                             </p>

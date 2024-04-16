@@ -5,6 +5,7 @@ import HomeTeam from "./Components/home-team/HomeTeam";
 import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
+import MoovingLogosPartners from "./Components/MoovingLogos/MoovingLogosPartners";
 
 export default function Home() {
     return (
@@ -26,6 +27,7 @@ export default function Home() {
             <CardHomeTriple></CardHomeTriple>
             <HomeTeam></HomeTeam>
             <Partners></Partners>
+            <MoovingLogosPartners></MoovingLogosPartners>
         </div>
     );
 }

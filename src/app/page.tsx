@@ -27,7 +27,6 @@ export default function Home() {
             <CardHomeTriple></CardHomeTriple>
             <HomeTeam></HomeTeam>
             <Partners></Partners>
-            <MoovingLogosPartners></MoovingLogosPartners>
         </div>
     );
 }

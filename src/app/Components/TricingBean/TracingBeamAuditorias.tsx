@@ -6,7 +6,7 @@ import CardProyect from "../CardProyect/CardProyect";
 import Partners from "../Partners/Partners";
 import CardProyectAuditoria from "../CardProyect/CardProyectAuditoria";
 
-export function TracingBeamCarcheck() {
+export default function () {
     return (
         <TracingBeam className="">
             <div className=" mx-auto antialiased pt-4 relative">

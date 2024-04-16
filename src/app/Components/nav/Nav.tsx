@@ -15,7 +15,9 @@ export default function Nav({ page }: { page: string }) {
 
     return (
         <nav className="" id="top-page">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative"> {/* Agregado 'relative' */}
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
+                {" "}
+                {/* Agregado 'relative' */}
                 <Link
                     title="link"
                     href="/"
@@ -54,7 +56,7 @@ export default function Nav({ page }: { page: string }) {
                 <div
                     className={`${
                         isMenuOpen ? "block" : "hidden"
-                    } w-full md:block md:w-auto mt-4 md:mt-0  top-full left-0 z-10`} 
+                    } w-full md:block md:w-auto mt-4 md:mt-0  top-full left-0 z-10`}
                 >
                     <ul className="flex flex-col text-white font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
@@ -122,7 +124,8 @@ export default function Nav({ page }: { page: string }) {
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Apps a medida
-                                    </Link><Link
+                                    </Link>
+                                    <Link
                                         title="link"
                                         href="/auditorias"
                                         className="hover:text-blue-700 pt-[0.5rem]"
@@ -136,7 +139,6 @@ export default function Nav({ page }: { page: string }) {
                                     >
                                         Carcheck
                                     </Link>
-                                    
                                 </div>
                             )}
                         </li>

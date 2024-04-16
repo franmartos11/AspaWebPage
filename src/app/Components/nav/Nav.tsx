@@ -122,6 +122,12 @@ export default function Nav({ page }: { page: string }) {
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Apps a medida
+                                    </Link><Link
+                                        title="link"
+                                        href="/auditorias"
+                                        className="hover:text-blue-700 pt-[0.5rem]"
+                                    >
+                                        Auditorias
                                     </Link>
                                     <Link
                                         title="link"
@@ -130,13 +136,7 @@ export default function Nav({ page }: { page: string }) {
                                     >
                                         Carcheck
                                     </Link>
-                                    <Link
-                                        title="link"
-                                        href="/carcheck"
-                                        className="hover:text-blue-700 pt-[0.5rem]"
-                                    >
-                                        Auditorias
-                                    </Link>
+                                    
                                 </div>
                             )}
                         </li>

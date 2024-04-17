@@ -35,7 +35,7 @@ export default function () {
                     <div className="lg:pr-4">
                         <div className="max-w-xl text-base leading-7 text-gray-200 lg:max-w-lg">
                             <h2 className="text-2xl">
-                                Porque necesitas aplicaciones a medida:
+                                Que tiene para ofrecer nuestra app:
                             </h2>
                             <br />
                             <h3>Responder auditorías</h3>

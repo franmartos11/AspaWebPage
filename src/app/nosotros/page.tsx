@@ -14,8 +14,8 @@ export default function () {
             <Nav page={"nosotros"}></Nav>
             <NosotrosTeam></NosotrosTeam>
             <ImageWithContent2></ImageWithContent2>
-            <AboutMeEvents></AboutMeEvents>
-            <ImageWithContent></ImageWithContent>
+            
+            <ImageWithContent></ImageWithContent><AboutMeEvents></AboutMeEvents>
             <Partners></Partners>
         </div>
     );

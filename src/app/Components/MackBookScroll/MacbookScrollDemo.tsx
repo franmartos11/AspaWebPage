@@ -13,7 +13,7 @@ export function MacbookScrollDemo() {
                     </span>
                 }
                 badge={
-                    <Link title="link" href="/https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A85621550&keywords=aspa&origin=RICH_QUERY_SUGGESTION&position=0&searchId=21a66180-1022-4554-805c-4a49c9de9c92&sid=80)&spellCorrectionEnabled=false">
+                    <Link title="link" target="_blank" href="https://ar.linkedin.com/company/aspa-sofware-development">
                         <Badge className="h-10 w-10 transform -rotate-12" />
                     </Link>
                 }

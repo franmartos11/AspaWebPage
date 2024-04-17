@@ -9,10 +9,10 @@ export default function ImageWithContent2() {
                         <Image
                             alt="quienes somos"
                             title="quienes somos"
-                            src="/quienes-somos2.jpg"
-                            className="  h-full w-full object-cover"
-                            width={1000}
-                            height={500}
+                            src="/logoaspanewera.png"
+                            className=" h-[90%] rounded-lg w-full object-cover"
+                            width={500}
+                            height={100}
                         ></Image>
                     </div>
                     <div className="lg:py-24">

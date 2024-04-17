@@ -10,7 +10,7 @@ export default function ImageWithContent() {
                             alt="crecimiento"
                             title="crecimiento"
                             src="/crecimientoSoftware.webp"
-                            className="absolute inset-0 h-full w-full object-cover"
+                            className="h-[90%] rounded-lg w-full object-cover"
                             width={1500}
                             height={800}
                         ></Image>

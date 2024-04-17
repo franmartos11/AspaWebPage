@@ -58,7 +58,7 @@ export default function () {
 
                                         <div className="text-center mt-6 text-white  ">
                                             <h1 className=" text-xl font-bold mb-1">
-                                                Agustin Luque
+                                                Agustín Luque
                                             </h1>
 
                                             <div className=" font-light mb-2">

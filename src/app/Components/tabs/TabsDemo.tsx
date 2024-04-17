@@ -5,7 +5,7 @@ import { Tabs } from "./Tabs";
 export function TabsDemo() {
     const tabs = [
         {
-            title: "Carcheck ",
+            title: "CarCheck",
             value: "product",
             link: '/carcheck',
             content: (
@@ -37,7 +37,7 @@ export function TabsDemo() {
             ),
         },
         {
-            title: "Paginas Web",
+            title: "Páginas Web",
             value: "playground",
             link: '/desarrollo-web',
             content: (

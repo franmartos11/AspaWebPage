@@ -6,11 +6,11 @@ export default function ContactCardImg() {
                 <div className="lg:flex lg:items-center lg:-mx-10">
                     <div className="lg:w-1/2 lg:mx-10">
                         <h1 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">
-                            Contactanos
+                            Contáctanos
                         </h1>
 
                         <p className="mt-4 text-gray-400 ">
-                            ¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
+                            ¡Haznos saber como podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
                         </p>
 
                         <form className="mt-12" action="https://formsubmit.co/aspasoftwaredevelopment@gmail.com" method="POST">
@@ -28,7 +28,7 @@ export default function ContactCardImg() {
 
                                 <div className="flex-1 px-2 mt-4 md:mt-0">
                                     <label className="block mb-2 text-sm text-gray-200">
-                                        Direccion Email
+                                        Dirección Email
                                     </label>
                                     <input
                                         type="email"
@@ -38,7 +38,7 @@ export default function ContactCardImg() {
                                 </div>
                                 <div className="flex-1 px-2 mt-4 md:mt-0">
                                     <label className="block mb-2 text-sm text-gray-200">
-                                        Numero Telefono
+                                        Número Teléfono
                                     </label>
                                     <input
                                         type="telefono"
@@ -122,10 +122,9 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 ms:w-50 text-gray-400">
-                                <a title="link" href="https://wa.me/549351 314-0217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">
+                                <a title="link" href="https://wa.me/5493513140217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">
                                     +54 9 0351 314-0217
                                     </a>
-                                    
                                 </span>
                             </p>
 
@@ -153,7 +152,7 @@ export default function ContactCardImg() {
                         </div>
 
                         <div className="mt-6 w-80 md:mt-8">
-                            <h3 className="text-gray-300 ">Sigueme</h3>
+                            <h3 className="text-gray-300 ">Síguenos</h3>
 
                             <div className="flex mt-4 -mx-1.5 ">
                                 

@@ -14,7 +14,7 @@ export function CardHome3() {
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
         >
-          Orientacion al cliente
+          Orientación al cliente
         </CardItem>
         <CardItem
           as="p"

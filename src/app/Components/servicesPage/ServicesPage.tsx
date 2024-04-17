@@ -56,7 +56,7 @@ export default function CarrouselMamado() {
                             ></Image>
 
                             <h1 className="mt-4 text-2xl font-semibold  capitalize text-white">
-                                Aplicaciones Disenadas
+                                Aplicaciones Diseñadas
                             </h1>
 
                             <p className="mt-2 text-gray-300 text-center">

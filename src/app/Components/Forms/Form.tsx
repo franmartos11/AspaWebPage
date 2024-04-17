@@ -23,6 +23,7 @@ export default function Form(service: {service: string}) {
                         <input
                             type="email"
                             id="email"
+                            name="email"
                             className="shadow-sm  border   text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
                             placeholder="nombre@gmail.com"
                             required
@@ -35,6 +36,7 @@ export default function Form(service: {service: string}) {
                         <input
                             type="telefono"
                             id="telefono"
+                            name="telefono"
                             className="block p-3 w-full text-sm rounded-lg border  shadow-sm focus:ring-primary-500 focus:border-primary-500 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
                             placeholder="Numero de telefono..."
                             required
@@ -46,8 +48,9 @@ export default function Form(service: {service: string}) {
                             Mensaje
                         </label>
                         <input
-                            type="telefono"
+                            type="message"
                             id="message"
+                            name="mensaje"
                             className="block p-6 w-full text-sm  rounded-lg shadow-sm border  focus:ring-primary-500 focus:border-primary-500 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
                             placeholder="Deja tu mensaje..."
                         ></input>

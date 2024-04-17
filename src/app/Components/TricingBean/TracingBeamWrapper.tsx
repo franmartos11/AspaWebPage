@@ -57,8 +57,9 @@ const dummyContent = [
         title: "",
         description: (
             <div>
-                <div id=""></div>
-                <CardProyectAuditoria></CardProyectAuditoria>
+                <div id="carcheck"></div>
+                <CardProyect></CardProyect>
+                
             </div>
         ),
         badge: "",
@@ -67,8 +68,8 @@ const dummyContent = [
         title: "",
         description: (
             <div>
-                <div id="carcheck"></div>
-                <CardProyect></CardProyect>
+                <div id=""></div>
+                <CardProyectAuditoria></CardProyectAuditoria>
                 <Partners></Partners>
             </div>
         ),

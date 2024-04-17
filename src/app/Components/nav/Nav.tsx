@@ -127,17 +127,17 @@ export default function Nav({ page }: { page: string }) {
                                     </Link>
                                     <Link
                                         title="link"
-                                        href="/auditorias"
-                                        className="hover:text-blue-700 pt-[0.5rem]"
-                                    >
-                                        Audit
-                                    </Link>
-                                    <Link
-                                        title="link"
                                         href="/carcheck"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
                                         Carcheck
+                                    </Link>
+                                    <Link
+                                        title="link"
+                                        href="/auditorias"
+                                        className="hover:text-blue-700 pt-[0.5rem]"
+                                    >
+                                        Audit
                                     </Link>
                                 </div>
                             )}

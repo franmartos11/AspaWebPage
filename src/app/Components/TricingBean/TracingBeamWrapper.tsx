@@ -8,6 +8,7 @@ import CardProyectWeb from "../CardProyect/CardProyectWebs";
 import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
 import Partners from "../Partners/Partners";
 import CardProyectAuditoria from "../CardProyect/CardProyectAuditoria";
+import ImgCarrouselServices from "../imgcarrouselservices/ImgCarrouselServices";
 
 export function TracingBeamDemo() {
     return (
@@ -59,7 +60,7 @@ const dummyContent = [
             <div>
                 <div id="carcheck"></div>
                 <CardProyect></CardProyect>
-                
+                <ImgCarrouselServices></ImgCarrouselServices>
             </div>
         ),
         badge: "",

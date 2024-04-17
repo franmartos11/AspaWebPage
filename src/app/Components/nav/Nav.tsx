@@ -130,7 +130,7 @@ export default function Nav({ page }: { page: string }) {
                                         href="/auditorias"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
-                                        Auditorias
+                                        Audit
                                     </Link>
                                     <Link
                                         title="link"

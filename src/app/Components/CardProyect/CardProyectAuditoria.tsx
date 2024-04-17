@@ -8,14 +8,12 @@ export default function () {
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
                             <h1 className="mt-2 text-3xl font-bold tracking-tight text-left text-white sm:text-5xl">
-                                Auditorias
+                               Audit 
                             </h1>
                             <p className="mt-6 text-xl leading-8 text-gray-100">
                                 ¿Estás listo para llevar tu negocio al siguiente
-                                nivel con una app a medida? Contacta con
-                                nosotros y te ayudaremos a crear una app que
-                                cumpla con tus necesidades y te impulse hacia el
-                                éxito.
+                                nivel? Nuestra App te permite realizar
+                                auditorías eficientes y completas.
                             </p>
                         </div>
                     </div>
@@ -40,56 +38,98 @@ export default function () {
                                 Porque necesitas aplicaciones a medida:
                             </h2>
                             <br />
-                            <h3>Soluciones personalizadas</h3>
+                            <h3>Responder auditorías</h3>
                             <br />
                             <p>
-                                Olvídate de las limitaciones de las apps
-                                genéricas. Con una app a medida, obtienes una
-                                solución que se adapta perfectamente a las
-                                necesidades específicas de tu negocio y a los
-                                flujos de trabajo de tus empleados.
+                                Permite a los usuarios completar las auditorías
+                                asignadas, respondiendo preguntas o
+                                seleccionando opciones de un conjunto de ítems
+                                predefinidos. Cargar imágenes: Facilita la
+                                incorporación de evidencia visual para respaldar
+                                los hallazgos de la auditoría, como fotos de
+                                instalaciones, documentos o productos
+                                defectuosos. Generar planes de acción: Permite
+                                crear planes de acción detallados para abordar
+                                las no conformidades identificadas en la
+                                auditoría, asignando responsabilidades, plazos y
+                                recursos. Descargar PDF con la información:
+                                Genera un informe en formato PDF que resume los
+                                resultados de la auditoría, incluyendo las
+                                respuestas, las imágenes adjuntas y los planes
+                                de acción establecidos.
                                 <br />
                                 <br />
                             </p>
-                            <h3>Eficiencia y productividad</h3>
+                            <h3>Registrar auditores</h3>
 
                             <p className="mt-6">
-                                Una app a medida puede automatizar tareas
-                                repetitivas, optimizar procesos y eliminar la
-                                necesidad de personal para ciertas actividades.
-                                Esto te permite ahorrar tiempo y dinero, y
-                                aumentar la productividad de tu equipo.
+                                Permite crear perfiles de los auditores,
+                                incluyendo su nombre, fotografía, información de
+                                contacto y datos de capacitación. Auditorías a
+                                cargo: Asigna las auditorías pendientes a los
+                                auditores responsables, facilitando la
+                                organización y seguimiento del trabajo. Planes
+                                de acción a cargo: Muestra los planes de acción
+                                asignados a cada auditor, permitiéndoles
+                                realizar un seguimiento de su progreso y tomar
+                                las medidas necesarias para su implementación.
                                 <br />
                                 <br />
                             </p>
 
-                            <h2>Mayor satisfacción del cliente</h2>
+                            <h2>Registrar auditorías</h2>
 
                             <p className="mt-6">
-                                Una app intuitiva, fácil de usar y que ofrece
-                                una experiencia personalizada a tus clientes,
-                                aumenta su satisfacción y fidelización.
+                                Define las plantillas o modelos de auditoría que
+                                se utilizarán, especificando las preguntas o
+                                ítems que se deben responder en cada auditoría.
+                                Auditorías reutilizables: Permite crear modelos
+                                de auditoría estandarizados que se pueden
+                                reutilizar para diferentes áreas o procesos,
+                                asegurando la consistencia y eficiencia en las
+                                evaluaciones.
                                 <br />
                                 <br />
                             </p>
-                            <h2>Ventaja competitiva</h2>
+                            <h2>Registrar preguntas</h2>
 
                             <p className="mt-6">
-                                En un mercado cada vez más competitivo, una app
-                                a medida te permite diferenciarte de tus
-                                competidores y ofrecer un valor único a tus
-                                clientes.
+                                Define las preguntas o ítems específicos que se
+                                incluirán en cada modelo de auditoría,
+                                permitiendo personalizar las evaluaciones según
+                                las necesidades de cada caso.
                                 <br />
                                 <br />
                             </p>
-                            <h2>Escalabilidad</h2>
+                            <h2>Categorizar ítems</h2>
 
                             <p className="mt-6">
-                                A medida que tu negocio crece, tu app a medida
-                                también puede crecer contigo. Se adapta a tus
-                                necesidades cambiantes y te permite seguir
-                                ofreciendo una experiencia de usuario
-                                excepcional.
+                                Permite organizar las preguntas o ítems en
+                                categorías temáticas, facilitando la navegación
+                                y el análisis de los resultados de la auditoría.
+                                <br />
+                                <br />
+                            </p>
+                            <h2>Generar informes</h2>
+
+                            <p className="mt-6">
+                                Crea reportes personalizados que resumen los
+                                datos de las auditorías realizadas, incluyendo
+                                indicadores clave como el número de auditorías
+                                completadas, las no conformidades identificadas
+                                y el avance en la implementación de planes de
+                                acción. Filtros y segmentación: Permite filtrar
+                                los datos por diferentes criterios, como fecha
+                                de auditoría, área auditada, auditor responsable
+                                o tipo de no conformidad, para obtener
+                                información más específica y relevante.
+                                Visualización de datos: Presenta los resultados
+                                de las auditorías en gráficos y tablas
+                                dinámicas, facilitando la comprensión y el
+                                análisis de la información. En conjunto, estos
+                                módulos ofrecen una solución integral para la
+                                gestión de auditorías internas, permitiendo a
+                                las organizaciones:
                                 <br />
                                 <br />
                             </p>

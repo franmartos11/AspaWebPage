@@ -21,7 +21,7 @@ export function TabsDemo() {
             ),
         },
         {
-            title: "Auditorias",
+            title: "Audit",
             value: "services",
             link: '/servicios',
             content: (

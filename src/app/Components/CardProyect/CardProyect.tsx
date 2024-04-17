@@ -7,7 +7,7 @@ export default function CardProyect() {
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
                             <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                                CarCheck Workshop
+                                CarCheck
                             </h1>
                             <p className="mt-6 text-xl leading-8 text-gray-100">
                                 Olvídate de los procesos manuales y las

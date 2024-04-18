@@ -1,7 +1,7 @@
 import { List } from "postcss/lib/list";
 import Carousel from "./Carrousel";
 
-interface CarrouselDemoProps {
+export interface CarrouselDemoProps {
     slides: string[];
 }
 

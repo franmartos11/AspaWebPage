@@ -2,7 +2,13 @@
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import React, { useState, useEffect } from "react";
 
-const Carousel = ({
+interface CarouselProps {
+    children: React.ReactNode[]; // or whatever specific type your slides are
+    autoSlide?: boolean;
+    autoSlideInterval?: number;
+}
+
+const Carousel: React.FC<CarouselProps>  = ({
     children: slides,
     autoSlide = false,
     autoSlideInterval = 3000,
@@ -45,7 +51,7 @@ const Carousel = ({
             </div>
             <div className="absolute bottom-4 right-0 left-0">
                 <div className="flex items-center justify-center gap-2">
-                    {slides.map((i: React.Key | null | undefined) => (
+                    {slides.map((s,i: React.Key | null | undefined) => (
                         <div
                             key={i}
                             className={`transition-all w-1.5 h-1.5 bg-white rounded-full  ${

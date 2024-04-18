@@ -1,21 +1,17 @@
+import { List } from "postcss/lib/list"
 import Carousel from "./Carrousel"
 
+interface CarrouselDemoProps{
+    slides: string[];
+}
 
-const slides = [
-  "/carcheck.png",
-  "/carcheck.png",
-  "/carcheck.png",
-  "/carcheck.png",
-]
-
-
-export default function () {
-
+export default function ({slides}: CarrouselDemoProps) {
+    let imgs = slides
   return (
     <div className="flex justify-center px-[3rem] pb-[10rem] items-center  bg-black">
       <div className="max-w-lg">
         <Carousel autoSlide={true} >
-          {[...slides.map((s) => (
+          {[...imgs.map((s: string | undefined) => (
             <img src={s} />
           )), ]}
         </Carousel>

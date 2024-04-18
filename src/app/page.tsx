@@ -13,7 +13,6 @@ export default function Home() {
         <div>
             <Nav page={"home"}></Nav>
             <HeroHome></HeroHome>
-            
             <HeroScrollDemo></HeroScrollDemo>
             <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                 <h2 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">

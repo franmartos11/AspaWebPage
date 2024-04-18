@@ -27,6 +27,12 @@ export function TracingBeamCarcheck() {
         </TracingBeam>
     );
 }
+const imgsCarcheck = [
+    "/carcheck.png",
+    "/carcheck4carrousel1.jpeg",
+    "/carcheck4carrousel2.jpeg",
+    "/carcheck4carrousel3.jpeg",
+  ];
 
 const dummyContent = [
     {
@@ -35,8 +41,7 @@ const dummyContent = [
             <div>
                 <CardProyect></CardProyect>
                 <div className="flex lg:flex-row flex-col  align-middle justify-center ">
-                   <CarrouselDemo></CarrouselDemo> 
-                   <CarrouselDemo></CarrouselDemo> 
+                   <CarrouselDemo slides={imgsCarcheck}></CarrouselDemo>
                 </div>
                 <Partners></Partners>
             </div>

@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
 import CardProyect from "../CardProyect/CardProyect";
 import Partners from "../Partners/Partners";
+import CarrouselDemo from "../imgcarrouselservices/CarrouselDemo";
 
 export function TracingBeamCarcheck() {
     return (
@@ -33,6 +34,10 @@ const dummyContent = [
         description: (
             <div>
                 <CardProyect></CardProyect>
+                <div className="flex lg:flex-row flex-col  align-middle justify-center ">
+                   <CarrouselDemo></CarrouselDemo> 
+                   <CarrouselDemo></CarrouselDemo> 
+                </div>
                 <Partners></Partners>
             </div>
         ),

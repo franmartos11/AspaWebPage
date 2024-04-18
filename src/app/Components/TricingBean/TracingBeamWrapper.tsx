@@ -8,9 +8,11 @@ import CardProyectWeb from "../CardProyect/CardProyectWebs";
 import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
 import Partners from "../Partners/Partners";
 import CardProyectAuditoria from "../CardProyect/CardProyectAuditoria";
-import ImgCarrouselServices from "../imgcarrouselservices/ImgCarrouselServices";
+import LayoutGrid from "../imgcarrouselservices/LayoutGrid";
+
 
 export function TracingBeamDemo() {
+    
     return (
         <TracingBeam className="">
             <div className=" mx-auto antialiased pt-4 relative">
@@ -60,7 +62,8 @@ const dummyContent = [
             <div>
                 <div id="carcheck"></div>
                 <CardProyect></CardProyect>
-                <ImgCarrouselServices></ImgCarrouselServices>
+                <LayoutGrid></LayoutGrid>
+
             </div>
         ),
         badge: "",

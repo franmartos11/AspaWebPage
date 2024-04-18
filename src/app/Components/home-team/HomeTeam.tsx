@@ -27,19 +27,19 @@ export default function () {
                 </div>
             </div>
             <div className="flex items-center justify-center pb-[10rem]  ">
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                     <div className="flex flex-col mt-1">
                         <div className="container max-w-7xl px-4">
                             <div className="flex flex-wrap justify-around align-middle">
-                                <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
+                                <div className="md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
                                     <div className="flex flex-col align-middle justify-center">
                                         <a
                                             title="link"
                                             href="https://www.linkedin.com/in/agustin-luque/"
-                                            className="mx-auto"
+                                            className=""
                                         >
                                             <img
-                                                className=" object-cover h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                className=" object-cover  w-[25rem] h-[23rem]  rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 alt="persona img"
                                                 title="persona img"
                                                 src={
@@ -58,7 +58,7 @@ export default function () {
 
                                         <div className="text-center mt-6 text-white  ">
                                             <h1 className=" text-xl font-bold mb-1">
-                                                Agustin Luque
+                                                Agustín Luque
                                             </h1>
 
                                             <div className=" font-light mb-2">
@@ -88,7 +88,7 @@ export default function () {
                                     </div>
                                 </div>
 
-                                <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
+                                <div className=" md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
                                         <a
                                             title="link"
@@ -96,7 +96,7 @@ export default function () {
                                             className="mx-auto"
                                         >
                                             <img
-                                                className=" object-cover h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                className=" object-cover h-[23rem] w-[25rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 alt="persona img"
                                                 title="persona img"
                                                 src={
@@ -145,7 +145,7 @@ export default function () {
                                     </div>
                                 </div>
 
-                                <div className="w-[50rem] md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
+                                <div className=" md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
                                     <div className="flex flex-col">
                                         <a
                                             title="link"
@@ -153,7 +153,7 @@ export default function () {
                                             className="mx-auto"
                                         >
                                             <img
-                                                className=" object-cover h-[23rem] w-[24rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
+                                                className=" object-cover h-[23rem] w-[25rem] rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                                 alt="persona img"
                                                 title="persona img"
                                                 src={

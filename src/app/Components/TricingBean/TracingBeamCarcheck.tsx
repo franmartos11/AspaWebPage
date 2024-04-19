@@ -33,11 +33,13 @@ export const imgsCarcheck = [
     "/carcheck4carrousel1.jpeg",
     "/carcheck4carrousel3.jpeg",
 ];
-export const imgsCarcheck2 = ["/carcheck4carrousel3.jpeg",
+export const imgsCarcheck2 = [
     "/carcheck4carrousel4.png",
-    "/carcheck4carrousel5.png",
-    "/carcheck4carrousel2.jpeg",
-    
+    "/carcheck_1.png",
+    "/carcheck_2.png",
+    "/carcheck_3.png",
+    "/carcheck_4.png",
+    "/carcheck_5.png",
 ];
 
 const dummyContent = [

@@ -7,10 +7,9 @@ export function TabsDemo() {
         {
             title: "CarCheck",
             value: "product",
-            link: '/carcheck',
+            link: "/carcheck",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
-                    
                     <img
                         src="/aspacarcheckbanner.png"
                         alt="carcheck-data"
@@ -23,10 +22,9 @@ export function TabsDemo() {
         {
             title: "Audit",
             value: "services",
-            link: '/auditorias',
+            link: "/auditorias",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
-                    
                     <img
                         src="/aspaAuditBanner.png"
                         alt="Auditorias-data"
@@ -39,10 +37,9 @@ export function TabsDemo() {
         {
             title: "Páginas Web",
             value: "playground",
-            link: '/desarrollo-web',
+            link: "/desarrollo-web",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
-                    
                     <img
                         src="/desarrolloWebBanner.png"
                         alt="Paginas-Web-data"
@@ -55,10 +52,9 @@ export function TabsDemo() {
         {
             title: "Apps a Medida",
             value: "content",
-            link: '/apps-a-medida',
+            link: "/apps-a-medida",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
-                    
                     <img
                         src="/appsAMedidaBanner.png"
                         alt="Apps-a-Medida-data"

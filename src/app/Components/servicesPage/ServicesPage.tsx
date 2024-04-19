@@ -17,9 +17,7 @@ export default function CarrouselMamado() {
                     Selecciona el servicio del que desees conocer mas.
                 </p>
             </div>
-            <div>
-                
-            </div>
+            <div></div>
 
             <div className="h-[27rem] "></div>
             <div className="container px-6 mx-auto -mt-72 sm:-mt-80 md:-mt-96">

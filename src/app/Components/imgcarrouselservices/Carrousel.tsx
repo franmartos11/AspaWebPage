@@ -8,7 +8,7 @@ interface CarouselProps {
     autoSlideInterval?: number;
 }
 
-const Carousel: React.FC<CarouselProps>  = ({
+const Carousel: React.FC<CarouselProps> = ({
     children: slides,
     autoSlide = false,
     autoSlideInterval = 3000,
@@ -51,7 +51,7 @@ const Carousel: React.FC<CarouselProps>  = ({
             </div>
             <div className="absolute bottom-4 right-0 left-0">
                 <div className="flex items-center justify-center gap-2">
-                    {slides.map((s,i: React.Key | null | undefined) => (
+                    {slides.map((s, i: React.Key | null | undefined) => (
                         <div
                             key={i}
                             className={`transition-all w-1.5 h-1.5 bg-white rounded-full  ${

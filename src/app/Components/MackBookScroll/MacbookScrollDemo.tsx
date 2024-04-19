@@ -8,12 +8,18 @@ export function MacbookScrollDemo() {
         <div className="overflow-hidden sm:block hidden   w-full">
             <MacbookScroll
                 title={
-                    <span className=" text-5xl" >
-                        Estás listo para aprovechar las ventajas<br/>del desarrollo web?
+                    <span className=" text-5xl">
+                        Estás listo para aprovechar las ventajas
+                        <br />
+                        del desarrollo web?
                     </span>
                 }
                 badge={
-                    <Link title="link" target="_blank" href="https://ar.linkedin.com/company/aspa-sofware-development">
+                    <Link
+                        title="link"
+                        target="_blank"
+                        href="https://ar.linkedin.com/company/aspa-sofware-development"
+                    >
                         <Badge className="h-10 w-10 transform -rotate-12" />
                     </Link>
                 }

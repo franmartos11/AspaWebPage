@@ -4,8 +4,7 @@ export default function () {
     return (
         <div>
             <Nav page={"contact"}></Nav>
-           <ContactCardImg></ContactCardImg> 
+            <ContactCardImg></ContactCardImg>
         </div>
-        
     );
 }

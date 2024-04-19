@@ -1,4 +1,4 @@
-export default function Form(service: {service: string}) {
+export default function Form(service: { service: string }) {
     return (
         <section className=" pt-[3rem]">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -56,7 +56,11 @@ export default function Form(service: {service: string}) {
                         ></input>
                     </div>
 
-                    <input type="hidden" name="service" value={service.service} />
+                    <input
+                        type="hidden"
+                        name="service"
+                        value={service.service}
+                    />
 
                     <div className=" text-center ">
                         <button

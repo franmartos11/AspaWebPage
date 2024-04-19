@@ -10,10 +10,17 @@ export default function ContactCardImg() {
                         </h1>
 
                         <p className="mt-4 text-gray-400 ">
-                            ¡Haznos saber como podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.
+                            ¡Haznos saber como podemos ayudarte! Completa el
+                            formulario de contacto y estaremos encantados de
+                            responder a tus preguntas, discutir colaboraciones o
+                            simplemente charlar sobre tus ideas.
                         </p>
 
-                        <form className="mt-12" action="https://formsubmit.co/aspasoftwaredevelopment@gmail.com" method="POST">
+                        <form
+                            className="mt-12"
+                            action="https://formsubmit.co/aspasoftwaredevelopment@gmail.com"
+                            method="POST"
+                        >
                             <div className="-mx-2 md:items-center md:flex">
                                 <div className="flex-1 px-2">
                                     <label className="block mb-2 text-sm text-gray-200">
@@ -75,7 +82,6 @@ export default function ContactCardImg() {
                             height={612}
                         ></Image>
                         <div className="mt-6 space-y-8 md:mt-8">
-                           
                             <p className="flex items-start -mx-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -98,8 +104,10 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 text-gray-400">
-                                    
-                                    <a  title="link" href="https://www.google.com/maps/place/ASPA+software/@-31.4105525,-64.1954704,17z/data=!3m1!4b1!4m6!3m5!1s0x94329971ec68f335:0x312ba76f9ee8aeac!8m2!3d-31.4105525!4d-64.1928955!16s%2Fg%2F11kjyf86bj?entry=ttu">
+                                    <a
+                                        title="link"
+                                        href="https://www.google.com/maps/place/ASPA+software/@-31.4105525,-64.1954704,17z/data=!3m1!4b1!4m6!3m5!1s0x94329971ec68f335:0x312ba76f9ee8aeac!8m2!3d-31.4105525!4d-64.1928955!16s%2Fg%2F11kjyf86bj?entry=ttu"
+                                    >
                                         Av. Colón 730, X5003 Córdoba
                                     </a>
                                 </span>
@@ -122,8 +130,11 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 ms:w-50 text-gray-400">
-                                <a title="link" href="https://wa.me/5493513140217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp.">
-                                    +54 9 0351 314-0217
+                                    <a
+                                        title="link"
+                                        href="https://wa.me/5493513140217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
+                                    >
+                                        +54 9 0351 314-0217
                                     </a>
                                 </span>
                             </p>
@@ -145,8 +156,12 @@ export default function ContactCardImg() {
                                 </svg>
 
                                 <span className="mx-2  truncate w-72 text-gray-400">
-                                    <a title="link" href="mailto:aspasoftwaredevelopment@gmail.com">aspasoftwaredevelopment@gmail.com</a>
-                                    
+                                    <a
+                                        title="link"
+                                        href="mailto:aspasoftwaredevelopment@gmail.com"
+                                    >
+                                        aspasoftwaredevelopment@gmail.com
+                                    </a>
                                 </span>
                             </p>
                         </div>
@@ -155,9 +170,8 @@ export default function ContactCardImg() {
                             <h3 className="text-gray-300 ">Síguenos</h3>
 
                             <div className="flex mt-4 -mx-1.5 ">
-                                
-
-                                <a title="link"
+                                <a
+                                    title="link"
                                     className="mx-1.5 hover:text-blue-400 text-gray-400 transition-colors duration-300 transform "
                                     href="https://www.linkedin.com/company/85621550/admin/feed/posts/"
                                 >
@@ -182,9 +196,8 @@ export default function ContactCardImg() {
                                     </svg>
                                 </a>
 
-                                
-
-                                <a title="link"
+                                <a
+                                    title="link"
                                     className="mx-1.5 hover:text-blue-400 text-gray-400 transition-colors duration-300 transform "
                                     href="https://www.instagram.com/aspa.software"
                                 >

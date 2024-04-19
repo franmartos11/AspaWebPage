@@ -8,7 +8,7 @@ export default function () {
                     <div className="lg:pr-4">
                         <div className="lg:max-w-lg">
                             <h1 className="mt-2 text-3xl font-bold tracking-tight text-left text-white sm:text-5xl">
-                               Audit 
+                                Audit
                             </h1>
                             <p className="mt-6 text-xl leading-8 text-gray-100">
                                 ¿Estás listo para llevar tu negocio al siguiente

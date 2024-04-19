@@ -5,8 +5,6 @@ import HomeTeam from "./Components/home-team/HomeTeam";
 import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
-import MoovingLogosPartners from "./Components/MoovingLogos/MoovingLogosPartners";
-import CarrouselDemo from "./Components/imgcarrouselservices/CarrouselDemo";
 
 export default function Home() {
     return (

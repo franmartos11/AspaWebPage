@@ -38,4 +38,5 @@ const dummyContent = [
             </div>
         ),
         badge: "",
-    }]
+    },
+];

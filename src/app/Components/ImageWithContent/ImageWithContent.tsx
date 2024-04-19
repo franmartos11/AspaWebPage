@@ -9,7 +9,7 @@ export default function ImageWithContent() {
                         <Image
                             alt="crecimiento"
                             title="crecimiento"
-                            src="/crecimientoSoftware.webp"
+                            src="/crecimiento.avif"
                             className="h-[90%] rounded-lg w-full object-cover"
                             width={1500}
                             height={800}

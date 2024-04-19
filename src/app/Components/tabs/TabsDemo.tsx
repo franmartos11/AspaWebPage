@@ -23,7 +23,7 @@ export function TabsDemo() {
         {
             title: "Audit",
             value: "services",
-            link: '/servicios',
+            link: '/auditorias',
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl  text-center align-middle justify-center font-bold text-white  from-blue-500 to-blue-900">
                     

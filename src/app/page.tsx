@@ -5,12 +5,14 @@ import HomeTeam from "./Components/home-team/HomeTeam";
 import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
+import MoovingLogos from "./Components/MoovingLogos/MoovingLogos";
 
 export default function Home() {
     return (
         <div>
             <Nav page={"home"}></Nav>
             <HeroHome></HeroHome>
+            <MoovingLogos></MoovingLogos>
             <HeroScrollDemo></HeroScrollDemo>
             <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                 <h2 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">

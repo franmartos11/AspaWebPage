@@ -1,7 +1,17 @@
-export default function (){
-    return(
-        <div className=" flex overflow-hidden">
-             <div className="animate-loop-scroll flex flex-row"> 
+export default function () {
+    return (
+        <div className="py-[10rem] ">
+            <div className="mb-[8rem] text-center">
+                <h2 className="text-blue-600 text-center font-medium mb-4 block">
+                    Nuestros Clientes
+                </h2>
+                <h3 className="text-4xl text-white text-center font-bold">
+                    Quienes confían en nosotros
+                </h3>
+            </div>
+
+            <div className=" flex overflow-hidden ">
+                <div className="animate-loop-scroll flex flex-row">
                     <a
                         title="link"
                         target="_blank"
@@ -31,7 +41,7 @@ export default function (){
                     <a
                         title="link"
                         target="_blank"
-                        href="https://alfonsolozita.com" 
+                        href="https://alfonsolozita.com"
                         className="flex justify-center items-center border border-solid border-gray-200  shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem] "
                     >
                         <img
@@ -68,7 +78,10 @@ export default function (){
                         />
                     </a>
                 </div>
-                <div className=" animate-loop-scroll flex flex-row " aria-hidden='true'> 
+                <div
+                    className=" animate-loop-scroll flex flex-row "
+                    aria-hidden="true"
+                >
                     <a
                         title="link"
                         target="_blank"
@@ -98,7 +111,7 @@ export default function (){
                     <a
                         title="link"
                         target="_blank"
-                        href="https://alfonsolozita.com" 
+                        href="https://alfonsolozita.com"
                         className="flex justify-center items-center border border-solid border-gray-200  shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
@@ -135,8 +148,7 @@ export default function (){
                         />
                     </a>
                 </div>
-
+            </div>
         </div>
-       
-    )
-};
+    );
+}

@@ -6,11 +6,10 @@ import CardProyect from "../CardProyect/CardProyect";
 import CardProyectApp from "../CardProyect/CardProyectApp";
 import CardProyectWeb from "../CardProyect/CardProyectWebs";
 import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
-import Partners from "../Partners/Partners";
 import CardProyectAuditoria from "../CardProyect/CardProyectAuditoria";
-import LayoutGrid from "../imgcarrouselservices/LayoutGrid";
 import CarrouselDemo from "../imgcarrouselservices/CarrouselDemo";
 import { imgsCarcheck, imgsCarcheck2 } from "./TracingBeamCarcheck";
+import MoovingLogos from "../MoovingLogos/MoovingLogos";
 
 export function TracingBeamDemo() {
     return (
@@ -76,7 +75,7 @@ const dummyContent = [
             <div>
                 <div id=""></div>
                 <CardProyectAuditoria></CardProyectAuditoria>
-                <Partners></Partners>
+                <MoovingLogos></MoovingLogos>
             </div>
         ),
         badge: "",

@@ -3,8 +3,8 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
 import CardProyect from "../CardProyect/CardProyect";
-import Partners from "../Partners/Partners";
 import CarrouselDemo from "../imgcarrouselservices/CarrouselDemo";
+import MoovingLogos from "../MoovingLogos/MoovingLogos";
 
 export function TracingBeamCarcheck() {
     return (
@@ -52,7 +52,7 @@ const dummyContent = [
                     <CarrouselDemo slides={imgsCarcheck}></CarrouselDemo>
                     <CarrouselDemo slides={imgsCarcheck2}></CarrouselDemo>
                 </div>
-                <Partners></Partners>
+                <MoovingLogos></MoovingLogos>
             </div>
         ),
         badge: "",

@@ -16,7 +16,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.instagram.com/charlatanes.prod/"
-                        className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/charlatanes-logo.png"
@@ -29,7 +29,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.facebook.com/Inaebnitautomotriz/?locale=es_LA"
-                        className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/In_Aebnit_logo.png"
@@ -42,7 +42,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://alfonsolozita.com"
-                        className="flex justify-center items-center border border-solid border-gray-200  shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem] "
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200  shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem] "
                     >
                         <img
                             src="/alfonso-logo.png"
@@ -55,7 +55,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.facebook.com/CarRefinishesKolor/?locale=es_LA"
-                        className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/Car_Refinishes_Logo.png"
@@ -68,7 +68,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.instagram.com/m.nortebosch/?hl=es"
-                        className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/servicios-norte-logo.png"
@@ -86,7 +86,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.instagram.com/charlatanes.prod/"
-                        className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/charlatanes-logo.png"
@@ -99,7 +99,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.facebook.com/Inaebnitautomotriz/?locale=es_LA"
-                        className="flex justify-center items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/In_Aebnit_logo.png"
@@ -112,7 +112,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://alfonsolozita.com"
-                        className="flex justify-center items-center border border-solid border-gray-200  shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200  shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/alfonso-logo.png"
@@ -125,7 +125,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.facebook.com/CarRefinishesKolor/?locale=es_LA"
-                        className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/Car_Refinishes_Logo.png"
@@ -138,7 +138,7 @@ export default function () {
                         title="link"
                         target="_blank"
                         href="https://www.instagram.com/m.nortebosch/?hl=es"
-                        className="flex justify-center  items-center border border-solid border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                        className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img
                             src="/servicios-norte-logo.png"

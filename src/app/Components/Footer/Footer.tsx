@@ -30,7 +30,7 @@ export default function () {
                 </a>
                 <a
                     title="link"
-                    href="/about-me"
+                    href="/nosotros"
                     className="font-medium text-white"
                 >
                     Nosotros

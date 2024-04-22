@@ -7,7 +7,7 @@ export default function () {
         <div>
             <Nav page={"servicios"}></Nav>
             <TracingBeamWeb></TracingBeamWeb>
-            <Form service="Pag-web"  ></Form>
+            <Form service="Pag-web"></Form>
         </div>
     );
 }

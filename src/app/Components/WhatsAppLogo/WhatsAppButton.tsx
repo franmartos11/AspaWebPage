@@ -4,7 +4,7 @@ const FloatingButton = () => {
     return (
         <a
             title="link"
-            href="https://wa.me/5493534143284?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
+            href="https://wa.me/5493513140217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
         >
             <svg
                 className="fixed bottom-4 right-4 p-1 bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 block  md:hidden"

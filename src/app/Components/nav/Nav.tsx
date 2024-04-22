@@ -14,7 +14,7 @@ export default function Nav({ page }: { page: string }) {
     };
 
     return (
-        <nav className="" id="top-page">
+        <nav className="bg-black" id="top-page">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
                 {" "}
                 {/* Agregado 'relative' */}
@@ -64,7 +64,7 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/"
-                                className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
+                                className={`block py-2 px-3 md:p-0 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700   ${
                                     page === "home"
                                         ? " text-blue-700"
                                         : "text-white"
@@ -78,7 +78,7 @@ export default function Nav({ page }: { page: string }) {
                                 onClick={toggleDropdown}
                                 id="dropdownNavbarLink"
                                 data-dropdown-toggle="dropdownNavbar"
-                                className={`flex items-center justify-between w-full py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  md:dark:hover:text-blue-500  dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent ${
+                                className={`flex items-center justify-between w-full py-2 px-3  rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  md:dark:hover:text-blue-500  dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent ${
                                     page === "servicios"
                                         ? " text-blue-700"
                                         : "text-white"
@@ -147,7 +147,7 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/nosotros"
-                                className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
+                                className={`block py-2 px-3 md:p-0 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
                                     page === "nosotros"
                                         ? " text-blue-700"
                                         : "text-white"
@@ -162,7 +162,7 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/contact"
-                                className={`block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
+                                className={`block py-2 px-3 md:p-0 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
                                     page === "contacto"
                                         ? " text-blue-700"
                                         : "text-white"

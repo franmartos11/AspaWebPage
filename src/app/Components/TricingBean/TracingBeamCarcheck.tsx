@@ -5,6 +5,7 @@ import { TracingBeam } from "./Tracing-beam";
 import CardProyect from "../CardProyect/CardProyect";
 import CarrouselDemo from "../imgcarrouselservices/CarrouselDemo";
 import MoovingLogos from "../MoovingLogos/MoovingLogos";
+import Form from "../Forms/Form";
 
 export function TracingBeamCarcheck() {
     return (
@@ -53,6 +54,7 @@ const dummyContent = [
                     <CarrouselDemo slides={imgsCarcheck2}></CarrouselDemo>
                 </div>
                 <MoovingLogos></MoovingLogos>
+                <Form service="Carcheck"  ></Form>
             </div>
         ),
         badge: "",

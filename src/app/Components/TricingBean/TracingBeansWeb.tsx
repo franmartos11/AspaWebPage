@@ -5,6 +5,7 @@ import { TracingBeam } from "./Tracing-beam";
 import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
 import CardProyectWeb from "../CardProyect/CardProyectWebs";
 import MoovingLogos from "../MoovingLogos/MoovingLogos";
+import Form from "../Forms/Form";
 
 export function TracingBeamWeb() {
     return (
@@ -37,6 +38,7 @@ const dummyContent = [
                 <MacbookScrollDemo></MacbookScrollDemo>
                 <CardProyectWeb></CardProyectWeb>
                 <MoovingLogos></MoovingLogos>
+                <Form service="Pag-web"></Form>
             </div>
         ),
         badge: "",

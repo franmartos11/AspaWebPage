@@ -1,5 +1,3 @@
-import Form from "../Components/Forms/Form";
-import { TracingBeamCarcheck } from "../Components/TricingBean/TracingBeamCarcheck";
 import { TracingBeamApps } from "../Components/TricingBean/TracingBeanApps";
 import Nav from "../Components/nav/Nav";
 
@@ -9,7 +7,6 @@ export default function () {
         <div className="bg-black">
             <Nav page={"servicios"}></Nav>
             <TracingBeamApps></TracingBeamApps>
-            <Form service="Apps-a-medida"  ></Form>
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
 import CardProyectApp from "../CardProyect/CardProyectApp";
 import MoovingLogos from "../MoovingLogos/MoovingLogos";
+import Form from "../Forms/Form";
 
 export function TracingBeamApps() {
     return (
@@ -35,6 +36,7 @@ const dummyContent = [
                 <div id="desarrollo-medida"></div>
                 <CardProyectApp></CardProyectApp>
                 <MoovingLogos></MoovingLogos>
+                <Form service="Apps-a-medida"  ></Form>
             </div>
         ),
         badge: "",

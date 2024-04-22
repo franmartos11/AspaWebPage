@@ -35,7 +35,7 @@ export default function RootLayout({
                 content="text/html; charset=utf-8"
             ></meta>
             <meta name="language" content="Spanish"></meta>
-            <body className={inter.className}>
+            <body className={inter.className} >
                 {children}
                 <WhatsAppButton></WhatsAppButton>
                 <Footer></Footer>

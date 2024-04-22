@@ -9,7 +9,7 @@ import MoovingLogos from "./Components/MoovingLogos/MoovingLogos";
 
 export default function Home() {
     return (
-        <div>
+        <div className="bg-black">
             <Nav page={"home"}></Nav>
             <HeroHome></HeroHome>
             <HeroScrollDemo></HeroScrollDemo>

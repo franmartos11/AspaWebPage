@@ -9,17 +9,17 @@ import { CardBody, CardContainer, CardItem } from "./CardContainer";
 export function CardHome3() {
     return (
         <CardContainer className="inter-var ">
-            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-blue-500/[5] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+            <CardBody className=" relative group/card  hover:shadow-2xl hover:shadow-blue-500/[5] bg-black border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
                 <CardItem
                     translateZ="50"
-                    className="text-xl font-bold text-neutral-600 dark:text-white"
+                    className="text-xl font-bold  text-white"
                 >
                     Orientación al cliente
                 </CardItem>
                 <CardItem
                     as="p"
                     translateZ="60"
-                    className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                    className=" text-sm max-w-sm mt-2 text-neutral-300"
                 >
                     Tu éxito es nuestro norte. Priorizamos tus necesidades y te
                     brindamos un servicio excepcional que va más allá de lo

@@ -13,11 +13,11 @@ import MoovingLogos from "../MoovingLogos/MoovingLogos";
 
 export function TracingBeamDemo() {
     return (
-        <TracingBeam className="">
+        <TracingBeam >
             <div className=" mx-auto antialiased pt-4 relative">
                 {dummyContent.map((item, index) => (
-                    <div key={`content-${index}`} className="mb-10">
-                        <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
+                    <div key={`content-${index}`} className="">
+                        <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-[2.6rem]">
                             {item.badge}
                         </h2>
 

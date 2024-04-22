@@ -4,7 +4,7 @@ import ServicesPage from "../Components/servicesPage/ServicesPage";
 
 export default function () {
     return (
-        <div>
+        <div className="bg-black">
             <Nav page={"servicios"}></Nav>
             <ServicesPage></ServicesPage>
             <TracingBeamDemo></TracingBeamDemo>

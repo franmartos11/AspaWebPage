@@ -7,10 +7,10 @@ import MoovingLogos from "../MoovingLogos/MoovingLogos";
 
 export function TracingBeamApps() {
     return (
-        <TracingBeam className="">
+        <TracingBeam >
             <div className=" mx-auto antialiased pt-4 relative">
                 {dummyContent.map((item, index) => (
-                    <div key={`content-${index}`} className="mb-10">
+                    <div key={`content-${index}`} className="">
                         <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
                             {item.badge}
                         </h2>

@@ -5,7 +5,7 @@ import Nav from "../Components/nav/Nav";
 
 export default function () {
     return (
-        <div>
+        <div className="bg-black">
             <Nav page={"servicios"}></Nav>
             <TracingBeamAuditorias></TracingBeamAuditorias>
             <Form service="Auditorias"  ></Form>

@@ -43,7 +43,7 @@ export default function Form(service: { service: string }) {
                         />
                     </div>
 
-                    <div className="sm:col-span-2">
+                    <div className="sm:col-span-2 ">
                         <label className="block mb-2 text-sm font-medium text-gray-300">
                             Mensaje
                         </label>
@@ -65,7 +65,7 @@ export default function Form(service: { service: string }) {
                     <div className=" text-center ">
                         <button
                             type="submit"
-                            className="py-3 px-9 text-sm font-medium text-center bg-gray-700 text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 "
+                            className="py-3 px-9 text-sm font-medium text-center  text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-primary-300 "
                         >
                             Enviar Mensaje
                         </button>

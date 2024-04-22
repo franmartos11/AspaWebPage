@@ -20,6 +20,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <title>Aspa Software</title>
             <body className={inter.className}>
                 {children}
                 <WhatsAppButton></WhatsAppButton>

@@ -7,7 +7,7 @@ import Nav from "../Components/nav/Nav";
 
 export default function () {
     return (
-        <div>
+        <div className="bg-black">
             <Nav page={"nosotros"}></Nav>
             <NosotrosTeam></NosotrosTeam>
             <ImageWithContent2></ImageWithContent2>

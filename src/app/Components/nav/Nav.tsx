@@ -64,7 +64,7 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/"
-                                className={`block py-2 px-3 md:p-0 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700   ${
+                                className={`block py-2 px-3 md:p-0 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500    ${
                                     page === "home"
                                         ? " text-blue-700"
                                         : "text-white"

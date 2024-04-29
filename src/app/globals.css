@@ -7,6 +7,9 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+/*{
+  cursor:none
+}*/
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,4 +35,17 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.circle {
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+}
+
+.cursor-blue-dot {
+  cursor: blue !important;
 }

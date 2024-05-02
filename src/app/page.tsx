@@ -7,7 +7,9 @@ import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
 import MoovingLogos from "./Components/MoovingLogos/MoovingLogos";
 
+
 export default function Home() {
+
     return (
         <div className="bg-black">
             <Nav page={"home"}></Nav>

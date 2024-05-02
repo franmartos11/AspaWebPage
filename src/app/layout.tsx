@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./Components/Footer/Footer";
 import WhatsAppButton from "./Components/WhatsAppLogo/WhatsAppButton";
-import CursorCustom from "./Components/cursorCustom/CursorCustom";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,9 +38,9 @@ export default function RootLayout({
             <body className={inter.className} >
                 {children}
                 <WhatsAppButton></WhatsAppButton>
-                <Footer></Footer>
-                
+                <Footer></Footer>   
             </body>
+            
         </html>
     );
 }

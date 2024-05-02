@@ -32,7 +32,7 @@ export const TextGenerateEffect = ({
                     return (
                         <motion.span
                             key={word + idx}
-                            className="text-whiteopacity-0"
+                            className="text-white opacity-0"
                         >
                             {word}{" "}
                         </motion.span>

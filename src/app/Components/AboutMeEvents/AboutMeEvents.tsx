@@ -19,14 +19,14 @@ export default function AboutMeEvents() {
                                         title="avatar"
                                     ></img>
                                     <div className="flex items-center px-6 py-3 bg-blue-400">
-                                        <h1 className="mx-3 text-white font-semibold text-lg">
+                                        <h2 className="mx-3 text-white font-semibold text-lg">
                                             Formación
-                                        </h1>
+                                        </h2>
                                     </div>
                                     <div className="py-4 px-6">
-                                        <h1 className="text-2xl font-semibold text-gray-800">
+                                        <h3 className="text-2xl font-semibold text-gray-800">
                                             Impulso 21
-                                        </h1>
+                                        </h3>
                                         <p className="py-2 text-lg text-gray-700">
                                             Participamos de una incubadora de
                                             negocios,practicando la validación,
@@ -40,9 +40,9 @@ export default function AboutMeEvents() {
                                             >
                                                 <path d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z" />
                                             </svg>
-                                            <h1 className="px-2 text-sm">
+                                            <h4 className="px-2 text-sm">
                                                 Córdoba
-                                            </h1>
+                                            </h4>
                                         </div>
                                         <div className="flex items-center mt-4 text-gray-700">
                                             <svg
@@ -78,14 +78,14 @@ export default function AboutMeEvents() {
 		C21.296,142.084,53.387,90.466,98.991,55.735z"
                                                 />
                                             </svg>
-                                            <h1 className="px-2 text-sm">
+                                            <h4 className="px-2 text-sm">
                                                 <a
                                                     title="link"
                                                     href="https://21.edu.ar/impulso-21"
                                                 >
                                                     Impulso21.com
                                                 </a>
-                                            </h1>
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
@@ -97,14 +97,14 @@ export default function AboutMeEvents() {
                                         title="avatar"
                                     ></img>
                                     <div className="flex items-center px-6 py-3 bg-blue-400">
-                                        <h1 className="mx-3 text-white font-semibold text-lg">
+                                        <h2 className="mx-3 text-white font-semibold text-lg">
                                             Expositores
-                                        </h1>
+                                        </h2>
                                     </div>
                                     <div className="py-4 px-6">
-                                        <h1 className="text-2xl font-semibold text-gray-800">
+                                        <h3 className="text-2xl font-semibold text-gray-800">
                                             Feria 21
-                                        </h1>
+                                        </h3>
                                         <p className="py-2 text-lg text-gray-700">
                                             Fuimos exponentes por diseño de un
                                             software a medida que generaba leeds
@@ -119,9 +119,9 @@ export default function AboutMeEvents() {
                                             >
                                                 <path d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z" />
                                             </svg>
-                                            <h1 className="px-2 text-sm">
+                                            <h4 className="px-2 text-sm">
                                                 Córdoba
-                                            </h1>
+                                            </h4>
                                         </div>
                                         <div className="flex items-center mt-4 text-gray-700">
                                             <svg
@@ -157,14 +157,14 @@ export default function AboutMeEvents() {
 		C21.296,142.084,53.387,90.466,98.991,55.735z"
                                                 />
                                             </svg>
-                                            <h1 className="px-2 text-sm">
+                                            <h4 className="px-2 text-sm">
                                                 <a
                                                     title="link"
                                                     href="https://feria.21.edu.ar"
                                                 >
                                                     Feria.21.edu.ar
                                                 </a>
-                                            </h1>
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
@@ -177,9 +177,9 @@ export default function AboutMeEvents() {
                                         title="evento"
                                     ></img>
                                     <div className="flex items-center px-6 py-3 bg-blue-400">
-                                        <h1 className="mx-3 text-white font-semibold text-lg">
+                                        <h2 className="mx-3 text-white font-semibold text-lg">
                                             Formación
-                                        </h1>
+                                        </h2>
                                     </div>
                                     <div className="py-4 px-6">
                                         <h1 className="text-2xl font-semibold text-gray-800">
@@ -198,9 +198,9 @@ export default function AboutMeEvents() {
                                             >
                                                 <path d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z" />
                                             </svg>
-                                            <h1 className="px-2 text-sm">
+                                            <h3 className="px-2 text-sm">
                                                 Córdoba Hotel Centenario
-                                            </h1>
+                                            </h3>
                                         </div>
                                         <div className="flex items-center mt-4 text-gray-700">
                                             <svg
@@ -236,14 +236,14 @@ export default function AboutMeEvents() {
 		C21.296,142.084,53.387,90.466,98.991,55.735z"
                                                 />
                                             </svg>
-                                            <h1 className="px-2 text-sm">
+                                            <h3 className="px-2 text-sm">
                                                 <a
                                                     title="link"
                                                     href="https://eldoce.tv/sociedad/tv-4-0-vivo-megaevento-ciencia-innovacion-tecnologia-el-doce_158243/"
                                                 >
                                                     TV 4.0 Canal 12
                                                 </a>
-                                            </h1>
+                                            </h3>
                                         </div>
                                     </div>
                                 </div>

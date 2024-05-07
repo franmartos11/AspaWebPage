@@ -57,9 +57,9 @@ export default function () {
                                         </a>
 
                                         <div className="text-center mt-6 text-white  ">
-                                            <h1 className=" text-xl font-bold mb-1">
+                                            <h3 className=" text-xl font-bold mb-1">
                                                 Agustín Luque
-                                            </h1>
+                                            </h3>
 
                                             <div className=" font-light mb-2">
                                                 CMO
@@ -114,9 +114,9 @@ export default function () {
                                         </a>
 
                                         <div className="text-center mt-6 text-white">
-                                            <h1 className="text-xl font-bold mb-1">
+                                            <h3 className="text-xl font-bold mb-1">
                                                 Francisco Martos
-                                            </h1>
+                                            </h3>
 
                                             <div className=" font-light mb-2">
                                                 CTO
@@ -171,9 +171,9 @@ export default function () {
                                         </a>
 
                                         <div className="text-center mt-6 text-white">
-                                            <h1 className=" text-xl font-bold mb-1">
+                                            <h3 className=" text-xl font-bold mb-1">
                                                 Haik Kilic
-                                            </h1>
+                                            </h3>
 
                                             <div className=" font-light mb-2">
                                                 CEO

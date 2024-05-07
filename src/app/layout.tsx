@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Aspa Software",
     description:
-        "Potenciamos negocios con soluciones de software innovadoras. Aspa Software Development es una empresa líder en desarrollo de software especializada en automatizacion de procesos, aplicaciones a medida y paginas web. Nos diferenciamos por nuestro trato personalizado.",
+        "Desarrollamos soluciones innovadoras para potenciar tu negocio. Automatizamos procesos, creamos apps y páginas web personalizadas. ¡Contáctanos!",
     icons: "/aspaLogo.webp",
 };
 

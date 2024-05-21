@@ -6,6 +6,7 @@ import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
 import MoovingLogos from "./Components/MoovingLogos/MoovingLogos";
+import Testimonials from "./Components/Testimonials/Testimonials";
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
             <TabsDemo></TabsDemo>
             <CardHomeTriple></CardHomeTriple>
             <HomeTeam></HomeTeam>
+            
             <MoovingLogos></MoovingLogos>
         </div>
     );

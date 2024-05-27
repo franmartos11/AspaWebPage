@@ -77,6 +77,19 @@ export default function () {
                             className=" h-[5rem]"
                         />
                     </a>
+                    <a
+                        title="link"
+                        target="_blank"
+                        href="https://www.instagram.com/omegasolucionesrl/"
+                        className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                    >
+                        <img
+                            src="/omega2.png"
+                            title="logo"
+                            alt="logo"
+                            className=" h-[6rem]"
+                        />
+                    </a>
                 </div>
                 <div
                     className=" animate-loop-scroll flex flex-row "
@@ -147,6 +160,20 @@ export default function () {
                             className=" h-[5rem]"
                         />
                     </a>
+                    <a
+                        title="link"
+                        target="_blank"
+                        href="https://www.instagram.com/omegasolucionesrl/"
+                        className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                    >
+                        <img
+                            src="/omega2.png"
+                            title="logo"
+                            alt="logo"
+                            className=" h-[5rem]"
+                        />
+                    </a>
+                    
                 </div>
             </div>
         </div>

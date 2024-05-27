@@ -18,7 +18,7 @@ export default function () {
                             Alineación perfecta con los objetivos, incluso a distancia.
                             </p>
                             <p className="font-medium text-white">
-                            ASPA se ha podido alinear con los objetivos de mi proyecto, incluso estando en continentes diferente. Las reuniones y servicios entregados han sido a tiempo y del mejor nivel! Los recomiendo!
+                            ASPA se ha podido alinear con los objetivos de mi proyecto, incluso estando en continentes diferente
                             </p>
                         </div>
                         <div className="flex flex-col">
@@ -38,12 +38,11 @@ export default function () {
                     <div className="border p-7 rounded-xl bg-neutral-950 drop-shadow-md border-neutral-800/50 col-span-3 flex flex-col gap-y-10 justify-between">
                         <div className="flex flex-col gap-y-3.5">
                             <p className="font-bold text-xl text-white">
-                                Excellent product features
+                            Alineación perfecta con los objetivos, incluso a distancia.
                             </p>
                             <p className="font-medium text-white">
-                                The features offered by our service are
-                                outstanding. They have greatly improved our
-                                workflow and efficiency.
+                            ASPA se ha podido alinear con los objetivos de mi proyecto, incluso estando en continentes diferente. Las reuniones y servicios entregados han sido a tiempo y del mejor nivel! Los recomiendo!
+                            
                             </p>
                         </div>
                         <div className="flex flex-col">
@@ -53,22 +52,21 @@ export default function () {
                                 className="h-10 w-10"
                             />
                             <p className="pt-2 text-sm font-semibold text-white">
-                                Michael Johnson
+                            C. Gonzales
                             </p>
                             <p className="text-sm font-medium text-slate-100/70">
-                                CEO at XYZ Corporation
+                            Dueno de Charlatanes
                             </p>
                         </div>
                     </div>
                     <div className="border p-7 rounded-xl bg-neutral-950 drop-shadow-md border-neutral-800/50 col-span-3 flex flex-col gap-y-10 justify-between">
                         <div className="flex flex-col gap-y-3.5">
                             <p className="font-bold text-xl text-white">
-                                Seamless integration process
+                                Exelente servicio
                             </p>
                             <p className="font-medium text-white">
-                                Integrating our systems with our service was
-                                smooth and hassle-free. The support team guided
-                                us through every step of the process.
+                            Excelente servicio, muy buena atención por parte de los chicos.
+                            Recomiendo totalmente la aplicación de auditorías.
                             </p>
                         </div>
                         <div className="flex flex-col">
@@ -78,10 +76,10 @@ export default function () {
                                 className="h-10 w-10"
                             />
                             <p className="pt-2 text-sm font-semibold text-white">
-                                Sarah Brown
+                                Agustin G.
                             </p>
                             <p className="text-sm font-medium text-slate-100/70">
-                                CTO at XYZ Corporation
+                                Usuario Aspa Audit
                             </p>
                         </div>
                     </div>

@@ -134,7 +134,7 @@ export default function ContactCardImg() {
                                         title="link"
                                         href="https://wa.me/5493513140217?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
                                     >
-                                        +54 9 0351 314-0217
+                                        +54 9 3517 73-0900
                                     </a>
                                 </span>
                             </p>

@@ -28,6 +28,19 @@ export default function () {
                     <a
                         title="link"
                         target="_blank"
+                        href="https://www.visualpeephole.com/"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                    >
+                        <img
+                            src="/vplogo.png"
+                            alt="logo"
+                            title="logo"
+                            className=" h-[4rem] "
+                        />
+                    </a>
+                    <a
+                        title="link"
+                        target="_blank"
                         href="https://www.facebook.com/Inaebnitautomotriz/?locale=es_LA"
                         className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
@@ -121,6 +134,22 @@ export default function () {
                             className=" h-[13rem]"
                         />
                     </a>
+
+                    <a
+                        title="link"
+                        target="_blank"
+                        href="https://www.visualpeephole.com/"
+                        className="flex justify-center items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+                    >
+                        <img
+                            src="/vplogo.png"
+                            alt="logo"
+                            title="logo"
+                            className=" h-[4rem] "
+                        />
+                    </a>
+
+
                     <a
                         title="link"
                         target="_blank"

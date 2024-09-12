@@ -2,11 +2,16 @@
 import React from "react";
 import { SparklesCore } from "./SparklesCore";
 import { TextGenerateEffect } from "../GenerativeText/TextGenerateEffect";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function HeroHome() {
+    const { language, setLanguage } = useLanguage('es');
     //empezando a generar multiidioma
-    let es = 'Impulsamos tu negocio con software a medida'
-    let en = 'We Boost Your Business with Custom Software'
+    const texts = {
+        es: 'Impulsamos tu negocio con software a medida',
+        en: 'We Boost Your Business with Custom Software'
+    }
+    
 
     return (
         <div className="h-[40rem]  w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
@@ -32,7 +37,7 @@ export function HeroHome() {
                 <div className="absolute  inset-0 w-full h-full">
                     <div className="flex flex-col items-center pt-[0.5rem]  ">
                         <div className="text-center pb-12 z-50  h-[150%] w-[60vw] ">
-                            <TextGenerateEffect words={es}/>
+                            <TextGenerateEffect words={texts[language]}/>
                         </div>
                     </div>
                 </div>

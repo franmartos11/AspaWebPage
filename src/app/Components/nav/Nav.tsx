@@ -15,7 +15,7 @@ export default function Nav({ page }: { page: string }) {
         setDropdown(!dropdown);
     };
 
-    const { language, setLanguage } = useLanguage('es');
+    const { language, setLanguage } = useLanguage();
     
     const texts = {
         es: {

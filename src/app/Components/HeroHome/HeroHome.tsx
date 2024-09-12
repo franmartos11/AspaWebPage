@@ -5,7 +5,7 @@ import { TextGenerateEffect } from "../GenerativeText/TextGenerateEffect";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function HeroHome() {
-    const { language, setLanguage } = useLanguage('es');
+    const { language, setLanguage } = useLanguage();
     //empezando a generar multiidioma
     const texts = {
         es: 'Impulsamos tu negocio con software a medida',

@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
+
 
 export default function Nav({ page }: { page: string }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +15,42 @@ export default function Nav({ page }: { page: string }) {
         setDropdown(!dropdown);
     };
 
+    const { language, setLanguage } = useLanguage('es');
+
+    const texts = {
+        es: {
+            op1: 'Inicio',
+            op2: {
+                title: 'Servicios',
+                o1: 'Todos los servicios',
+                o2: 'Desarrollo Web',
+                o3: 'Apps a medida',
+                o4: 'Carcheck',
+                o5: 'Audit',
+            },
+            op3: 'Nosotros',
+            op4: 'Contacto',
+        },
+        en: {
+            op1: 'Home',
+            op2: {
+                title: 'Services',
+                o1: 'All Services',
+                o2: 'Web Development',
+                o3: 'Custom Apps',
+                o4: 'Carcheck',
+                o5: 'Audit',
+            },
+            op3: 'About Us',
+            op4: 'Contact',
+        }
+    };
+
     return (
-        <nav className="bg-black" id="top-page">
+        <div className="bg-black" id="top-page">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
                 {" "}
-                {/* Agregado 'relative' */}
+
                 <Link
                     title="link"
                     href="/"
@@ -54,9 +87,8 @@ export default function Nav({ page }: { page: string }) {
                     </svg>
                 </button>
                 <div
-                    className={`${
-                        isMenuOpen ? "block" : "hidden"
-                    } w-full md:block md:w-auto mt-4 md:mt-0  top-full left-0 z-10`}
+                    className={`${isMenuOpen ? "block" : "hidden"
+                        } w-full md:block md:w-auto mt-4 md:mt-0  top-full left-0 z-10`}
                 >
                     <ul className="flex flex-col text-white font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                         <li>
@@ -64,13 +96,12 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/"
-                                className={`block py-2 px-3 md:p-0 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500    ${
-                                    page === "home"
+                                className={`block py-2 px-3 md:p-0 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500    ${page === "home"
                                         ? " text-blue-700"
                                         : "text-white"
-                                }`}
+                                    }`}
                             >
-                                Inicio
+                                {texts[language].op1}
                             </Link>
                         </li>
                         <li>
@@ -78,13 +109,12 @@ export default function Nav({ page }: { page: string }) {
                                 onClick={toggleDropdown}
                                 id="dropdownNavbarLink"
                                 data-dropdown-toggle="dropdownNavbar"
-                                className={`flex items-center justify-between w-full py-2 px-3  rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  md:dark:hover:text-blue-500  dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent ${
-                                    page === "servicios"
+                                className={`flex items-center justify-between w-full py-2 px-3  rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto  md:dark:hover:text-blue-500  dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent ${page === "servicios"
                                         ? " text-blue-700"
                                         : "text-white"
-                                }`}
+                                    }`}
                             >
-                                Servicios{" "}
+                                {texts[language].op2.title}{" "}
                                 <svg
                                     className="w-2.5 h-2.5 ms-2.5"
                                     aria-hidden="true"
@@ -109,35 +139,35 @@ export default function Nav({ page }: { page: string }) {
                                         href="/servicios"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
-                                        Todos los servicios
+                                        {texts[language].op2.o1}
                                     </Link>
                                     <Link
                                         title="link"
                                         href="/desarrollo-web"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
-                                        Desarrollo Web
+                                        {texts[language].op2.o2}
                                     </Link>
                                     <Link
                                         title="link"
                                         href="/apps-a-medida"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
-                                        Apps a medida
+                                        {texts[language].op2.o3}
                                     </Link>
                                     <Link
                                         title="link"
                                         href="/carcheck"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
-                                        Carcheck
+                                        {texts[language].op2.o4}
                                     </Link>
                                     <Link
                                         title="link"
                                         href="/auditorias"
                                         className="hover:text-blue-700 pt-[0.5rem]"
                                     >
-                                        Audit
+                                        {texts[language].op2.o5}
                                     </Link>
                                 </div>
                             )}
@@ -147,13 +177,12 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/nosotros"
-                                className={`block py-2 px-3 md:p-0 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
-                                    page === "nosotros"
+                                className={`block py-2 px-3 md:p-0 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${page === "nosotros"
                                         ? " text-blue-700"
                                         : "text-white"
-                                }`}
+                                    }`}
                             >
-                                Nosotros
+                                {texts[language].op3}
                             </Link>
                         </li>
 
@@ -162,18 +191,19 @@ export default function Nav({ page }: { page: string }) {
                                 title="link"
                                 onClick={toggleMenu}
                                 href="/contact"
-                                className={`block py-2 px-3 md:p-0 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${
-                                    page === "contacto"
+                                className={`block py-2 px-3 md:p-0 rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700  md:dark:hover:text-blue-500 dark:hover:bg-gray-700  md:dark:hover:bg-transparent ${page === "contacto"
                                         ? " text-blue-700"
                                         : "text-white"
-                                }`}
+                                    }`}
                             >
-                                Contacto
+                                {texts[language].op4}
                             </Link>
                         </li>
+                        <button onClick={() => setLanguage('es')}>ES</button>
+                        <button onClick={() => setLanguage('en')}>EN</button>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
     );
 }

@@ -4,15 +4,21 @@ import Image from "next/image";
 import { ContainerScroll } from "./ContainerScroll";
 
 export function HeroScrollDemo() {
+
+    let es1 = 'Nos ocupamos de impulsarte'
+    let es2 = 'Digitalizando Procesos'
+
+    let en1 = 'We Take Care of Boosting You by'
+    let en2 = 'Digitizing Processes'
     return (
         <div className="flex flex-col overflow-hidden bg-black">
             <ContainerScroll
                 titleComponent={
                     <>
                         <h2 className="text-3xl font-semibold text-white">
-                            Nos ocupamos de impulsarte <br />
+                            {es1} <br />
                             <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                                Digitalizando Procesos
+                                {es2}
                             </span>
                         </h2>
                     </>

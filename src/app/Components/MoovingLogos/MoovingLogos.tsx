@@ -1,12 +1,20 @@
-export default function () {
+export default function ( ) {
+    let es = {
+        title: 'Nuestros Clientes',
+        paragraph: 'Quienes confían en nosotros',
+    };
+    let en = {
+        title: 'Our Clients',
+        paragraph: 'Those who trust us',
+    };
     return (
         <div className="py-[10rem] ">
             <div className="mb-[8rem] text-center">
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
-                    Nuestros Clientes
+                    {es.title}
                 </h2>
                 <h3 className="text-4xl text-white text-center font-bold">
-                    Quienes confían en nosotros
+                    {es.paragraph}
                 </h3>
             </div>
 

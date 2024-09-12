@@ -1,19 +1,40 @@
 import Image from "next/image";
 export default function ContactCardImg() {
+    let es = {
+        title: 'Contáctanos',
+        paragraph: '¡Haznos saber como podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.',
+        form: {
+            a: 'Nombre Completo',
+            b: 'Dirección Email',
+            c: 'Número Teléfono',
+            d: 'Mensaje',
+            button: 'Enviar',
+            e:'Síguenos',
+        },
+    };
+    let en = {
+        title: 'Contact Us',
+        paragraph: 'Let us know how we can help you! Fill out the contact form and we will be happy to answer your questions, discuss collaborations, or just chat about your ideas.',
+        form: {
+            a: 'Full Name',
+            b: 'Email Address',
+            c: 'Phone Number',
+            d: 'Message',
+            button: 'Send',
+            e: 'Follow Us',
+        },
+    };
     return (
         <section className="min-h-screen pt-[5rem] bg-black ">
             <div className="container px-6  mx-auto">
                 <div className="lg:flex lg:items-center lg:-mx-10">
                     <div className="lg:w-1/2 lg:mx-10">
                         <h1 className="text-3xl font-semibold   capitalize text-white lg:text-5xl">
-                            Contáctanos
+                            {es.title}
                         </h1>
 
                         <p className="mt-4 text-gray-400 ">
-                            ¡Haznos saber como podemos ayudarte! Completa el
-                            formulario de contacto y estaremos encantados de
-                            responder a tus preguntas, discutir colaboraciones o
-                            simplemente charlar sobre tus ideas.
+                            {es.paragraph}
                         </p>
 
                         <form
@@ -24,10 +45,10 @@ export default function ContactCardImg() {
                             <div className="-mx-2 md:items-center md:flex">
                                 <div className="flex-1 px-2">
                                     <label className="block mb-2 text-sm text-gray-200">
-                                        Nombre Completo
+                                        {es.form.a}
                                     </label>
                                     <input
-                                        type="Nombre"
+                                        type={es.form.a}
                                         placeholder=""
                                         className="block w-full px-5 py-3 mt-2 border  rounded-md placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
@@ -35,20 +56,20 @@ export default function ContactCardImg() {
 
                                 <div className="flex-1 px-2 mt-4 md:mt-0">
                                     <label className="block mb-2 text-sm text-gray-200">
-                                        Dirección Email
+                                        {es.form.b}
                                     </label>
                                     <input
-                                        type="email"
+                                        type={es.form.b}
                                         placeholder=""
                                         className="block w-full px-5 py-3 mt-2   border  rounded-md placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
                                 <div className="flex-1 px-2 mt-4 md:mt-0">
                                     <label className="block mb-2 text-sm text-gray-200">
-                                        Número Teléfono
+                                        {es.form.c}
                                     </label>
                                     <input
-                                        type="telefono"
+                                        type={es.form.c}
                                         placeholder=""
                                         className="block w-full px-5 py-3 mt-2  border  rounded-md placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
@@ -57,17 +78,17 @@ export default function ContactCardImg() {
 
                             <div className="w-full mt-4">
                                 <label className="block mb-2 text-sm text-gray-200">
-                                    Mensaje
+                                    {es.form.d}
                                 </label>
                                 <input
-                                    type="telefono"
+                                    type={es.form.d}
                                     className="block w-full h-32 px-5 py-3 mt-2  border  rounded-md md:h-56 placeholder-gray-600 bg-black text-gray-300 border-white focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     placeholder=""
                                 ></input>
                             </div>
 
                             <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform rounded-md bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                                Enviar
+                                {es.form.button}
                             </button>
                         </form>
                     </div>
@@ -167,7 +188,7 @@ export default function ContactCardImg() {
                         </div>
 
                         <div className="mt-6 w-80 md:mt-8">
-                            <h3 className="text-gray-300 ">Síguenos</h3>
+                            <h3 className="text-gray-300 ">{es.form.e}</h3>
 
                             <div className="flex mt-4 -mx-1.5 ">
                                 <a

@@ -16,7 +16,7 @@ export default function Nav({ page }: { page: string }) {
     };
 
     const { language, setLanguage } = useLanguage('es');
-
+    
     const texts = {
         es: {
             op1: 'Inicio',

@@ -2,21 +2,21 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export type LanguageContextType = {
-    language: string;
-    setLanguage: (lang: string) => void;
+    language: 'es' | 'en';
+    setLanguage: (lang: 'es' | 'en') => void;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-    const [language, setLanguage] = useState<string>('es');
+    const [language, setLanguage] = useState<'es' | 'en'>('es');
 
     useEffect(() => {
-        const savedLanguage = localStorage.getItem('language') || 'es';
+        const savedLanguage = (localStorage.getItem('language') as 'es' | 'en') || 'es';
         setLanguage(savedLanguage);
     }, []);
 
-    const changeLanguage = (lang: string) => {
+    const changeLanguage = (lang: 'es' | 'en') => {
         setLanguage(lang);
         localStorage.setItem('language', lang);
     };
@@ -28,11 +28,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export const useLanguage = (p0: string) => {
+export const useLanguage = () => {
     const context = useContext(LanguageContext);
     if (!context) {
         throw new Error('useLanguage must be used within a LanguageProvider');
     }
     return context;
-};
- 
+}

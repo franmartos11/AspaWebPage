@@ -1,3 +1,4 @@
+'use client'
 import AboutMeEvents from "../Components/AboutMeEvents/AboutMeEvents";
 import ImageWithContent from "../Components/ImageWithContent/ImageWithContent";
 import ImageWithContent2 from "../Components/ImageWithContent/ImageWithContent2";

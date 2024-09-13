@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 export default function ImageWithContent2() {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
 
     const texts = {
         es :{

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export default function () {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
 
     const texts = {
         es : {

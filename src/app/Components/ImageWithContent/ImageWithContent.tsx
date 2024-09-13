@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export default function ImageWithContent() {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
     const texts = {
         es :{
             title:'QUE BUSCAMOS ?',

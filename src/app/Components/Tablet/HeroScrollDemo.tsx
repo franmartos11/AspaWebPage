@@ -2,23 +2,29 @@
 import React from "react";
 import Image from "next/image";
 import { ContainerScroll } from "./ContainerScroll";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function HeroScrollDemo() {
-
-    let es1 = 'Nos ocupamos de impulsarte'
-    let es2 = 'Digitalizando Procesos'
-
-    let en1 = 'We Take Care of Boosting You by'
-    let en2 = 'Digitizing Processes'
+    const { language, setLanguage } = useLanguage();
+    const texts = {
+        es:{
+            txt1:'Nos ocupamos de impulsarte',
+            txt2:'Digitalizando Procesos',
+        },
+        en:{
+            txt1:'We Take Care of Boosting You by',
+            txt2:'Digitizing Processes',
+        }
+    }
     return (
         <div className="flex flex-col overflow-hidden bg-black">
             <ContainerScroll
                 titleComponent={
                     <>
                         <h2 className="text-3xl font-semibold text-white">
-                            {es1} <br />
+                            {texts[language].txt1} <br />
                             <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                                {es2}
+                            {texts[language].txt2}
                             </span>
                         </h2>
                     </>

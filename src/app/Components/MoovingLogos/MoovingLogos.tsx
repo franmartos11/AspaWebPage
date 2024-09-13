@@ -1,20 +1,26 @@
+import { useLanguage } from "../AALenguageContext/LenguageContext";
+
 export default function ( ) {
-    let es = {
-        title: 'Nuestros Clientes',
-        paragraph: 'Quienes confían en nosotros',
-    };
-    let en = {
-        title: 'Our Clients',
+    const { language, setLanguage } = useLanguage();
+    const texts = {
+        es : {title: 'Nuestros Clientes',
+            paragraph: 'Quienes confían en nosotros',
+        },
+        en : {
+            title: 'Our Clients',
         paragraph: 'Those who trust us',
-    };
+        }
+    }
+    
+    
     return (
         <div className="py-[10rem] ">
             <div className="mb-[8rem] text-center">
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
-                    {es.title}
+                    {texts[language].title}
                 </h2>
                 <h3 className="text-4xl text-white text-center font-bold">
-                    {es.paragraph}
+                    {texts[language].paragraph}
                 </h3>
             </div>
 

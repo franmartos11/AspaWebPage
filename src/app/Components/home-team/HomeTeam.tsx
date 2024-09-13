@@ -1,26 +1,31 @@
 "use client";
 import { useState } from "react";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export default function () {
     const [hovered, setHovered] = useState(false);
     const [hovered1, setHovered1] = useState(false);
     const [hovered2, setHovered2] = useState(false);
+    const { language, setLanguage } = useLanguage();
 
-    let es = {
-        title:'Nuestro Equipo',
+    const texts = {
+        es:{title:'Nuestro Equipo',
         paragraph:'No somos solo una empresa, somos un equipo apasionado por lo que hacemos',
+        },
+        en : {
+            title: 'Our Team',
+            paragraph: 'We are not just a company, we are a team passionate about what we do.',
+        },
     }
-    let en = {
-        title: 'Our Team',
-        paragraph: 'We are not just a company, we are a team passionate about what we do.',
-    };
+    
+    
     return (
         <div>
             <div className="flex flex-wrap  mb-24 pt-[6rem] justify-center align-middle text-center">
                 <div className="w-full lg:w-6/12 px-4">
                     <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                         <h2 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
-                            {es.title}
+                            {texts[language].title}
                         </h2>
 
                         <div className="flex justify-center mx-auto mt-6">
@@ -30,7 +35,7 @@ export default function () {
                         </div>
                     </div>
                     <p className="text-gray-400 text-lg font-light pt-[2rem] ">
-                        {es.paragraph}
+                        {texts[language].paragraph}
                     </p>
                 </div>
             </div>

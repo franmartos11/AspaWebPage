@@ -1,19 +1,26 @@
+'use client'
 import Link from "next/link";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export default function () {
-    let es = {
-        op1:'nicio',
-        op2:'Servicios',
-        op3:'Nosotros',
-        op4:'Contacto'
+    const { language, setLanguage } = useLanguage();
 
+    const texts = {
+        es : {
+            op1:'Inicio',
+            op2:'Servicios',
+            op3:'Nosotros',
+            op4:'Contacto'
+        },
+        en : {
+            op1: 'Home',
+            op2:'Services',
+            op3: 'About Us',
+            op4: 'Contact',
+        },
     }
-    let en = {
-        op1: 'Home',
-        op2:'Services',
-        op3: 'About Us',
-        op4: 'Contact',
-    };
+    
+    
     return (
         <div className="relative   px-4 pt-20 bg-black">
             <hr className="h-px mb-[5rem] mt-[-5.5rem] bg-black"></hr>
@@ -32,28 +39,28 @@ export default function () {
                 className="mx-auto  mb-10 flex max-w-lg flex-col gap-10 text-center justify-center sm:flex-row sm:text-left"
             >
                 <a title="link" href="/" className="font-medium text-white">
-                    {es.op1}
+                    {texts[language].op1}
                 </a>
                 <a
                     title="link"
                     href="/servicios"
                     className="font-medium text-white"
                 >
-                    {es.op2}
+                    {texts[language].op2}
                 </a>
                 <a
                     title="link"
                     href="/nosotros"
                     className="font-medium text-white"
                 >
-                    {es.op3}
+                    {texts[language].op3}
                 </a>
                 <a
                     title="link"
                     href="/contact"
                     className="font-medium text-white"
                 >
-                    {es.op4}
+                    {texts[language].op4}
                 </a>
             </nav>
             <p className="py-10 text-center text-gray-300">

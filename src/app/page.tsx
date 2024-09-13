@@ -15,7 +15,7 @@ export default function Home( ) {
     return (
         <div className="bg-black">
             <Nav  page={"home"}></Nav>
-            <HeroHome ></HeroHome>
+            <HeroHome></HeroHome>
             <HeroScrollDemo></HeroScrollDemo>           
             <TabsDemo></TabsDemo>
             <CardHomeTriple></CardHomeTriple>

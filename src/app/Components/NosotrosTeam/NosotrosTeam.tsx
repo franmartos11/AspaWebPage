@@ -1,17 +1,30 @@
 "use client";
 import { useState } from "react";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export default function () {
     const [hovered, setHovered] = useState(false);
     const [hovered1, setHovered1] = useState(false);
     const [hovered2, setHovered2] = useState(false);
+    const { language, setLanguage } = useLanguage();
+    const texts = {
+        es : {
+            op1:'Nuestro Equipo',
+            op2:'No somos solo una empresa, somos un equipo apasionado por lo que hacemos.',
+            
+        },
+        en: {
+            op1: 'Our Team',
+            op2: 'We are not just a company, we are a team passionate about what we do.',
+        },
+    }
     return (
         <div className="pt-[5rem]">
             <div className="flex flex-wrap  mb-5 justify-center align-middle text-center">
                 <div className="w-full lg:w-6/12 px-4">
                     <div className="container  px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                         <h2 className="text-4xl   font-semibold text-center  capitalize lg:text-6xl text-white">
-                            Nuestro Equipo
+                        {texts[language].op1}
                         </h2>
 
                         <div className="flex justify-center mx-auto mt-6">
@@ -21,8 +34,7 @@ export default function () {
                         </div>
                     </div>
                     <p className="text-gray-400 text-lg font-light pt-[1rem] ">
-                        No somos solo una empresa, somos un equipo apasionado
-                        por lo que hacemos.
+                    {texts[language].op2}
                     </p>
                 </div>
             </div>

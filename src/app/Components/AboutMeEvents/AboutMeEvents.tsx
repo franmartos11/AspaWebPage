@@ -1,3 +1,4 @@
+'use client'
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 import AboutMeCard from "./AboutMeCard";
 

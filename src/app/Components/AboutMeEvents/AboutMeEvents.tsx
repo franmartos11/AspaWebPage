@@ -4,7 +4,7 @@ import AboutMeCard from "./AboutMeCard";
 
 
 export default function AboutMeEvents() {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
     const texts = {
         es :{
             title: 'EVENTOS',

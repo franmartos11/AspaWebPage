@@ -4,7 +4,7 @@ import { Tabs } from "./Tabs";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function TabsDemo() {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
     const texts = {
         es: {
             titulo: 'Nuestros Servicios',

@@ -5,7 +5,7 @@ import { ContainerScroll } from "./ContainerScroll";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function HeroScrollDemo() {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
     const texts = {
         es:{
             txt1:'Nos ocupamos de impulsarte',

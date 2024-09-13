@@ -7,7 +7,7 @@ export interface CardHomeProps {
     img: string;
 }
 export default function () {
-    const { language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage('es');
     const texts = {
         es: {
             title: 'En Qué Nos Diferenciamos',

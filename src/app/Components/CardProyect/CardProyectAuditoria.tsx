@@ -25,7 +25,7 @@ export default function () {
         en: {
             title: "Audit",
             subtitle: "Ready to take your business to the next level? Our app allows you to conduct efficient and comprehensive audits.",
-        
+
             text1: 'Conduct Audits',
             desciption1: 'Allows users to complete assigned audits by answering questions or selecting options from a set of predefined items. Upload Images: Facilitates the inclusion of visual evidence to support audit findings, such as photos of facilities, documents, or defective products. Generate Action Plans: Enables the creation of detailed action plans to address non-conformities identified in the audit, assigning responsibilities, deadlines, and resources. Download PDF with Information: Generates a PDF report summarizing the audit results, including responses, attached images, and established action plans.',
             text2: 'Register Auditors',

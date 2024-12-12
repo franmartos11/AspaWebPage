@@ -9,82 +9,223 @@ export function AppleCardsCarouselDemo() {
 
   return (
     <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        Get to know your iSad.
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200  font-sans">
+        Conoce nuestros Modulos
       </h2>
       <Carousel items={cards} />
     </div>
   );
 }
 
-const DummyContent = () => {
+const ContentCliente = () => {
   return (
     <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
-              </span>{" "}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
-            </p>
-            <Image
-              src="https://assets.aceternity.com/macbook.png"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      })}
+
+
+      <div
+
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+            Gestión completa de clientes al alcance de tu mano.
+          </span>{" "}
+          Puedes visualizar la lista de todos tus clientes, realizar búsquedas y acceder a su información detallada con un solo clic. Además, podrás llamarlos directamente o iniciar una conversación desde aquí.
+        </p>
+        <Image
+          src="/carcheckClientes.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
+
+      <div
+
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Consulta toda la información de tus clientes en un solo lugar.
+          </span>{" "}
+          Accede fácilmente a sus datos personales, vehículos registrados y turnos asignados. Además, puedes gestionar su historial, agregar nuevos registros o comunicarte directamente desde esta sección.
+        </p>
+        <Image
+          src="/carcheckCliente2.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
+      <div
+
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Consulta el historial completo de cada vehículo en el taller.
+          </span>{" "}
+          Desde esta sección, puedes acceder a los presupuestos generados y las veces que el vehículo ingresó al taller para alistajes. Mantén un registro organizado con fechas, detalles asociados, y acciones rápidas para agregar nuevos registros o visualizar la información completa.
+        </p>
+        <Image
+          src="/carcheckClientes3.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
     </>
   );
 };
 
+const ContentVehiculos = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+          Administra todos los vehículos registrados en tu taller de forma sencilla.
+          </span>{" "}
+          puedes buscar rápidamente por matrícula, modelo o marca, y acceder a la información completa de cada vehículo. Agrega nuevos registros o actualiza los existentes con solo un clic, manteniendo todo organizado y al día.
+        </p>
+        <Image
+          src="/carcheckCars2.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+        <Image
+          src="/carcheckCars.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+          Consulta toda la información detallada de cada vehículo registrado en el taller.
+          </span>{" "}
+           Podrás visualizar datos clave como la patente, marca, modelo, color y cliente asociado. Además, accede al historial completo de alistajes realizados, con fechas y detalles específicos. Gestiona de forma eficiente la información del vehículo y mantén un registro organizado de su historial en el taller.
+        </p>
+        <Image
+          src="/carcheckCar3.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+        <Image
+          src="/carcheckCar4.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
+    </>
+  );
+};
+
+const DummyContent = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+          Gestiona de manera eficiente el flujo de trabajo de los vehículos en el taller.
+          </span>{" "}
+          Aquí podrás visualizar y organizar cada etapa del proceso, desde el preingreso hasta la entrega final. Realiza un seguimiento claro del estado de cada vehículo, asigna tareas, registra avances y mantén todo el proceso bajo control. Diseñada para optimizar el orden y la productividad del taller.
+        </p>
+        <Image
+          src="/carcheckAlistaje.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+          Monitorea el progreso del alistaje de un vehículo en detalle.
+          </span>{" "}
+          Puedes consultar información clave como los kilómetros recorridos, nivel de combustible, estado general al ingreso, y cualquier observación relevante. También podrás visualizar el área asignada, el precio estimado o final, y el estado actual del proceso. Mantén un seguimiento claro y organizado para garantizar un servicio eficiente y preciso.
+        </p>
+        <Image
+          src="/carcheckAlistaje2.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="pt-[1rem]"
+        />
+      </div>
+    </>
+  );
+};
+
+
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    category: "Clientes",
+    title: "Clientes",
+    src: "/cliente.webp",
+    content: <ContentCliente />,
   },
   {
     category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
+    title: "Vehiculos",
+    src: "/vehiculos.webp",
+    content: <ContentVehiculos />,
   },
   {
     category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Alistajes",
+    src: "/alistaje2.webp",
     content: <DummyContent />,
   },
 
   {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Presupuestos",
+    title: "Presupuestos",
+    src: "/presupuestos.webp",
     content: <DummyContent />,
   },
   {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Turnos",
+    title: "Turnos",
+    src: "/turnos.webp",
     content: <DummyContent />,
   },
   {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Servicios",
+    title: "Servicios",
+    src: "/servicio2.webp",
+    content: <DummyContent />,
+  },
+  {
+    category: "Stock",
+    title: "Stock",
+    src: "/inventario.webp",
+    content: <DummyContent />,
+  },
+  {
+    category: "Reporte",
+    title: "Reporte",
+    src: "/reportes.webp",
     content: <DummyContent />,
   },
 ];
@@ -144,7 +285,7 @@ export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
   currentIndex: number;
 }>({
-  onCardClose: () => {},
+  onCardClose: () => { },
   currentIndex: 0,
 });
 

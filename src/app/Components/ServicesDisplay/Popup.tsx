@@ -37,7 +37,7 @@ const ContentCliente = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
 
@@ -56,7 +56,7 @@ const ContentCliente = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
       <div
@@ -74,7 +74,7 @@ const ContentCliente = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
     </>
@@ -98,14 +98,14 @@ const ContentVehiculos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
         <Image
           src="/carcheckCars.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
       <div
@@ -122,14 +122,14 @@ const ContentVehiculos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
         <Image
           src="/carcheckCar4.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
     </>
@@ -153,7 +153,7 @@ const DummyContent = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
       <div
@@ -170,7 +170,7 @@ const DummyContent = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="pt-[1rem]"
+          className="mt-[1rem] rounded-xl"
         />
       </div>
     </>

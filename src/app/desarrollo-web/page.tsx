@@ -1,4 +1,3 @@
-import Form from "../Components/Forms/Form";
 import { TracingBeamWeb } from "../Components/TricingBean/TracingBeansWeb";
 import Nav from "../Components/nav/Nav";
 

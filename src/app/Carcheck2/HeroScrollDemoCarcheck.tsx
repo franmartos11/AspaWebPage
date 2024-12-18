@@ -5,7 +5,7 @@ import { ContainerScroll } from "../Components/Tablet/ContainerScroll";
 
 export function HeroScrollDemoCarcheck() {
     return (
-        <div className="flex flex-col pt-0 overflow-hidden bg-black">
+        <div className="flex flex-col pt-0 overflow-hidden ">
             <ContainerScroll
                 titleComponent={
                     <>

@@ -30,6 +30,7 @@ const ContentCliente = () => {
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
             Gestión completa de clientes al alcance de tu mano.
           </span>{" "}
+          <br />
           Puedes visualizar la lista de todos tus clientes, realizar búsquedas y acceder a su información detallada con un solo clic. Además, podrás llamarlos directamente o iniciar una conversación desde aquí.
         </p>
         <Image
@@ -49,8 +50,10 @@ const ContentCliente = () => {
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             Consulta toda la información de tus clientes en un solo lugar.
           </span>{" "}
+          <br />
           Accede fácilmente a sus datos personales, vehículos registrados y turnos asignados. Además, puedes gestionar su historial, agregar nuevos registros o comunicarte directamente desde esta sección.
         </p>
+        
         <Image
           src="/carcheckCliente2.png"
           alt="Macbook mockup from Aceternity UI"
@@ -67,6 +70,7 @@ const ContentCliente = () => {
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             Consulta el historial completo de cada vehículo en el taller.
           </span>{" "}
+          <br />
           Desde esta sección, puedes acceder a los presupuestos generados y las veces que el vehículo ingresó al taller para alistajes. Mantén un registro organizado con fechas, detalles asociados, y acciones rápidas para agregar nuevos registros o visualizar la información completa.
         </p>
         <Image
@@ -89,8 +93,9 @@ const ContentVehiculos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-          Administra todos los vehículos registrados en tu taller de forma sencilla.
+            Administra todos los vehículos registrados en tu taller de forma sencilla.
           </span>{" "}
+          <br />
           puedes buscar rápidamente por matrícula, modelo o marca, y acceder a la información completa de cada vehículo. Agrega nuevos registros o actualiza los existentes con solo un clic, manteniendo todo organizado y al día.
         </p>
         <Image
@@ -113,9 +118,10 @@ const ContentVehiculos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-          Consulta toda la información detallada de cada vehículo registrado en el taller.
+            Consulta toda la información detallada de cada vehículo registrado en el taller.
           </span>{" "}
-           Podrás visualizar datos clave como la patente, marca, modelo, color y cliente asociado. Además, accede al historial completo de alistajes realizados, con fechas y detalles específicos. Gestiona de forma eficiente la información del vehículo y mantén un registro organizado de su historial en el taller.
+          <br />
+          Podrás visualizar datos clave como la patente, marca, modelo, color y cliente asociado. Además, accede al historial completo de alistajes realizados, con fechas y detalles específicos. Gestiona de forma eficiente la información del vehículo y mantén un registro organizado de su historial en el taller.
         </p>
         <Image
           src="/carcheckCar3.png"
@@ -144,8 +150,9 @@ const DummyContent = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-          Gestiona de manera eficiente el flujo de trabajo de los vehículos en el taller.
+            Gestiona de manera eficiente el flujo de trabajo de los vehículos en el taller.
           </span>{" "}
+          <br />
           Aquí podrás visualizar y organizar cada etapa del proceso, desde el preingreso hasta la entrega final. Realiza un seguimiento claro del estado de cada vehículo, asigna tareas, registra avances y mantén todo el proceso bajo control. Diseñada para optimizar el orden y la productividad del taller.
         </p>
         <Image
@@ -161,8 +168,9 @@ const DummyContent = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-          Monitorea el progreso del alistaje de un vehículo en detalle.
+            Monitorea el progreso del alistaje de un vehículo en detalle.
           </span>{" "}
+          <br />
           Puedes consultar información clave como los kilómetros recorridos, nivel de combustible, estado general al ingreso, y cualquier observación relevante. También podrás visualizar el área asignada, el precio estimado o final, y el estado actual del proceso. Mantén un seguimiento claro y organizado para garantizar un servicio eficiente y preciso.
         </p>
         <Image

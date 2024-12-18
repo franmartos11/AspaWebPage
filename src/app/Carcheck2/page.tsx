@@ -19,12 +19,11 @@ export default function () {
             <Nav page={"servicios"}></Nav>
             <Hero></Hero>
             <WhyBuyCarCheck></WhyBuyCarCheck>
-            <AppleCardsCarouselDemo></AppleCardsCarouselDemo>
-            
-            <MoovingLogos></MoovingLogos>
-            <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
+            <AppleCardsCarouselDemo></AppleCardsCarouselDemo>          
             <TutorialVideos></TutorialVideos>
             <PricingSection></PricingSection>
+            <MoovingLogos></MoovingLogos>
+            <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
             <Form service={"Carchek"}></Form>
             
         </div>

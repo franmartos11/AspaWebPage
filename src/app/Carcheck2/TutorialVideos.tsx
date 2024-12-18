@@ -28,7 +28,7 @@ export const TutorialVideos = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <section className="py-[15rem] px-6 ">
+    <section className="py-[5rem] px-6 ">
       {/* Animación de Aparición */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}

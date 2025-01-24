@@ -22,7 +22,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative text-white overflow-hidden mt-[5rem] mb-[5rem]">
+    <section className="relative text-white overflow-hidden mt-[0rem] mb-[5rem]">
       {/* Contenedor principal */}
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between px-6 py-16 lg:py-32 gap-12">
         {/* Texto principal */}
@@ -65,7 +65,7 @@ export const Hero = () => {
         {/* Imagen de dispositivos */}
         <div className="relative lg:w-1/2 flex justify-center">
           <Image
-            src="/carcheckMobiles.png" 
+            src="/carcheck2bg2.png" 
             alt="Software de Gestión para Talleres Mecánicos"
             width={700}
             height={500}

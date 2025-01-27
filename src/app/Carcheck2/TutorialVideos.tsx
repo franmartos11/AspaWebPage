@@ -2,34 +2,84 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
+import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
-const videos = [
-  {
-    id: 1,
-    title: "Introducción a CarCheck",
-    thumbnail: "/turnos.webp",
-    url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    id: 2,
-    title: "Cómo gestionar órdenes de trabajo",
-    thumbnail: "/turnos.webp",
-    url: "https://www.youtube.com/embed/tgbNymZ7vqY",
-  },
-  {
-    id: 3,
-    title: "Administrar clientes y vehículos",
-    thumbnail: "/turnos.webp",
-    url: "https://www.youtube.com/embed/ScMzIvxBSi4",
-  },
-];
+// Define el tipo de datos de un video
+type Video = {
+  id: number;
+  title: string;
+  thumbnail: string;
+  url: string;
+};
 
-export const TutorialVideos = () => {
+// Contenido multilingüe para los videos
+const videoContent = {
+  es: [
+    {
+      id: 1,
+      title: "Introducción a CarCheck",
+      thumbnail: "/turnos.webp",
+      url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    },
+    {
+      id: 2,
+      title: "Cómo gestionar órdenes de trabajo",
+      thumbnail: "/turnos.webp",
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+    },
+    {
+      id: 3,
+      title: "Administrar clientes y vehículos",
+      thumbnail: "/turnos.webp",
+      url: "https://www.youtube.com/embed/ScMzIvxBSi4",
+    },
+  ],
+  en: [
+    {
+      id: 1,
+      title: "Introduction to CarCheck",
+      thumbnail: "/turnos.webp",
+      url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    },
+    {
+      id: 2,
+      title: "How to Manage Work Orders",
+      thumbnail: "/turnos.webp",
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+    },
+    {
+      id: 3,
+      title: "Manage Clients and Vehicles",
+      thumbnail: "/turnos.webp",
+      url: "https://www.youtube.com/embed/ScMzIvxBSi4",
+    },
+  ],
+};
+
+// Contenido multilingüe para textos
+const textContent = {
+  es: {
+    title: "Aprende a usar CarCheck",
+    description: "Descubre nuestros tutoriales para sacar el máximo provecho del sistema.",
+    closeModal: "Cerrar",
+  },
+  en: {
+    title: "Learn to Use CarCheck",
+    description: "Discover our tutorials to make the most of the system.",
+    closeModal: "Close",
+  },
+};
+
+export const TutorialVideos: React.FC = () => {
+  const { language } = useLanguage("es"); // Hook para el idioma seleccionado
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
+  const videos = videoContent[language]; // Videos según el idioma
+  const texts = textContent[language]; // Textos según el idioma
+
   return (
-    <section className="py-[5rem] px-6 ">
-      {/* Animación de Aparición */}
+    <section className="py-[5rem] px-6">
+      {/* Contenedor animado */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,13 +89,11 @@ export const TutorialVideos = () => {
       >
         {/* Título */}
         <h2 className="text-3xl md:text-5xl font-bold text-gray-100 mb-8">
-          Aprende a usar <span className="text-blue-700">CarCheck</span>
+          {texts.title} <span className="text-blue-700">CarCheck</span>
         </h2>
-        <p className="text-lg text-gray-300 mb-12">
-          Descubre nuestros tutoriales para sacar el máximo provecho del sistema.
-        </p>
+        <p className="text-lg text-gray-300 mb-12">{texts.description}</p>
 
-        {/* Galería de Videos */}
+        {/* Galería de videos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos.map((video) => (
             <motion.div
@@ -61,9 +109,7 @@ export const TutorialVideos = () => {
                 className="w-full h-56 object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <p className="text-white text-lg font-semibold">
-                  {video.title}
-                </p>
+                <p className="text-white text-lg font-semibold">{video.title}</p>
               </div>
             </motion.div>
           ))}
@@ -74,7 +120,7 @@ export const TutorialVideos = () => {
       {selectedVideo && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={() => setSelectedVideo(null)} // Cerrar al hacer clic en el overlay
+          onClick={() => setSelectedVideo(null)} // Cierra al hacer clic en el fondo
         >
           <div
             className="relative w-full max-w-4xl p-4"

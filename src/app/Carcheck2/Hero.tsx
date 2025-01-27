@@ -2,21 +2,43 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
-const texts = [
-  "Maximiza tu Rentabilidad",
-  "Optimiza tus Procesos",
-  "Aumenta tu Productividad",
-  "Gestión Integral del Taller",
-];
+
 
 export const Hero = () => {
   const [index, setIndex] = useState(0);
 
+  // lenguaje function
+  const { language, setLanguage } = useLanguage('es');
+  const texts = {
+    es: {
+      texts: ["Maximiza tu Rentabilidad",
+        "Optimiza tus Procesos",
+        "Aumenta tu Productividad",
+        "Gestión Integral del Taller",],
+        text2:'Optimiza tu Taller ',
+        text3:'Gestiona tu taller mecánico de forma integral, optimizando tu tiempo, mejorando la eficiencia de tus procesos y aumentando la productividad diaria.',
+        text4:'Solicita una Demo',
+        text5:'Ver Funcionalidades',
+    },
+    en: {
+      texts: ["Maximize Your Profitability",
+        "Optimize Your Processes",
+        "Increase Your Productivity",
+        "Comprehensive Workshop Management",],
+      text2: 'Optimize Your Workshop',
+      text3: 'Manage your mechanical workshop comprehensively, optimizing your time, improving the efficiency of your processes, and increasing daily productivity.',
+      text4: 'Request a Demo',
+      text5: 'View Features',
+    },
+
+  }
+
   // Cambia el texto cada 3 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % texts.length);
+      setIndex((prevIndex) => (prevIndex + 1) % texts[language].texts.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -31,33 +53,32 @@ export const Hero = () => {
             Optimiza tu Taller <br />
             <AnimatePresence mode="wait">
               <motion.span
-                key={texts[index]}
+                key={texts.es.texts[index]}
                 className="text-blue-700 inline-block"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6 }}
               >
-                {texts[index]}
+                {texts[language].texts[index]}
               </motion.span>
             </AnimatePresence>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-            Gestiona tu taller mecánico de forma <strong>integral</strong>, optimizando tu tiempo,
-            mejorando la eficiencia de tus procesos y aumentando la productividad diaria.
+            {texts[language].text3}
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
             <a
               href="#demo"
               className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
             >
-              Solicita una Demo
+              {texts[language].text2}
             </a>
             <a
               href="#features"
               className="px-6 py-3 border border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition duration-300"
             >
-              Ver Funcionalidades
+              {texts[language].text4}
             </a>
           </div>
         </div>
@@ -65,7 +86,7 @@ export const Hero = () => {
         {/* Imagen de dispositivos */}
         <div className="relative lg:w-1/2 flex justify-center">
           <Image
-            src="/carcheck2bg2.png" 
+            src="/carcheck2bg2.png"
             alt="Software de Gestión para Talleres Mecánicos"
             width={700}
             height={500}

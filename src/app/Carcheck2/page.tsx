@@ -22,8 +22,7 @@ export default function () {
             <TutorialVideos></TutorialVideos>
             <PricingSection></PricingSection>
             <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
-            <Form service={"Carchek"}></Form>
-            
+            <Form service={"Carchek"}></Form>        
         </div>
     );
 }

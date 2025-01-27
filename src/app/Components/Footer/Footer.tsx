@@ -64,7 +64,7 @@ export default function () {
                 </a>
             </nav>
             <p className="py-10 text-center text-gray-300">
-                © 2024 Aspa Software | All Rights Reserved
+                © 2025 Aspa Software | All Rights Reserved
             </p>
         </div>
     );

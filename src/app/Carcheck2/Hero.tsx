@@ -50,7 +50,7 @@ export const Hero = () => {
         {/* Texto principal */}
         <div className="text-center lg:text-left lg:w-1/2">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-            Optimiza tu Taller <br />
+            {texts[language].text2} <br />
             <AnimatePresence mode="wait">
               <motion.span
                 key={texts.es.texts[index]}

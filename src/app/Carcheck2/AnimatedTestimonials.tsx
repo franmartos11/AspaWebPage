@@ -3,6 +3,7 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
 type Testimonial = {
   quote: string;
@@ -41,15 +42,34 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
-
+  // lenguaje function
+  const { language, setLanguage } = useLanguage('es');
+      const texts = {
+          es : {title: 'Nuestros Clientes',
+              paragraph: 'Quienes confían en nosotros',
+          },
+          en : {
+              title: 'Our Clients',
+          paragraph: 'Those who trust us',
+          }
+      }
   return (
+
     <motion.div
-      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12"
+      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 mb-[5rem] md:px-8 lg:px-12"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
     >
+      <div className="mb-[2.rem] lg:mb-[10rem] text-center">
+                <h2 className="text-blue-600 text-center font-medium mb-4 block">
+                    {texts[language].title}
+                </h2>
+                <h3 className="text-4xl text-white text-center font-bold">
+                    {texts[language].paragraph}
+                </h3>
+            </div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
           <div className="relative h-80 w-full">

@@ -21,7 +21,6 @@ export default function () {
             <AppleCardsCarouselDemo></AppleCardsCarouselDemo>          
             <TutorialVideos></TutorialVideos>
             <PricingSection></PricingSection>
-            <MoovingLogos></MoovingLogos>
             <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
             <Form service={"Carchek"}></Form>
             

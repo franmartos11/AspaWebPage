@@ -13,7 +13,7 @@ export default function () {
             title: 'En Qué Nos Diferenciamos',
             card1: {
                 title: 'Personalización',
-                paragraph: 'Despídete de las soluciones genéricas. En Aspa, creamos estrategias personalizadas que se adaptan a tus necesidades y te ayudan a alcanzar tus objetivos.',
+                paragraph: ' En Aspa Creamos estrategias personalizadas que se adaptan a tus necesidades y te ayudan a alcanzar tus objetivos.',
                 img: 'https://fc-abogados.com/es/wp-content/uploads/2021/12/Diseno-sin-titulo-5.png'
             },
             card2: {
@@ -23,7 +23,7 @@ export default function () {
             },
             card3: {
                 title: 'Orientación al Cliente',
-                paragraph: 'Tu éxito es nuestro norte. Priorizamos tus necesidades y te brindamos un servicio excepcional que va más allá de lo esperado. Tu satisfacción es nuestro compromiso.',
+                paragraph: 'Tu éxito es nuestro norte. Priorizamos tus necesidades y te brindamos un servicio excepcional que va más allá de lo esperado. ',
                 img: 'https://lh4.googleusercontent.com/1sCJiMOSRxYGbu6lsYD4y9-G-gSaQ3hckcI35ElV_7jUB1iVuwwP8Adau8U7ea4kRxkyhBgoSLrmw6KUK9MBLmKc_JJwvBQ0DFXkaiyTNB7D9lniM8A5wLyjj-BIm935v1K1gUOY',
             },
         },
@@ -41,7 +41,7 @@ export default function () {
             },
             card3: {
                 title: 'Customer Orientation',
-                paragraph: 'Your success is our compass. We prioritize your needs and provide exceptional service that goes beyond expectations. Your satisfaction is our commitment.',
+                paragraph: 'Your success is our compass. We prioritize your needs and provide exceptional service that goes beyond expectations.',
                 img: 'https://lh4.googleusercontent.com/1sCJiMOSRxYGbu6lsYD4y9-G-gSaQ3hckcI35ElV_7jUB1iVuwwP8Adau8U7ea4kRxkyhBgoSLrmw6KUK9MBLmKc_JJwvBQ0DFXkaiyTNB7D9lniM8A5wLyjj-BIm935v1K1gUOY',
             },
         }

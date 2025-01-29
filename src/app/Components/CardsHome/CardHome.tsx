@@ -9,7 +9,7 @@ import { CardHomeProps } from "./CardHomeTriple";
 export function CardHome({ title, paragraph, img }: CardHomeProps) {
     return (
         <CardContainer className="inter-var p-1">
-            <CardBody className=" relative group/card hover:shadow-2xl hover:shadow-blue-500/[5] bg-black border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+            <CardBody className=" relative group/card hover:shadow-2xl hover:shadow-blue-500/[5] bg-black border-white/[0.2]  w-auto sm:w-[23rem] h-[25rem] rounded-xl p-6 border  ">
                 <CardItem
                     translateZ="50"
                     className="text-xl font-bold text-white"

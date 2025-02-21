@@ -552,12 +552,7 @@ const data = [
     src: "/inventario.webp",
     content: <ContentStock />,
   },
-  {
-    category: "Reporte",
-    title: "Reporte",
-    src: "/reportes.webp",
-    content: <DummyContent />,
-  },
+  
 ];
 
 

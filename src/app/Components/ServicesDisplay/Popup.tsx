@@ -259,7 +259,7 @@ const ContentPresupuestos = () => {
   );
 };
 
-const DummyContent = () => {
+const ContentTurnos = () => {
   return (
     <>
       <div
@@ -267,13 +267,12 @@ const DummyContent = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Gestiona de manera eficiente el flujo de trabajo de los vehículos en el taller.
+          Gestión de Turnos
           </span>{" "}
           <br />
-          Aquí podrás visualizar y organizar cada etapa del proceso, desde el preingreso hasta la entrega final. Realiza un seguimiento claro del estado de cada vehículo, asigna tareas, registra avances y mantén todo el proceso bajo control. Diseñada para optimizar el orden y la productividad del taller.
-        </p>
+          Facilita la asignación y administración de turnos con un sistema eficiente que optimiza la planificación del taller. Este módulo te permite visualizar, gestionar y organizar turnos de manera clara y estructurada, asegurando una mejor distribución del trabajo y evitando demoras innecesarias. </p>
         <Image
-          src="/carcheckAlistaje.png"
+          src="/turnosMenu.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
@@ -285,13 +284,106 @@ const DummyContent = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Monitorea el progreso del alistaje de un vehículo en detalle.
+            Lista de Turnos
           </span>{" "}
           <br />
-          Puedes consultar información clave como los kilómetros recorridos, nivel de combustible, estado general al ingreso, y cualquier observación relevante. También podrás visualizar el área asignada, el precio estimado o final, y el estado actual del proceso. Mantén un seguimiento claro y organizado para garantizar un servicio eficiente y preciso.
-        </p>
+          Visualiza los turnos en una lista organizada según su estado (pendiente, en proceso, finalizado), facilitando el seguimiento y gestión de cada cita. Y accede a los datos clave de cada cita, incluyendo el vehículo, cliente, fecha y tipo de servicio solicitado. </p>
         <Image
           src="/carcheckAlistaje2.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Calendario de Turnos
+          </span>{" "}
+          <br />
+          Consulta y organiza los turnos de manera visual, permitiendo una distribución eficiente de los tiempos y recursos del taller.Mantén una planificación eficiente, mejora la atención al cliente y optimiza el rendimiento de tu taller.
+         </p>
+         <Image
+          src="/CalendarioTurnos.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
+    </>
+  );
+};
+
+const DummyContent = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+            Presupuestos Inteligentes y Automatización de Servicios
+          </span>{" "}
+          <br />
+          Optimiza la gestión de presupuestos en tu taller con un sistema ágil y automatizado. Este módulo te permite generar y administrar presupuestos de manera eficiente, asegurando un proceso fluido desde la cotización hasta la aprobación del servicio.</p>
+        <Image
+          src="/presupuestos1.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+
+      </div>
+
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Plantillas Personalizadas
+          </span>{" "}
+          <br />
+          Guarda plantillas predefinidas para servicios recurrentes, como mantenimientos y cambios de piezas, permitiendo aplicar presupuestos en segundos con todos los repuestos y tareas preconfiguradas.</p>
+        <Image
+          src="/presupuestosPlantillaService.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
+<div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Gestiona tus presupuestos
+          </span>{" "}
+          <br />
+          Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento.
+           Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
+        </p>
+        <Image
+          src="/Presupuestos.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+        <Image
+          src="/Presupuestos2.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+        <Image
+          src="/Presupuesto3.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
@@ -333,7 +425,7 @@ const data = [
     category: "Turnos",
     title: "Turnos",
     src: "/turnos.webp",
-    content: <DummyContent />,
+    content: <ContentTurnos />,
   },
   {
     category: "Servicios",

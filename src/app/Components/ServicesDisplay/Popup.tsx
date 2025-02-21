@@ -222,7 +222,7 @@ const ContentPresupuestos = () => {
           className="mt-[1rem] rounded-xl"
         />
       </div>
-<div
+      <div
         className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
@@ -231,7 +231,7 @@ const ContentPresupuestos = () => {
           </span>{" "}
           <br />
           Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento.
-           Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
+          Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
         </p>
         <Image
           src="/Presupuestos.png"
@@ -267,7 +267,7 @@ const ContentTurnos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-          Gestión de Turnos
+            Gestión de Turnos
           </span>{" "}
           <br />
           Facilita la asignación y administración de turnos con un sistema eficiente que optimiza la planificación del taller. Este módulo te permite visualizar, gestionar y organizar turnos de manera clara y estructurada, asegurando una mejor distribución del trabajo y evitando demoras innecesarias. </p>
@@ -305,8 +305,8 @@ const ContentTurnos = () => {
           </span>{" "}
           <br />
           Consulta y organiza los turnos de manera visual, permitiendo una distribución eficiente de los tiempos y recursos del taller.Mantén una planificación eficiente, mejora la atención al cliente y optimiza el rendimiento de tu taller.
-         </p>
-         <Image
+        </p>
+        <Image
           src="/CalendarioTurnos.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
@@ -314,6 +314,49 @@ const ContentTurnos = () => {
           className="mt-[1rem] rounded-xl"
         />
       </div>
+    </>
+  );
+};
+
+const ContentServicios = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+            Gestión de Servicios
+          </span>{" "}
+          <br />
+          Optimiza la administración de servicios en tu taller con un módulo diseñado para facilitar la gestión, registro y actualización de cada trabajo realizado. Agiliza el proceso al permitir la asignación de repuestos, ajustes de precios y control detallado de cada servicio.
+        </p>
+        <Image
+          src="/servicios.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Funcionalidades
+          </span>{" "}
+          <br />
+        </p>
+
+        <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de servicios:</span> Guarda cada servicio realizado con sus detalles, costos y repuestos asociados.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Asignación de repuestos:</span> Relaciona fácilmente repuestos con los servicios prestados.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Modificación de precios:</span> Ajusta los precios de los servicios individualmente o de forma masiva.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión eficiente del inventario:</span> Controla el uso de repuestos y su impacto en los costos.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial de servicios:</span> Accede al registro completo de cada intervención con detalles específicos.</li>
+        </ul>
+      </div>
+
+
     </>
   );
 };
@@ -357,7 +400,7 @@ const DummyContent = () => {
           className="mt-[1rem] rounded-xl"
         />
       </div>
-<div
+      <div
         className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
@@ -366,7 +409,7 @@ const DummyContent = () => {
           </span>{" "}
           <br />
           Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento.
-           Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
+          Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
         </p>
         <Image
           src="/Presupuestos.png"
@@ -431,7 +474,7 @@ const data = [
     category: "Servicios",
     title: "Servicios",
     src: "/servicio2.webp",
-    content: <DummyContent />,
+    content: <ContentServicios />,
   },
   {
     category: "Stock",

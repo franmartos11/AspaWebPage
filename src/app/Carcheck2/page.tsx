@@ -1,6 +1,5 @@
 'use client'
 import Form from "../Components/Forms/Form";
-import MoovingLogos from "../Components/MoovingLogos/MoovingLogos";
 import { AppleCardsCarouselDemo } from "../Components/ServicesDisplay/Popup";
 import Nav from "../Components/nav/Nav";
 import { AnimatedTestimonialsDemo } from "./AnimatedTestimonialsDemo";

@@ -53,7 +53,7 @@ const ContentCliente = () => {
           <br />
           Accede fácilmente a sus datos personales, vehículos registrados y turnos asignados. Además, puedes gestionar su historial, agregar nuevos registros o comunicarte directamente desde esta sección.
         </p>
-        
+
         <Image
           src="/carcheckCliente2.png"
           alt="Macbook mockup from Aceternity UI"
@@ -141,6 +141,48 @@ const ContentVehiculos = () => {
     </>
   );
 };
+const ContentAlistajes = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 pb-[2rem] ">
+            Administra el estado de tu taller de forma sencilla.
+          </span>{" "}
+          <br />
+          Optimiza la gestión de tu taller con nuestro módulo de Alistaje y Estado del Taller, diseñado para ofrecer una visión en tiempo real de cada vehículo en proceso. Desde el momento en que ingresa hasta su entrega final, podrás conocer el estado exacto de cada auto de manera rápida y sencilla.
+        </p>
+        <Image
+          src="/tallerEstado.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+  <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <span className="font-bold text-neutral-700 dark:text-neutral-200">
+      Funcionalidades: 
+    </span>{" "}
+    <br />
+  </p>
+
+  <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
+    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Seguimiento en tiempo real:</span> Consulta el estado del vehículo en cada fase del proceso.</li>
+    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Actualización rápida de estados:</span> Cambia el estado con un solo clic y notifica al equipo.</li>
+    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial completo de alistajes:</span> Revisa cada intervención con fechas y detalles específicos.</li>
+    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de órdenes de trabajo:</span> Accede a registros previos y añade nuevas solicitudes en cualquier momento.</li>
+    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de imprevistos:</span> Agrega notas y detalles sobre nuevos arreglos o situaciones imprevistas.</li>
+    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de repuestos y materiales:</span> Registra fácilmente repuestos adicionales requeridos para cada servicio.</li>
+  </ul>
+</div>
+
+    </>
+  );
+};
 
 const DummyContent = () => {
   return (
@@ -203,7 +245,7 @@ const data = [
     category: "Product",
     title: "Alistajes",
     src: "/alistaje2.webp",
-    content: <DummyContent />,
+    content: <ContentAlistajes />,
   },
 
   {

@@ -163,23 +163,98 @@ const ContentAlistajes = () => {
         />
       </div>
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-  <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-    <span className="font-bold text-neutral-700 dark:text-neutral-200">
-      Funcionalidades: 
-    </span>{" "}
-    <br />
-  </p>
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Funcionalidades:
+          </span>{" "}
+          <br />
+        </p>
 
-  <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
-    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Seguimiento en tiempo real:</span> Consulta el estado del vehículo en cada fase del proceso.</li>
-    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Actualización rápida de estados:</span> Cambia el estado con un solo clic y notifica al equipo.</li>
-    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial completo de alistajes:</span> Revisa cada intervención con fechas y detalles específicos.</li>
-    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de órdenes de trabajo:</span> Accede a registros previos y añade nuevas solicitudes en cualquier momento.</li>
-    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de imprevistos:</span> Agrega notas y detalles sobre nuevos arreglos o situaciones imprevistas.</li>
-    <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de repuestos y materiales:</span> Registra fácilmente repuestos adicionales requeridos para cada servicio.</li>
-  </ul>
-</div>
+        <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Seguimiento en tiempo real:</span> Consulta el estado del vehículo en cada fase del proceso.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Actualización rápida de estados:</span> Cambia el estado con un solo clic y notifica al equipo.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial completo de alistajes:</span> Revisa cada intervención con fechas y detalles específicos.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de órdenes de trabajo:</span> Accede a registros previos y añade nuevas solicitudes en cualquier momento.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de imprevistos:</span> Agrega notas y detalles sobre nuevos arreglos o situaciones imprevistas.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de repuestos y materiales:</span> Registra fácilmente repuestos adicionales requeridos para cada servicio.</li>
+        </ul>
+      </div>
 
+    </>
+  );
+};
+const ContentPresupuestos = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+            Presupuestos Inteligentes y Automatización de Servicios
+          </span>{" "}
+          <br />
+          Optimiza la gestión de presupuestos en tu taller con un sistema ágil y automatizado. Este módulo te permite generar y administrar presupuestos de manera eficiente, asegurando un proceso fluido desde la cotización hasta la aprobación del servicio.</p>
+        <Image
+          src="/presupuestos1.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+
+      </div>
+
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Plantillas Personalizadas
+          </span>{" "}
+          <br />
+          Guarda plantillas predefinidas para servicios recurrentes, como mantenimientos y cambios de piezas, permitiendo aplicar presupuestos en segundos con todos los repuestos y tareas preconfiguradas.</p>
+        <Image
+          src="/presupuestosPlantillaService.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
+<div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Gestiona tus presupuestos
+          </span>{" "}
+          <br />
+          Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento.
+           Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
+        </p>
+        <Image
+          src="/Presupuestos.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+        <Image
+          src="/Presupuestos2.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+        <Image
+          src="/Presupuesto3.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+      </div>
     </>
   );
 };
@@ -252,7 +327,7 @@ const data = [
     category: "Presupuestos",
     title: "Presupuestos",
     src: "/presupuestos.webp",
-    content: <DummyContent />,
+    content: <ContentPresupuestos />,
   },
   {
     category: "Turnos",

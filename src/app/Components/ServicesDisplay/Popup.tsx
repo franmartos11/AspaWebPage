@@ -1,21 +1,31 @@
 "use client";
 import Image, { ImageProps } from "next/image";
 import React, { useEffect } from "react";
+import {
+  useRef,
+  useState,
+  createContext,
+  useContext,
+} from "react";
+import {
+  IconArrowNarrowLeft,
+  IconArrowNarrowRight,
+  IconX,
+} from "@tabler/icons-react";
+import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
 
-export function AppleCardsCarouselDemo() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
-
-  return (
-    <div className="w-full h-full py-20 ">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200  font-sans">
-        Conoce nuestros Modulos
-      </h2>
-      <Carousel items={cards} />
-    </div>
-  );
+interface CarouselProps {
+  items: JSX.Element[];
+  initialScroll?: number;
 }
+
+type Card = {
+  src: string;
+  title: string;
+  category: string;
+  content: React.ReactNode;
+};
 
 const ContentCliente = () => {
   return (
@@ -429,8 +439,6 @@ const ContentStock = () => {
     </>
   );
 };
-
-
 const DummyContent = () => {
   return (
     <>
@@ -506,8 +514,6 @@ const DummyContent = () => {
     </>
   );
 };
-
-
 const data = [
   {
     category: "Clientes",
@@ -555,6 +561,20 @@ const data = [
   
 ];
 
+export function AppleCardsCarouselDemo() {
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
+
+  return (
+    <div className="w-full h-full py-20 ">
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200  font-sans">
+        Conoce nuestros Modulos
+      </h2>
+      <Carousel items={cards} />
+    </div>
+  );
+}
 
 export const useOutsideClick = (
   ref: React.RefObject<HTMLDivElement>,
@@ -578,32 +598,33 @@ export const useOutsideClick = (
   }, [ref, callback]);
 };
 
-
-import {
-  useRef,
-  useState,
-  createContext,
-  useContext,
-} from "react";
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconX,
-} from "@tabler/icons-react";
-import { cn } from "@/utils/cn";
-import { AnimatePresence, motion } from "framer-motion";
-
-
-interface CarouselProps {
-  items: JSX.Element[];
-  initialScroll?: number;
-}
-
-type Card = {
-  src: string;
-  title: string;
-  category: string;
-  content: React.ReactNode;
+export const BlurImage = ({
+  height,
+  width,
+  src,
+  className,
+  alt,
+  ...rest
+}: ImageProps) => {
+  const [isLoading, setLoading] = useState(true);
+  return (
+    <Image
+      className={cn(
+        "transition duration-300",
+        isLoading ? "blur-sm" : "blur-0",
+        className
+      )}
+      onLoad={() => setLoading(false)}
+      src={src}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      blurDataURL={typeof src === "string" ? src : undefined}
+      alt={alt ? alt : "Background of a beautiful view"}
+      {...rest}
+    />
+  );
 };
 
 export const CarouselContext = createContext<{
@@ -845,31 +866,4 @@ const Card = ({
   );
 };
 
-export const BlurImage = ({
-  height,
-  width,
-  src,
-  className,
-  alt,
-  ...rest
-}: ImageProps) => {
-  const [isLoading, setLoading] = useState(true);
-  return (
-    <Image
-      className={cn(
-        "transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
-        className
-      )}
-      onLoad={() => setLoading(false)}
-      src={src}
-      width={width}
-      height={height}
-      loading="lazy"
-      decoding="async"
-      blurDataURL={typeof src === "string" ? src : undefined}
-      alt={alt ? alt : "Background of a beautiful view"}
-      {...rest}
-    />
-  );
-};
+

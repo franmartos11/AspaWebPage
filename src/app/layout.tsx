@@ -5,6 +5,7 @@ import Footer from "./Components/Footer/Footer";
 import WhatsAppButton from "./Components/WhatsAppLogo/WhatsAppButton";
 import Script from "next/script";
 import { LanguageProvider } from "./Components/AALenguageContext/LenguageContext";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,6 +55,7 @@ export default function RootLayout({
             <LanguageProvider >
                 <body className={inter.className} >
                     {children}
+                    <Analytics />
                     <WhatsAppButton></WhatsAppButton>
                     <Footer></Footer>
                 </body>

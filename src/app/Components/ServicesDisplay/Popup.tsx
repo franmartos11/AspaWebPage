@@ -84,7 +84,6 @@ const ContentCliente = () => {
     </>
   );
 };
-
 const ContentVehiculos = () => {
   return (
     <>
@@ -258,7 +257,6 @@ const ContentPresupuestos = () => {
     </>
   );
 };
-
 const ContentTurnos = () => {
   return (
     <>
@@ -317,7 +315,6 @@ const ContentTurnos = () => {
     </>
   );
 };
-
 const ContentServicios = () => {
   return (
     <>
@@ -360,6 +357,79 @@ const ContentServicios = () => {
     </>
   );
 };
+const ContentStock = () => {
+  return (
+    <>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
+            Presupuestos Inteligentes y Automatización de Servicios
+          </span>{" "}
+          <br />
+          Mantén un control total sobre tu inventario con un sistema de gestión de stock eficiente y organizado. Este módulo te permite administrar los productos, actualizar precios y gestionar pedidos de reposición a proveedores de manera sencilla y rápida.
+        </p>
+        <Image
+          src="/stock.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+
+      </div>
+
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Gestión de Stock
+          </span>{" "}
+          <br />
+        </p>
+        <Image
+          src="/ajusteStock.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+        <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Visualización y administración del stock:</span> Consulta en tiempo real la cantidad disponible de cada producto en el taller.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Modificación de stock y precios:</span> Ajusta los niveles de inventario y actualiza los precios de forma individual o masiva.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de nuevos productos:</span> Agrega nuevos repuestos o materiales de manera rápida para mantener un inventario actualizado.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Pedidos automáticos a proveedores:</span> Realiza solicitudes de reposición directamente desde el sistema y mantén un flujo constante de abastecimiento.</li>
+        </ul>
+      </div>
+      <div
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Proveedores
+          </span>{" "}
+          <br />
+        </p>
+        <Image
+          src="/proveedores.png"
+          alt="Macbook mockup from Aceternity UI"
+          height="1920"
+          width="1080"
+          className="mt-[1rem] rounded-xl"
+        />
+        <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro y administración de proveedores:</span> Guarda información clave de cada proveedor para facilitar la comunicación y gestión de pedidos.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Seguimiento de pedidos:</span> Consulta qué productos han sido solicitados, a qué proveedor y en qué estado se encuentran.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial de abastecimiento:</span> Mantén un registro detallado de cada pedido realizado, asegurando un control eficiente del suministro.</li>
+          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Facilidad de contacto con proveedores:</span> Accede rápidamente a los datos del proveedor para coordinar entregas y realizar nuevas solicitudes.</li>
+        </ul>
+      </div>
+    </>
+  );
+};
+
 
 const DummyContent = () => {
   return (
@@ -480,7 +550,7 @@ const data = [
     category: "Stock",
     title: "Stock",
     src: "/inventario.webp",
-    content: <DummyContent />,
+    content: <ContentStock />,
   },
   {
     category: "Reporte",

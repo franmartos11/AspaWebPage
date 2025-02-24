@@ -4,13 +4,10 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
-
-
 export const Hero = () => {
   const [index, setIndex] = useState(0);
-
-  // lenguaje function
   const { language, setLanguage } = useLanguage('es');
+  
   const texts = {
     es: {
       texts: ["Maximiza tu Rentabilidad",

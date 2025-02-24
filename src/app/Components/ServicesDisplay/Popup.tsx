@@ -14,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -27,21 +28,147 @@ type Card = {
   content: React.ReactNode;
 };
 
+const texts = {
+  es: {
+    clientes: {
+      title: "Clientes",
+      category: "Clientes",
+      content1: "Gestión completa de clientes al alcance de tu mano.",
+      content2: "Puedes visualizar la lista de todos tus clientes, realizar búsquedas y acceder a su información detallada con un solo clic. Además, podrás llamarlos directamente o iniciar una conversación desde aquí.",
+      content3: "Consulta toda la información de tus clientes en un solo lugar.",
+      content4: "Accede fácilmente a sus datos personales, vehículos registrados y turnos asignados. Además, puedes gestionar su historial, agregar nuevos registros o comunicarte directamente desde esta sección.",
+      content5: "Consulta el historial completo de cada vehículo en el taller.",
+      content6: "Desde esta sección, puedes acceder a los presupuestos generados y las veces que el vehículo ingresó al taller para alistajes. Mantén un registro organizado con fechas, detalles asociados, y acciones rápidas para agregar nuevos registros o visualizar la información completa.",
+    },
+    vehiculos: {
+      title: "Vehículos",
+      category: "Productividad",
+      content1: "Administra todos los vehículos registrados en tu taller de forma sencilla.",
+      content2: "Puedes buscar rápidamente por matrícula, modelo o marca, y acceder a la información completa de cada vehículo. Agrega nuevos registros o actualiza los existentes con solo un clic, manteniendo todo organizado y al día.",
+      content3: "Consulta toda la información detallada de cada vehículo registrado en el taller.",
+      content4: "Podrás visualizar datos clave como la patente, marca, modelo, color y cliente asociado. Además, accede al historial completo de alistajes realizados, con fechas y detalles específicos. Gestiona de forma eficiente la información del vehículo y mantén un registro organizado de su historial en el taller.",
+    },
+    alistajes: {
+      title: "Alistajes",
+      category: "Operaciones",
+      content1: "Administra el estado de tu taller de forma sencilla.",
+      content2: "Optimiza la gestión de tu taller con nuestro módulo de Alistaje y Estado del Taller, diseñado para ofrecer una visión en tiempo real de cada vehículo en proceso. Desde el momento en que ingresa hasta su entrega final, podrás conocer el estado exacto de cada auto de manera rápida y sencilla.",
+      content3: "Funcionalidades:",
+      features: [
+        { title: "Seguimiento en tiempo real", description: "Consulta el estado del vehículo en cada fase del proceso." },
+        { title: "Actualización rápida de estados", description: "Cambia el estado con un solo clic y notifica al equipo." },
+        { title: "Historial completo de alistajes", description: "Revisa cada intervención con fechas y detalles específicos." },
+        { title: "Gestión de órdenes de trabajo", description: "Accede a registros previos y añade nuevas solicitudes en cualquier momento." },
+        { title: "Registro de imprevistos", description: "Agrega notas y detalles sobre nuevos arreglos o situaciones imprevistas." },
+        { title: "Gestión de repuestos y materiales", description: "Registra fácilmente repuestos adicionales requeridos para cada servicio." },
+      ],
+    },
+    presupuestos: {
+      title: "Presupuestos",
+      category: "Finanzas",
+      content1: "Presupuestos Inteligentes y Automatización de Servicios.",
+      content2: "Optimiza la gestión de presupuestos en tu taller con un sistema ágil y automatizado. Este módulo te permite generar y administrar presupuestos de manera eficiente, asegurando un proceso fluido desde la cotización hasta la aprobación del servicio.",
+      content3: "Plantillas Personalizadas",
+      content4: "Guarda plantillas predefinidas para servicios recurrentes, como mantenimientos y cambios de piezas, permitiendo aplicar presupuestos en segundos con todos los repuestos y tareas preconfiguradas.",
+      content5: "Gestiona tus presupuestos",
+      content6: "Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento. Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.",
+    },
+    turnos: {
+      title: "Turnos",
+      category: "Planificación",
+      content1: "Gestión de Turnos.",
+      content2: "Lista de Turnos y organización eficiente.",
+    },
+    servicios: {
+      title: "Servicios",
+      category: "Taller",
+      content1: "Optimiza la administración de servicios en tu taller.",
+      content2: "Gestión completa de repuestos y ajustes de precios.",
+    },
+    stock: {
+      title: "Stock",
+      category: "Inventario",
+      content1: "Control total sobre el stock y proveedores.",
+      content2: "Gestión eficiente de inventario y abastecimiento.",
+    },
+  },
+  en: {
+    clientes: {
+      title: "Clients",
+      category: "Clients",
+      content1: "Complete customer management at your fingertips.",
+      content2: "You can view the list of all your clients, perform searches, and access their detailed information with a single click. Additionally, you can call them directly or start a conversation from here.",
+      content3: "View all your clients' information in one place.",
+      content4: "Easily access their personal data, registered vehicles, and assigned appointments. Additionally, you can manage their history, add new records, or communicate directly from this section.",
+      content5: "Check the complete history of each vehicle in the workshop.",
+      content6: "From this section, you can access the generated estimates and the times the vehicle entered the workshop for check-ins. Keep an organized record with dates, associated details, and quick actions to add new records or view the complete information.",
+    },
+    vehiculos: {
+      title: "Vehicles",
+      category: "Productivity",
+      content1: "Manage all vehicles registered in your workshop easily.",
+      content2: "You can quickly search by license plate, model, or brand and access the complete information of each vehicle. Add new records or update existing ones with a single click, keeping everything organized and up to date.",
+      content3: "Check all the detailed information of each registered vehicle in the workshop.",
+      content4: "You will be able to view key data such as license plate, brand, model, color, and associated client. Additionally, access the complete history of performed check-ins, including dates and specific details. Efficiently manage vehicle information and maintain an organized record of its history in the workshop.",
+    },
+    alistajes: {
+      title: "Check-ins",
+      category: "Operations",
+      content1: "Easily manage the status of your workshop.",
+      content2: "Optimize your workshop management with our Check-in and Workshop Status module, designed to provide real-time visibility of each vehicle in process. From the moment it enters until its final delivery, you can quickly and easily know the exact status of each car.",
+      content3: "Features:",
+      features: [
+        { title: "Real-time tracking", description: "Check the vehicle’s status at each stage of the process." },
+        { title: "Quick status updates", description: "Change the status with a single click and notify the team." },
+        { title: "Complete check-in history", description: "Review each intervention with dates and specific details." },
+        { title: "Work order management", description: "Access previous records and add new requests at any time." },
+        { title: "Incident logging", description: "Add notes and details about new repairs or unforeseen situations." },
+        { title: "Spare parts and materials management", description: "Easily register additional spare parts required for each service." },
+      ],
+    },
+    presupuestos: {
+      title: "Estimates",
+      category: "Finance",
+      content1: "Smart Estimates and Service Automation.",
+      content2: "Optimize estimate management in your workshop with an agile and automated system. This module allows you to efficiently generate and manage estimates, ensuring a smooth process from quotation to service approval.",
+      content3: "Customized Templates",
+      content4: "Save predefined templates for recurring services, such as maintenance and part replacements, allowing you to apply estimates in seconds with all preconfigured parts and tasks.",
+      content5: "Manage Your Estimates",
+      content6: "Create and edit estimates before approval, adjusting every detail according to the client's needs. Maintain a complete record of all quotations made, with accessible details and modifications at any time. Once the estimate is approved, the services and parts are directly assigned to the vehicle, avoiding manual entries and reducing errors.",
+    },
+
+    turnos: {
+      title: "Appointments",
+      category: "Planning",
+      content1: "Appointment Management.",
+      content2: "List of appointments and efficient organization.",
+    },
+    servicios: {
+      title: "Services",
+      category: "Workshop",
+      content1: "Optimize service administration in your workshop.",
+      content2: "Complete management of parts and price adjustments.",
+    },
+    stock: {
+      title: "Stock",
+      category: "Inventory",
+      content1: "Total control over stock and suppliers.",
+      content2: "Efficient inventory and supply management.",
+    },
+  },
+};
+
 const ContentCliente = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
-
-
-      <div
-
-        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-      >
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Gestión completa de clientes al alcance de tu mano.
+            {texts[language].clientes.content1}
           </span>{" "}
           <br />
-          Puedes visualizar la lista de todos tus clientes, realizar búsquedas y acceder a su información detallada con un solo clic. Además, podrás llamarlos directamente o iniciar una conversación desde aquí.
+          {texts[language].clientes.content2}
         </p>
         <Image
           src="/carcheckClientes.png"
@@ -52,16 +179,13 @@ const ContentCliente = () => {
         />
       </div>
 
-      <div
-
-        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-      >
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Consulta toda la información de tus clientes en un solo lugar.
+            {texts[language].clientes.content3}
           </span>{" "}
           <br />
-          Accede fácilmente a sus datos personales, vehículos registrados y turnos asignados. Además, puedes gestionar su historial, agregar nuevos registros o comunicarte directamente desde esta sección.
+          {texts[language].clientes.content4}
         </p>
 
         <Image
@@ -78,10 +202,10 @@ const ContentCliente = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Consulta el historial completo de cada vehículo en el taller.
+            {texts[language].clientes.content5}
           </span>{" "}
           <br />
-          Desde esta sección, puedes acceder a los presupuestos generados y las veces que el vehículo ingresó al taller para alistajes. Mantén un registro organizado con fechas, detalles asociados, y acciones rápidas para agregar nuevos registros o visualizar la información completa.
+          {texts[language].clientes.content6}
         </p>
         <Image
           src="/carcheckClientes3.png"
@@ -94,7 +218,9 @@ const ContentCliente = () => {
     </>
   );
 };
+
 const ContentVehiculos = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
       <div
@@ -102,10 +228,10 @@ const ContentVehiculos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Administra todos los vehículos registrados en tu taller de forma sencilla.
+            {texts[language].vehiculos.content1}
           </span>{" "}
           <br />
-          puedes buscar rápidamente por matrícula, modelo o marca, y acceder a la información completa de cada vehículo. Agrega nuevos registros o actualiza los existentes con solo un clic, manteniendo todo organizado y al día.
+          {texts[language].vehiculos.content2}
         </p>
         <Image
           src="/carcheckCars2.png"
@@ -127,10 +253,10 @@ const ContentVehiculos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Consulta toda la información detallada de cada vehículo registrado en el taller.
+            {texts[language].vehiculos.content3}
           </span>{" "}
           <br />
-          Podrás visualizar datos clave como la patente, marca, modelo, color y cliente asociado. Además, accede al historial completo de alistajes realizados, con fechas y detalles específicos. Gestiona de forma eficiente la información del vehículo y mantén un registro organizado de su historial en el taller.
+          {texts[language].vehiculos.content4}
         </p>
         <Image
           src="/carcheckCar3.png"
@@ -151,6 +277,7 @@ const ContentVehiculos = () => {
   );
 };
 const ContentAlistajes = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
       <div
@@ -158,10 +285,10 @@ const ContentAlistajes = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 pb-[2rem] ">
-            Administra el estado de tu taller de forma sencilla.
+            {texts[language].alistajes.content1}
           </span>{" "}
           <br />
-          Optimiza la gestión de tu taller con nuestro módulo de Alistaje y Estado del Taller, diseñado para ofrecer una visión en tiempo real de cada vehículo en proceso. Desde el momento en que ingresa hasta su entrega final, podrás conocer el estado exacto de cada auto de manera rápida y sencilla.
+          {texts[language].alistajes.content2}
         </p>
         <Image
           src="/tallerEstado.png"
@@ -180,12 +307,11 @@ const ContentAlistajes = () => {
         </p>
 
         <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Seguimiento en tiempo real:</span> Consulta el estado del vehículo en cada fase del proceso.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Actualización rápida de estados:</span> Cambia el estado con un solo clic y notifica al equipo.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial completo de alistajes:</span> Revisa cada intervención con fechas y detalles específicos.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de órdenes de trabajo:</span> Accede a registros previos y añade nuevas solicitudes en cualquier momento.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de imprevistos:</span> Agrega notas y detalles sobre nuevos arreglos o situaciones imprevistas.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión de repuestos y materiales:</span> Registra fácilmente repuestos adicionales requeridos para cada servicio.</li>
+          {texts[language].alistajes.features.map((feature, index) => (
+            <li key={index}>
+              ✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">{feature.title}:</span> {feature.description}
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -193,6 +319,7 @@ const ContentAlistajes = () => {
   );
 };
 const ContentPresupuestos = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
       <div
@@ -200,10 +327,12 @@ const ContentPresupuestos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Presupuestos Inteligentes y Automatización de Servicios
+            {texts[language].presupuestos.content1}
           </span>{" "}
           <br />
-          Optimiza la gestión de presupuestos en tu taller con un sistema ágil y automatizado. Este módulo te permite generar y administrar presupuestos de manera eficiente, asegurando un proceso fluido desde la cotización hasta la aprobación del servicio.</p>
+          {texts[language].presupuestos.content2}
+
+        </p>
         <Image
           src="/presupuestos1.png"
           alt="Macbook mockup from Aceternity UI"
@@ -219,10 +348,11 @@ const ContentPresupuestos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Plantillas Personalizadas
+            {texts[language].presupuestos.content3}
           </span>{" "}
           <br />
-          Guarda plantillas predefinidas para servicios recurrentes, como mantenimientos y cambios de piezas, permitiendo aplicar presupuestos en segundos con todos los repuestos y tareas preconfiguradas.</p>
+          {texts[language].presupuestos.content4}
+        </p>
         <Image
           src="/presupuestosPlantillaService.png"
           alt="Macbook mockup from Aceternity UI"
@@ -236,11 +366,11 @@ const ContentPresupuestos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Gestiona tus presupuestos
+            {texts[language].presupuestos.content5}
+
           </span>{" "}
           <br />
-          Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento.
-          Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
+          {texts[language].presupuestos.content6}
         </p>
         <Image
           src="/Presupuestos.png"
@@ -439,81 +569,7 @@ const ContentStock = () => {
     </>
   );
 };
-const DummyContent = () => {
-  return (
-    <>
-      <div
-        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-      >
-        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Presupuestos Inteligentes y Automatización de Servicios
-          </span>{" "}
-          <br />
-          Optimiza la gestión de presupuestos en tu taller con un sistema ágil y automatizado. Este módulo te permite generar y administrar presupuestos de manera eficiente, asegurando un proceso fluido desde la cotización hasta la aprobación del servicio.</p>
-        <Image
-          src="/presupuestos1.png"
-          alt="Macbook mockup from Aceternity UI"
-          height="1920"
-          width="1080"
-          className="mt-[1rem] rounded-xl"
-        />
 
-      </div>
-
-      <div
-        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-      >
-        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-          <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Plantillas Personalizadas
-          </span>{" "}
-          <br />
-          Guarda plantillas predefinidas para servicios recurrentes, como mantenimientos y cambios de piezas, permitiendo aplicar presupuestos en segundos con todos los repuestos y tareas preconfiguradas.</p>
-        <Image
-          src="/presupuestosPlantillaService.png"
-          alt="Macbook mockup from Aceternity UI"
-          height="1920"
-          width="1080"
-          className="mt-[1rem] rounded-xl"
-        />
-      </div>
-      <div
-        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-      >
-        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-          <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Gestiona tus presupuestos
-          </span>{" "}
-          <br />
-          Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento.
-          Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.
-        </p>
-        <Image
-          src="/Presupuestos.png"
-          alt="Macbook mockup from Aceternity UI"
-          height="1920"
-          width="1080"
-          className="mt-[1rem] rounded-xl"
-        />
-        <Image
-          src="/Presupuestos2.png"
-          alt="Macbook mockup from Aceternity UI"
-          height="1920"
-          width="1080"
-          className="mt-[1rem] rounded-xl"
-        />
-        <Image
-          src="/Presupuesto3.png"
-          alt="Macbook mockup from Aceternity UI"
-          height="1920"
-          width="1080"
-          className="mt-[1rem] rounded-xl"
-        />
-      </div>
-    </>
-  );
-};
 const data = [
   {
     category: "Clientes",
@@ -558,7 +614,7 @@ const data = [
     src: "/inventario.webp",
     content: <ContentStock />,
   },
-  
+
 ];
 
 export function AppleCardsCarouselDemo() {
@@ -704,7 +760,7 @@ const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+              "max-w-7xl mx-auto" 
             )}
           >
             {items.map((item, index) => (

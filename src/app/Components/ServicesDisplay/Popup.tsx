@@ -74,22 +74,51 @@ const texts = {
       content6: "Crea y edita presupuestos antes de su aprobación, ajustando cada detalle según las necesidades del cliente. Manteniendo un registro completo de todas las cotizaciones realizadas, con detalles y modificaciones accesibles en cualquier momento. Una vez aprobado el presupuesto, los servicios y repuestos se asignan directamente al auto, evitando cargas manuales y reduciendo errores.",
     },
     turnos: {
-      title: "Turnos",
-      category: "Planificación",
-      content1: "Gestión de Turnos.",
-      content2: "Lista de Turnos y organización eficiente.",
+      title: "Appointments",
+      category: "Planning",
+      content1: "Appointment Management.",
+      content2: "Facilita la asignación y administración de turnos con un sistema eficiente que optimiza la planificación del taller. Este módulo te permite visualizar, gestionar y organizar turnos de manera clara y estructurada, asegurando una mejor distribución del trabajo y evitando demoras innecesarias.",
+      content3: "Lista de Turnos",
+      content4: "Visualiza los turnos en una lista organizada según su estado (pendiente, en proceso, finalizado), facilitando el seguimiento y gestión de cada cita. Y accede a los datos clave de cada cita, incluyendo el vehículo, cliente, fecha y tipo de servicio solicitado. ",
+      content5: "Calendario de Turnos",
+      content6: "Consulta y organiza los turnos de manera visual, permitiendo una distribución eficiente de los tiempos y recursos del taller.Mantén una planificación eficiente, mejora la atención al cliente y optimiza el rendimiento de tu taller.",
     },
     servicios: {
       title: "Servicios",
-      category: "Taller",
-      content1: "Optimiza la administración de servicios en tu taller.",
-      content2: "Gestión completa de repuestos y ajustes de precios.",
+      category: "Operaciones",
+      content1: "Gestión de Servicios",
+      content2: "Optimiza la administración de servicios en tu taller con un módulo diseñado para facilitar la gestión, registro y actualización de cada trabajo realizado. Agiliza el proceso al permitir la asignación de repuestos, ajustes de precios y control detallado de cada servicio.",
+      content3: "Funcionalidades:",
+      features: [
+        { title: "Registro de servicios", description: "Administra y documenta cada servicio realizado en el taller." },
+        { title: "Asignación de repuestos", description: "Vincula repuestos y materiales a cada servicio de manera sencilla." },
+        { title: "Control de costos", description: "Ajusta y actualiza los precios de cada servicio en tiempo real." },
+        { title: "Historial de servicios", description: "Consulta el historial completo de servicios realizados por vehículo o cliente." },
+        { title: "Notificaciones automáticas", description: "Informa a los clientes sobre el estado de sus servicios en curso." },
+        { title: "Gestión de tiempos", description: "Optimiza la asignación de recursos para reducir tiempos de espera." },
+      ],
     },
+
     stock: {
       title: "Stock",
       category: "Inventario",
       content1: "Control total sobre el stock y proveedores.",
-      content2: "Gestión eficiente de inventario y abastecimiento.",
+      content2: "Mantén un control total sobre tu inventario con un sistema de gestión de stock eficiente y organizado. Este módulo te permite administrar los productos, actualizar precios y gestionar pedidos de reposición a proveedores de manera sencilla y rápida.",
+      content3: "Gestión de Stock",
+      features: [
+        { title: "Registro de servicios", description: "Añade y gestiona los servicios realizados en cada vehículo." },
+        { title: "Asignación de repuestos", description: "Vincula repuestos y materiales a cada servicio de manera eficiente." },
+        { title: "Historial de servicios", description: "Consulta los servicios previos realizados en cada vehículo." },
+        { title: "Ajustes de precios", description: "Modifica y actualiza los precios de los servicios de forma sencilla." },
+        { title: "Notificaciones y alertas", description: "Recibe notificaciones cuando un servicio esté listo o requiera atención especial." }
+      ],
+      content4: "Proveedores",
+      features2: [
+      { "title": "Registro y administración de proveedores", "description": "Guarda información clave de cada proveedor para facilitar la comunicación y gestión de pedidos." },
+      { "title": "Seguimiento de pedidos", "description": "Consulta qué productos han sido solicitados, a qué proveedor y en qué estado se encuentran." },
+      { "title": "Historial de abastecimiento", "description": "Mantén un registro detallado de cada pedido realizado, asegurando un control eficiente del suministro." },
+      { "title": "Facilidad de contacto con proveedores", "description": "Accede rápidamente a los datos del proveedor para coordinar entregas y realizar nuevas solicitudes." }
+    ],
     },
   },
   en: {
@@ -141,20 +170,50 @@ const texts = {
       title: "Appointments",
       category: "Planning",
       content1: "Appointment Management.",
-      content2: "List of appointments and efficient organization.",
+      content2: "Facilitates the assignment and management of appointments with an efficient system that optimizes workshop planning. This module allows you to visualize, manage, and organize appointments clearly and structurally, ensuring a better distribution of work and avoiding unnecessary delays.",
+      content3: "Appointment List",
+      content4: "View appointments in an organized list according to their status (pending, in progress, completed), making it easier to track and manage each appointment. Access key details of each appointment, including the vehicle, client, date, and type of requested service.",
+      content5: "Appointment Calendar",
+      content6: "Check and organize appointments visually, allowing for an efficient distribution of time and workshop resources. Maintain efficient planning, improve customer service, and optimize your workshop’s performance.",
     },
     servicios: {
       title: "Services",
-      category: "Workshop",
-      content1: "Optimize service administration in your workshop.",
-      content2: "Complete management of parts and price adjustments.",
+      category: "Operations",
+      content1: "Service Management",
+      content2: "Optimize the management of services in your workshop with a module designed to facilitate the administration, registration, and updating of each completed job. Streamline the process by enabling the assignment of spare parts, price adjustments, and detailed control of each service.",
+      content3: "Features:",
+      features: [
+        { title: "Service Registration", description: "Manage and document every service performed in the workshop." },
+        { title: "Spare Parts Assignment", description: "Easily link spare parts and materials to each service." },
+        { title: "Cost Control", description: "Adjust and update service prices in real time." },
+        { title: "Service History", description: "Access the complete history of services performed by vehicle or customer." },
+        { title: "Automatic Notifications", description: "Notify customers about the status of their ongoing services." },
+        { title: "Time Management", description: "Optimize resource allocation to reduce wait times." },
+      ],
     },
+
     stock: {
       title: "Stock",
       category: "Inventory",
-      content1: "Total control over stock and suppliers.",
-      content2: "Efficient inventory and supply management.",
-    },
+      content1: "Full control over stock and suppliers.",
+      content2: "Maintain complete control over your inventory with an efficient and organized stock management system. This module allows you to manage products, update prices, and handle restocking orders from suppliers quickly and easily.",
+      content3: "Stock Management",
+      features: [
+        { title: "Service Registration", description: "Add and manage services performed on each vehicle." },
+        { title: "Spare Parts Assignment", description: "Efficiently link spare parts and materials to each service." },
+        { title: "Service History", description: "Check previous services performed on each vehicle." },
+        { title: "Price Adjustments", description: "Modify and update service prices easily." },
+        { title: "Notifications and Alerts", description: "Receive notifications when a service is ready or requires special attention." }
+      ],
+      content4: "Suppliers",
+      features2: [
+        { title: "Supplier Registration and Management", description: "Store key information about each supplier to facilitate communication and order management." },
+        { title: "Order Tracking", description: "Check which products have been ordered, from which supplier, and their current status." },
+        { title: "Supply History", description: "Keep a detailed record of every order placed, ensuring efficient supply control." },
+        { title: "Easy Supplier Contact", description: "Quickly access supplier details to coordinate deliveries and place new requests." }
+      ]
+    }
+    
   },
 };
 
@@ -398,6 +457,7 @@ const ContentPresupuestos = () => {
   );
 };
 const ContentTurnos = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
       <div
@@ -405,10 +465,12 @@ const ContentTurnos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Gestión de Turnos
+            {texts[language].turnos.content1}
+
           </span>{" "}
           <br />
-          Facilita la asignación y administración de turnos con un sistema eficiente que optimiza la planificación del taller. Este módulo te permite visualizar, gestionar y organizar turnos de manera clara y estructurada, asegurando una mejor distribución del trabajo y evitando demoras innecesarias. </p>
+          {texts[language].turnos.content2}
+        </p>
         <Image
           src="/turnosMenu.png"
           alt="Macbook mockup from Aceternity UI"
@@ -422,10 +484,12 @@ const ContentTurnos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Lista de Turnos
+
+            {texts[language].turnos.content3}
           </span>{" "}
           <br />
-          Visualiza los turnos en una lista organizada según su estado (pendiente, en proceso, finalizado), facilitando el seguimiento y gestión de cada cita. Y accede a los datos clave de cada cita, incluyendo el vehículo, cliente, fecha y tipo de servicio solicitado. </p>
+          {texts[language].turnos.content4}
+        </p>
         <Image
           src="/carcheckAlistaje2.png"
           alt="Macbook mockup from Aceternity UI"
@@ -439,10 +503,12 @@ const ContentTurnos = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Calendario de Turnos
+            {texts[language].turnos.content5}
+
           </span>{" "}
           <br />
-          Consulta y organiza los turnos de manera visual, permitiendo una distribución eficiente de los tiempos y recursos del taller.Mantén una planificación eficiente, mejora la atención al cliente y optimiza el rendimiento de tu taller.
+          {texts[language].turnos.content6}
+
         </p>
         <Image
           src="/CalendarioTurnos.png"
@@ -456,48 +522,49 @@ const ContentTurnos = () => {
   );
 };
 const ContentServicios = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
       <div
         className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-          <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Gestión de Servicios
+          <span className="font-bold text-neutral-700 dark:text-neutral-200 pb-[2rem]">
+            {texts[language].servicios.content1}
           </span>{" "}
           <br />
-          Optimiza la administración de servicios en tu taller con un módulo diseñado para facilitar la gestión, registro y actualización de cada trabajo realizado. Agiliza el proceso al permitir la asignación de repuestos, ajustes de precios y control detallado de cada servicio.
+          {texts[language].servicios.content2}
         </p>
         <Image
           src="/servicios.png"
-          alt="Macbook mockup from Aceternity UI"
+          alt="Service management visualization"
           height="1920"
           width="1080"
           className="mt-[1rem] rounded-xl"
         />
       </div>
+
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Funcionalidades
+            Funcionalidades:
           </span>{" "}
           <br />
         </p>
 
         <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de servicios:</span> Guarda cada servicio realizado con sus detalles, costos y repuestos asociados.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Asignación de repuestos:</span> Relaciona fácilmente repuestos con los servicios prestados.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Modificación de precios:</span> Ajusta los precios de los servicios individualmente o de forma masiva.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Gestión eficiente del inventario:</span> Controla el uso de repuestos y su impacto en los costos.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial de servicios:</span> Accede al registro completo de cada intervención con detalles específicos.</li>
+          {texts[language].servicios.features.map((feature, index) => (
+            <li key={index}>
+              ✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">{feature.title}:</span> {feature.description}
+            </li>
+          ))}
         </ul>
       </div>
-
-
     </>
   );
 };
 const ContentStock = () => {
+  const { language, setLanguage } = useLanguage('es');
   return (
     <>
       <div
@@ -505,10 +572,11 @@ const ContentStock = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
-            Presupuestos Inteligentes y Automatización de Servicios
+            {texts[language].stock.content1}
+
           </span>{" "}
           <br />
-          Mantén un control total sobre tu inventario con un sistema de gestión de stock eficiente y organizado. Este módulo te permite administrar los productos, actualizar precios y gestionar pedidos de reposición a proveedores de manera sencilla y rápida.
+          {texts[language].stock.content2}
         </p>
         <Image
           src="/stock.png"
@@ -525,7 +593,7 @@ const ContentStock = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Gestión de Stock
+            {texts[language].stock.content3}
           </span>{" "}
           <br />
         </p>
@@ -537,10 +605,11 @@ const ContentStock = () => {
           className="mt-[1rem] rounded-xl"
         />
         <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Visualización y administración del stock:</span> Consulta en tiempo real la cantidad disponible de cada producto en el taller.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Modificación de stock y precios:</span> Ajusta los niveles de inventario y actualiza los precios de forma individual o masiva.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro de nuevos productos:</span> Agrega nuevos repuestos o materiales de manera rápida para mantener un inventario actualizado.</li>
-          <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Pedidos automáticos a proveedores:</span> Realiza solicitudes de reposición directamente desde el sistema y mantén un flujo constante de abastecimiento.</li>
+          {texts[language].stock.features.map((feature, index) => (
+            <li key={index}>
+              ✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">{feature.title}:</span> {feature.description}
+            </li>
+          ))}
         </ul>
       </div>
       <div
@@ -548,7 +617,7 @@ const ContentStock = () => {
       >
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Proveedores
+            {texts[language].stock.content4}
           </span>{" "}
           <br />
         </p>
@@ -560,6 +629,13 @@ const ContentStock = () => {
           className="mt-[1rem] rounded-xl"
         />
         <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
+          {texts[language].stock.features2.map((feature, index) => (
+            <li key={index}>
+              ✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">{feature.title}:</span> {feature.description}
+            </li>
+          ))}
+        </ul>
+        <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
           <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Registro y administración de proveedores:</span> Guarda información clave de cada proveedor para facilitar la comunicación y gestión de pedidos.</li>
           <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Seguimiento de pedidos:</span> Consulta qué productos han sido solicitados, a qué proveedor y en qué estado se encuentran.</li>
           <li>✅ <span className="font-bold text-neutral-700 dark:text-neutral-200">Historial de abastecimiento:</span> Mantén un registro detallado de cada pedido realizado, asegurando un control eficiente del suministro.</li>
@@ -569,7 +645,6 @@ const ContentStock = () => {
     </>
   );
 };
-
 const data = [
   {
     category: "Clientes",
@@ -621,7 +696,6 @@ export function AppleCardsCarouselDemo() {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
-
   return (
     <div className="w-full h-full py-20 ">
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200  font-sans">
@@ -760,7 +834,7 @@ const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" 
+              "max-w-7xl mx-auto"
             )}
           >
             {items.map((item, index) => (

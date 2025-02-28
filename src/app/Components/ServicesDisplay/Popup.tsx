@@ -114,11 +114,11 @@ const texts = {
       ],
       content4: "Proveedores",
       features2: [
-      { "title": "Registro y administración de proveedores", "description": "Guarda información clave de cada proveedor para facilitar la comunicación y gestión de pedidos." },
-      { "title": "Seguimiento de pedidos", "description": "Consulta qué productos han sido solicitados, a qué proveedor y en qué estado se encuentran." },
-      { "title": "Historial de abastecimiento", "description": "Mantén un registro detallado de cada pedido realizado, asegurando un control eficiente del suministro." },
-      { "title": "Facilidad de contacto con proveedores", "description": "Accede rápidamente a los datos del proveedor para coordinar entregas y realizar nuevas solicitudes." }
-    ],
+        { "title": "Registro y administración de proveedores", "description": "Guarda información clave de cada proveedor para facilitar la comunicación y gestión de pedidos." },
+        { "title": "Seguimiento de pedidos", "description": "Consulta qué productos han sido solicitados, a qué proveedor y en qué estado se encuentran." },
+        { "title": "Historial de abastecimiento", "description": "Mantén un registro detallado de cada pedido realizado, asegurando un control eficiente del suministro." },
+        { "title": "Facilidad de contacto con proveedores", "description": "Accede rápidamente a los datos del proveedor para coordinar entregas y realizar nuevas solicitudes." }
+      ],
     },
   },
   en: {
@@ -213,7 +213,7 @@ const texts = {
         { title: "Easy Supplier Contact", description: "Quickly access supplier details to coordinate deliveries and place new requests." }
       ]
     }
-    
+
   },
 };
 
@@ -649,57 +649,56 @@ const data = [
   {
     category: "Clientes",
     title: "Clientes",
-    src: "/cliente.webp",
+    src: "/clienteImg.jpg",
     content: <ContentCliente />,
   },
   {
     category: "Productivity",
     title: "Vehiculos",
-    src: "/vehiculos.webp",
+    src: "/vehiculoImg.jpg",
     content: <ContentVehiculos />,
   },
   {
     category: "Product",
     title: "Alistajes",
-    src: "/alistaje2.webp",
+    src: "/alistajeImg.jpg",
     content: <ContentAlistajes />,
   },
 
   {
     category: "Presupuestos",
     title: "Presupuestos",
-    src: "/presupuestos.webp",
+    src: "/presupuestoImg.jpg",
     content: <ContentPresupuestos />,
   },
   {
     category: "Turnos",
     title: "Turnos",
-    src: "/turnos.webp",
+    src: "/turnosImg.jpg",
     content: <ContentTurnos />,
   },
   {
     category: "Servicios",
     title: "Servicios",
-    src: "/servicio2.webp",
+    src: "/serviciosImg.jpg",
     content: <ContentServicios />,
   },
   {
     category: "Stock",
     title: "Stock",
-    src: "/inventario.webp",
+    src: "/stockImg.jpg",
     content: <ContentStock />,
   },
-
 ];
-
 export function AppleCardsCarouselDemo() {
+  const { language } = useLanguage('es');  
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
   return (
     <div className="w-full h-full py-20 ">
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200  font-sans">
-        Conoce nuestros Modulos
+        {language === 'es' ? 'Conoce nuestros Modulos' : 'Discover Our Modules'}
       </h2>
       <Carousel items={cards} />
     </div>

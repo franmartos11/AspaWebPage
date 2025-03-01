@@ -658,6 +658,7 @@ const data = [
     src: "/vehiculoImg.jpg",
     content: <ContentVehiculos />,
   },
+  
   {
     category: "Product",
     title: "Alistajes",

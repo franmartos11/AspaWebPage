@@ -140,7 +140,7 @@ export default function () {
                                             >
                                                 <a
                                                     title="link"
-                                                    href="https://www.linkedin.com/in/haik-kilic/?originalSubdomain=ar"
+                                                    href="https://www.linkedin.com/in/francisco-martos-7a8850226/"
                                                     className="flex rounded-full justify-center align-middle hover:bg-blue-600 pt-2 h-10 w-10"
                                                 >
                                                     <svg

@@ -10,16 +10,19 @@ export function CarouselDemo() {
                 title: "Visual Peephole",
                 button: "Visit the Website",
                 src: "/viusualPeephole2.jpeg",
+                web:'https://www.visualpeephole.com'
             },
             {
                 title: "Omega Solutions",
                 button: "Visit the Website",
                 src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                web:'https://www.omegasoluciones.com.ar'
             },
             {
                 title: "Alfonso Lozita",
                 button: "Visit the Website",
                 src: "https://images.unsplash.com/photo-1590041794748-2d8eb73a571c?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                web:'https://alfonsolozita.com'
             },
         ],
         es: [
@@ -27,16 +30,19 @@ export function CarouselDemo() {
                 title: "Visual Peephole",
                 button: "Visita la Web",
                 src: "/viusualPeephole2.jpeg",
+                web:'https://www.visualpeephole.com'
             },
             {
                 title: "Omega Soluciones",
                 button: "Visita la Web",
                 src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                web:'https://www.omegasoluciones.com.ar'
             },
             {
                 title: "Alfonso Lozita",
                 button: "Visita la Web",
                 src: "https://images.unsplash.com/photo-1590041794748-2d8eb73a571c?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                web:'https://alfonsolozita.com'
             },
         ]
     };
@@ -52,7 +58,7 @@ export function CarouselDemo() {
     }
     return (
         <div>
-            <div className="mb-[1rem] text-center">
+            <div className="mb-[2rem] text-center">
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
                     {texts[language].title}
                 </h2>

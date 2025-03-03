@@ -2,16 +2,29 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MacbookScroll } from "./Mackbookscroll";
+import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function MacbookScrollDemo() {
+    const { language } = useLanguage('es');
+
+    const texts = {
+        en: {
+            paragraph1: 'Are you ready to take advantage of the benefits',
+            paragraph2: 'of web development?',
+        },
+        es: {
+            paragraph1: 'Estás listo para aprovechar las ventajas',
+            paragraph2: 'del desarrollo web?',
+        }
+    }
     return (
         <div className="overflow-hidden sm:block hidden w-full">
             <MacbookScroll
                 title={
                     <span className=" text-5xl">
-                        Estás listo para aprovechar las ventajas
+                        {texts[language].paragraph1}
                         <br />
-                        del desarrollo web?
+                        {texts[language].paragraph2}
                     </span>
                 }
                 badge={

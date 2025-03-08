@@ -5,6 +5,8 @@ import { MacbookScrollDemo } from "../Components/MackBookScroll/MacbookScrollDem
 import MoovingLogos from "../Components/MoovingLogos/MoovingLogos";
 import Nav from "../Components/nav/Nav";
 import { CarouselDemo } from "./carrousel/carrouselDemo";
+import { GlowingEffect } from "./GlowingEffectCards/GlowingEffect";
+import { GlowingEffectDemo } from "./GlowingEffectCards/GlowingEffectDemo";
 import { WorldMapDemo } from "./WorldMap/WorldMapDemo";
 
 export default function () {
@@ -34,9 +36,10 @@ export default function () {
         <div>
             <Nav page={"servicios"}></Nav>
             <MacbookScrollDemo></MacbookScrollDemo>
-            <CarouselDemo></CarouselDemo>
-            <CardProyectWeb></CardProyectWeb>
             <WorldMapDemo></WorldMapDemo>
+            <CarouselDemo></CarouselDemo>
+            
+            <GlowingEffectDemo></GlowingEffectDemo>
             <Form service="Pag-web"></Form>
 
         </div>

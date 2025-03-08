@@ -10,12 +10,12 @@ export function WorldMapDemo() {
         en: {
             title1: 'Take Your Business to the',
             title2:'World',
-            paragraph: 'Ready to grow your business? We create custom, SEO-optimized websites designed to attract clients and turn visits into sales. Take your brand to every corner of the digital world with an impactful and effective website.',
+            paragraph: 'We create custom, SEO-optimized websites designed to attract clients and turn visits into sales. Take your brand to every corner of the digital world with an impactful and effective website.',
         },
         es: {
             title1: 'Llevamos tu Negocio al ',
             title2:'Mundo',
-            paragraph: '¿Listo para hacer crecer tu negocio? Desarrollamos páginas web personalizadas y optimizadas para SEO, diseñadas para atraer clientes y convertir visitas en ventas. Lleva tu marca a cada rincón del mundo digital con un sitio web impactante y efectivo.',
+            paragraph: 'Desarrollamos páginas web personalizadas y optimizadas para SEO, diseñadas para atraer clientes y convertir visitas en ventas. Lleva tu marca a cada rincón del mundo digital con un sitio web impactante y efectivo.',
         }
     }
 

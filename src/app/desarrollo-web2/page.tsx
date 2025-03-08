@@ -5,6 +5,7 @@ import { MacbookScrollDemo } from "../Components/MackBookScroll/MacbookScrollDem
 import MoovingLogos from "../Components/MoovingLogos/MoovingLogos";
 import Nav from "../Components/nav/Nav";
 import { CarouselDemo } from "./carrousel/carrouselDemo";
+import { WorldMapDemo } from "./WorldMap/WorldMapDemo";
 
 export default function () {
     const slideData = [
@@ -35,7 +36,7 @@ export default function () {
             <MacbookScrollDemo></MacbookScrollDemo>
             <CarouselDemo></CarouselDemo>
             <CardProyectWeb></CardProyectWeb>
-            <MoovingLogos></MoovingLogos>
+            <WorldMapDemo></WorldMapDemo>
             <Form service="Pag-web"></Form>
 
         </div>

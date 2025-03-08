@@ -6,12 +6,12 @@ export default function () {
     const [hovered, setHovered] = useState(false);
     const [hovered1, setHovered1] = useState(false);
     const [hovered2, setHovered2] = useState(false);
-    const { language, setLanguage } = useLanguage('es');
+    const { language } = useLanguage('es');
     const texts = {
-        es : {
-            op1:'Nuestro Equipo',
-            op2:'No somos solo una empresa, somos un equipo apasionado por lo que hacemos.',
-            
+        es: {
+            op1: 'Nuestro Equipo',
+            op2: 'No somos solo una empresa, somos un equipo apasionado por lo que hacemos.',
+
         },
         en: {
             op1: 'Our Team',
@@ -24,7 +24,7 @@ export default function () {
                 <div className="w-full lg:w-6/12 px-4">
                     <div className="container  px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
                         <h2 className="text-4xl   font-semibold text-center  capitalize lg:text-6xl text-white">
-                        {texts[language].op1}
+                            {texts[language].op1}
                         </h2>
 
                         <div className="flex justify-center mx-auto mt-6">
@@ -34,7 +34,7 @@ export default function () {
                         </div>
                     </div>
                     <p className="text-gray-400 text-lg font-light pt-[1rem] ">
-                    {texts[language].op2}
+                        {texts[language].op2}
                     </p>
                 </div>
             </div>
@@ -124,7 +124,7 @@ export default function () {
                                                 }
                                             ></img>
                                         </a>
-
+                                        
                                         <div className="text-center mt-6 text-white">
                                             <h3 className="text-xl font-bold mb-1">
                                                 Francisco Martos

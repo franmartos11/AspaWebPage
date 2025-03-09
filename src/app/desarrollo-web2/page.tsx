@@ -19,8 +19,9 @@ export default function () {
             <Nav page={"servicios"}></Nav>
             <MacbookScrollDemo></MacbookScrollDemo>
             <WorldMapDemo></WorldMapDemo>
-            <CarouselDemo></CarouselDemo>
             <BentoGrid2></BentoGrid2>
+            <CarouselDemo></CarouselDemo>
+            
             
             
             <Form service="Pag-web"></Form>

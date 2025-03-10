@@ -12,20 +12,32 @@ import {
 import { motion } from "motion/react";
 import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/app/Components/Grid/BentoGrid";
+import { useLanguage } from "@/app/Components/AALenguageContext/LenguageContext";
 
 export function BentoGrid2() {
+    const { language } = useLanguage('es');
+    const texts = {
+        en: {
+            title1: 'Our Offer',
+            title2: 'Benefits of Choosing Us',
+        },
+        es: {
+            title1: 'Nuestra Oferta',
+            title2: 'Beneficios de Elegirnos',
+        }
+    }
     return (
         <>
             <div className=" pt-[5rem] mb-[3rem] text-center">
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
-                    Nuestra Oferta
+                    {texts[language].title1}
                 </h2>
                 <h3 className="text-4xl text-white text-center font-bold">
-                Beneficios de Elegirnos 
+                    {texts[language].title2}
                 </h3>
             </div>
             <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-                {items.map((item, i) => (
+                {items[language].items.map((item, i) => (
                     <BentoGridItem
                         key={i}
                         title={item.title}
@@ -166,6 +178,21 @@ const SkeletonThree = () => {
     );
 };
 const SkeletonFour = () => {
+    const { language } = useLanguage('es');
+    const texts = {
+        en: {
+            title1: 'Yahoo!',
+            title2: 'Google',
+            title3: 'Bing',
+            title4: 'Recomended'
+        },
+        es: {
+            title1: 'Yahoo!',
+            title2: 'Google',
+            title3: 'Bing',
+            title4: 'Recomendado'
+        },
+    }
     const first = {
         initial: {
             x: 20,
@@ -205,10 +232,10 @@ const SkeletonFour = () => {
                     className="rounded-full h-10 w-10 bg-white"
                 />
                 <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-                    Yahoo!
+                    {texts[language].title1}
                 </p>
                 <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-                    Recomendado
+                    {texts[language].title4}
                 </p>
             </motion.div>
             <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
@@ -220,10 +247,10 @@ const SkeletonFour = () => {
                     className="rounded-full h-10 w-10"
                 />
                 <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-                    Google
+                    {texts[language].title2}
                 </p>
                 <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-                    Recomendado
+                    {texts[language].title4}
                 </p>
             </motion.div>
             <motion.div
@@ -238,16 +265,28 @@ const SkeletonFour = () => {
                     className="rounded-full h-10 w-10"
                 />
                 <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-                    Bing
+                    {texts[language].title3}
                 </p>
                 <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-                    Recomendado
+                    {texts[language].title4}
                 </p>
             </motion.div>
         </motion.div>
     );
 };
 const SkeletonFive = () => {
+    const { language } = useLanguage('es');
+    const texts = {
+        es: {
+            paragraph1: 'Hola, estoy teniendo problemas para actualizar mi sitio web. ¿Pueden ayudarme?',
+            paragraph2: 'Estamos aquí para asistirte, vamos a solucionarlo.',
+        },
+        en: {
+            paragraph1: 'Hello, I am having trouble updating my website. Can you help me?',
+            paragraph2: 'We are here to assist you, lets fix it.',
+        },
+    };
+    
     const variants = {
         initial: {
             x: 0,
@@ -291,7 +330,7 @@ const SkeletonFive = () => {
                     className="rounded-full h-10 w-10"
                 />
                 <p className="text-xs text-neutral-500">
-                    Hola, estoy teniendo problemas para actualizar mi sitio web. ¿Pueden ayudarme?
+                    {texts[language].paragraph1}
                 </p>
             </motion.div>
 
@@ -299,7 +338,7 @@ const SkeletonFive = () => {
                 variants={variantsSecond}
                 className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
             >
-                <p className="text-xs text-neutral-500">Estamos aquí para asistirte, vamos a solucionarlo.</p>
+                <p className="text-xs text-neutral-500">{texts[language].paragraph2}</p>
                 <Image
                     src="/haik.jpeg"
                     alt="avatar"
@@ -311,64 +350,125 @@ const SkeletonFive = () => {
         </motion.div>
     );
 };
-const items = [
-    {
-        title: "📈 Optimización para Conversiones",
-        description: (
-            <span className="text-sm">
-                Nuestras webs están diseñadas para maximizar las oportunidades de venta.
-            </span>
-        ),
-        header: <SkeletonOne />,
-        className: "md:col-span-1",
-        icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+const items = {
+    es: {
+        items:[
+            {
+                title: "📈 Optimización para Conversiones",
+                description: (
+                    <span className="text-sm">
+                        Nuestras webs están diseñadas para maximizar las oportunidades de venta.
+                    </span>
+                ),
+                header: <SkeletonOne />,
+                className: "md:col-span-1",
+                icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "Análisis de Datos",
+                description: (
+                    <span className="text-sm">
+                        Te proporcionamos informes detallados sobre el comportamiento de los usuarios, las conversiones y las oportunidades de mejora.
+                    </span>
+                ),
+                header: <SkeletonTwo />,
+                className: "md:col-span-1",
+                icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "🎨 Diseño Web Profesional y Personalizado",
+                description: (
+                    <span className="text-sm">
+                        Creamos experiencias visuales impactantes, optimizadas para usabilidad y conversión, logrando que tu sitio web destaque entre la competencia.
+                    </span>
+                ),
+                header: <SkeletonThree />,
+                className: "md:col-span-1",
+                icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "🔍 Optimización SEO para Motores de Búsqueda",
+                description: (
+                    <span className="text-sm">
+                        Optimiza tu presencia online y lleva tu negocio al primer lugar en los motores de búsqueda más importantes.
+                    </span>
+                ),
+                header: <SkeletonFour />,
+                className: "md:col-span-2",
+                icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "🤝 Soporte Tecnico y Mantenimiento Constante",
+                description: (
+                    <span className="text-sm">
+                        No solo creamos tu web, también te acompañamos con soporte continuo y actualizaciones necesarias.
+                    </span>
+                ),
+                header: <SkeletonFive />,
+                className: "md:col-span-1",
+                icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+            },
+        ]
     },
-    {
-        title: "Análisis de Datos",
-        description: (
-            <span className="text-sm">
-                Te proporcionamos informes detallados sobre el comportamiento de los usuarios, las conversiones y las oportunidades de mejora.
-            </span>
-        ),
-        header: <SkeletonTwo />,
-        className: "md:col-span-1",
-        icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    en: {
+        items: [
+            {
+                title: "📈 Conversion Optimization",
+                description: (
+                    <span className="text-sm">
+                        Our websites are designed to maximize sales opportunities.
+                    </span>
+                ),
+                header: <SkeletonOne />,
+                className: "md:col-span-1",
+                icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "📊 Data Analysis",
+                description: (
+                    <span className="text-sm">
+                        We provide detailed reports on user behavior, conversions, and improvement opportunities.
+                    </span>
+                ),
+                header: <SkeletonTwo />,
+                className: "md:col-span-1",
+                icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "🎨 Professional and Custom Web Design",
+                description: (
+                    <span className="text-sm">
+                        We create impactful visual experiences, optimized for usability and conversion, making your website stand out from the competition.
+                    </span>
+                ),
+                header: <SkeletonThree />,
+                className: "md:col-span-1",
+                icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "🔍 SEO Optimization for Search Engines",
+                description: (
+                    <span className="text-sm">
+                        Optimize your online presence and take your business to the top of the most important search engines.
+                    </span>
+                ),
+                header: <SkeletonFour />,
+                className: "md:col-span-2",
+                icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+            },
+            {
+                title: "🤝 Ongoing Technical Support and Maintenance",
+                description: (
+                    <span className="text-sm">
+                        Not only do we create your website, but we also provide continuous support and necessary updates.
+                    </span>
+                ),
+                header: <SkeletonFive />,
+                className: "md:col-span-1",
+                icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+            },
+        ]
     },
-    {
-        title: "🎨 Diseño Web Profesional y Personalizado",
-        description: (
-            <span className="text-sm">
-                Creamos experiencias visuales impactantes, optimizadas para usabilidad y conversión, logrando que tu sitio web destaque entre la competencia.
-            </span>
-        ),
-        header: <SkeletonThree />,
-        className: "md:col-span-1",
-        icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
-    },
-    {
-        title: "🔍 Optimización SEO para Motores de Búsqueda",
-        description: (
-            <span className="text-sm">
-                Optimiza tu presencia online y lleva tu negocio al primer lugar en los motores de búsqueda más importantes.
-            </span>
-        ),
-        header: <SkeletonFour />,
-        className: "md:col-span-2",
-        icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    },
-    {
-        title: "🤝 Soporte Tecnico y Mantenimiento Constante",
-        description: (
-            <span className="text-sm">
-                No solo creamos tu web, también te acompañamos con soporte continuo y actualizaciones necesarias.
-            </span>
-        ),
-        header: <SkeletonFive />,
-        className: "md:col-span-1",
-        icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
-    },
-];
+    
+};
 
-const texts = {
-
-}

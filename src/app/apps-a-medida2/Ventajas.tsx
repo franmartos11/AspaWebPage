@@ -1,15 +1,11 @@
 'use client'
 
-
-const dynamicWords = ["Innovadoras", "Personalizadas", "Escalables", "Eficientes"];
-
 const Ventajas: React.FC = () => {
   
-
   return (
-    <section className="py-[9rem] px-6 bg-black text-center">
+    <section className="py-[9rem] px-6 text-center">
       <h2 className="text-4xl md:text-5xl font-bold ">
-        Haz Crecer tu Negocio con el {" "}
+        Hace Crecer tu Negocio con el {" "}
         <span className="text-blue-600 transition-all">Desarrollo de Apps</span>
       </h2>
       <p className="mt-4 text-gray-400 text-lg max-w-3xl mx-auto">

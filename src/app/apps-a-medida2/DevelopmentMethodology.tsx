@@ -42,7 +42,7 @@ const steps = [
 
 const DevelopmentMethodology: React.FC = () => {
   return (
-    <section className="py-16 px-6 bg-black text-center">
+    <section className="py-16 px-6 text-center">
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-white"
         initial={{ opacity: 0, y: -20 }}

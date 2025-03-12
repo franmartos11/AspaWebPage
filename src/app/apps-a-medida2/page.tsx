@@ -7,7 +7,7 @@ import Ventajas from "./Ventajas";
 
 export default function () {
     return (
-        <div className="bg-black">
+        <div className="bg-gradient-to-br from-gray-900 to-black">
             <Nav page={"servicios"}></Nav>
             <Ventajas></Ventajas>
             <DevelopmentMethodology></DevelopmentMethodology>

@@ -36,7 +36,7 @@ const content = {
           "Genera presupuestos detallados, envía facturas electrónicas y agiliza la administración de tu taller.",
       },
     ],
-    button: "Solicita tu Demo Gratis",
+    button: "Solicita una reunion",
   },
   en: {
     title: "Why Choose CarCheck?",
@@ -68,15 +68,20 @@ const content = {
           "Generate detailed estimates, send electronic invoices, and streamline the management of your workshop.",
       },
     ],
-    button: "Request Your Free Demo",
+    button: "Request a Meeting",
   },
 };
 
 export const WhyBuyCarCheck = () => {
   const { language } = useLanguage("es"); // Gestión del idioma
-
   const langContent = content[language];
 
+  const scrollToForm = () => {
+    const formSection = document.getElementById("form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section className="py-16 px-6 ">
       <motion.div
@@ -129,12 +134,12 @@ export const WhyBuyCarCheck = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <a
-            href="#demo"
+          <button
+            onClick={scrollToForm}
             className="px-8 py-4 bg-blue-700 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-800 transition duration-300"
           >
             {langContent.button}
-          </a>
+          </button>
         </motion.div>
       </motion.div>
     </section>

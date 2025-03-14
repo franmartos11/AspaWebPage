@@ -42,7 +42,7 @@ export default function Form({ service }: FormProps) {
     const langContent = content[language];
 
     return (
-        <section className="py-[3rem]">
+        <section id="form" className="py-[3rem]">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-white">
                     {langContent.title}

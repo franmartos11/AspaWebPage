@@ -40,6 +40,13 @@ export const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToForm = () => {
+    const formSection = document.getElementById("form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative text-white overflow-hidden mt-[0rem] mb-[5rem]">
       {/* Contenedor principal */}
@@ -65,18 +72,18 @@ export const Hero = () => {
             {texts[language].text3}
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-            <a
-              href="#demo"
+            <button
+              onClick={scrollToForm}
               className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
             >
               {texts[language].text2}
-            </a>
-            <a
-              href="#features"
+            </button>
+            <button
+              onClick={scrollToForm}
               className="px-6 py-3 border border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition duration-300"
             >
               {texts[language].text4}
-            </a>
+            </button>
           </div>
         </div>
 

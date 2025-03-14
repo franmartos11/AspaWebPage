@@ -60,12 +60,12 @@ const videoContent = {
 const textContent = {
   es: {
     title: "Aprende a usar CarCheck",
-    description: "Descubre nuestros tutoriales para sacar el máximo provecho del sistema.",
+    description: "Próximamente descubre nuestros tutoriales para sacar el máximo provecho del sistema.",
     closeModal: "Cerrar",
   },
   en: {
     title: "Learn to Use CarCheck",
-    description: "Discover our tutorials to make the most of the system.",
+    description: "Discover our tutorials to make the most of the system, coming soon!!!",
     closeModal: "Close",
   },
 };
@@ -101,7 +101,7 @@ export const TutorialVideos: React.FC = () => {
               className="relative group cursor-pointer rounded-lg overflow-hidden shadow-lg"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              onClick={() => setSelectedVideo(video.url)}
+              // onClick={() => setSelectedVideo(video.url)} // 🔴 Descomentar cuando los videos estén listos
             >
               <img
                 src={video.thumbnail}

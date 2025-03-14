@@ -20,7 +20,9 @@ export default function () {
             <AppleCardsCarouselDemo></AppleCardsCarouselDemo>          
             <TutorialVideos></TutorialVideos>
             <PricingSection></PricingSection>
-            <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
+
+            
+            
             <Form service={"Carchek"}></Form>        
         </div>
     );

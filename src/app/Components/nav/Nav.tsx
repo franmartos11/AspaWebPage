@@ -199,8 +199,8 @@ export default function Nav({ page }: { page: string }) {
                                 {texts[language].op4}
                             </Link>
                         </li>
-                        <button onClick={() => setLanguage('es')}>ES</button>
-                        <button onClick={() => setLanguage('en')}>EN</button>
+                        <button onClick={() => setLanguage('es')}>🇪🇸</button>
+                        <button onClick={() => setLanguage('en')}>🇺🇸</button>
                     </ul>
                 </div>
             </div>

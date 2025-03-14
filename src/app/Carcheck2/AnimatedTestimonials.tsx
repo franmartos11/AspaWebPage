@@ -56,7 +56,7 @@ export const AnimatedTestimonials = ({
   return (
 
     <motion.div
-      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 mb-[5rem] md:px-8 lg:px-12"
+      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans pt-[5rem] px-4 mb-[5rem] md:px-8 lg:px-12"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -66,7 +66,7 @@ export const AnimatedTestimonials = ({
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
                     {texts[language].title}
                 </h2>
-                <h3 className="text-4xl text-white text-center font-bold">
+                <h3 className="text-3xl md:text-5xl font-bold text-gray-100 mb-8">
                     {texts[language].paragraph}
                 </h3>
             </div>

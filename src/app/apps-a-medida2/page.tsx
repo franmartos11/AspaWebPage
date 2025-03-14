@@ -1,8 +1,6 @@
 import Form from "../Components/Forms/Form";
-import { TracingBeamApps } from "../Components/TricingBean/TracingBeanApps";
 import Nav from "../Components/nav/Nav";
 import DevelopmentMethodology from "./DevelopmentMethodology";
-import { Hero } from "./Hero";
 import Ventajas from "./Ventajas";
 
 

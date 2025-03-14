@@ -19,28 +19,28 @@ const Ventajas: React.FC = () => {
       <div className="mt-[6rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
         {/* Consultoría */}
         <div className="flex flex-col items-center">
-          <img src="/consultoria2.png" alt="Consultoría" className="w-12 h-12" />
+          <img src="/consultoria1.png" alt="Consultoría" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">Consultoría</h3>
           <p className="text-gray-400 text-sm mt-2">Te ayudamos a definir qué tipo de app es ideal para tu negocio.</p>
         </div>
 
         {/* Desarrollo */}
         <div className="flex flex-col items-center">
-          <img src="/icons/desarrollo.png" alt="Desarrollo" className="w-12 h-12" />
+          <img src="/desarrollo2.png" alt="Desarrollo" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">Desarrollo</h3>
           <p className="text-gray-400 text-sm mt-2">Ahorra hasta un <span className="font-bold text-blue-600">800%</span> en costos con nuestros frameworks.</p>
         </div>
 
         {/* Publicación */}
         <div className="flex flex-col items-center">
-          <img src="/icons/publicacion.png" alt="Publicación" className="w-12 h-12" />
+          <img src="/upload.png" alt="Publicación" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">Publicación</h3>
           <p className="text-gray-400 text-sm mt-2">Nos encargamos de publicar tu app en <span className="font-bold">Google Play y App Store.</span></p>
         </div>
 
         {/* Lanzamiento */}
         <div className="flex flex-col items-center">
-          <img src="/icons/lanzamiento.png" alt="Lanzamiento" className="w-12 h-12" />
+          <img src="/lanzamiento.png" alt="Lanzamiento" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">Lanzamiento</h3>
           <p className="text-gray-400 text-sm mt-2">Incluimos un plan de lanzamiento y asesoramiento.</p>
         </div>

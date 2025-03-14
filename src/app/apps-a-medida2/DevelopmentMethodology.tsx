@@ -6,37 +6,37 @@ const steps = [
     id: 1,
     title: "Análisis de requisitos",
     description: "Nuestros asesores te contactarán para valorar cuál es la mejor solución de desarrollo de app para tu negocio.",
-    icon: "/icons/requisitos.png",
+    icon: "/analisis.png",
   },
   {
     id: 2,
     title: "Análisis de marketing",
     description: "Estudiaremos desde una perspectiva de negocio qué funcionalidades pueden aportarte un mayor valor y cómo posicionar tu app en el mercado.",
-    icon: "/icons/marketing.png",
+    icon: "/analisisM.png",
   },
   {
     id: 3,
     title: "Diseño de UI",
     description: "Nuestros creativos diseñarán tu app asegurando en todo momento la mejor experiencia para el usuario.",
-    icon: "/icons/ui-design.png",
+    icon: "/ui.png",
   },
   {
     id: 4,
     title: "Desarrollo",
     description: "Nuestro equipo de desarrolladores de apps construirá tu aplicación utilizando las tecnologías más adecuadas, ya sea en desarrollo de aplicaciones nativas o multiplataforma.",
-    icon: "/icons/development.png",
+    icon: "/desarrollo2.png",
   },
   {
     id: 5,
     title: "Testing",
     description: "Todas las funcionalidades pasarán por un entorno de prueba en el que verificaremos que todo esté correcto.",
-    icon: "/icons/testing.png",
+    icon: "/testing.png",
   },
   {
     id: 6,
     title: "Lanzamiento",
     description: "La publicación en las plataformas será cosa nuestra. Trabajaremos con Google y Apple para la aprobación y distribución de tu app en Google Play y App Store.",
-    icon: "/icons/launch.png",
+    icon: "/lanzamiento.png",
   },
 ];
 

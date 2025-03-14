@@ -134,13 +134,7 @@ export default function Nav({ page }: { page: string }) {
 
                             {dropdown && (
                                 <div className="absolute bg-black flex align-middle justify-center flex-col border  border-blue-700 p-2 rounded-md mt-2">
-                                    <Link
-                                        title="link"
-                                        href="/servicios"
-                                        className="hover:text-blue-700 pt-[0.5rem]"
-                                    >
-                                        {texts[language].op2.o1}
-                                    </Link>
+                                    
                                     <Link
                                         title="link"
                                         href="/desarrollo-web"
@@ -162,13 +156,7 @@ export default function Nav({ page }: { page: string }) {
                                     >
                                         {texts[language].op2.o4}
                                     </Link>
-                                    <Link
-                                        title="link"
-                                        href="/auditorias"
-                                        className="hover:text-blue-700 pt-[0.5rem]"
-                                    >
-                                        {texts[language].op2.o5}
-                                    </Link>
+                                    
                                 </div>
                             )}
                         </li>

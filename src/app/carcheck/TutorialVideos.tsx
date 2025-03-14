@@ -59,12 +59,12 @@ const videoContent = {
 // Contenido multilingüe para textos
 const textContent = {
   es: {
-    title: "Aprende a usar CarCheck",
+    title: "Aprende a usar ",
     description: "Próximamente descubre nuestros tutoriales para sacar el máximo provecho del sistema.",
     closeModal: "Cerrar",
   },
   en: {
-    title: "Learn to Use CarCheck",
+    title: "Learn to Use ",
     description: "Discover our tutorials to make the most of the system, coming soon!!!",
     closeModal: "Close",
   },

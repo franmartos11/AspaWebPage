@@ -7,7 +7,7 @@ import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
 const content = {
   es: {
-    title: "¿Por qué elegir CarCheck?",
+    title: "¿Por qué elegir ",
     description:
       "Gestiona tu taller de forma integral, optimizando procesos, ahorrando tiempo y mejorando la rentabilidad de tu negocio.",
     benefits: [
@@ -39,7 +39,7 @@ const content = {
     button: "Solicita una reunion",
   },
   en: {
-    title: "Why Choose CarCheck?",
+    title: "Why Choose",
     description:
       "Manage your workshop comprehensively, optimizing processes, saving time, and improving your business profitability.",
     benefits: [
@@ -75,7 +75,6 @@ const content = {
 export const WhyBuyCarCheck = () => {
   const { language } = useLanguage("es"); // Gestión del idioma
   const langContent = content[language];
-
   const scrollToForm = () => {
     const formSection = document.getElementById("form");
     if (formSection) {
@@ -94,7 +93,7 @@ export const WhyBuyCarCheck = () => {
         {/* Título Principal */}
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
           {langContent.title}{" "}
-          <span className="text-blue-700">CarCheck</span>
+          <span className="text-blue-700">CarCheck ?</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-200 mb-[5rem]">
           {langContent.description}

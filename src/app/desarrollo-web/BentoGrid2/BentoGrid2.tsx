@@ -140,8 +140,9 @@ const SkeletonTwo = () => {
                     variants={variants}
                     style={{
                         maxWidth: Math.random() * (100 - 40) + 40 + "%",
+                        background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
                     }}
-                    className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
+                    className="flex flex-row rounded-full border  p-2  items-center space-x-2  w-full h-4"
                 ></motion.div>
             ))}
         </motion.div>

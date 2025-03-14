@@ -49,11 +49,11 @@ export function CarouselDemo2() {
     const texts = {
         en: {
             title: 'Proyects',
-            paragraph: 'Our latest proyects',
+            paragraph: 'Our Latest Proyects',
         },
         es: {
             title: 'Proyetos',
-            paragraph: 'Algunos de nuestros proyectos',
+            paragraph: 'Algunos de Nuestros Proyectos',
         }
     }
     return (

@@ -8,7 +8,7 @@ export function WorldMapDemo() {
 
     const texts = {
         en: {
-            title1: 'Take Your Business to the',
+            title1: 'Take Your Business to the ',
             title2:'World',
             paragraph: 'We create custom, SEO-optimized websites designed to attract clients and turn visits into sales. Take your brand to every corner of the digital world with an impactful and effective website.',
         },
@@ -24,7 +24,7 @@ export function WorldMapDemo() {
       <div className="max-w-7xl mx-auto text-center">
         <p className="font-bold text-xl md:text-4xl dark:text-white text-black">
           {texts[language].title1}{" "}
-          <span className="text-neutral-400">
+          <span className="text-blue-600">
             {texts[language].title2.split(" ").map((word, idx) => (
               <motion.span
                 key={idx}

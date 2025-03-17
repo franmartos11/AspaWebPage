@@ -13,7 +13,7 @@ import { WhyBuyCarCheck } from "./WhyBuyCarcheck";
 
 export default function () {
     return (
-        <div className="bg-gradient-to-br from-gray-900 to-black">
+        <div className="bg-black">
             <Nav page={"servicios"}></Nav>
             <Hero></Hero>
             <WhyBuyCarCheck></WhyBuyCarCheck>

@@ -127,7 +127,7 @@ export function TabsDemo() {
                     <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
                 </div>
             </div>
-            <div className="h-[20rem] md:h-[37rem] bg-black [perspective:1000px] relative  flex flex-col max-w-5xl mx-auto w-full  items-start justify-start mt-10 mb-40">
+            <div className="h-[20rem] md:h-[37rem]  [perspective:1000px] relative  flex flex-col max-w-5xl mx-auto w-full  items-start justify-start mt-10 mb-40">
                 <Tabs tabs={tabs} />
             </div></div>
     );

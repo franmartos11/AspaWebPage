@@ -51,7 +51,7 @@ export default function Form({ service }: FormProps) {
                     {langContent.description}
                 </p>
                 <form
-                    action="https://formsubmit.co/aspasoftwaredevelopment@gmail.com"
+                    action="https://formsubmit.co/74c5c743d951c678ce020a82cc431fa4"
                     method="POST"
                     className="space-y-8"
                 >

@@ -22,7 +22,7 @@ export function CarouselDemo2() {
                 title: "Aspa Audit",
                 button: "See More",
                 src: "/auditHome1.png",
-                web:'/https://www.appsheet.com/start/c227a95b-9a21-479a-ad0e-f6e7dcfc1d95#appName=AplicaciónAuditoríass-4407950&vss=H4sIAAAAAAAAA52OvQ7CMBCD38VzniArYkCoLCAWwhCaqxTRJlWTAFWUd-fCj1iB8Xz-bGdcLF23UbdnyEP-XGuaIZEVdvNIClJh4V2cfK8gFDZ6eIoNuaRQUI7izUYKkPl7VP7fKmANuWg7S1PNqRTzL4bflWCh-lEEhhT1qafHSPaXwlrn2xTI7HnCj9Vh5Za3UTvTeMNxne4DlTudAZXRUQEAAA==&view=Menu'
+                web:'https://www.appsheet.com/start/c227a95b-9a21-479a-ad0e-f6e7dcfc1d95#appName=AplicaciónAuditoríass-4407950&vss=H4sIAAAAAAAAA52OvQ7CMBCD38VzniArYkCoLCAWwhCaqxTRJlWTAFWUd-fCj1iB8Xz-bGdcLF23UbdnyEP-XGuaIZEVdvNIClJh4V2cfK8gFDZ6eIoNuaRQUI7izUYKkPl7VP7fKmANuWg7S1PNqRTzL4bflWCh-lEEhhT1qafHSPaXwlrn2xTI7HnCj9Vh5Za3UTvTeMNxne4DlTudAZXRUQEAAA==&view=Menu'
             },
         ],
         es: [
@@ -42,7 +42,7 @@ export function CarouselDemo2() {
                 title: "Aspa Auditorias",
                 button: "Ver Mas",
                 src:"/auditHome1.png",
-                web:'/https://www.appsheet.com/start/c227a95b-9a21-479a-ad0e-f6e7dcfc1d95#appName=AplicaciónAuditoríass-4407950&vss=H4sIAAAAAAAAA52OvQ7CMBCD38VzniArYkCoLCAWwhCaqxTRJlWTAFWUd-fCj1iB8Xz-bGdcLF23UbdnyEP-XGuaIZEVdvNIClJh4V2cfK8gFDZ6eIoNuaRQUI7izUYKkPl7VP7fKmANuWg7S1PNqRTzL4bflWCh-lEEhhT1qafHSPaXwlrn2xTI7HnCj9Vh5Za3UTvTeMNxne4DlTudAZXRUQEAAA==&view=Menu'
+                web:'https://www.appsheet.com/start/c227a95b-9a21-479a-ad0e-f6e7dcfc1d95#appName=AplicaciónAuditoríass-4407950&vss=H4sIAAAAAAAAA52OvQ7CMBCD38VzniArYkCoLCAWwhCaqxTRJlWTAFWUd-fCj1iB8Xz-bGdcLF23UbdnyEP-XGuaIZEVdvNIClJh4V2cfK8gFDZ6eIoNuaRQUI7izUYKkPl7VP7fKmANuWg7S1PNqRTzL4bflWCh-lEEhhT1qafHSPaXwlrn2xTI7HnCj9Vh5Za3UTvTeMNxne4DlTudAZXRUQEAAA==&view=Menu'
             },
         ]
     };

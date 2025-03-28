@@ -1,5 +1,6 @@
 'use client'
 import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
+import { motion } from "framer-motion";
 
 const Ventajas: React.FC = () => {
   const { language } = useLanguage('es');
@@ -39,27 +40,30 @@ const Ventajas: React.FC = () => {
         subtitle4: 'Launch',
         subtext4: 'We include a launch plan and consulting services.',
     }
-}
-
+  };
 
   return (
-    <section className="py-[9rem] px-6 text-center">
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="py-[9rem] px-6 text-center"
+    >
       <h2 className="text-4xl md:text-5xl font-bold ">
-        {texts[language].title} {" "}
+        {texts[language].title}{" "}
         <span className="text-blue-600 transition-all">{texts[language].title2}</span>
       </h2>
       <p className="mt-4 text-gray-400 text-lg max-w-3xl mx-auto">
-      {texts[language].paragraph}
+        {texts[language].paragraph}
       </p>
-
       <p className="mt-4 text-blue-600 font-medium">
-      {texts[language].paragraph2}
+        {texts[language].paragraph2}
       </p>
 
       <div className="mt-[6rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
         {/* Consultoría */}
         <div className="flex flex-col items-center">
-          <img src="/consultoria1.png" alt="Consultoría" className="w-12 h-12" />
+          <img src="/analisisM.png" alt="Consultoría" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">{texts[language].subtitle1}</h3>
           <p className="text-gray-400 text-sm mt-2">{texts[language].subtext1}</p>
         </div>
@@ -68,14 +72,20 @@ const Ventajas: React.FC = () => {
         <div className="flex flex-col items-center">
           <img src="/desarrollo2.png" alt="Desarrollo" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">{texts[language].subtitle2}</h3>
-          <p className="text-gray-400 text-sm mt-2">{texts[language].subtext2} <span className="font-bold text-blue-600">{texts[language].subtext21}</span> {texts[language].subtext22}.</p>
+          <p className="text-gray-400 text-sm mt-2">
+            {texts[language].subtext2}{" "}
+            <span className="font-bold text-blue-600">{texts[language].subtext21}</span>{" "}
+            {texts[language].subtext22}.
+          </p>
         </div>
 
         {/* Publicación */}
         <div className="flex flex-col items-center">
           <img src="/upload.png" alt="Publicación" className="w-12 h-12" />
           <h3 className="mt-4 text-xl font-semibold ">{texts[language].subtitle3}</h3>
-          <p className="text-gray-400 text-sm mt-2">{texts[language].subtext3} <span className="font-bold">{texts[language].subtext31}</span></p>
+          <p className="text-gray-400 text-sm mt-2">
+            {texts[language].subtext3} <span className="font-bold">{texts[language].subtext31}</span>
+          </p>
         </div>
 
         {/* Lanzamiento */}
@@ -85,7 +95,7 @@ const Ventajas: React.FC = () => {
           <p className="text-gray-400 text-sm mt-2">{texts[language].subtext4}</p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

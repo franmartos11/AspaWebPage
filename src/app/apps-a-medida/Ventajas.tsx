@@ -49,7 +49,7 @@ const Ventajas: React.FC = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="py-[9rem] px-6 text-center"
     >
-      <h2 className="text-4xl md:text-5xl font-bold ">
+      <h2 className="text-4xl md:text-5xl text-white font-bold ">
         {texts[language].title}{" "}
         <span className="text-blue-600 transition-all">{texts[language].title2}</span>
       </h2>
@@ -60,11 +60,11 @@ const Ventajas: React.FC = () => {
         {texts[language].paragraph2}
       </p>
 
-      <div className="mt-[6rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      <div className="mt-[6rem] text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
         {/* Consultoría */}
         <div className="flex flex-col items-center">
           <img src="/analisisM.png" alt="Consultoría" className="w-12 h-12" />
-          <h3 className="mt-4 text-xl font-semibold ">{texts[language].subtitle1}</h3>
+          <h3 className="mt-4 text-xl font-semibold  ">{texts[language].subtitle1}</h3>
           <p className="text-gray-400 text-sm mt-2">{texts[language].subtext1}</p>
         </div>
 

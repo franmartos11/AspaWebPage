@@ -27,8 +27,8 @@ export function BentoGrid2() {
         }
     }
     return (
-        <>
-            <div className=" pt-[5rem] mb-[3rem] text-center">
+        <div className="bg-black">
+            <div className=" pt-[5rem] mb-[3rem] text-center ">
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
                     {texts[language].title1}
                 </h2>
@@ -43,12 +43,12 @@ export function BentoGrid2() {
                         title={item.title}
                         description={item.description}
                         header={item.header}
-                        className={cn("[&>p:text-lg]", item.className)}
+                        className={cn("[&>p:text-lg] border border-white/[0.2]   bg-black", item.className)}
                         icon={item.icon}
                     />
                 ))}
             </BentoGrid>
-        </>
+        </div>
     );
 }
 
@@ -82,28 +82,28 @@ const SkeletonOne = () => {
         <motion.div
             initial="initial"
             whileHover="animate"
-            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+            className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-white/[0.2] flex-col space-y-2"
         >
             <motion.div
                 variants={variants}
-                className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-white dark:bg-black"
+                className="flex flex-row rounded-full border border-white/[0.2] p-2  items-center space-x-2 bg-black"
             >
-                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" />
-                <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 shrink-0" />
+                <div className="w-full h-4 rounded-full bg-neutral-900" />
             </motion.div>
             <motion.div
                 variants={variantsSecond}
-                className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
+                className="flex flex-row rounded-full border border-white/[0.2] p-2 items-center space-x-2 w-3/4 ml-auto bg-black"
             >
-                <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
-                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" />
+                <div className="w-full  h-4 rounded-full bg-neutral-900" />
+                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 shrink-0" />
             </motion.div>
             <motion.div
                 variants={variants}
-                className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
+                className="flex flex-row rounded-full border border-white/[0.2] p-2 items-center space-x-2 bg-black"
             >
-                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" />
-                <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+                <div className="h-6 w-6 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 shrink-0" />
+                <div className="w-full h-4 rounded-full bg-neutral-900" />
             </motion.div>
         </motion.div>
     );
@@ -132,7 +132,7 @@ const SkeletonTwo = () => {
             initial="initial"
             animate="animate"
             whileHover="hover"
-            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+            className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-white/[0.2]  flex-col space-y-2"
         >
             {arr.map((_, i) => (
                 <motion.div
@@ -142,7 +142,7 @@ const SkeletonTwo = () => {
                         maxWidth: Math.random() * (100 - 40) + 40 + "%",
                         background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
                     }}
-                    className="flex flex-row rounded-full border  p-2  items-center space-x-2  w-full h-4"
+                    className="flex flex-row rounded-full border  p-2  items-center space-x-2  w-full h-4 bg-black"
                 ></motion.div>
             ))}
         </motion.div>
@@ -167,7 +167,7 @@ const SkeletonThree = () => {
                 repeat: Infinity,
                 repeatType: "reverse",
             }}
-            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 bg-black"
             style={{
                 background:
                     "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
@@ -219,11 +219,11 @@ const SkeletonFour = () => {
             initial="initial"
             animate="animate"
             whileHover="hover"
-            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
+            className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-white/[0.2] flex-row space-x-2"
         >
             <motion.div
                 variants={first}
-                className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+                className="h-full w-1/3 rounded-2xl  bg-black border-white/[0.1] border flex flex-col items-center justify-center"
             >
                 <Image
                     src="/logo-Yahoo.png"
@@ -232,14 +232,14 @@ const SkeletonFour = () => {
                     width="100"
                     className="rounded-full h-10 w-10 bg-white"
                 />
-                <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
+                <p className="sm:text-sm text-xs text-center font-semibold text-white mt-4">
                     {texts[language].title1}
                 </p>
-                <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
+                <p className="border border-green-500 bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
                     {texts[language].title4}
                 </p>
             </motion.div>
-            <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
+            <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-black border-white/[0.1] border  flex flex-col items-center justify-center">
                 <Image
                     src="/logo-google.png"
                     alt="avatar"
@@ -247,16 +247,16 @@ const SkeletonFour = () => {
                     width="100"
                     className="rounded-full h-10 w-10"
                 />
-                <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
+                <p className="sm:text-sm text-xs text-center font-semibold text-white mt-4">
                     {texts[language].title2}
                 </p>
-                <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
+                <p className="border border-green-500  bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
                     {texts[language].title4}
                 </p>
             </motion.div>
             <motion.div
                 variants={second}
-                className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
+                className="h-full w-1/3 rounded-2xl bg-black border-white/[0.1] border  flex flex-col items-center justify-center"
             >
                 <Image
                     src="/logo-bing.png"
@@ -265,10 +265,10 @@ const SkeletonFour = () => {
                     width="100"
                     className="rounded-full h-10 w-10"
                 />
-                <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
+                <p className="sm:text-sm text-xs text-center font-semibold text-white mt-4">
                     {texts[language].title3}
                 </p>
-                <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
+                <p className="border border-green-500 bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
                     {texts[language].title4}
                 </p>
             </motion.div>
@@ -317,11 +317,11 @@ const SkeletonFive = () => {
         <motion.div
             initial="initial"
             whileHover="animate"
-            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 bg-black"
         >
             <motion.div
                 variants={variants}
-                className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
+                className="flex flex-row rounded-2xl border border-white/[0.2] p-2  items-start space-x-2 bg-black"
             >
                 <Image
                     src="/agus.jpeg"
@@ -337,7 +337,7 @@ const SkeletonFive = () => {
 
             <motion.div
                 variants={variantsSecond}
-                className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
+                className="flex flex-row rounded-2xl border border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-black"
             >
                 <p className="text-xs text-neutral-500">{texts[language].paragraph2}</p>
                 <Image
@@ -363,7 +363,7 @@ const items = {
                 ),
                 header: <SkeletonOne />,
                 className: "md:col-span-1",
-                icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+                icon: <IconClipboardCopy className="h-4 w-4 text-white" />,
             },
             {
                 title: "Análisis de Datos",
@@ -374,7 +374,7 @@ const items = {
                 ),
                 header: <SkeletonTwo />,
                 className: "md:col-span-1",
-                icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+                icon: <IconFileBroken className="h-4 w-4 text-white" />,
             },
             {
                 title: "🎨 Diseño Web Profesional y Personalizado",
@@ -385,7 +385,7 @@ const items = {
                 ),
                 header: <SkeletonThree />,
                 className: "md:col-span-1",
-                icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+                icon: <IconSignature className="h-4 w-4 text-white" />,
             },
             {
                 title: "🔍 Optimización SEO para Motores de Búsqueda",
@@ -396,7 +396,7 @@ const items = {
                 ),
                 header: <SkeletonFour />,
                 className: "md:col-span-2",
-                icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+                icon: <IconTableColumn className="h-4 w-4 text-white" />,
             },
             {
                 title: "🤝 Soporte Tecnico y Mantenimiento Constante",
@@ -407,7 +407,7 @@ const items = {
                 ),
                 header: <SkeletonFive />,
                 className: "md:col-span-1",
-                icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+                icon: <IconBoxAlignRightFilled className="h-4 w-4 text-white" />,
             },
         ]
     },
@@ -422,7 +422,7 @@ const items = {
                 ),
                 header: <SkeletonOne />,
                 className: "md:col-span-1",
-                icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+                icon: <IconClipboardCopy className="h-4 w-4 text-white" />,
             },
             {
                 title: "📊 Data Analysis",
@@ -433,7 +433,7 @@ const items = {
                 ),
                 header: <SkeletonTwo />,
                 className: "md:col-span-1",
-                icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+                icon: <IconFileBroken className="h-4 w-4 text-white" />,
             },
             {
                 title: "🎨 Professional and Custom Web Design",
@@ -444,7 +444,7 @@ const items = {
                 ),
                 header: <SkeletonThree />,
                 className: "md:col-span-1",
-                icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+                icon: <IconSignature className="h-4 w-4 text-white" />,
             },
             {
                 title: "🔍 SEO Optimization for Search Engines",
@@ -455,7 +455,7 @@ const items = {
                 ),
                 header: <SkeletonFour />,
                 className: "md:col-span-2",
-                icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+                icon: <IconTableColumn className="h-4 w-4 text-white" />,
             },
             {
                 title: "🤝 Ongoing Technical Support and Maintenance",
@@ -466,7 +466,7 @@ const items = {
                 ),
                 header: <SkeletonFive />,
                 className: "md:col-span-1",
-                icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+                icon: <IconBoxAlignRightFilled className="h-4 w-4 text-white" />,
             },
         ]
     },

@@ -18,7 +18,7 @@ export function MacbookScrollDemo() {
         }
     }
     return (
-        <div className="overflow-hidden sm:block hidden w-full">
+        <div className="overflow-hidden sm:block hidden w-full bg-black ">
             <MacbookScroll
                 title={
                     <span className=" text-5xl">

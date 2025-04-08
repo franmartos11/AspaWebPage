@@ -51,7 +51,7 @@ export function WorldMap({
   return (
     <div
       ref={ref}
-      className="w-full aspect-[2/1] dark:bg-black bg-white rounded-lg relative font-sans"
+      className="w-full aspect-[2/1] bg-black  rounded-lg relative font-sans"
     >
       <Image
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}

@@ -57,7 +57,7 @@ export function CarouselDemo() {
         }
     }
     return (
-        <div>
+        <div className="bg-black">
             <div className="mb-[2rem] text-center">
                 <h2 className="text-blue-600 text-center font-medium mb-4 block">
                     {texts[language].title}

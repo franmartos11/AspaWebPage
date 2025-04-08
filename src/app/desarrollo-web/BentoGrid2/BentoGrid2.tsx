@@ -140,9 +140,9 @@ const SkeletonTwo = () => {
                     variants={variants}
                     style={{
                         maxWidth: Math.random() * (100 - 40) + 40 + "%",
-                        background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+                        background: "linear-gradient(-45deg, #60a5fa, #3b82f6, #2563eb, #1e40af)",
                     }}
-                    className="flex flex-row rounded-full border  p-2  items-center space-x-2  w-full h-4 bg-black"
+                    className="flex flex-row rounded-full border  p-2  items-center space-x-2  w-full h-4 "
                 ></motion.div>
             ))}
         </motion.div>
@@ -167,10 +167,10 @@ const SkeletonThree = () => {
                 repeat: Infinity,
                 repeatType: "reverse",
             }}
-            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 bg-black"
+            className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 "
             style={{
                 background:
-                    "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+                    "linear-gradient(-45deg, #60a5fa, #3b82f6, #2563eb, #1e40af)",
                 backgroundSize: "400% 400%",
             }}
         >

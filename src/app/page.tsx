@@ -1,11 +1,11 @@
 'use client'
 import { HeroHome } from "./Components/HeroHome/HeroHome";
 import CardHomeTriple from "./Components/CardsHome/CardHomeTriple";
-import HomeTeam from "./Components/home-team/HomeTeam";
 import Nav from "./Components/nav/Nav";
 import { HeroScrollDemo } from "./Components/Tablet/HeroScrollDemo";
 import { TabsDemo } from "./Components/tabs/TabsDemo";
 import MoovingLogos from "./Components/MoovingLogos/MoovingLogos";
+import NosotrosTeam from "./Components/NosotrosTeam/NosotrosTeam";
 
 
 
@@ -19,7 +19,7 @@ export default function Home( ) {
             <HeroScrollDemo></HeroScrollDemo>           
             <TabsDemo></TabsDemo>
             <CardHomeTriple></CardHomeTriple>
-            <HomeTeam></HomeTeam>
+            <NosotrosTeam></NosotrosTeam>
             <MoovingLogos></MoovingLogos>
         </div>
     );

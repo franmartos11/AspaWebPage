@@ -1,4 +1,4 @@
-'use client'
+
 import Form from "../Components/Forms/Form";
 import { AppleCardsCarouselDemo } from "../Components/ServicesDisplay/Popup";
 import Nav from "../Components/nav/Nav";

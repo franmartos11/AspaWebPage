@@ -1,9 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
-const config = {
+module.exports = {
     siteUrl: 'https://www.aspasoftware.com',
     generateRobotsTxt: true,
-    sitemapSize: 7000,
+    outDir: './public', // 👈 esta línea es la clave
   };
-  
-  module.exports = config;
   

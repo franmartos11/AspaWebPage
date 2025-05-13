@@ -107,7 +107,7 @@ export default function ( ) {
                     <a
                         title="link"
                         target="_blank"
-                        href="https://www.instagram.com/omegasolucionesrl/"
+                        href="https://www.omegasoluciones.com.ar"
                         className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
                     >
                         <img

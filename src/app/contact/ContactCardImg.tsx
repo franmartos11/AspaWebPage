@@ -28,7 +28,6 @@ export default function ContactCardImg() {
             },
         },
     }
-
     
     return (
         <section className="min-h-screen pt-[5rem] bg-black ">
@@ -159,9 +158,9 @@ export default function ContactCardImg() {
                                 <span className="mx-2  truncate w-72 ms:w-50 text-gray-400">
                                     <a
                                         title="link"
-                                        href="https://wa.me/5493517730900?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
+                                        href="https://wa.me/17867630202?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
                                     >
-                                        +54 9 3517 73-0900
+                                       +1 (786) 763-0202
                                     </a>
                                 </span>
                             </p>

@@ -83,16 +83,15 @@ export default function Form({ service }: FormProps) {
       return;
     }
 
-    const payload = { name, email, pn, subject, message };
-
     try {
       const res = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ name, email, pn, subject, message }),
       });
+      const data = await res.json();
 
-      if (res.ok) {
+      if (res.ok && data.success) {
         setStatus("success");
         e.currentTarget.reset();
       } else {

@@ -1,3 +1,4 @@
+// src/components/Form.tsx
 "use client";
 import React, { useState } from "react";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
@@ -90,14 +91,16 @@ export default function Form({ service }: FormProps) {
         body: JSON.stringify({ name, email, pn, subject, message }),
       });
       const data = await res.json();
+      console.log("API response:", res.status, data);
 
-      if (res.ok && data.success) {
+      if (data.success) {
         setStatus("success");
         e.currentTarget.reset();
       } else {
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Fetch error:", err);
       setStatus("error");
     } finally {
       setLoading(false);
@@ -107,9 +110,7 @@ export default function Form({ service }: FormProps) {
   return (
     <section id="form" className="py-[3rem] bg-black">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">
-        <h2 className="mb-4 text-4xl font-extrabold text-center">
-          {lang.title}
-        </h2>
+        <h2 className="mb-4 text-4xl font-extrabold text-center">{lang.title}</h2>
         <p className="mb-8 font-light text-center text-gray-400 sm:text-xl">
           {lang.description}
         </p>
@@ -123,7 +124,7 @@ export default function Form({ service }: FormProps) {
             <input
               type="text"
               name="name"
-              onChange={() => errors.name && setErrors(prev => ({ ...prev, name: undefined }))}
+              onChange={() => errors.name && setErrors((p) => ({ ...p, name: undefined }))}
               className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderName}
               required
@@ -139,7 +140,7 @@ export default function Form({ service }: FormProps) {
             <input
               type="email"
               name="email"
-              onChange={() => errors.email && setErrors(prev => ({ ...prev, email: undefined }))}
+              onChange={() => errors.email && setErrors((p) => ({ ...p, email: undefined }))}
               className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderEmail}
               required
@@ -155,7 +156,7 @@ export default function Form({ service }: FormProps) {
             <input
               type="tel"
               name="pn"
-              onChange={() => errors.pn && setErrors(prev => ({ ...prev, pn: undefined }))}
+              onChange={() => errors.pn && setErrors((p) => ({ ...p, pn: undefined }))}
               className="block p-3 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderPhone}
               required
@@ -170,11 +171,14 @@ export default function Form({ service }: FormProps) {
             </label>
             <textarea
               name="message"
-              onChange={() => errors.message && setErrors(prev => ({ ...prev, message: undefined }))}
+              onChange={() => errors.message && setErrors((p) => ({ ...p, message: undefined }))}
               className="block p-6 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderMessage}
               required
             />
+            {errors.message && (
+              <p className="mt-1 text-red-400 text-sm">{errors.message}</p>
+            )}
           </div>
 
           {/* Hidden Subject */}
@@ -196,9 +200,7 @@ export default function Form({ service }: FormProps) {
             <p className="text-center text-green-400">¡Mensaje enviado!</p>
           )}
           {status === "error" && (
-            <p className="text-center text-red-400">
-              Ocurrió un error. Intenta nuevamente.
-            </p>
+            <p className="text-center text-red-400">Ocurrió un error. Intenta nuevamente.</p>
           )}
         </form>
       </div>

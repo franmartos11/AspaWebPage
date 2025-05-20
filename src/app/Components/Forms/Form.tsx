@@ -1,118 +1,177 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 type FormProps = {
-    service: string;
+  service: string;
 };
 
 const content = {
-    es: {
-        title: "Contáctanos",
-        description:
-            "¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.",
-        labels: {
-            email: "Email",
-            phone: "Teléfono",
-            message: "Mensaje",
-            placeholderEmail: "nombre@gmail.com",
-            placeholderPhone: "Número de teléfono...",
-            placeholderMessage: "Deja tu mensaje...",
-        },
-        button: "Enviar Mensaje",
+  es: {
+    title: "Contáctanos",
+    description:
+      "¡Haznos saber cómo podemos ayudarte! Completa el formulario de contacto y estaremos encantados de responder a tus preguntas, discutir colaboraciones o simplemente charlar sobre tus ideas.",
+    labels: {
+      name: "Nombre",
+      placeholderName: "Tu nombre",
+      email: "Email",
+      placeholderEmail: "nombre@gmail.com",
+      phone: "Teléfono",
+      placeholderPhone: "Número de teléfono...",
+      message: "Mensaje",
+      placeholderMessage: "Deja tu mensaje...",
+      button: "Enviar Mensaje",
     },
-    en: {
-        title: "Contact Us",
-        description:
-            "Let us know how we can help you! Fill out the contact form, and we'll be happy to answer your questions, discuss collaborations, or simply chat about your ideas.",
-        labels: {
-            email: "Email",
-            phone: "Phone",
-            message: "Message",
-            placeholderEmail: "name@gmail.com",
-            placeholderPhone: "Phone number...",
-            placeholderMessage: "Leave your message...",
-        },
-        button: "Send Message",
+  },
+  en: {
+    title: "Contact Us",
+    description:
+      "Let us know how we can help you! Fill out the contact form, and we'll be happy to answer your questions, discuss collaborations, or simply chat about your ideas.",
+    labels: {
+      name: "Name",
+      placeholderName: "Your name",
+      email: "Email",
+      placeholderEmail: "name@gmail.com",
+      phone: "Phone",
+      placeholderPhone: "Phone number...",
+      message: "Message",
+      placeholderMessage: "Leave your message...",
+      button: "Send Message",
     },
+  },
 };
 
 export default function Form({ service }: FormProps) {
-    const { language } = useLanguage("es");
-    const langContent = content[language];
+  const { language } = useLanguage("es");
+  const lang = content[language];
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-    return (
-        <section id="form" className="py-[3rem] bg-black">
-            <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-white">
-                    {langContent.title}
-                </h2>
-                <p className="mb-8 lg:mb-16 font-light text-center text-gray-400 sm:text-xl">
-                    {langContent.description}
-                </p>
-                <form
-                    action="https://formsubmit.co/74c5c743d951c678ce020a82cc431fa4"
-                    method="POST"
-                    className="space-y-8"
-                >
-                    {/* Email */}
-                    <div>
-                        <label className="block mb-2 text-sm font-medium text-gray-300">
-                            {langContent.labels.email}
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            className="shadow-sm border text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
-                            placeholder={langContent.labels.placeholderEmail}
-                            required
-                        />
-                    </div>
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("idle");
 
-                    {/* Phone */}
-                    <div>
-                        <label className="block mb-2 text-sm font-medium text-gray-300">
-                            {langContent.labels.phone}
-                        </label>
-                        <input
-                            type="tel"
-                            id="telefono"
-                            name="telefono"
-                            className="block p-3 w-full text-sm rounded-lg border shadow-sm focus:ring-primary-500 focus:border-primary-500 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
-                            placeholder={langContent.labels.placeholderPhone}
-                            required
-                        />
-                    </div>
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      pn: formData.get("pn"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
-                    {/* Message */}
-                    <div className="sm:col-span-2">
-                        <label className="block mb-2 text-sm font-medium text-gray-300">
-                            {langContent.labels.message}
-                        </label>
-                        <textarea
-                            id="message"
-                            name="mensaje"
-                            className="block p-6 w-full text-sm rounded-lg shadow-sm border focus:ring-primary-500 focus:border-primary-500 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
-                            placeholder={langContent.labels.placeholderMessage}
-                            required
-                        ></textarea>
-                    </div>
+    try {
+      const res = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-                    {/* Hidden Field for Service */}
-                    <input type="hidden" name="service" value={service} />
+      if (res.ok) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-                    {/* Submit Button */}
-                    <div className="text-center">
-                        <button
-                            type="submit"
-                            className="py-3 px-9 text-sm font-medium text-center text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-primary-300"
-                        >
-                            {langContent.button}
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    );
+  return (
+    <section id="form" className="py-[3rem] bg-black">
+      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">
+        <h2 className="mb-4 text-4xl font-extrabold text-center">
+          {lang.title}
+        </h2>
+        <p className="mb-8 font-light text-center text-gray-400 sm:text-xl">
+          {lang.description}
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Name */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-300">
+              {lang.labels.name}
+            </label>
+            <input
+              type="text"
+              name="name"
+              className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
+              placeholder={lang.labels.placeholderName}
+              required
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-300">
+              {lang.labels.email}
+            </label>
+            <input
+              type="email"
+              name="email"
+              className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
+              placeholder={lang.labels.placeholderEmail}
+              required
+            />
+          </div>
+
+          {/* Phone */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-300">
+              {lang.labels.phone}
+            </label>
+            <input
+              type="tel"
+              name="pn"
+              className="block p-3 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
+              placeholder={lang.labels.placeholderPhone}
+              required
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-300">
+              {lang.labels.message}
+            </label>
+            <textarea
+              name="message"
+              className="block p-6 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
+              placeholder={lang.labels.placeholderMessage}
+              required
+            />
+          </div>
+
+          {/* Hidden Subject */}
+          <input type="hidden" name="subject" value={service} />
+
+          {/* Submit */}
+          <div className="text-center">
+            <button
+              type="submit"
+              disabled={loading}
+              className="py-3 px-9 text-sm font-medium text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-primary-300 disabled:opacity-50"
+            >
+              {loading ? "Enviando..." : lang.labels.button}
+            </button>
+          </div>
+
+          {/* Feedback */}
+          {status === "success" && (
+            <p className="text-center text-green-400">¡Mensaje enviado!</p>
+          )}
+          {status === "error" && (
+            <p className="text-center text-red-400">
+              Ocurrió un error. Intenta nuevamente.
+            </p>
+          )}
+        </form>
+      </div>
+    </section>
+  );
 }

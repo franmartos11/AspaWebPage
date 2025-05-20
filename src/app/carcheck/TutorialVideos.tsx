@@ -60,12 +60,14 @@ const videoContent = {
 const textContent = {
   es: {
     title: "Aprende a usar ",
-    description: "Próximamente descubre nuestros tutoriales para sacar el máximo provecho del sistema.",
+    description:
+      "Próximamente descubre nuestros tutoriales para sacar el máximo provecho del sistema.",
     closeModal: "Cerrar",
   },
   en: {
     title: "Learn to Use ",
-    description: "Discover our tutorials to make the most of the system, coming soon!!!",
+    description:
+      "Discover our tutorials to make the most of the system, coming soon!!!",
     closeModal: "Close",
   },
 };
@@ -109,7 +111,9 @@ export const TutorialVideos: React.FC = () => {
                 className="w-full h-56 object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <p className="text-white text-lg font-semibold">{video.title}</p>
+                <p className="text-white text-lg font-semibold">
+                  {video.title}
+                </p>
               </div>
             </motion.div>
           ))}

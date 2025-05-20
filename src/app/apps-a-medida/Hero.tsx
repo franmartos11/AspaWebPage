@@ -6,31 +6,31 @@ import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
 export const Hero = () => {
   const [index, setIndex] = useState(0);
-  const { language, setLanguage } = useLanguage('es');
-  
+  const { language, setLanguage } = useLanguage("es");
+
   const texts = {
     es: {
-      texts: ["Innovadora",
-        "Personalizada",
-        "Eficiente",
-        "Escalable",],
-        text2:'Impulsa tu Negocio con una Aplicación ',
-        text3:'Creamos aplicaciones a medida para empresas y emprendedores que buscan soluciones digitales eficientes, escalables y adaptadas a sus necesidades. Optimiza procesos, mejora la productividad y destaca en el mercado con un software hecho a tu medida.',
-        text4:'Solicita una Demo',
-        text5:'Ver Funcionalidades',
+      texts: ["Innovadora", "Personalizada", "Eficiente", "Escalable"],
+      text2: "Impulsa tu Negocio con una Aplicación ",
+      text3:
+        "Creamos aplicaciones a medida para empresas y emprendedores que buscan soluciones digitales eficientes, escalables y adaptadas a sus necesidades. Optimiza procesos, mejora la productividad y destaca en el mercado con un software hecho a tu medida.",
+      text4: "Solicita una Demo",
+      text5: "Ver Funcionalidades",
     },
     en: {
-      texts: ["Maximize Your Profitability",
+      texts: [
+        "Maximize Your Profitability",
         "Optimize Your Processes",
         "Increase Your Productivity",
-        "Comprehensive Workshop Management",],
-      text2: 'Optimize Your Workshop',
-      text3: 'Manage your mechanical workshop comprehensively, optimizing your time, improving the efficiency of your processes, and increasing daily productivity.',
-      text4: 'Request a Demo',
-      text5: 'View Features',
+        "Comprehensive Workshop Management",
+      ],
+      text2: "Optimize Your Workshop",
+      text3:
+        "Manage your mechanical workshop comprehensively, optimizing your time, improving the efficiency of your processes, and increasing daily productivity.",
+      text4: "Request a Demo",
+      text5: "View Features",
     },
-
-  }
+  };
 
   // Cambia el texto cada 3 segundos
   useEffect(() => {
@@ -98,4 +98,3 @@ export const Hero = () => {
     </section>
   );
 };
-

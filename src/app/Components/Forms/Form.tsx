@@ -87,7 +87,9 @@ export default function Form({ service }: FormProps) {
   return (
     <section id="form" className="py-[3rem] bg-black">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md text-white">
-        <h2 className="mb-4 text-4xl font-extrabold text-center">{lang.title}</h2>
+        <h2 className="mb-4 text-4xl font-extrabold text-center">
+          {lang.title}
+        </h2>
         <p className="mb-8 font-light text-center text-gray-400 sm:text-xl">
           {lang.description}
         </p>
@@ -167,7 +169,9 @@ export default function Form({ service }: FormProps) {
             <p className="text-center text-green-400">¡Mensaje enviado!</p>
           )}
           {status === "error" && (
-            <p className="text-center text-red-400">Ocurrió un error. Intenta nuevamente.</p>
+            <p className="text-center text-red-400">
+              Ocurrió un error. Intenta nuevamente.
+            </p>
           )}
         </form>
       </div>

@@ -14,10 +14,7 @@ interface MapProps {
   lineColor?: string;
 }
 
-export function WorldMap({
-  dots = [],
-  lineColor = "#0ea5e9",
-}: MapProps) {
+export function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
@@ -94,13 +91,7 @@ export function WorldMap({
         })}
 
         <defs>
-          <linearGradient
-            id="path-gradient"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
-          >
+          <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="white" stopOpacity="0" />
             <stop offset="5%" stopColor={lineColor} stopOpacity="1" />
             <stop offset="95%" stopColor={lineColor} stopOpacity="1" />

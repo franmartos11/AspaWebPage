@@ -1,8 +1,12 @@
-
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaUserCog, FaCar, FaClipboardList, FaFileInvoice } from "react-icons/fa";
+import {
+  FaUserCog,
+  FaCar,
+  FaClipboardList,
+  FaFileInvoice,
+} from "react-icons/fa";
 import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
 const content = {
@@ -92,8 +96,7 @@ export const WhyBuyCarCheck = () => {
       >
         {/* Título Principal */}
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-          {langContent.title}{" "}
-          <span className="text-blue-700">CarCheck ?</span>
+          {langContent.title} <span className="text-blue-700">CarCheck ?</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-200 mb-[5rem]">
           {langContent.description}

@@ -43,18 +43,18 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   // lenguaje function
-  const { language, setLanguage } = useLanguage('es');
-      const texts = {
-          es : {title: 'Nuestros Clientes',
-              paragraph: 'Quienes confían en nosotros',
-          },
-          en : {
-              title: 'Our Clients',
-          paragraph: 'Those who trust us',
-          }
-      }
+  const { language, setLanguage } = useLanguage("es");
+  const texts = {
+    es: {
+      title: "Nuestros Clientes",
+      paragraph: "Quienes confían en nosotros",
+    },
+    en: {
+      title: "Our Clients",
+      paragraph: "Those who trust us",
+    },
+  };
   return (
-
     <motion.div
       className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans pt-[5rem] px-4 mb-[5rem] md:px-8 lg:px-12"
       initial={{ opacity: 0, y: 50 }}
@@ -63,13 +63,13 @@ export const AnimatedTestimonials = ({
       viewport={{ once: true }}
     >
       <div className="mb-[2.rem] lg:mb-[10rem] text-center">
-                <h2 className="text-blue-600 text-center font-medium mb-4 block">
-                    {texts[language].title}
-                </h2>
-                <h3 className="text-3xl md:text-5xl font-bold text-gray-100 mb-8">
-                    {texts[language].paragraph}
-                </h3>
-            </div>
+        <h2 className="text-blue-600 text-center font-medium mb-4 block">
+          {texts[language].title}
+        </h2>
+        <h3 className="text-3xl md:text-5xl font-bold text-gray-100 mb-8">
+          {texts[language].paragraph}
+        </h3>
+      </div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
           <div className="relative h-80 w-full">

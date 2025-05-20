@@ -6,31 +6,36 @@ import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 
 export const Hero = () => {
   const [index, setIndex] = useState(0);
-  const { language, setLanguage } = useLanguage('es');
-  
+  const { language, setLanguage } = useLanguage("es");
+
   const texts = {
     es: {
-      texts: ["Maximiza tu Rentabilidad",
+      texts: [
+        "Maximiza tu Rentabilidad",
         "Optimiza tus Procesos",
         "Aumenta tu Productividad",
-        "Gestión Integral del Taller",],
-        text2:'Optimiza tu Taller ',
-        text3:'Gestiona tu taller mecánico de forma integral, optimizando tu tiempo, mejorando la eficiencia de tus procesos y aumentando la productividad diaria.',
-        text4:'Solicita una Demo',
-        text5:'Ver Funcionalidades',
+        "Gestión Integral del Taller",
+      ],
+      text2: "Optimiza tu Taller ",
+      text3:
+        "Gestiona tu taller mecánico de forma integral, optimizando tu tiempo, mejorando la eficiencia de tus procesos y aumentando la productividad diaria.",
+      text4: "Solicita una Demo",
+      text5: "Ver Funcionalidades",
     },
     en: {
-      texts: ["Maximize Your Profitability",
+      texts: [
+        "Maximize Your Profitability",
         "Optimize Your Processes",
         "Increase Your Productivity",
-        "Comprehensive Workshop Management",],
-      text2: 'Optimize Your Workshop',
-      text3: 'Manage your mechanical workshop comprehensively, optimizing your time, improving the efficiency of your processes, and increasing daily productivity.',
-      text4: 'Request a Demo',
-      text5: 'View Features',
+        "Comprehensive Workshop Management",
+      ],
+      text2: "Optimize Your Workshop",
+      text3:
+        "Manage your mechanical workshop comprehensively, optimizing your time, improving the efficiency of your processes, and increasing daily productivity.",
+      text4: "Request a Demo",
+      text5: "View Features",
     },
-
-  }
+  };
 
   // Cambia el texto cada 3 segundos
   useEffect(() => {
@@ -105,4 +110,3 @@ export const Hero = () => {
     </section>
   );
 };
-

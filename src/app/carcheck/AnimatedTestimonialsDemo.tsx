@@ -3,9 +3,8 @@ import { useLanguage } from "../Components/AALenguageContext/LenguageContext";
 import { AnimatedTestimonials } from "./AnimatedTestimonials";
 
 export function AnimatedTestimonialsDemo() {
-
   // lenguaje function
-  const { language, setLanguage } = useLanguage('es');
+  const { language, setLanguage } = useLanguage("es");
   const testimonials = {
     es: [
       {

@@ -51,32 +51,31 @@ const plans = {
 };
 
 const btn = {
-  es: 'Elegir Plan',
-  en: 'Choose Plan',
+  es: "Elegir Plan",
+  en: "Choose Plan",
 };
 
 const text = {
   es: {
-    text2: 'Elige tu ',
-    text3: 'Plan Perfecto',
-    text4: 'Obtén acceso a todas las herramientas que necesitas para llevar tu taller al siguiente nivel.',
-    text5: 'Ver Funcionalidades',
+    text2: "Elige tu ",
+    text3: "Plan Perfecto",
+    text4:
+      "Obtén acceso a todas las herramientas que necesitas para llevar tu taller al siguiente nivel.",
+    text5: "Ver Funcionalidades",
   },
   en: {
-    text2: 'Choose your ',
-    text3: 'Perfect Plan',
-    text4: 'Get access to all the tools you need to take your workshop to the next level.',
-    text5: 'View Features',
+    text2: "Choose your ",
+    text3: "Perfect Plan",
+    text4:
+      "Get access to all the tools you need to take your workshop to the next level.",
+    text5: "View Features",
   },
 };
 
-
-
 export const PricingSection = () => {
-  
   // lenguaje function
-  const { language, setLanguage } = useLanguage('es');
-    
+  const { language, setLanguage } = useLanguage("es");
+
   return (
     <section className="py-16 px-6">
       <motion.div
@@ -88,11 +87,10 @@ export const PricingSection = () => {
       >
         {/* Título */}
         <h2 className="text-3xl md:text-5xl font-bold text-gray-100 mb-8">
-        {text[language].text2}<span className="text-blue-700">{text[language].text3}</span>
+          {text[language].text2}
+          <span className="text-blue-700">{text[language].text3}</span>
         </h2>
-        <p className="text-lg text-gray-400 mb-12">
-        {text[language].text4}
-        </p>
+        <p className="text-lg text-gray-400 mb-12">{text[language].text4}</p>
 
         {/* Tarjetas de Planes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -128,4 +126,3 @@ export const PricingSection = () => {
     </section>
   );
 };
-

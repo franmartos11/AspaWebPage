@@ -1,44 +1,43 @@
-export default function AboutMeCard({type, title,text,place,link,linkName,img}: any){
+export default function AboutMeCard({
+  type,
+  title,
+  text,
+  place,
+  link,
+  linkName,
+  img,
+}: any) {
+  return (
+    <div className=" max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4">
+      <img
+        className="w-full h-72 object-cover object-center"
+        src={img}
+        alt="avatar"
+        title="avatar"
+      ></img>
+      <div className="flex items-center px-6 py-3 bg-blue-400">
+        <h2 className="mx-3 text-white font-semibold text-lg">{type}</h2>
+      </div>
+      <div className="py-4 px-6">
+        <h3 className="text-2xl font-semibold text-gray-800">{title}</h3>
+        <p className="py-2 text-lg text-gray-700">{text}</p>
 
-    return(
-        <div className=" max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4">
-                                    <img
-                                        className="w-full h-72 object-cover object-center"
-                                        src={img}
-                                        alt="avatar"
-                                        title="avatar"
-                                    ></img>
-                                    <div className="flex items-center px-6 py-3 bg-blue-400">
-                                        <h2 className="mx-3 text-white font-semibold text-lg">
-                                            {type}
-                                        </h2>
-                                    </div>
-                                    <div className="py-4 px-6">
-                                        <h3 className="text-2xl font-semibold text-gray-800">
-                                            {title}
-                                        </h3>
-                                        <p className="py-2 text-lg text-gray-700">
-                                            {text}
-                                        </p>
-
-                                        <div className="flex items-center mt-4 text-gray-700">
-                                            <svg
-                                                className="h-6 w-6 fill-current text-blue-400"
-                                                viewBox="0 0 512 512"
-                                            >
-                                                <path d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z" />
-                                            </svg>
-                                            <p className="px-2 text-sm">
-                                                {place}
-                                            </p>
-                                        </div>
-                                        <div className="flex items-center mt-4 text-gray-700">
-                                            <svg
-                                                className="h-6 w-6 fill-current text-blue-400"
-                                                viewBox="0 0 512 512"
-                                            >
-                                                <path
-                                                    d="M235.735,471.456c129.984,0,235.726-105.752,235.726-235.726c0-129.973-105.752-235.725-235.726-235.725
+        <div className="flex items-center mt-4 text-gray-700">
+          <svg
+            className="h-6 w-6 fill-current text-blue-400"
+            viewBox="0 0 512 512"
+          >
+            <path d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z" />
+          </svg>
+          <p className="px-2 text-sm">{place}</p>
+        </div>
+        <div className="flex items-center mt-4 text-gray-700">
+          <svg
+            className="h-6 w-6 fill-current text-blue-400"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M235.735,471.456c129.984,0,235.726-105.752,235.726-235.726c0-129.973-105.752-235.725-235.726-235.725
 		C105.761,0.005,0,105.747,0,235.73C0,365.714,105.751,471.456,235.735,471.456z M421.152,193.942
 		c-19.662-11.465-14.746,1.635-14.746,1.635s0,0,13.109,11.465c13.111,11.466,22.941,16.39,18.025,32.445
 		c-4.914,16.057-13.109,1.961-29.49,15.072c-16.391,13.109,19.66,16.389,21.295,36.049c1.637,19.662-19.66,9.832-29.49,29.492
@@ -64,19 +63,15 @@ export default function AboutMeCard({type, title,text,place,link,linkName,img}: 
 		c-1.635-16.391-3.28-36.051-13.11-44.236c-9.831-8.195-16.39-19.66-19.661-32.771c-3.271-13.109,4.915-32.77-1.635-45.881
 		c-6.55-13.109-6.55-0.822-19.661-19.248c-13.11-18.428-13.11-18.438-21.305-33.183c-4.379-7.889-7.334-20.463-9.151-33.708
 		C21.296,142.084,53.387,90.466,98.991,55.735z"
-                                                />
-                                            </svg>
-                                            <p className="px-2 text-sm">
-                                                <a
-                                                    title="link"
-                                                    href={link}
-                                                >
-                                                    {linkName}
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-    )
+            />
+          </svg>
+          <p className="px-2 text-sm">
+            <a title="link" href={link}>
+              {linkName}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }

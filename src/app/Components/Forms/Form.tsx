@@ -1,17 +1,9 @@
-// src/components/Form.tsx
 "use client";
 import React, { useState } from "react";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 type FormProps = {
   service: string;
-};
-
-type Errors = {
-  name?: string;
-  email?: string;
-  pn?: string;
-  message?: string;
 };
 
 const content = {
@@ -54,35 +46,19 @@ export default function Form({ service }: FormProps) {
   const lang = content[language];
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [errors, setErrors] = useState<Errors>({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setStatus("idle");
-    setErrors({});
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const name = formData.get("name")?.toString().trim() || "";
     const email = formData.get("email")?.toString().trim() || "";
     const pn = formData.get("pn")?.toString().trim() || "";
     const message = formData.get("message")?.toString().trim() || "";
     const subject = formData.get("subject")?.toString() || service;
-
-    // Validaciones
-    const newErrors: Errors = {};
-    if (name.length < 2) newErrors.name = "El nombre debe tener al menos 2 caracteres";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) newErrors.email = "Email inválido";
-    const phoneRegex = /^[0-9]{7,}$/;
-    if (!phoneRegex.test(pn)) newErrors.pn = "Teléfono inválido (mínimo 7 dígitos)";
-    if (message.length < 10) newErrors.message = "El mensaje debe tener al menos 10 caracteres";
-
-    if (Object.keys(newErrors).length) {
-      setErrors(newErrors);
-      setLoading(false);
-      return;
-    }
 
     try {
       const res = await fetch("/api/sendEmail", {
@@ -95,7 +71,6 @@ export default function Form({ service }: FormProps) {
 
       if (data.success) {
         setStatus("success");
-        e.currentTarget.reset();
       } else {
         setStatus("error");
       }
@@ -104,6 +79,8 @@ export default function Form({ service }: FormProps) {
       setStatus("error");
     } finally {
       setLoading(false);
+      // Limpia los inputs siempre después de enviar
+      e.currentTarget.reset();
     }
   };
 
@@ -124,12 +101,10 @@ export default function Form({ service }: FormProps) {
             <input
               type="text"
               name="name"
-              onChange={() => errors.name && setErrors((p) => ({ ...p, name: undefined }))}
               className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderName}
               required
             />
-            {errors.name && <p className="mt-1 text-red-400 text-sm">{errors.name}</p>}
           </div>
 
           {/* Email */}
@@ -140,12 +115,10 @@ export default function Form({ service }: FormProps) {
             <input
               type="email"
               name="email"
-              onChange={() => errors.email && setErrors((p) => ({ ...p, email: undefined }))}
               className="shadow-sm border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderEmail}
               required
             />
-            {errors.email && <p className="mt-1 text-red-400 text-sm">{errors.email}</p>}
           </div>
 
           {/* Phone */}
@@ -156,12 +129,10 @@ export default function Form({ service }: FormProps) {
             <input
               type="tel"
               name="pn"
-              onChange={() => errors.pn && setErrors((p) => ({ ...p, pn: undefined }))}
               className="block p-3 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderPhone}
               required
             />
-            {errors.pn && <p className="mt-1 text-red-400 text-sm">{errors.pn}</p>}
           </div>
 
           {/* Message */}
@@ -171,14 +142,10 @@ export default function Form({ service }: FormProps) {
             </label>
             <textarea
               name="message"
-              onChange={() => errors.message && setErrors((p) => ({ ...p, message: undefined }))}
               className="block p-6 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
               placeholder={lang.labels.placeholderMessage}
               required
             />
-            {errors.message && (
-              <p className="mt-1 text-red-400 text-sm">{errors.message}</p>
-            )}
           </div>
 
           {/* Hidden Subject */}

@@ -175,7 +175,6 @@ export default function Form({ service }: FormProps) {
               placeholder={lang.labels.placeholderMessage}
               required
             />
-            {errors.message && <p className="mt-1 text-red-400 text-sm">{errors.message}</p>}
           </div>
 
           {/* Hidden Subject */}

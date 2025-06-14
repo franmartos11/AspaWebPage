@@ -10,7 +10,7 @@ export function CarouselDemo2() {
         title: "Carcheck",
         button: "See More",
         src: "/carcheckmobile.png",
-        web: "https://www.appsheet.com/start/244753a1-fe7e-4a53-8831-666b680fedc2#appName=TestCarCheck-1002064369&page=gallery&sort=%5B%5D&table=MENU&view=Menu",
+        web: "https://www.appsheet.com/start/d257b2f0-8393-4330-b1d5-ef2b1d8912c5#appName=CarCheckAspa-1002064369&page=gallery&sort=%5B%5D&table=MENU&view=Menu",
       },
       {
         title: "Omega Solutions Custom App",
@@ -30,7 +30,7 @@ export function CarouselDemo2() {
         title: "Carcheck",
         button: "Ver Mas",
         src: "/carcheckmobile.png",
-        web: "https://www.appsheet.com/start/244753a1-fe7e-4a53-8831-666b680fedc2#appName=TestCarCheck-1002064369&page=gallery&sort=%5B%5D&table=MENU&view=Menu",
+        web: "https://www.appsheet.com/start/d257b2f0-8393-4330-b1d5-ef2b1d8912c5#appName=CarCheckAspa-1002064369&page=gallery&sort=%5B%5D&table=MENU&view=Menu",
       },
       {
         title: "Omega Soluciones Custom App",

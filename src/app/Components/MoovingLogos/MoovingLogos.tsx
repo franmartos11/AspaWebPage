@@ -117,6 +117,19 @@ export default function () {
               className=" h-[6rem]"
             />
           </a>
+          <a
+            title="link"
+            target="_blank"
+            href="https://www.instagram.com/autolack.pinturayestetica"
+            className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+          >
+            <img
+              src="/autolack.png"
+              title="logo"
+              alt="logo"
+              className=" h-[6rem]"
+            />
+          </a>
         </div>
         <div className=" animate-loop-scroll flex flex-row " aria-hidden="true">
           <a
@@ -210,6 +223,19 @@ export default function () {
               title="logo"
               alt="logo"
               className=" h-[5rem]"
+            />
+          </a>
+          <a
+            title="link"
+            target="_blank"
+            href="https://www.instagram.com/autolack.pinturayestetica"
+            className="flex justify-center  items-center border border-solid bg-black border-gray-200 shadow-sm h-24 rounded-2xl w-[20rem] mx-[1rem]"
+          >
+            <img
+              src="/autolack.png"
+              title="logo"
+              alt="logo"
+              className=" h-[6rem]"
             />
           </a>
         </div>

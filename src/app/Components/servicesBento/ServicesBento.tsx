@@ -11,12 +11,14 @@ const BentoCard = ({
   colSpanClass,
   delay,
   link,
+  image,
 }: {
   title: string;
   description: string;
   colSpanClass: string;
   delay: number;
   link: string;
+  image?: string;
 }) => {
   return (
     <motion.div

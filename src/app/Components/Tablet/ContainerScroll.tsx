@@ -39,10 +39,10 @@ const StepText = ({
 
   const opacity = useTransform(
     scrollYProgress,
-    index === 0 
+    index === 0
       ? [0, fadeOutStart, fadeOutEnd]
       : [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
-    index === 0 
+    index === 0
       ? [1, 1, 0]
       : [0, 1, 1, 0]
   );
@@ -59,15 +59,15 @@ const StepText = ({
   return (
     <motion.div
       style={{ opacity, y }}
-      className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-8 md:px-16 lg:px-20"
+      className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-6 md:px-16 lg:px-20"
     >
-      <span className="inline-block text-blue-400 text-xs font-bold tracking-[0.22em] uppercase mb-4 px-3 py-1 rounded-full border border-blue-400/30 bg-blue-400/5">
+      <span className="inline-block text-blue-400 text-xs font-bold tracking-[0.22em] uppercase mb-3 px-3 py-1 rounded-full border border-blue-400/30 bg-blue-400/5">
         {step.label}
       </span>
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
         {step.title}
       </h2>
-      <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-md">
+      <p className="text-gray-400 text-sm md:text-lg leading-relaxed max-w-md">
         {step.description}
       </p>
     </motion.div>
@@ -137,45 +137,81 @@ export const ContainerScroll = ({
         className="sticky top-0 h-screen flex flex-col md:flex-row overflow-hidden pt-16"
         style={{ perspective: "1400px" }}
       >
-        {/* ─── LEFT: Scroll-driven text ─────────────────────────────────── */}
-        <div className="w-full md:w-1/2 relative flex items-center h-1/2 md:h-full">
-          {steps.map((step, i) => (
-            <StepText
-              key={i}
-              step={step}
-              index={i}
-              total={steps.length}
-              scrollYProgress={scrollYProgress}
-            />
-          ))}
-          {/* Progress dots */}
-          <div className="absolute bottom-12 left-8 md:left-16 lg:left-20 flex gap-2">
-            {Array.from({ length: steps.length }).map((_, i) => (
-              <ScrollDot
+        {/* ─── TOP on mobile / LEFT on desktop: Scroll-driven text ─────────────── */}
+        {/*
+          KEY FIX: On mobile, this div gets a FIXED height of 45vh and overflow:hidden.
+          This creates a hard boundary — the absolutely-positioned StepText elements
+          can never visually escape into the frame zone below.
+        */}
+        <div
+          className="w-full md:w-1/2 relative overflow-hidden"
+          style={{ height: "45vh", flex: "0 0 45vh" }}
+        >
+          {/* Override height for desktop via an inner full-height wrapper */}
+          <div className="hidden md:flex md:absolute md:inset-0">
+            {steps.map((step, i) => (
+              <StepText
                 key={i}
+                step={step}
                 index={i}
                 total={steps.length}
                 scrollYProgress={scrollYProgress}
               />
             ))}
+            <div className="absolute bottom-12 left-16 lg:left-20 flex gap-2">
+              {Array.from({ length: steps.length }).map((_, i) => (
+                <ScrollDot
+                  key={i}
+                  index={i}
+                  total={steps.length}
+                  scrollYProgress={scrollYProgress}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile text - absolutely fills its 45vh container, clipped by overflow-hidden */}
+          <div className="md:hidden absolute inset-0">
+            {steps.map((step, i) => (
+              <StepText
+                key={i}
+                step={step}
+                index={i}
+                total={steps.length}
+                scrollYProgress={scrollYProgress}
+              />
+            ))}
+            <div className="absolute bottom-3 left-6 flex gap-2">
+              {Array.from({ length: steps.length }).map((_, i) => (
+                <ScrollDot
+                  key={i}
+                  index={i}
+                  total={steps.length}
+                  scrollYProgress={scrollYProgress}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* ─── RIGHT: 3D Frame with animated visuals ────────────────────── */}
-        <div className="w-full md:w-1/2 flex items-center justify-center h-1/2 md:h-full px-6 md:px-8 lg:px-12 pb-10 pt-2 md:py-24">
+        {/* ─── BOTTOM on mobile / RIGHT on desktop: 3D Frame ──────────────────── */}
+        <div
+          className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-8 lg:px-12 pb-6 md:py-24"
+          style={{ flex: "1 1 auto", minHeight: 0 }}
+        >
           <motion.div
             className="w-full max-w-2xl border-[3px] border-[#404040] bg-[#111111] rounded-[24px] overflow-hidden flex flex-col"
             style={{
               rotateX: rotate,
               scale,
               height: "100%",
-              maxHeight: "640px",
+              maxHeight: "clamp(220px, 46vh, 640px)",
               boxShadow:
                 "0 0 80px rgba(29,78,216,0.22), 0 30px 60px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.05)",
             }}
           >
             {/* MacBook-style chrome top bar */}
-            <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/8 bg-[#1a1a1a]">
+            <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/8 bg-[#1a1a1a] flex-none">
               <div className="w-3 h-3 rounded-full bg-red-500/70" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
               <div className="w-3 h-3 rounded-full bg-green-500/70" />
@@ -187,7 +223,7 @@ export const ContainerScroll = ({
             </div>
 
             {/* Content — crossfades between step visuals */}
-            <div className="relative overflow-hidden bg-[#0d0d0d]" style={{ height: "calc(100% - 44px)" }}>
+            <div className="relative overflow-hidden bg-[#0d0d0d] flex-1">
               {stepVisuals ? (
                 <AnimatePresence mode="wait">
                   <motion.div

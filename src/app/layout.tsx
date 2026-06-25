@@ -6,14 +6,39 @@ import WhatsAppButton from "./Components/WhatsAppLogo/WhatsAppButton";
 import Script from "next/script";
 import { LanguageProvider } from "./Components/AALenguageContext/LenguageContext";
 import { Analytics } from "@vercel/analytics/react";
+import BackgroundOrbs from "./Components/BackgroundOrbs/BackgroundOrbs";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aspa Software",
+  metadataBase: new URL("https://www.aspasoftware.com"),
+  title: "Aspa Software Development",
   description:
-    "Desarrollamos soluciones innovadoras para potenciar tu negocio. Automatizamos procesos, creamos apps y páginas web personalizadas. ¡Contáctanos!",
+    "Potenciamos negocios con soluciones de software innovadoras. Aspa Software Development es una empresa líder en desarrollo de software especializada en automatizacion de procesos, aplicaciones a medida y paginas web.",
+  keywords: ["aspa", "aspa software", "software", "software a medida", "pag web", "carcheck", "auditorias", "audit", "aspa carcheck"],
   icons: "/aspaLogo.webp",
+  openGraph: {
+    title: "Aspa Software Development",
+    description: "Desarrollamos soluciones innovadoras para potenciar tu negocio. Automatizamos procesos, creamos apps y páginas web personalizadas.",
+    url: "https://www.aspasoftware.com",
+    siteName: "Aspa Software",
+    images: [
+      {
+        url: "/aspaLogo.webp",
+        width: 612,
+        height: 612,
+        alt: "Aspa Software Logo",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aspa Software Development",
+    description: "Soluciones de software innovadoras para tu negocio.",
+    images: ["/aspaLogo.webp"],
+  },
 };
 
 export default function RootLayout({
@@ -22,19 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <meta name="title" content="Aspa Software"></meta>
-      <meta
-        name="description"
-        content="Potenciamos negocios con soluciones de software innovadoras. Aspa Software Development es una empresa líder en desarrollo de software especializada en automatizacion de procesos, aplicaciones a medida y paginas web. Nos diferenciamos por nuestro trato personalizado."
-      ></meta>
-      <meta
-        name="keywords"
-        content="aspa, aspa software, software, software a medida, pag web, carcheck, auditorias, audit, aspa carcheck"
-      ></meta>
-      <meta name="robots" content="index, follow"></meta>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-      <meta name="language" content="Spanish"></meta>
+    <html lang="es">
       <head>
         <Script
           id="gtm"
@@ -50,6 +63,7 @@ export default function RootLayout({
       </head>
       <LanguageProvider>
         <body className={inter.className}>
+          <BackgroundOrbs />
           {children}
           <Analytics />
           <WhatsAppButton></WhatsAppButton>

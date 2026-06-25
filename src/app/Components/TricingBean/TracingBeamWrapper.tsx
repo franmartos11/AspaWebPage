@@ -2,14 +2,15 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
-import CardProyect from "../CardProyect/CardProyect";
-import CardProyectApp from "../CardProyect/CardProyectApp";
-import CardProyectWeb from "../CardProyect/CardProyectWebs";
-import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
-import CardProyectAuditoria from "../CardProyect/CardProyectAuditoria";
-import CarrouselDemo from "../imgcarrouselservices/CarrouselDemo";
+import dynamic from "next/dynamic";
 import { imgsCarcheck, imgsCarcheck2 } from "./TracingBeamCarcheck";
-import MoovingLogos from "../MoovingLogos/MoovingLogos";
+
+const CardProyect = dynamic(() => import("../CardProyect/CardProyect"), { ssr: false });
+const CardProyectApp = dynamic(() => import("../CardProyect/CardProyectApp"), { ssr: false });
+const CardProyectWeb = dynamic(() => import("../CardProyect/CardProyectWebs"), { ssr: false });
+const CardProyectAuditoria = dynamic(() => import("../../auditorias/components/AuditFeatures"), { ssr: false });
+const CarrouselDemo = dynamic(() => import("../imgcarrouselservices/CarrouselDemo"), { ssr: false });
+const MoovingLogos = dynamic(() => import("../MoovingLogos/MoovingLogos"), { ssr: false });
 
 export function TracingBeamDemo() {
   return (
@@ -39,7 +40,6 @@ const dummyContent = [
     description: (
       <div>
         <div id="desarrollo-web"></div>
-        <MacbookScrollDemo></MacbookScrollDemo>
         <CardProyectWeb></CardProyectWeb>
       </div>
     ),

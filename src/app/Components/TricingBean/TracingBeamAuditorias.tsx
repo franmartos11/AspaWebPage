@@ -2,7 +2,7 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
-import CardProyectAuditoria from "../CardProyect/CardProyectAuditoria";
+import CardProyectAuditoria from "../../auditorias/components/AuditFeatures";
 import MoovingLogos from "../MoovingLogos/MoovingLogos";
 import Form from "../Forms/Form";
 

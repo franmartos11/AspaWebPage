@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Tabs } from "./Tabs";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
@@ -111,16 +112,28 @@ export function TabsDemo() {
 
   return (
     <div>
-      <div className="container    px-6 pt-7 pb-0 mx-auto sm:pt-0  ">
-        <h2 className="text-4xl pt-16  font-semibold text-center  capitalize lg:text-6xl text-white">
+      <motion.div
+        className="container px-6 pt-7 pb-0 mx-auto sm:pt-0"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-4xl pt-16 font-semibold text-center capitalize lg:text-6xl text-white">
           {texts[language].titulo}
         </h2>
         <div className="flex justify-center mx-auto mt-6">
-          <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
-          <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full"></span>
-          <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
+          <motion.span
+            className="inline-block h-1 bg-blue-500 rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: "10rem" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          />
+          <span className="inline-block w-3 h-1 mx-1 bg-blue-500 rounded-full" />
+          <span className="inline-block w-1 h-1 bg-blue-500 rounded-full" />
         </div>
-      </div>
+      </motion.div>
       <div className="h-[20rem] md:h-[37rem]  [perspective:1000px] relative  flex flex-col max-w-5xl mx-auto w-full  items-start justify-start mt-10 mb-40">
         <Tabs tabs={tabs} />
       </div>

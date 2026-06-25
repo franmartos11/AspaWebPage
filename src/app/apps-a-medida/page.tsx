@@ -1,17 +1,24 @@
 import Form from "../Components/Forms/Form";
 import Nav from "../Components/nav/Nav";
-import { CarouselDemo2 } from "./carrouselDemo";
-import DevelopmentMethodology from "./DevelopmentMethodology";
-import { Hero } from "./Hero";
+import { AppHero } from "./components/AppHero";
 import Ventajas from "./Ventajas";
+import DevelopmentMethodology from "./DevelopmentMethodology";
+import { AppTechStack } from "./components/AppTechStack";
+import { AppProjectsGrid } from "./components/AppProjectsGrid";
 
-export default function () {
+export default function AppsAMedidaPage() {
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen relative overflow-hidden">
       <Nav page={"servicios"}></Nav>
-      <Ventajas></Ventajas>
-      <DevelopmentMethodology></DevelopmentMethodology>
-      <CarouselDemo2></CarouselDemo2>
+      
+      <div className="relative z-10">
+        <AppHero />
+        <Ventajas />
+        <DevelopmentMethodology />
+        <AppTechStack />
+        <AppProjectsGrid />
+      </div>
+
       <Form service={"Apps-a-medida"}></Form>
     </div>
   );

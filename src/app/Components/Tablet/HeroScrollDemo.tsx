@@ -1,45 +1,58 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { ContainerScroll } from "./ContainerScroll";
+import { ContainerScroll, ScrollStep } from "./ContainerScroll";
+import { stepVisualComponents } from "./StepVisuals";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
 
 export function HeroScrollDemo() {
-  const { language, setLanguage } = useLanguage("es");
-  const texts = {
-    es: {
-      txt1: "Nos ocupamos de impulsarte",
-      txt2: "Digitalizando Procesos",
-    },
-    en: {
-      txt1: "We Take Care of Boosting You by",
-      txt2: "Digitizing Processes",
-    },
+  const { language } = useLanguage("es");
+
+  const steps: Record<string, ScrollStep[]> = {
+    es: [
+      {
+        label: "Lo que hacemos",
+        title: "Automatizamos tus procesos",
+        description:
+          "Creamos software a medida que elimina tareas repetitivas y libera a tu equipo para lo que realmente importa.",
+      },
+      {
+        label: "Cómo lo hacemos",
+        title: "Desarrollamos tu idea",
+        description:
+          "Desde el concepto hasta el deployment. Nuestro equipo se encarga de cada detalle técnico, vos solo te enfocás en crecer.",
+      },
+      {
+        label: "Para qué sirve",
+        title: "Digitalizamos tu empresa",
+        description:
+          "Tu negocio gana velocidad, eficiencia y ventaja competitiva con herramientas hechas exactamente para vos.",
+      },
+    ],
+    en: [
+      {
+        label: "What we do",
+        title: "We automate your processes",
+        description:
+          "Custom software that eliminates repetitive tasks and frees your team to focus on what truly matters.",
+      },
+      {
+        label: "How we do it",
+        title: "We develop your idea",
+        description:
+          "From concept to deployment. Our team takes care of every technical detail, you just focus on growing.",
+      },
+      {
+        label: "Why it matters",
+        title: "We digitize your business",
+        description:
+          "Your business gains speed, efficiency, and competitive advantage with tools built exactly for you.",
+      },
+    ],
   };
+
   return (
-    <div className="flex flex-col overflow-hidden bg-black">
-      <ContainerScroll
-        titleComponent={
-          <>
-            <h2 className="text-3xl font-semibold text-white">
-              {texts[language].txt1} <br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                {texts[language].txt2}
-              </span>
-            </h2>
-          </>
-        }
-      >
-        <Image
-          src={`/hud.png`}
-          alt="tablet"
-          title="tablet"
-          height={720}
-          width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
-          draggable={false}
-        />
-      </ContainerScroll>
+    <div className="bg-black">
+      <ContainerScroll steps={steps[language] ?? steps.es} stepVisuals={stepVisualComponents} />
     </div>
   );
 }

@@ -1,12 +1,10 @@
 import Form from "../Components/Forms/Form";
-import { AppleCardsCarouselDemo } from "../Components/ServicesDisplay/Popup";
 import Nav from "../Components/nav/Nav";
-import { AnimatedTestimonialsDemo } from "./AnimatedTestimonialsDemo";
-import { Hero } from "./Hero";
-import { PricingSection } from "./PricingSection";
-import { TutorialVideos } from "./TutorialVideos";
-
-import { WhyBuyCarCheck } from "./WhyBuyCarcheck";
+import { AppleCardsCarouselDemo } from "../Components/ServicesDisplay/Popup";
+import { CarcheckHero } from "./components/CarcheckHero";
+import { CarcheckVentajas } from "./components/CarcheckVentajas";
+import { PricingSaaS } from "./components/PricingSaaS";
+import { CarcheckTutorials } from "./components/CarcheckTutorials";
 
 export const metadata = {
   title: "Software para Talleres Mecánicos | CarCheck - Aspa Software",
@@ -37,13 +35,22 @@ export const metadata = {
 
 export default function CarCheckPage() {
   return (
-    <div className="bg-black">
+    <div className="bg-black min-h-screen relative overflow-hidden">
       <Nav page={"servicios"} />
-      <Hero />
-      <WhyBuyCarCheck />
-      <AppleCardsCarouselDemo />
-      <TutorialVideos />
-      <PricingSection />
+      
+      <div className="relative z-10">
+        <CarcheckHero />
+        <CarcheckVentajas />
+        
+        {/* We keep the features carousel but wrapped nicely in dark mode */}
+        <section id="funcionalidades" className="py-16 bg-black relative z-10">
+          <AppleCardsCarouselDemo />
+        </section>
+
+        <CarcheckTutorials />
+        <PricingSaaS />
+      </div>
+
       <Form service={"Carchek"} />
     </div>
   );

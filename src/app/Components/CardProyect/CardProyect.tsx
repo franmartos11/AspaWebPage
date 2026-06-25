@@ -1,122 +1,127 @@
 "use client";
 import Image from "next/image";
 import { useLanguage } from "../AALenguageContext/LenguageContext";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+
+import { FeatureCard } from "../FeatureCard/FeatureCard";
+
 export default function CardProyect() {
-  const { language, setLanguage } = useLanguage("es");
+  const { language } = useLanguage("es");
+
   const texts = {
     es: {
-      title: "CarCheck",
-      subtitle:
-        "Nuestra aplicación personalizada te permite gestionar tu taller de forma integral, optimizando tu tiempo y maximizando tu rentabilidad.",
+      badge: "Nuestro Producto",
+      title: "Software CarCheck",
+      subtitle: "Nuestra aplicación especializada te permite gestionar tu taller mecánico de forma integral, optimizando tu tiempo y maximizando tu rentabilidad.",
       text1: "Gestionar clientes",
-      desciption1:
-        "La app te ayuda a organizar y gestionar la información de tus clientes, mejorar la atención al cliente y optimizar tu negocio. Crea perfiles completos con toda la información de tus clientes, accede a su historial en tiempo real y ofrece un servicio personalizado. Contacta a tus clientes directamente desde la app y mantén una comunicación fluida. Descarga mi app hoy mismo y comienza a disfrutar de sus beneficios.",
+      desciption1: "Organiza la información de tus clientes, mejora la atención y optimiza tu negocio. Crea perfiles, accede al historial en tiempo real y ofrece un servicio personalizado.",
       text2: "Administrar vehículos",
-      desciption2:
-        "El proceso de registro y actualización de información de vehículos es fundamental para mantener un control preciso de la flota automotriz. Esto implica almacenar detalles como marca, modelo, matrícula, kilometraje e incluso un historial detallado de servicios. Además, la capacidad de capturar imágenes del vehículo en el momento del ingreso proporciona una documentación visual invaluable, permitiendo una identificación rápida y precisa del estado del vehículo en diferentes momentos. Esta combinación de datos y imágenes facilita la gestión eficiente de la flota, asegurando un mantenimiento adecuado y una toma de decisiones informada.",
-      text3: "Crear y gestionar ordenes de trabajo",
-      desciption3:
-        "Digitaliza tus procesos: Genera ordenes de trabajo personalizadas con detalles del vehículo, cliente, servicio solicitado, presupuesto, fecha y hora de la visita, etc. Agiliza la reparación: Asigna tareas a los mecánicos, rastrea el progreso de las reparaciones y notifica al cliente sobre el estado del trabajo. Mejora la comunicación: Mantén al cliente informado sobre el avance de la reparación, envía fotos y videos del proceso, y ofrece un servicio transparente. Registro del trabajo realizado: permite al personal del taller registrar los trabajos realizados en el vehículo, incluir una lista de tareas, repuestos utilizados y horas trabajadas. Carga de imágenes: Permite al personal del taller adjuntar fotografías del vehículo, del trabajo realizado o de cualquier otra evidencia relevante.",
-      text4: "Elaborar presupuestos y facturas",
-      desciption4:
-        "Personaliza presupuestos con el desglose de mano de obra, repuestos, costos adicionales e impuestos. Envía presupuestos electrónicos: Comparte los presupuestos con los clientes por correo electrónico o WhatsApp para su aprobación rápida. Emite facturas digitales: Genera y envía facturas electrónicas con validez legal, mejorando la eficiencia administrativa",
-      text5: "Digitaliza tus procesos",
-      desciption5:
-        "Genera ordenes de trabajo personalizadas con detalles del vehículo, cliente, servicio solicitado, presupuesto, fecha y hora de la visita, etc. Agiliza la reparación: Asigna tareas a los mecánicos, rastrea el progreso de las reparaciones y notifica al cliente sobre el estado del trabajo. Mejora la comunicación: Mantén al cliente informado sobre el avance de la reparación, envía fotos y videos del proceso, y ofrece un servicio transparente. Registro del trabajo realizado: permite al personal del taller registrar los trabajos realizados en el vehículo, incluir una lista de tareas, repuestos imágenes: Permite al personal del taller adjuntar fotografías del vehículo, del trabajo realizado o de cualquier otra evidencia relevante.",
+      desciption2: "Registro detallado de información de vehículos: marca, modelo, matrícula, historial de servicios e imágenes del ingreso para documentar visualmente el estado del auto.",
+      text3: "Órdenes de trabajo",
+      desciption3: "Genera órdenes con detalles del vehículo, cliente y presupuesto. Asigna tareas a los mecánicos, rastrea el progreso y notifica al cliente del estado.",
+      text4: "Presupuestos y facturas",
+      desciption4: "Personaliza presupuestos con desglose de mano de obra y repuestos. Envía por email o WhatsApp para su aprobación rápida. Emite facturas digitales y mejora la administración.",
+      text5: "Digitaliza procesos",
+      desciption5: "Centraliza todo en una sola plataforma: registros de trabajo, toma de fotos y evidencias del taller. Mantén al cliente informado y ofrece un servicio transparente.",
     },
     en: {
-      title: "CarCheck",
-      subtitle:
-        "Our custom application allows you to manage your workshop comprehensively, optimizing your time and maximizing your profitability.",
+      badge: "Our Product",
+      title: "CarCheck Software",
+      subtitle: "Our specialized application allows you to manage your mechanical workshop comprehensively, optimizing your time and maximizing your profitability.",
       text1: "Manage Clients",
-      desciption1:
-        "Our app helps you organize and manage client information, improve customer service, and optimize your business. Create complete profiles with all your clients' information, access their history in real-time, and offer personalized service. Contact your clients directly from the app and maintain smooth communication. Download our app today and start enjoying its benefits.",
+      desciption1: "Organize client information, improve customer service, and optimize your business. Create profiles, access history in real-time, and offer personalized service.",
       text2: "Manage Vehicles",
-      desciption2:
-        "The process of registering and updating vehicle information is essential for maintaining precise control of the automotive fleet. This involves storing details such as make, model, license plate, mileage, and even a detailed service history. Additionally, the ability to capture images of the vehicle upon entry provides invaluable visual documentation, allowing for quick and accurate identification of the vehicle's condition at different times. This combination of data and images facilitates efficient fleet management, ensuring proper maintenance and informed decision-making.",
-      text3: "Create and Manage Work Orders",
-      desciption3:
-        "Digitize your processes: Generate personalized work orders with details of the vehicle, client, requested service, budget, date, and time of the visit, etc. Streamline repairs: Assign tasks to mechanics, track repair progress, and notify the client about the job status. Improve communication: Keep the client informed about the repair progress, send photos and videos of the process, and offer transparent service. Record the work done: Allow workshop staff to record the work done on the vehicle, including a list of tasks, parts used, and hours worked. Image upload: Allow workshop staff to attach photos of the vehicle, the work done, or any other relevant evidence.",
-      text4: "Prepare Estimates and Invoices",
-      desciption4:
-        "Customize estimates with a breakdown of labor, parts, additional costs, and taxes. Send electronic estimates: Share estimates with clients via email or WhatsApp for quick approval. Issue digital invoices: Generate and send electronic invoices with legal validity, improving administrative efficiency.",
-      text5: "Digitize Your Processes",
-      desciption5:
-        "Generate personalized work orders with details of the vehicle, client, requested service, budget, date, and time of the visit, etc. Streamline repairs: Assign tasks to mechanics, track repair progress, and notify the client about the job status. Improve communication: Keep the client informed about the repair progress, send photos and videos of the process, and offer transparent service. Record the work done: Allow workshop staff to record the work done on the vehicle, including a list of tasks, parts used, and hours worked. Image upload: Allow workshop staff to attach photos of the vehicle, the work done, or any other relevant evidence.",
+      desciption2: "Detailed registration of vehicle information: make, model, license plate, service history, and entry images to visually document the car's condition.",
+      text3: "Work Orders",
+      desciption3: "Generate orders with vehicle, client, and budget details. Assign tasks to mechanics, track progress, and notify the client of the status.",
+      text4: "Estimates and Invoices",
+      desciption4: "Customize estimates with labor and parts breakdown. Send via email or WhatsApp for quick approval. Issue digital invoices and improve administration.",
+      text5: "Digitize Processes",
+      desciption5: "Centralize everything in a single platform: work logs, photo taking, and workshop evidence. Keep the client informed and offer transparent service.",
     },
   };
+
+  const t = texts[language] ?? texts.es;
+
+  // Icons for features
+  const icons = [
+    <svg key="1" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
+    <svg key="2" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>,
+    <svg key="3" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>,
+    <svg key="4" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    <svg key="5" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
+  ];
+
   return (
-    <div className="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-          <div className="lg:pr-4">
-            <div className="lg:max-w-lg">
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                {texts[language].title}
-              </h1>
-              <p className="mt-6 text-xl leading-8 text-gray-100">
-                {texts[language].subtitle}
-              </p>
+    <div className="relative py-24 sm:py-32">
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        
+        {/* Header Section */}
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-flex items-center gap-2 text-blue-400 text-xs font-bold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            {t.badge}
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+            {t.title}
+          </h1>
+          <p className="text-xl text-gray-400 leading-relaxed">
+            {t.subtitle}
+          </p>
+        </motion.div>
+
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          {/* Featured Image Card (Left Side) */}
+          <motion.div 
+            className="lg:col-span-5 relative group"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="sticky top-24 h-[600px] w-full rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
+              <Image
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                src="/carcheck.webp"
+                alt="CarCheck Software"
+                title="CarCheck Software"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent z-10" />
+              <div className="absolute bottom-10 left-10 z-20">
+                <div className="w-16 h-16 rounded-full bg-blue-600/20 backdrop-blur-md border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-[0_0_30px_rgba(37,99,235,0.3)]">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
 
-        <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <div className="flex justify-center">
-            <Image
-              className="max-w-[48rem] w-full rounded-xl bg-gray-400 shadow-xl ring-1 ring-gray-400/10 sm:max-w-[57rem]"
-              src="/carcheck.webp"
-              alt="carcheck"
-              title="carcheck"
-              width={612}
-              height={612}
-            ></Image>
-          </div>
-        </div>
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-          <div className="lg:pr-4">
-            <div className="max-w-xl text-base leading-7 text-gray-200 lg:max-w-lg">
-              <h3 className="text-2xl">{texts[language].text1}</h3>
-              <br />
-              <p>
-                {texts[language].desciption1}
-                <br />
-                <br />
-              </p>
-
-              <h3 className="text-2xl">{texts[language].text2}</h3>
-
-              <p className="mt-6">
-                {texts[language].desciption2}
-                <br />
-                <br />
-              </p>
-
-              <h2 className="text-2xl">{texts[language].text3}</h2>
-
-              <p className="mt-6">
-                {texts[language].desciption3}
-                <br />
-                <br />
-              </p>
-
-              <h2 className="text-2xl">{texts[language].text4}</h2>
-
-              <p className="mt-6">
-                {texts[language].desciption4}
-                <br />
-                <br />
-              </p>
-
-              <h2 className="text-2xl">{texts[language].text5}</h2>
-
-              <p className="mt-6">
-                {texts[language].desciption5}
-                <br />
-                <br />
-              </p>
+          {/* Features Grid (Right Side) */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="md:col-span-2">
+              <FeatureCard delay={0.1} title={t.text1} text={t.desciption1} icon={icons[0]} />
             </div>
+            <FeatureCard delay={0.2} title={t.text2} text={t.desciption2} icon={icons[1]} />
+            <FeatureCard delay={0.3} title={t.text3} text={t.desciption3} icon={icons[2]} />
+            <FeatureCard delay={0.4} title={t.text4} text={t.desciption4} icon={icons[3]} />
+            <FeatureCard delay={0.5} title={t.text5} text={t.desciption5} icon={icons[4]} />
           </div>
+          
         </div>
       </div>
     </div>

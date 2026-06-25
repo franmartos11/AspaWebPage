@@ -22,9 +22,9 @@ export function WorldMapDemo() {
   };
 
   return (
-    <div className=" py-40 bg-black  w-full">
-      <div className="max-w-7xl mx-auto text-center">
-        <p className="font-bold text-xl md:text-4xl text-white ">
+    <div className="relative py-40 w-full z-10">
+      <div className="max-w-7xl mx-auto text-center px-6">
+        <p className="font-bold text-3xl md:text-5xl text-white">
           {texts[language].title1}{" "}
           <span className="text-blue-600">
             {texts[language].title2.split(" ").map((word, idx) => (

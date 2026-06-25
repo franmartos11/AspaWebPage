@@ -2,7 +2,6 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./Tracing-beam";
-import { MacbookScrollDemo } from "../MackBookScroll/MacbookScrollDemo";
 import CardProyectWeb from "../CardProyect/CardProyectWebs";
 import MoovingLogos from "../MoovingLogos/MoovingLogos";
 import Form from "../Forms/Form";
@@ -35,7 +34,6 @@ const dummyContent = [
     description: (
       <div>
         <div id="desarrollo-web"></div>
-        <MacbookScrollDemo></MacbookScrollDemo>
         <CardProyectWeb></CardProyectWeb>
         <MoovingLogos></MoovingLogos>
         <Form service="Pag-web"></Form>

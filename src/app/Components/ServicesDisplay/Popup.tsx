@@ -409,7 +409,7 @@ const ContentCliente = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
             {texts[language].clientes.content1}
@@ -422,11 +422,11 @@ const ContentCliente = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
 
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].clientes.content3}
@@ -440,10 +440,10 @@ const ContentCliente = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].clientes.content5}
@@ -456,7 +456,7 @@ const ContentCliente = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
     </>
@@ -467,7 +467,7 @@ const ContentVehiculos = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
             {texts[language].vehiculos.content1}
@@ -480,17 +480,17 @@ const ContentVehiculos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
         <Image
           src="/carcheckCars.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].vehiculos.content3}
@@ -503,14 +503,14 @@ const ContentVehiculos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
         <Image
           src="/carcheckCar4.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
     </>
@@ -520,7 +520,7 @@ const ContentAlistajes = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 pb-[2rem] ">
             {texts[language].alistajes.content1}
@@ -533,10 +533,10 @@ const ContentAlistajes = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             Funcionalidades:
@@ -563,7 +563,7 @@ const ContentPresupuestos = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
             {texts[language].presupuestos.content1}
@@ -576,11 +576,11 @@ const ContentPresupuestos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
 
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].presupuestos.content3}
@@ -593,10 +593,10 @@ const ContentPresupuestos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].presupuestos.content5}
@@ -609,21 +609,21 @@ const ContentPresupuestos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
         <Image
           src="/Presupuestos2.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
         <Image
           src="/Presupuesto3.png"
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
     </>
@@ -633,7 +633,7 @@ const ContentTurnos = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
             {texts[language].turnos.content1}
@@ -646,10 +646,10 @@ const ContentTurnos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].turnos.content3}
@@ -662,10 +662,10 @@ const ContentTurnos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].turnos.content5}
@@ -678,7 +678,7 @@ const ContentTurnos = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
     </>
@@ -688,7 +688,7 @@ const ContentServicios = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 pb-[2rem]">
             {texts[language].servicios.content1}
@@ -701,11 +701,11 @@ const ContentServicios = () => {
           alt="Service management visualization"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
 
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             Funcionalidades:
@@ -732,7 +732,7 @@ const ContentStock = () => {
   const { language, setLanguage } = useLanguage("es");
   return (
     <>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200 ">
             {texts[language].stock.content1}
@@ -745,11 +745,11 @@ const ContentStock = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
       </div>
 
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].stock.content3}
@@ -761,7 +761,7 @@ const ContentStock = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
         <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
           {texts[language].stock.features.map((feature, index) => (
@@ -775,7 +775,7 @@ const ContentStock = () => {
           ))}
         </ul>
       </div>
-      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-6 md:p-8 rounded-3xl mb-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             {texts[language].stock.content4}
@@ -787,7 +787,7 @@ const ContentStock = () => {
           alt="Macbook mockup from Aceternity UI"
           height="1920"
           width="1080"
-          className="mt-[1rem] rounded-xl"
+          className="mt-[1rem] rounded-xl w-full max-h-[40vh] object-contain bg-black/20"
         />
         <ul className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mt-4 space-y-2">
           {texts[language].stock.features2.map((feature, index) => (
@@ -890,7 +890,7 @@ export function AppleCardsCarouselDemo() {
     <Card key={card.src} card={card} index={index} />
   ));
   return (
-    <div className="w-full h-full py-20 ">
+    <div className="w-full h-full py-10 ">
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200  font-sans">
         {language === "es" ? "Conoce nuestros Modulos" : "Discover Our Modules"}
       </h2>
@@ -1161,7 +1161,7 @@ const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
+        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[28rem] md:w-80 overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
         <div className="relative z-40 p-8">

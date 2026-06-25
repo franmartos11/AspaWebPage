@@ -121,13 +121,20 @@ export const FadeInDiv = ({
           {tab.content}
 
           {active.value === tab.value && (
-            <div className="flex align-middle justify-center">
-              <Link
-                title="link"
-                className=" inline-block rounded border-blue-800 bg-blue-500 px-12 py-3 text-sm font-medium text-white hover:bg-blue-900 focus:outline-none focus:ring active:text-blue-950"
-                href={tab.link}
-              >
-                Ver más de {tab.title}
+            <div className="flex align-middle justify-center mt-4">
+              <Link title={`Ver más de ${tab.title}`} href={tab.link}>
+                <motion.span
+                  className="inline-block rounded-full border border-blue-700 bg-blue-600 px-10 py-3 text-sm font-medium text-white cursor-pointer"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 20px rgba(59,130,246,0.5)",
+                    backgroundColor: "#1d4ed8",
+                  }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                >
+                  Ver más de {tab.title} →
+                </motion.span>
               </Link>
             </div>
           )}

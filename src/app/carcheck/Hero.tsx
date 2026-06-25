@@ -77,18 +77,22 @@ export const Hero = () => {
             {texts[language].text3}
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-            <button
+            <motion.button
               onClick={scrollToForm}
-              className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
-            >
-              {texts[language].text2}
-            </button>
-            <button
-              onClick={scrollToForm}
-              className="px-6 py-3 border border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition duration-300"
+              className="px-8 py-3.5 bg-blue-600 text-white font-semibold rounded-full shadow-lg shadow-blue-500/30 hover:bg-blue-500 transition-colors duration-300"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59,130,246,0.6)" }}
+              whileTap={{ scale: 0.95 }}
             >
               {texts[language].text4}
-            </button>
+            </motion.button>
+            <motion.button
+              onClick={scrollToForm}
+              className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white transition-colors duration-300 backdrop-blur-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {texts[language].text5}
+            </motion.button>
           </div>
         </div>
 

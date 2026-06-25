@@ -110,17 +110,136 @@ export default function Nav({ page }: { page: string }) {
           </svg>
         </button>
 
-        {/* Nav links */}
-        <div
-          className={`${isMenuOpen ? "block" : "hidden"
-            } w-full md:block md:w-auto mt-4 md:mt-0 top-full left-0 z-10`}
-        >
-          <ul className="flex flex-col text-white font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700 items-center">
+        {/* Nav links — mobile: full screen overlay, desktop: inline */}
+        <AnimatePresence>
+          {(isMenuOpen) && (
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-white/10 shadow-2xl z-50"
+            >
+              <ul className="flex flex-col p-4 space-y-1">
+                {/* Inicio */}
+                <li>
+                  <Link
+                    title="Inicio"
+                    onClick={toggleMenu}
+                    href="/"
+                    className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${page === "home" ? "text-blue-400 bg-blue-500/10" : "text-white hover:text-blue-400 hover:bg-white/5"}`}
+                  >
+                    {texts[language].op1}
+                  </Link>
+                </li>
+
+                {/* Servicios + inline dropdown */}
+                <li>
+                  <button
+                    onClick={toggleDropdown}
+                    className={`flex items-center justify-between w-full py-3 px-4 rounded-xl text-base font-medium transition-colors ${page === "servicios" ? "text-blue-400 bg-blue-500/10" : "text-white hover:text-blue-400 hover:bg-white/5"}`}
+                  >
+                    {texts[language].op2.title}
+                    <motion.svg
+                      className="w-4 h-4"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                      animate={{ rotate: dropdown ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                    </motion.svg>
+                  </button>
+                  <AnimatePresence>
+                    {dropdown && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden ml-4 mt-1"
+                      >
+                        <div className="border-l-2 border-blue-500/30 pl-4 space-y-1">
+                          {[
+                            { href: "/servicios", label: texts[language].op2.o1 },
+                            { href: "/desarrollo-web", label: texts[language].op2.o2 },
+                            { href: "/apps-a-medida", label: texts[language].op2.o3 },
+                            { href: "/carcheck", label: texts[language].op2.o4 },
+                            { href: "/auditorias", label: texts[language].op2.o5 },
+                            { href: "/ia-automatizacion", label: texts[language].op2.o6 },
+                          ].map((item) => (
+                            <Link
+                              key={item.href}
+                              title={item.label}
+                              href={item.href}
+                              onClick={() => { setDropdown(false); toggleMenu(); }}
+                              className="block py-2 px-3 rounded-lg text-sm text-gray-300 hover:text-blue-400 hover:bg-blue-900/20 transition-all"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </li>
+
+                {/* Nosotros */}
+                <li>
+                  <Link
+                    title="Nosotros"
+                    onClick={toggleMenu}
+                    href="/nosotros"
+                    className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${page === "nosotros" ? "text-blue-400 bg-blue-500/10" : "text-white hover:text-blue-400 hover:bg-white/5"}`}
+                  >
+                    {texts[language].op3}
+                  </Link>
+                </li>
+
+                {/* Contacto */}
+                <li>
+                  <Link
+                    title="Contacto"
+                    onClick={toggleMenu}
+                    href="/contact"
+                    className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${page === "contacto" ? "text-blue-400 bg-blue-500/10" : "text-white hover:text-blue-400 hover:bg-white/5"}`}
+                  >
+                    {texts[language].op4}
+                  </Link>
+                </li>
+
+                {/* Language toggle */}
+                <li className="pt-2 px-4 flex items-center gap-2 border-t border-white/10 mt-2">
+                  <span className="text-gray-500 text-xs mr-1">Idioma:</span>
+                  <button
+                    onClick={() => setLanguage("es")}
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${language === "es" ? "bg-blue-600 text-white" : "text-gray-400 hover:text-white"}`}
+                  >
+                    ES
+                  </button>
+                  <span className="text-gray-600 text-xs">|</span>
+                  <button
+                    onClick={() => setLanguage("en")}
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${language === "en" ? "bg-blue-600 text-white" : "text-gray-400 hover:text-white"}`}
+                  >
+                    EN
+                  </button>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Desktop nav links */}
+        <div className="hidden md:block">
+          <ul className="flex text-white font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 items-center">
             {/* Inicio */}
             <li>
               <Link
                 title="Inicio"
-                onClick={toggleMenu}
                 href="/"
                 className={`${linkBase} ${page === "home" ? linkActive : linkIdle}`}
               >
@@ -133,9 +252,7 @@ export default function Nav({ page }: { page: string }) {
             <li className="relative">
               <button
                 onClick={toggleDropdown}
-                id="dropdownNavbarLink"
-                className={`flex items-center justify-between w-full py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto transition-colors duration-200 group ${page === "servicios" ? linkActive : linkIdle
-                  }`}
+                className={`flex items-center justify-between py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 md:w-auto transition-colors duration-200 group ${page === "servicios" ? linkActive : linkIdle}`}
               >
                 {texts[language].op2.title}
                 <motion.svg
@@ -147,13 +264,7 @@ export default function Nav({ page }: { page: string }) {
                   animate={{ rotate: dropdown ? 180 : 0 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 4 4 4-4"
-                  />
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                 </motion.svg>
               </button>
 
@@ -178,7 +289,7 @@ export default function Nav({ page }: { page: string }) {
                         key={item.href}
                         title={item.label}
                         href={item.href}
-                        onClick={() => { setDropdown(false); toggleMenu(); }}
+                        onClick={() => { setDropdown(false); }}
                         className="text-white hover:text-blue-400 py-1.5 px-2 rounded-md hover:bg-blue-900/30 transition-all duration-150 text-sm"
                       >
                         {item.label}
@@ -193,7 +304,6 @@ export default function Nav({ page }: { page: string }) {
             <li>
               <Link
                 title="Nosotros"
-                onClick={toggleMenu}
                 href="/nosotros"
                 className={`${linkBase} ${page === "nosotros" ? linkActive : linkIdle}`}
               >
@@ -206,7 +316,6 @@ export default function Nav({ page }: { page: string }) {
             <li>
               <Link
                 title="Contacto"
-                onClick={toggleMenu}
                 href="/contact"
                 className={`${linkBase} ${page === "contacto" ? linkActive : linkIdle}`}
               >
@@ -220,10 +329,7 @@ export default function Nav({ page }: { page: string }) {
               <motion.button
                 onClick={() => setLanguage("es")}
                 whileTap={{ scale: 0.9 }}
-                className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${language === "es"
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-400 hover:text-white"
-                  }`}
+                className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${language === "es" ? "bg-blue-600 text-white" : "text-gray-400 hover:text-white"}`}
               >
                 ES
               </motion.button>
@@ -231,10 +337,7 @@ export default function Nav({ page }: { page: string }) {
               <motion.button
                 onClick={() => setLanguage("en")}
                 whileTap={{ scale: 0.9 }}
-                className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${language === "en"
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-400 hover:text-white"
-                  }`}
+                className={`px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${language === "en" ? "bg-blue-600 text-white" : "text-gray-400 hover:text-white"}`}
               >
                 EN
               </motion.button>

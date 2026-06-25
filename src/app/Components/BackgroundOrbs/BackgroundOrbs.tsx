@@ -21,12 +21,13 @@ export default function BackgroundOrbs() {
           height: "680px",
           background:
             "radial-gradient(circle, rgba(29,78,216,0.18) 0%, transparent 70%)",
+          willChange: "transform",
         }}
-        animate={{ x: [0, 40, 0], y: [0, 25, 0] }}
+        animate={{ y: [0, 25, 0] }}
         transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Bottom-right — indigo orb */}
+      {/* Bottom-right — indigo orb (only Y axis to avoid horizontal overflow) */}
       <motion.div
         className="absolute rounded-full"
         style={{
@@ -36,12 +37,13 @@ export default function BackgroundOrbs() {
           height: "750px",
           background:
             "radial-gradient(circle, rgba(79,70,229,0.14) 0%, transparent 70%)",
+          willChange: "transform",
         }}
-        animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
+        animate={{ y: [0, -40, 0] }}
         transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Center-right — sky blue, subtle */}
+      {/* Center-right — sky blue, only Y axis to avoid overflow */}
       <motion.div
         className="absolute rounded-full"
         style={{
@@ -51,8 +53,9 @@ export default function BackgroundOrbs() {
           height: "420px",
           background:
             "radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%)",
+          willChange: "transform",
         }}
-        animate={{ x: [0, -20, 0], y: [-60, 60, -60] }}
+        animate={{ y: [-60, 60, -60] }}
         transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
       />
 
@@ -66,8 +69,9 @@ export default function BackgroundOrbs() {
           height: "200px",
           background:
             "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)",
+          willChange: "transform",
         }}
-        animate={{ x: [0, 15, 0], y: [0, 20, 0] }}
+        animate={{ y: [0, 20, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
     </div>

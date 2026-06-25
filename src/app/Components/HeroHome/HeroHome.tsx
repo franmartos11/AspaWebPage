@@ -37,7 +37,7 @@ export function HeroHome() {
     <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden relative">
       {/* Título principal con animación */}
       <motion.h1
-        className="md:text-7xl text-5xl lg:text-9xl font-bold text-center text-white relative z-20 px-4"
+        className="text-4xl md:text-7xl lg:text-9xl font-bold text-center text-white relative z-20 px-4"
         variants={titleVariants}
         initial="hidden"
         animate="visible"
@@ -48,7 +48,7 @@ export function HeroHome() {
       </motion.h1>
 
       {/* Sparkles + tagline */}
-      <div className="w-full max-w-[80rem] h-48 relative">
+      <div className="w-full max-w-[80rem] h-24 md:h-48 relative mt-2 md:mt-0">
         {/* Líneas decorativas */}
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
@@ -71,7 +71,7 @@ export function HeroHome() {
         {/* Tagline animado */}
         <div className="absolute inset-0 w-full h-full">
           <div className="flex flex-col items-center pt-[0.5rem]">
-            <div className="text-center pb-12 z-50 h-[150%] w-[60vw]">
+            <div className="text-center pb-12 z-50 h-[150%] w-[90vw] md:w-[60vw]">
               <TextGenerateEffect words={texts[language].tagline} />
             </div>
           </div>

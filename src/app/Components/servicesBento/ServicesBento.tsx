@@ -26,7 +26,7 @@ const BentoCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: delay, ease: "easeOut" }}
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-neutral-900 border border-white/10 p-6 sm:p-8 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-1 ${colSpanClass}`}
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-neutral-900 border border-white/10 p-6 sm:p-8 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-1 min-h-[220px] ${colSpanClass}`}
     >
       {/* Fondo sólido moderno */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-black to-neutral-900 z-0" />
@@ -185,7 +185,7 @@ export default function ServicesBento() {
         </motion.div>
 
         {/* Grilla Bento */}
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[220px] gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-auto md:auto-rows-[220px] gap-6">
           {currentTexts.servicios.map((servicio, idx) => (
             <BentoCard
               key={servicio.id}

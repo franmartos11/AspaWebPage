@@ -59,7 +59,7 @@ const StepText = ({
   return (
     <motion.div
       style={{ opacity, y }}
-      className="absolute inset-x-0 px-8 md:px-16 lg:px-20"
+      className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-8 md:px-16 lg:px-20"
     >
       <span className="inline-block text-blue-400 text-xs font-bold tracking-[0.22em] uppercase mb-4 px-3 py-1 rounded-full border border-blue-400/30 bg-blue-400/5">
         {step.label}
@@ -162,13 +162,14 @@ export const ContainerScroll = ({
         </div>
 
         {/* ─── RIGHT: 3D Frame with animated visuals ────────────────────── */}
-        <div className="w-full md:w-1/2 flex items-center justify-center h-1/2 md:h-full px-6 md:px-8 lg:px-12 mt-10 md:mt-0">
+        <div className="w-full md:w-1/2 flex items-center justify-center h-1/2 md:h-full px-6 md:px-8 lg:px-12 pb-10 pt-2 md:py-24">
           <motion.div
-            className="w-full max-w-2xl border-[3px] border-[#404040] bg-[#111111] rounded-[24px] overflow-hidden"
+            className="w-full max-w-2xl border-[3px] border-[#404040] bg-[#111111] rounded-[24px] overflow-hidden flex flex-col"
             style={{
               rotateX: rotate,
               scale,
-              height: "clamp(280px, calc(100vh - 200px), 640px)",
+              height: "100%",
+              maxHeight: "640px",
               boxShadow:
                 "0 0 80px rgba(29,78,216,0.22), 0 30px 60px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.05)",
             }}

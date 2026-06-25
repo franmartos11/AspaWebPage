@@ -50,12 +50,14 @@ const NetworkGraphic = () => {
         ))}
 
         {/* Network Nodes */}
-        {[
-          [50, 50, 4, "#3b82f6"], // Center
-          [25, 25, 2.5, "#60a5fa"], [75, 30, 2.5, "#60a5fa"], 
-          [30, 75, 2.5, "#60a5fa"], [80, 70, 2.5, "#60a5fa"],
-          [10, 50, 1.5, "#93c5fd"], [90, 50, 1.5, "#93c5fd"]
-        ].map(([cx, cy, r, color], i) => (
+        {(
+          [
+            [50, 50, 4, "#3b82f6"], // Center
+            [25, 25, 2.5, "#60a5fa"], [75, 30, 2.5, "#60a5fa"], 
+            [30, 75, 2.5, "#60a5fa"], [80, 70, 2.5, "#60a5fa"],
+            [10, 50, 1.5, "#93c5fd"], [90, 50, 1.5, "#93c5fd"]
+          ] as [number, number, number, string][]
+        ).map(([cx, cy, r, color], i) => (
           <g key={`node-${i}`}>
             {/* Outer pulse */}
             <motion.circle cx={cx} cy={cy} r={r} fill={color} opacity="0.2"

@@ -12,22 +12,46 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aspasoftware.com"),
-  title: "Aspa Software Development",
+  title: {
+    default: "Aspa Software | Desarrollo de Software a Medida en Argentina",
+    template: "%s | Aspa Software",
+  },
   description:
-    "Potenciamos negocios con soluciones de software innovadoras. Aspa Software Development es una empresa líder en desarrollo de software especializada en automatizacion de procesos, aplicaciones a medida y paginas web.",
-  keywords: ["aspa", "aspa software", "software", "software a medida", "pag web", "carcheck", "auditorias", "audit", "aspa carcheck"],
+    "Empresa de desarrollo de software en Argentina. Creamos páginas web, apps a medida, soluciones con IA y automatización de procesos. Contáctanos y transformá tu negocio.",
+  keywords: [
+    "desarrollo de software Argentina",
+    "empresa de software Buenos Aires",
+    "desarrollo web Argentina",
+    "apps a medida Argentina",
+    "automatización con IA",
+    "software a medida",
+    "páginas web profesionales",
+    "software para talleres mecánicos",
+    "carcheck",
+    "auditoría IT",
+    "aspa software",
+  ],
   icons: "/aspaLogo.webp",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: "https://www.aspasoftware.com",
+  },
   openGraph: {
-    title: "Aspa Software Development",
-    description: "Desarrollamos soluciones innovadoras para potenciar tu negocio. Automatizamos procesos, creamos apps y páginas web personalizadas.",
+    title: "Aspa Software | Desarrollo de Software a Medida en Argentina",
+    description:
+      "Desarrollamos páginas web, apps móviles, soluciones con IA y automatizamos procesos para potenciar tu negocio. Empresa argentina de software.",
     url: "https://www.aspasoftware.com",
     siteName: "Aspa Software",
     images: [
       {
-        url: "/aspaLogo.webp",
-        width: 612,
-        height: 612,
-        alt: "Aspa Software Logo",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Aspa Software — Desarrollo de Software a Medida en Argentina",
       },
     ],
     locale: "es_AR",
@@ -35,9 +59,30 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aspa Software Development",
-    description: "Soluciones de software innovadoras para tu negocio.",
-    images: ["/aspaLogo.webp"],
+    title: "Aspa Software | Desarrollo de Software a Medida",
+    description:
+      "Páginas web, apps a medida, IA y automatización. Soluciones tecnológicas para empresas argentinas.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Aspa Software",
+  url: "https://www.aspasoftware.com",
+  logo: "https://www.aspasoftware.com/aspaLogo.webp",
+  description:
+    "Empresa de desarrollo de software en Argentina especializada en páginas web, apps a medida, automatización con IA y software para talleres mecánicos.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    availableLanguage: "Spanish",
+  },
+  sameAs: [],
+  areaServed: {
+    "@type": "Country",
+    name: "Argentina",
   },
 };
 
@@ -60,6 +105,10 @@ export default function RootLayout({
                                     })(window,document,'script','dataLayer','GTM-58NQBX9H'); `,
           }}
         ></Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <LanguageProvider>
         <body className={inter.className}>

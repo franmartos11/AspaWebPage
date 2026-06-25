@@ -11,9 +11,10 @@ export const metadata = {
   description:
     "CarCheck es el software de gestión ideal para talleres mecánicos. Digitalizá tu taller, administrá clientes, vehículos, órdenes de trabajo, presupuestos y mucho más.",
   keywords:
-    "software para talleres mecánicos, carcheck, gestión de talleres, sistema taller, software automotriz, aspa software",
+    "software para talleres mecánicos, carcheck, gestión de talleres, sistema taller, software automotriz, aspa software, taller mecánico Argentina",
   robots: "index, follow",
   authors: [{ name: "Aspa Software" }],
+  alternates: { canonical: "https://www.aspasoftware.com/carcheck" },
   openGraph: {
     title: "CarCheck | Software para Talleres Mecánicos",
     description:
@@ -22,7 +23,7 @@ export const metadata = {
     siteName: "Aspa Software",
     images: [
       {
-        url: "/carcheck2bg2.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "CarCheck de Aspa Software",

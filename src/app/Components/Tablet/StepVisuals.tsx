@@ -12,41 +12,41 @@ const AutomationPanel = () => {
   ];
 
   return (
-    <div className="h-full flex flex-col justify-center p-6 md:p-8">
+    <div className="h-full flex flex-col justify-center p-3 xs:p-5 md:p-8 select-none">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="mb-7"
+        className="mb-2 xs:mb-4 md:mb-7"
       >
-        <div className="flex items-center gap-2 mb-1">
+        <div className="flex items-center gap-2 mb-0.5 xs:mb-1">
           <motion.div
-            className="w-2 h-2 rounded-full bg-blue-400"
+            className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-blue-400"
             animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           />
-          <span className="text-blue-400 text-xs font-mono tracking-wider">automation.run</span>
+          <span className="text-blue-400 text-[10px] xs:text-xs font-mono tracking-wider">automation.run</span>
         </div>
-        <p className="text-white font-semibold text-lg">Flujo automático activo</p>
+        <p className="text-white font-semibold text-sm xs:text-base md:text-lg">Flujo automático activo</p>
       </motion.div>
 
       {/* Task list */}
-      <div className="space-y-2.5 relative">
+      <div className="space-y-1.5 xs:space-y-2 md:space-y-2.5 relative">
         {/* Vertical connector line */}
-        <div className="absolute left-[10px] top-3 bottom-3 w-px bg-gradient-to-b from-blue-500 via-blue-400/40 to-transparent z-0" />
+        <div className="absolute left-[8px] xs:left-[10px] top-2 bottom-2 w-px bg-gradient-to-b from-blue-500 via-blue-400/40 to-transparent z-0" />
 
         {tasks.map((task, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.14, duration: 0.35, ease: "easeOut" }}
-            className="flex items-center gap-3 relative z-10"
+            transition={{ delay: i * 0.1, duration: 0.3, ease: "easeOut" }}
+            className="flex items-center gap-2 xs:gap-3 relative z-10"
           >
             {/* Node */}
             <div
-              className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+              className={`w-4 h-4 xs:w-5 xs:h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
                 task.done
                   ? "bg-blue-500"
                   : task.active
@@ -55,13 +55,13 @@ const AutomationPanel = () => {
               }`}
             >
               {task.done && (
-                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-2.5 h-2.5 xs:w-3 xs:h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                 </svg>
               )}
               {task.active && (
                 <motion.div
-                  className="w-2 h-2 rounded-full bg-white"
+                  className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
@@ -70,7 +70,7 @@ const AutomationPanel = () => {
 
             {/* Row */}
             <div
-              className={`flex-1 rounded-lg px-3 py-2 text-sm ${
+              className={`flex-1 rounded-lg px-2.5 py-1 xs:px-3 xs:py-2 text-[10px] xs:text-xs md:text-sm ${
                 task.done
                   ? "bg-blue-900/20 border border-blue-800/30 text-blue-300/70 line-through"
                   : task.active
@@ -81,7 +81,7 @@ const AutomationPanel = () => {
               {task.label}
               {task.active && (
                 <motion.span
-                  className="inline-block ml-2 text-blue-400 text-xs"
+                  className="inline-block ml-1.5 text-blue-400 text-[10px] xs:text-xs font-mono"
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{ duration: 1.2, repeat: Infinity }}
                 >
@@ -97,24 +97,24 @@ const AutomationPanel = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.9 }}
-        className="mt-7"
+        transition={{ delay: 0.7 }}
+        className="mt-3 xs:mt-5 md:mt-7"
       >
-        <div className="flex justify-between text-xs text-gray-500 mb-1.5">
+        <div className="flex justify-between text-[10px] xs:text-xs text-gray-500 mb-1">
           <span>Progreso general</span>
           <span className="text-blue-400 font-semibold">60%</span>
         </div>
-        <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+        <div className="h-1 xs:h-1.5 bg-gray-800 rounded-full overflow-hidden">
           <motion.div
             className="h-full rounded-full bg-gradient-to-r from-blue-600 to-blue-400"
             initial={{ width: "0%" }}
             animate={{ width: "60%" }}
-            transition={{ duration: 1.4, ease: "easeOut", delay: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
           />
         </div>
-        <div className="flex justify-between mt-3">
-          <span className="text-gray-600 text-xs">2 de 5 tareas completas</span>
-          <span className="text-green-400 text-xs font-medium">↑ -3.2h ahorradas hoy</span>
+        <div className="flex justify-between mt-1.5 xs:mt-3">
+          <span className="text-gray-600 text-[9px] xs:text-xs">2 de 5 tareas completas</span>
+          <span className="text-green-400 text-[9px] xs:text-xs font-medium">↑ -3.2h ahorradas hoy</span>
         </div>
       </motion.div>
     </div>
@@ -134,42 +134,42 @@ const CodePanel = () => {
   ];
 
   return (
-    <div className="h-full flex flex-col font-mono p-4 md:p-6">
+    <div className="h-full flex flex-col font-mono p-3 xs:p-5 md:p-6 select-none">
       {/* Editor tabs */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="flex items-center gap-0 mb-4 border-b border-white/10 pb-2"
+        className="flex items-center gap-0 mb-2.5 xs:mb-4 border-b border-white/10 pb-1.5 xs:pb-2"
       >
-        <div className="flex gap-1.5 mr-4">
-          <div className="w-3 h-3 rounded-full bg-red-500/60" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-          <div className="w-3 h-3 rounded-full bg-green-500/60" />
+        <div className="flex gap-1 xs:gap-1.5 mr-3 xs:mr-4">
+          <div className="w-2 h-2 rounded-full bg-red-500/60" />
+          <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+          <div className="w-2 h-2 rounded-full bg-green-500/60" />
         </div>
-        <span className="text-gray-300 text-xs bg-white/5 px-3 py-1 rounded-t border-t border-x border-white/10">deploy.ts</span>
-        <span className="text-gray-600 text-xs px-3 py-1">config.ts</span>
-        <div className="ml-auto flex items-center gap-2">
+        <span className="text-gray-300 text-[10px] xs:text-xs bg-white/5 px-2.5 py-0.5 xs:px-3 xs:py-1 rounded-t border-t border-x border-white/10">deploy.ts</span>
+        <span className="text-gray-600 text-[10px] xs:text-xs px-2.5 py-0.5 xs:px-3 xs:py-1">config.ts</span>
+        <div className="ml-auto flex items-center gap-1.5">
           <motion.div
-            className="w-1.5 h-1.5 rounded-full bg-green-400"
+            className="w-1 h-1 xs:w-1.5 xs:h-1.5 rounded-full bg-green-400"
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-green-400 text-xs">auto-save</span>
+          <span className="text-green-400 text-[9px] xs:text-xs">auto-save</span>
         </div>
       </motion.div>
 
       {/* Code lines */}
-      <div className="flex-1 space-y-1.5 overflow-hidden">
+      <div className="flex-1 space-y-0.5 xs:space-y-1.5 overflow-hidden">
         {lines.map((line, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.18, duration: 0.3 }}
-            className="flex items-start gap-3"
+            transition={{ delay: i * 0.1, duration: 0.25 }}
+            className="flex items-start gap-2 xs:gap-3"
           >
-            <span className="text-gray-700 text-xs w-5 flex-shrink-0 text-right mt-0.5 select-none">{i + 1}</span>
-            <span className="text-sm leading-relaxed">
+            <span className="text-gray-700 text-[10px] xs:text-xs w-4 xs:w-5 flex-shrink-0 text-right mt-0.5 select-none">{i + 1}</span>
+            <span className="text-[10px] xs:text-xs md:text-sm leading-relaxed">
               {line.tokens.map((t, j) => (
                 <span key={j} className={t.color}>{t.text}</span>
               ))}
@@ -182,15 +182,15 @@ const CodePanel = () => {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5 }}
-        className="mt-4 pt-4 border-t border-white/10"
+        transition={{ delay: 1 }}
+        className="mt-2.5 xs:mt-4 pt-2.5 xs:pt-4 border-t border-white/10"
       >
-        <div className="bg-black/40 rounded-lg p-3 mb-3 text-xs font-mono">
+        <div className="bg-black/40 rounded-lg p-2 xs:p-3 mb-2 xs:mb-3 text-[9px] xs:text-xs font-mono">
           <p className="text-gray-600">$ aspa deploy --prod</p>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.8 }}
+            transition={{ delay: 1.2 }}
             className="text-green-400"
           >
             ✓ Build successful · 847ms
@@ -198,31 +198,31 @@ const CodePanel = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.1 }}
+            transition={{ delay: 1.4 }}
             className="text-blue-400"
           >
             ↑ Deploying to production...
           </motion.p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 xs:gap-3">
           <motion.button
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-lg"
+            className="flex items-center gap-1.5 xs:gap-2 px-2.5 py-1 xs:px-4 xs:py-2 bg-blue-600 text-white text-[9px] xs:text-xs font-bold rounded-lg"
             animate={{
               boxShadow: [
                 "0 0 0px rgba(59,130,246,0)",
-                "0 0 20px rgba(59,130,246,0.6)",
+                "0 0 15px rgba(59,130,246,0.5)",
                 "0 0 0px rgba(59,130,246,0)",
               ],
             }}
-            transition={{ duration: 2.5, repeat: Infinity, delay: 2 }}
+            transition={{ duration: 2.5, repeat: Infinity, delay: 1 }}
           >
             ▶ Deploy
           </motion.button>
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.3 }}
-            className="text-green-400 text-xs"
+            transition={{ delay: 1.5 }}
+            className="text-green-400 text-[9px] xs:text-xs"
           >
             ✓ Tests passed (47/47)
           </motion.span>
@@ -246,63 +246,63 @@ const DashboardPanel = () => {
   ];
 
   return (
-    <div className="h-full flex flex-col p-5 md:p-7">
+    <div className="h-full flex flex-col p-4 xs:p-5 md:p-7 select-none">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex items-center justify-between mb-5"
+        className="flex items-center justify-between mb-3 xs:mb-5"
       >
         <div>
-          <p className="text-white font-semibold">Panel de Control</p>
-          <p className="text-gray-600 text-xs">Actualizado hace 2 min</p>
+          <p className="text-white font-semibold text-xs xs:text-sm md:text-base">Panel de Control</p>
+          <p className="text-gray-600 text-[9px] xs:text-xs">Actualizado hace 2 min</p>
         </div>
         <motion.div
-          className="flex items-center gap-1.5 bg-green-400/10 border border-green-400/30 px-2.5 py-1 rounded-full"
+          className="flex items-center gap-1.5 bg-green-400/10 border border-green-400/30 px-2 xs:px-2.5 py-0.5 xs:py-1 rounded-full"
           animate={{ opacity: [1, 0.6, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-          <span className="text-green-400 text-xs font-medium">En vivo</span>
+          <div className="w-1 h-1 xs:w-1.5 xs:h-1.5 rounded-full bg-green-400" />
+          <span className="text-green-400 text-[9px] xs:text-xs font-medium">En vivo</span>
         </motion.div>
       </motion.div>
 
       {/* KPI cards */}
-      <div className="grid grid-cols-3 gap-2.5 mb-5">
+      <div className="grid grid-cols-3 gap-2 mb-3 xs:mb-5">
         {kpis.map((kpi, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.12, duration: 0.4 }}
-            className="bg-white/5 border border-white/8 rounded-xl p-3"
+            transition={{ delay: i * 0.1, duration: 0.35 }}
+            className="bg-white/5 border border-white/8 rounded-xl p-2 xs:p-3"
           >
-            <p className="text-gray-500 text-xs mb-1 truncate">{kpi.label}</p>
-            <p className="text-white text-sm md:text-base font-bold">{kpi.value}</p>
-            <p className={`text-xs font-semibold ${kpi.color}`}>{kpi.change}</p>
+            <p className="text-gray-500 text-[9px] xs:text-[10px] mb-0.5 xs:mb-1 truncate">{kpi.label}</p>
+            <p className="text-white text-xs xs:text-sm md:text-base font-bold">{kpi.value}</p>
+            <p className={`text-[9px] xs:text-xs font-semibold ${kpi.color}`}>{kpi.change}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Metric bars */}
-      <div className="space-y-4 mb-5">
+      <div className="space-y-2.5 xs:space-y-4 mb-3 xs:mb-5">
         {bars.map((bar, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 + i * 0.15 }}
+            transition={{ delay: 0.4 + i * 0.1 }}
           >
-            <div className="flex justify-between text-xs mb-1.5">
+            <div className="flex justify-between text-[9px] xs:text-xs mb-1">
               <span className="text-gray-400">{bar.label}</span>
               <span className="text-white font-medium">{bar.pct}%</span>
             </div>
-            <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+            <div className="h-1 xs:h-1.5 bg-gray-800 rounded-full overflow-hidden">
               <motion.div
                 className={`h-full rounded-full bg-gradient-to-r ${bar.color}`}
                 initial={{ width: "0%" }}
                 animate={{ width: `${bar.pct}%` }}
-                transition={{ duration: 1.3, ease: "easeOut", delay: 0.6 + i * 0.15 }}
+                transition={{ duration: 1.1, ease: "easeOut", delay: 0.5 + i * 0.1 }}
               />
             </div>
           </motion.div>
@@ -313,62 +313,62 @@ const DashboardPanel = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="flex-1 min-h-0"
+        transition={{ delay: 0.8 }}
+        className="flex-1 min-h-0 flex flex-col justify-end"
       >
-        <p className="text-gray-600 text-xs mb-2">Crecimiento mensual</p>
-        <svg
-          viewBox="0 0 220 70"
-          className="w-full h-full"
-          preserveAspectRatio="none"
-          style={{ maxHeight: "80px" }}
-        >
-          <defs>
-            <linearGradient id="chartGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#22d3ee" />
-            </linearGradient>
-            <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          {/* Fill area */}
-          <motion.path
-            d="M0,65 L0,58 C20,52 40,50 60,42 C80,34 100,36 120,26 C140,18 160,22 180,12 L200,6 L220,2 L220,70 Z"
-            fill="url(#fillGrad)"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.4 }}
-          />
-          {/* Line */}
-          <motion.polyline
-            points="0,58 30,50 60,42 90,32 120,26 150,18 180,12 200,6 220,2"
-            fill="none"
-            stroke="url(#chartGrad)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut", delay: 1.3 }}
-          />
-          {/* Dots */}
-          {[[0, 58], [60, 42], [120, 26], [180, 12], [220, 2]].map(([x, y], i) => (
-            <motion.circle
-              key={i}
-              cx={x}
-              cy={y}
-              r="3"
-              fill="#3b82f6"
-              stroke="#000"
-              strokeWidth="1.5"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 1.5 + i * 0.12, duration: 0.2 }}
+        <p className="text-gray-600 text-[9px] xs:text-xs mb-1">Crecimiento mensual</p>
+        <div className="h-[40px] xs:h-[60px] md:h-[80px] w-full">
+          <svg
+            viewBox="0 0 220 70"
+            className="w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="chartGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#3b82f6" />
+                <stop offset="100%" stopColor="#22d3ee" />
+              </linearGradient>
+              <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            {/* Fill area */}
+            <motion.path
+              d="M0,65 L0,58 C20,52 40,50 60,42 C80,34 100,36 120,26 C140,18 160,22 180,12 L200,6 L220,2 L220,70 Z"
+              fill="url(#fillGrad)"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
             />
-          ))}
-        </svg>
+            {/* Line */}
+            <motion.polyline
+              points="0,58 30,50 60,42 90,32 120,26 150,18 180,12 200,6 220,2"
+              fill="none"
+              stroke="url(#chartGrad)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.9 }}
+            />
+            {/* Dots */}
+            {[[0, 58], [60, 42], [120, 26], [180, 12], [220, 2]].map(([x, y], i) => (
+              <motion.circle
+                key={i}
+                cx={x}
+                cy={y}
+                fill="#3b82f6"
+                stroke="#000"
+                strokeWidth="1"
+                initial={{ r: 0, opacity: 0 }}
+                animate={{ r: 2.5, opacity: 1 }}
+                transition={{ delay: 1.1 + i * 0.08, duration: 0.15 }}
+              />
+            ))}
+          </svg>
+        </div>
       </motion.div>
     </div>
   );

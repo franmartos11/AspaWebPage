@@ -189,7 +189,7 @@ export default function ContactCardImg() {
               {/* WhatsApp */}
               <motion.a
                 title="WhatsApp"
-                href="https://wa.me/17867630202?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
+                href="https://wa.me/5493517878609?text=Hola,%20quiero%20enviar%20un%20mensaje%20a%20trav%C3%A9s%20de%20WhatsApp."
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 hover:bg-blue-900/10 transition-all duration-300 group"
@@ -201,7 +201,7 @@ export default function ContactCardImg() {
                   </svg>
                 </div>
                 <span className="mx-4 text-gray-300 group-hover:text-white transition-colors">
-                  +1 (786) 763-0202
+                  +54 9 3517 87-8609
                 </span>
               </motion.a>
 

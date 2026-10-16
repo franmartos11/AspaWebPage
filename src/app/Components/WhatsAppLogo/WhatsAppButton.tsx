@@ -6,7 +6,7 @@ const FloatingButton = () => {
   return (
     <motion.a
       title="Contactar por WhatsApp"
-      href="https://wa.me/5493517730900?text=Hola!%20Quiero%20impulsar%20mi%20negocio%20con%20una%20de%20sus%20soluciones."
+      href="https://wa.me/5493517878609?text=Hola!%20Quiero%20impulsar%20mi%20negocio%20con%20una%20de%20sus%20soluciones."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 block"

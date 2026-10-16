@@ -94,7 +94,7 @@ export default function () {
           </svg>
         </a>
         <a
-          href="https://wa.me/5493517730900"
+          href="https://wa.me/5493517878609"
           target="_blank"
           rel="noopener noreferrer"
           title="WhatsApp Aspa Software"

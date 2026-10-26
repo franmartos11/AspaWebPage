@@ -1,0 +1,132 @@
+/* Galería horizontal guiada por el scroll (tarjetas .hcard): compartida entre el Home y Webs. */
+
+.hgal {
+  position: relative;
+}
+.hgal-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(24px, 3vw, 40px);
+  overflow: hidden;
+}
+.hgal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  width: 100%;
+}
+.hgal-track {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0 max(24px, calc((100vw - 1280px) / 2 + 40px));
+  list-style: none;
+  will-change: transform;
+  width: max-content;
+}
+.hgal-track > li {
+  flex: none;
+}
+.hcard {
+  position: relative;
+  display: block;
+  width: clamp(300px, 34vw, 520px);
+  flex: none;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.7s var(--expo);
+}
+.hcard:hover {
+  transform: translateY(-6px);
+}
+.hc-img {
+  aspect-ratio: 2/1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0d0d10;
+  box-shadow:
+    0 30px 60px -30px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.hc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.hc-meta {
+  padding: 16px 2px 0;
+}
+.hc-meta h3 {
+  font-size: 22px;
+  margin: 0 0 4px;
+}
+.hgal-bar {
+  height: 1px;
+  background: var(--ln);
+  position: relative;
+  overflow: hidden;
+}
+.hgal-bar i {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.hgal.native .hgal-stage {
+  position: relative;
+  height: auto;
+  padding: clamp(80px, 10vw, 140px) 0;
+}
+.hgal.native .hgal-track {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(24px, calc((100vw - 1280px) / 2 + 40px));
+  width: auto;
+  transform: none !important;
+  padding-bottom: 12px;
+}
+.hgal.native .hgal-track > li {
+  scroll-snap-align: start;
+}
+.hgal.native .hcard {
+  width: 78vw;
+}
+@media (hover: none) {
+  .hcard:hover {
+    transform: none;
+  }
+}
+
+/* tarjetas de vidrio (Webs): sin el brillo superior del vidrio; imagen entera en el carrusel nativo */
+.hgal-head .mut {
+  max-width: 34ch;
+  margin: 0;
+}
+.hgal.native .hc-img img {
+  width: 100%;
+  transform: none !important;
+}
+.hcard::before {
+  display: none;
+}
+@media (hover: none) {
+  .hcard:hover {
+    transform: none;
+  }
+}
+@media (max-width: 980px) {
+  .hgal-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

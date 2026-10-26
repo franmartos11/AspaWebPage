@@ -1,0 +1,90 @@
+/* Ajustes de la demo de desarrollistas (rubro.css es generado del diseño: acá va lo que faltó o es nuevo). */
+
+/* del diseño, quedaron afuera del recorte de rubro.css */
+.bim.open .fl {
+  transform: translateY(calc(var(--i) * -14px));
+}
+.st-disponible {
+  color: #34d399;
+}
+.st-reservada {
+  color: #f5b84a;
+}
+.st-vendida {
+  color: #8b8b93;
+}
+/* "Cuotas" pasó de <label> a <span> (no rotula un solo control): mismo estilo que .cot label */
+.cot .lbl-c {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mut);
+  margin: 10px 0 6px;
+}
+
+/* foco visible en lo que en el diseño era solo de mouse */
+.mp-svg .lot:focus {
+  outline: none;
+}
+.mp-svg .lot:focus-visible {
+  stroke: #ffffff;
+  stroke-width: 4;
+  stroke-dasharray: 6 4;
+}
+.tour:focus-visible,
+.bim:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 3px;
+}
+.bim:focus-visible .fl {
+  transform: translateY(calc(var(--i) * -14px));
+}
+
+/* tabla: el botón de cada fila se ve como texto */
+.uni .uni-pick {
+  all: unset;
+  cursor: pointer;
+}
+.uni .uni-pick:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* lista de unidades de la torre (alternativa al 3D para teclado, lector de pantalla y sin WebGL) */
+.tw-pick {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.tw-pick label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.tw-pick select {
+  font: inherit;
+  font-size: 12px;
+  color: inherit;
+  background: var(--sf);
+  border: 1px solid var(--ln);
+  border-radius: 6px;
+  padding: 7px 10px;
+  min-height: 34px;
+  color-scheme: dark;
+}
+.tw-pick select:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 2px;
+}
+
+/* del diseño (quedó afuera del recorte): el anticipo ocupa todo el ancho */
+.cot input[type="range"] {
+  width: 100%;
+  accent-color: #6e6cff;
+}

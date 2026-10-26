@@ -1,0 +1,24 @@
+/* Nombre de producto: logo de Aspa + nombre en Cinzel (Sistemas y casos). */
+.prodname {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35em;
+  margin: 0;
+  line-height: 1;
+  color: var(--fg);
+}
+.prodname .pn-logo {
+  display: block;
+  height: 0.82em;
+}
+.prodname .pn-logo .logo {
+  height: 100%;
+}
+.prodname .pn-name {
+  font-family: var(--cinzel);
+  font-weight: 500;
+  font-size: 0.62em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 0.8;
+}

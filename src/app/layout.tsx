@@ -1,124 +1,86 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Cinzel } from "next/font/google";
+import localFont from "next/font/local";
+import { Footer } from "@/components/Footer";
+import { SiteFx } from "@/components/Fx";
+import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
+import { LogoDefs } from "@/components/Logo";
+import { HEAD_SCRIPT, INTRO_SCRIPT } from "@/lib/inline-scripts";
+import { siteSchema } from "@/lib/schema";
+import { SITE } from "@/lib/site";
 import "./globals.css";
-import Footer from "./Components/Footer/Footer";
-import WhatsAppButton from "./Components/WhatsAppLogo/WhatsAppButton";
-import Script from "next/script";
-import { LanguageProvider } from "./Components/AALenguageContext/LenguageContext";
-import { Analytics } from "@vercel/analytics/react";
-import BackgroundOrbs from "./Components/BackgroundOrbs/BackgroundOrbs";
 
-const inter = Inter({ subsets: ["latin"] });
+// Inter e Inter Tight (Google Fonts, OFL) recortadas a los pesos que usa el sitio y a los
+// caracteres del español: 53 KB en lugar de 93 KB. Se regeneran con fontTools (ver src/fonts/README.md).
+const inter = localFont({
+  src: "../fonts/inter-400-700.woff2",
+  weight: "400 700",
+  variable: "--font-inter",
+  display: "swap",
+});
+const interTight = localFont({
+  src: "../fonts/inter-tight-600-700.woff2",
+  weight: "600 700",
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+// Solo para el logo "ASPA RODEO" dentro de una pantalla de ejemplo: no se precarga.
+const cinzel = Cinzel({ subsets: ["latin"], weight: "500", variable: "--font-cinzel", display: "swap", preload: false });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.aspasoftware.com"),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "Aspa Software | Desarrollo de Software a Medida en Argentina",
+    default: "Software a medida, apps y webs en Córdoba | Aspa Software",
     template: "%s | Aspa Software",
   },
   description:
-    "Empresa de desarrollo de software en Argentina. Creamos páginas web, apps a medida, soluciones con IA y automatización de procesos. Contáctanos y transformá tu negocio.",
-  keywords: [
-    "desarrollo de software Argentina",
-    "empresa de software Buenos Aires",
-    "desarrollo web Argentina",
-    "apps a medida Argentina",
-    "automatización con IA",
-    "software a medida",
-    "páginas web profesionales",
-    "software para talleres mecánicos",
-    "carcheck",
-    "auditoría IT",
-    "aspa software",
-  ],
-  icons: "/aspaLogo.webp",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
-  alternates: {
-    canonical: "https://www.aspasoftware.com",
-  },
+    "Desarrollamos sistemas de gestión a medida, apps para celular, automatizaciones y webs para empresas. Equipo en Córdoba, Argentina. Propuesta sin costo.",
+  applicationName: SITE.name,
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  formatDetection: { telephone: false, email: false, address: false },
   openGraph: {
-    title: "Aspa Software | Desarrollo de Software a Medida en Argentina",
-    description:
-      "Desarrollamos páginas web, apps móviles, soluciones con IA y automatizamos procesos para potenciar tu negocio. Empresa argentina de software.",
-    url: "https://www.aspasoftware.com",
-    siteName: "Aspa Software",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Aspa Software — Desarrollo de Software a Medida en Argentina",
-      },
-    ],
-    locale: "es_AR",
     type: "website",
+    siteName: SITE.name,
+    locale: SITE.locale,
+    url: "/",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Aspa Software | Desarrollo de Software a Medida",
-    description:
-      "Páginas web, apps a medida, IA y automatización. Soluciones tecnológicas para empresas argentinas.",
-    images: ["/og-image.png"],
-  },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large", "max-snippet": -1 } },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Aspa Software",
-  url: "https://www.aspasoftware.com",
-  logo: "https://www.aspasoftware.com/aspaLogo.webp",
-  description:
-    "Empresa de desarrollo de software en Argentina especializada en páginas web, apps a medida, automatización con IA y software para talleres mecánicos.",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    availableLanguage: "Spanish",
-  },
-  sameAs: [],
-  areaServed: {
-    "@type": "Country",
-    name: "Argentina",
-  },
+export const viewport: Viewport = {
+  themeColor: "#0a0a0c",
+  colorScheme: "dark",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang={SITE.lang} className={`${inter.variable} ${interTight.variable} ${cinzel.variable}`} suppressHydrationWarning>
       <head>
-        <Script
-          id="gtm"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: ` (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                                    })(window,document,'script','dataLayer','GTM-58NQBX9H'); `,
-          }}
-        ></Script>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: HEAD_SCRIPT }} />
       </head>
-      <LanguageProvider>
-        <body className={inter.className}>
-          <BackgroundOrbs />
-          {children}
-          <Analytics />
-          <WhatsAppButton></WhatsAppButton>
-          <Footer></Footer>
-        </body>
-      </LanguageProvider>
+      <body suppressHydrationWarning>
+        <a className="skip-link" href="#main">
+          Saltar al contenido
+        </a>
+        <div className="field" id="field" aria-hidden="true">
+          <i className="b1"></i>
+          <i className="b2"></i>
+          <i className="b3"></i>
+          <i className="b4"></i>
+        </div>
+        <div className="grain" aria-hidden="true"></div>
+        <LogoDefs />
+        <Header />
+        {children}
+        <Footer />
+        <JsonLd data={siteSchema} />
+        <SiteFx />
+        <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,142 @@
+/* Planes de Webs (tarjetas con precio): compartidos entre /webs y /webs/planes. */
+
+.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gut);
+}
+.plan {
+  background: var(--sf);
+  padding: clamp(28px, 3vw, 48px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--ln);
+}
+.plan.rec {
+  background: #0b0b0c;
+  color: #ffffff;
+  border-color: #0b0b0c;
+}
+.plan.rec .mut {
+  color: #a6a39d;
+}
+.plan .badge {
+  position: absolute;
+  top: clamp(28px, 3vw, 48px);
+  right: clamp(28px, 3vw, 48px);
+  background: #2d2bff;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.plan h3 {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.plan .ideal {
+  margin: auto 0 24px;
+  max-width: 38ch;
+  padding-top: 20px;
+  border-top: 1px solid var(--ln);
+}
+.plan.rec .ideal {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.plan .btn {
+  align-self: flex-start;
+}
+@media (max-width: 980px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+}
+.plans {
+  gap: 16px;
+}
+.plan {
+  border-radius: 28px;
+  padding: clamp(24px, 3vw, 40px);
+  background: none;
+}
+.plan.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+}
+.plan.rec {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)) !important;
+  color: #fff;
+  border-color: transparent;
+}
+.plan.rec::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--ang, 0deg), transparent 0 60%, var(--g1) 75%, #fff 80%, var(--g2) 85%, transparent 95%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: angle 5s linear infinite;
+  pointer-events: none;
+}
+.plan .badge {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+.plan.rec .mut {
+  color: var(--mut);
+}
+.plan.rec .ideal {
+  border-color: var(--ln);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  font-size: clamp(64px, 7.4vw, 136px);
+}
+.price small {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: clamp(15px, 1.3vw, 20px);
+  letter-spacing: 0.04em;
+}
+.specs {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 8px 28px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.specs li b {
+  display: block;
+  font-family: var(--sans);
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@media (max-width: 560px) {
+  .specs {
+    grid-template-columns: 1fr 1fr;
+  }
+}

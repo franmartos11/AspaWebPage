@@ -1,0 +1,481 @@
+/* Tarjetas de "lo que pasa hoy" con su ilustración animada (PainArt): compartidas entre
+   Sistemas, Webs y las páginas por rubro. Portadas del diseño en su orden original. */
+
+.pcard {
+  background: var(--sf);
+  padding: clamp(26px, 2.4vw, 40px);
+  min-height: clamp(240px, 20vw, 320px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 8px;
+}
+.pcard .n {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ac);
+}
+.pcard p {
+  font-size: clamp(20px, 1.6vw, 26px);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin: 0;
+}
+.pa {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  aspect-ratio: 220/108;
+  margin: 0 0 22px;
+  overflow: hidden;
+  color: var(--fg);
+  flex: none;
+}
+.pa .s {
+  fill: none;
+  stroke: currentColor;
+  stroke-opacity: 0.4;
+  stroke-width: 1.4;
+}
+.pa .s.fill {
+  fill: var(--sf);
+}
+.pa .s.o {
+  stroke-opacity: 0.2;
+}
+.pa .dashl {
+  stroke-dasharray: 3 3;
+}
+.pa .f {
+  fill: currentColor;
+  fill-opacity: 0.5;
+}
+.pa .f.o {
+  fill-opacity: 0.16;
+}
+.pa .f.o2 {
+  fill-opacity: 0.09;
+}
+.pa .acc {
+  fill: var(--ac);
+}
+.pa .bg {
+  fill: var(--sf);
+}
+.pa .tx {
+  font: 500 10.5px var(--sans);
+  fill: currentColor;
+}
+.pa .t2 {
+  font: 500 9.5px var(--sans);
+  fill: currentColor;
+  fill-opacity: 0.85;
+}
+.pa .t3 {
+  font: 400 8.5px var(--mono);
+  fill: currentColor;
+  fill-opacity: 0.5;
+}
+.pa .acct {
+  fill: var(--ac);
+  fill-opacity: 1;
+}
+.pa .lbl {
+  font: 700 11px var(--sans);
+  fill: var(--ac);
+}
+.pa .num {
+  font: 700 20px var(--sans);
+  fill: currentColor;
+}
+.pa .q {
+  font: 700 12px var(--sans);
+  fill: var(--ac);
+}
+.pa .dotw {
+  fill: #fff;
+}
+.pa .dash {
+  stroke-dasharray: 4 4;
+}
+.pa * {
+  animation-play-state: paused !important;
+}
+.pcard.in .pa * {
+  animation-play-state: running !important;
+}
+.pa .a-type {
+  transform-box: fill-box;
+  transform-origin: right;
+  animation: paType 4.5s steps(28) infinite;
+}
+.pa .a-car {
+  animation: paCar 4.5s steps(28) infinite;
+}
+.pa .a-r1,
+.pa .a-r2,
+.pa .a-r3 {
+  opacity: 0;
+  animation: paRes 4.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.pa .a-r2 {
+  animation-delay: 0.15s;
+}
+.pa .a-r3 {
+  animation-delay: 0.3s;
+}
+.pa .a-feed {
+  animation: paFeed 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.pa .a-ago,
+.pa .a-seen {
+  animation: paBlink 3s ease infinite;
+}
+.pa .a-b1,
+.pa .a-b2,
+.pa .a-b3 {
+  opacity: 0;
+  animation: paB 6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.pa .a-b2 {
+  animation-delay: 0.6s;
+}
+.pa .a-b3 {
+  animation-delay: 1.2s;
+}
+.pa .a-wait {
+  opacity: 0;
+  animation: paW 6s ease infinite;
+}
+.pa .dotw {
+  animation: paDot 1s ease infinite;
+}
+.pa .d2 {
+  animation-delay: 0.15s;
+}
+.pa .d3 {
+  animation-delay: 0.3s;
+}
+.pa .a-file {
+  animation: paFile 5s ease infinite;
+}
+.pa .a-hand {
+  transform-box: view-box;
+  transform-origin: 104px 74px;
+  animation: paHand 4s linear infinite;
+}
+.pa .a-num {
+  animation: paNum 2.2s ease infinite;
+}
+.pa .a-knob {
+  animation: paKnob 3.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.pa .a-ghost {
+  opacity: 0.1;
+  animation: paGhost 4.5s ease infinite;
+}
+.pa .g2 {
+  animation-delay: 0.4s;
+}
+.pa .g3 {
+  animation-delay: 0.8s;
+}
+.pa .a-glitch {
+  animation: paG 3s steps(1) infinite;
+}
+.pa .a-glitch2 {
+  animation: paG 3s steps(1) 0.7s infinite;
+}
+.pa .a-glitch3 {
+  animation: paG3 3.6s steps(1) infinite;
+}
+.pa .a-row {
+  animation: paRow 3.6s ease infinite;
+}
+.pa .r1 {
+  animation-delay: 0.3s;
+}
+.pa .r2 {
+  animation-delay: 0.6s;
+}
+.pa .a-dash {
+  animation: paDash 1.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pa * {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .pa .a-type {
+    display: none;
+  }
+}
+.pcard {
+  background: none;
+  border-radius: 28px;
+  padding: clamp(22px, 2vw, 32px);
+  min-height: 0;
+}
+.pcard.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+}
+.pcard p {
+  font: 600 clamp(18px, 1.4vw, 22px)/1.3 var(--disp);
+  letter-spacing: -0.015em;
+  margin: 8px 0 0;
+}
+.pcard .n {
+  color: var(--ac);
+  font-size: 13px;
+}
+.pa .err {
+  fill: #ff6b6b;
+  fill-opacity: 0.45;
+}
+.pa .errt {
+  fill: #ff8f8f;
+  font-weight: 700;
+}
+.pa .a-who {
+  animation: paBlink 2.6s ease infinite;
+}
+.pa .a-hand2 {
+  transform-box: view-box;
+  transform-origin: 44px 54px;
+  animation: paHand 3s linear infinite;
+}
+.pa .a-rep rect {
+  animation: paRep 2.4s ease infinite;
+}
+.pa .a-rep rect:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.pa .a-rep rect:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.pa .a-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: paBarG 3.2s var(--expo) infinite;
+}
+.pa .b1 {
+  animation-delay: 0.15s;
+}
+.pa .b2 {
+  animation-delay: 0.3s;
+}
+.pa .b3 {
+  animation-delay: 0.45s;
+}
+.pa .b4 {
+  animation-delay: 0.6s;
+}
+.pa .s.fill {
+  fill: rgba(255, 255, 255, 0.04);
+}
+.pa .bg {
+  fill: rgba(20, 20, 26, 0.9);
+}
+.pa {
+  color: var(--fg);
+}
+@keyframes paType {
+  0% {
+    transform: scaleX(1);
+  }
+  40%,
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes paCar {
+  0% {
+    transform: translateX(0);
+  }
+  40%,
+  100% {
+    transform: translateX(150px);
+  }
+}
+@keyframes paRes {
+  0%,
+  42% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  55%,
+  92% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes paFeed {
+  0%,
+  15% {
+    transform: translateY(0);
+  }
+  85%,
+  100% {
+    transform: translateY(-80px);
+  }
+}
+@keyframes paBlink {
+  0%,
+  100% {
+    fill-opacity: 0.5;
+  }
+  50% {
+    fill-opacity: 0.15;
+  }
+}
+@keyframes paB {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  10%,
+  88% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes paW {
+  0%,
+  30% {
+    opacity: 0;
+  }
+  38%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes paDot {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes paFile {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes paHand {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes paNum {
+  0%,
+  100% {
+    fill-opacity: 1;
+  }
+  50% {
+    fill-opacity: 0.2;
+  }
+}
+@keyframes paKnob {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(64px);
+  }
+}
+@keyframes paGhost {
+  0%,
+  20% {
+    opacity: 0.1;
+  }
+  45%,
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+@keyframes paG {
+  0%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translateX(12px);
+  }
+  34% {
+    transform: translateX(-5px);
+  }
+  38% {
+    transform: none;
+  }
+}
+@keyframes paG3 {
+  0%,
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+  40% {
+    transform: translate(6px, 4px);
+    opacity: 0.4;
+  }
+  46% {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes paRow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  40%,
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes paDash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+@keyframes paRep {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50%,
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+@keyframes paBarG {
+  0% {
+    transform: scaleY(0);
+  }
+  45%,
+  100% {
+    transform: scaleY(1);
+  }
+}

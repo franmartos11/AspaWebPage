@@ -1,0 +1,14 @@
+/* Ajustes de las escenas obra y barrio, y de la maqueta de steel framing (si hacen falta). */
+
+/* Trama sin 3D (sin WebGL, movimiento reducido o si la escena no cargó): como en el diseño, la casa
+   terminada se descubre sobre la estructura desde la derecha según el deslizador (--tr-pos) */
+.tr-stage .tr-end {
+  display: none;
+  clip-path: inset(0 0 0 var(--tr-pos, 100%));
+}
+.tr-stage.tr-2d .tr-end {
+  display: block;
+}
+.tr-stage.tr-2d .m3d-fb {
+  opacity: 1;
+}

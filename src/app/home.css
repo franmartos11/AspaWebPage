@@ -1,0 +1,569 @@
+/* =====================================================================
+   Home · la notebook que se abre, pestañas, galería, números y clientes
+   ===================================================================== */
+
+/* ---------- hero: notebook 3D guiada por el scroll ---------- */
+.nb {
+  /* recorrido largo: cada etapa (abrir, encender, 4 trabajos, entrar a la pantalla) tiene su tiempo */
+  height: 640vh;
+  position: relative;
+}
+.nb-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+.nb-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+/* imagen fija de la notebook cerrada hasta que arranca el 3D (mismo encuadre que la escena) */
+.nb-poster,
+.nb-poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nb-poster {
+  transition: opacity 0.6s var(--ease);
+}
+.m3d.live .nb-poster {
+  opacity: 0;
+}
+.nb-txt {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: clamp(96px, 14vh, 150px);
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+}
+.nb-txt .hero-t {
+  margin: 0 auto;
+  max-width: 15ch;
+  font-size: clamp(40px, 5.6vw, 92px);
+}
+.nb-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(28px, 6vh, 64px);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.nb-sub .lead {
+  margin: 0;
+  max-width: 44ch;
+}
+/* leyenda del trabajo: editorial, sin caja; el texto entra y sale por una máscara */
+.nb-cap {
+  position: absolute;
+  z-index: 3;
+  left: max(24px, calc((100vw - 1280px) / 2 + 40px));
+  bottom: clamp(48px, 9vh, 104px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.9s var(--soft);
+  pointer-events: none;
+}
+/* velo suave detrás para que el texto se lea sobre cualquier captura */
+.nb-cap::before {
+  content: "";
+  position: absolute;
+  inset: -80px -120px -60px -80px;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(10, 10, 12, 0.55), rgba(10, 10, 12, 0));
+}
+.nb-cap.on {
+  opacity: 1;
+}
+.nb-cap .ln {
+  display: block;
+  overflow: hidden;
+  /* aire para los descendentes dentro de la máscara */
+  padding-bottom: 0.12em;
+}
+.nb-cap .ln > span {
+  display: inline-block;
+}
+.nb-cap-k {
+  font: 500 12px/1.4 var(--sans);
+  letter-spacing: 0.16em;
+  color: rgba(245, 245, 247, 0.5);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+.nb-cap-k b {
+  color: #fff;
+  font-weight: 600;
+}
+.nb-cap-t {
+  font: 600 clamp(30px, 3vw, 46px) / 1.04 var(--disp);
+  letter-spacing: -0.025em;
+}
+.nb-cap-s {
+  margin-top: 4px;
+  color: var(--mut);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.nb-cap-bar {
+  display: flex;
+  gap: 6px;
+  margin-top: 22px;
+}
+.nb-cap-bar i {
+  width: 36px;
+  height: 2px;
+  border-radius: 1px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.16);
+}
+.nb-cap-bar s {
+  display: block;
+  height: 100%;
+  background: #fff;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* sin 3D (sin WebGL, movimiento reducido o celular de gama baja): imagen fija + carrusel */
+.nb-fb {
+  display: none;
+}
+.no3d .nb,
+.nb.fb {
+  height: auto;
+}
+.no3d .nb-stage,
+.nb.fb .nb-stage {
+  position: relative;
+  height: auto;
+  padding: 150px 0 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no3d .nb-3d,
+.no3d .nb-cap,
+.nb.fb .nb-3d,
+.nb.fb .nb-cap {
+  display: none;
+}
+.no3d .nb-txt,
+.no3d .nb-sub,
+.nb.fb .nb-txt,
+.nb.fb .nb-sub {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  transform: none !important;
+  opacity: 1 !important;
+}
+.no3d .nb-fb,
+.nb.fb .nb-fb {
+  display: block;
+  width: min(1100px, calc(100% - 48px));
+  margin: 36px auto 0;
+  order: 2;
+}
+.no3d .nb-sub,
+.nb.fb .nb-sub {
+  order: 3;
+  margin-top: 36px;
+}
+.nb-fb-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 28px;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 40%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(120% 100% at 50% 40%, #000 60%, transparent 100%);
+}
+.nb-car {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 2px 8px;
+  scrollbar-width: none;
+}
+.nb-card {
+  flex: none;
+  width: min(300px, 72vw);
+  padding: 8px;
+  border-radius: 20px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nb-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  object-position: left top;
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+.nb-card b {
+  font: 600 16px var(--disp);
+  padding: 0 6px;
+}
+.nb-card span {
+  color: var(--mut);
+  font-size: 13px;
+  padding: 0 6px 6px;
+}
+
+/* ---------- «Cuatro formas…»: acordeón con escenario sticky y autoplay ---------- */
+.tabs {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+}
+.tabs-list {
+  display: flex;
+  flex-direction: column;
+}
+.tab {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  padding: 22px 0;
+  border-top: 1px solid var(--ln);
+  position: relative;
+}
+.tab .tl {
+  all: unset;
+  display: block;
+  /* sangría del título tal como se ve en el diseño */
+  padding-left: 40px;
+}
+.tab .tl button {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+.tab .tl button:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+.tab b {
+  font: 600 clamp(20px, 1.8vw, 28px) / 1.15 var(--disp);
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.5s;
+}
+.tab.on b {
+  color: #fff;
+}
+.plus {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex: none;
+  transition: transform 0.7s var(--expo);
+}
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  height: 1.5px;
+  background: currentColor;
+}
+.plus::after {
+  transform: rotate(90deg);
+}
+.tab.on .plus {
+  transform: rotate(45deg);
+}
+.tbody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.7s var(--expo);
+}
+.tbody > div {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tbody p {
+  margin: 0;
+}
+.tab.on .tbody {
+  grid-template-rows: 1fr;
+}
+.tab.on .tbody > div {
+  padding-top: 12px;
+}
+.tab:not(.on) .tbody > div {
+  visibility: hidden;
+  transition: visibility 0s 0.7s;
+}
+.tbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  overflow: hidden;
+}
+.tbar i {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.tabs-stage {
+  position: sticky;
+  top: 110px;
+  aspect-ratio: 1.85;
+  border-radius: 20px;
+}
+.tst {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+}
+.tst.on {
+  opacity: 1;
+}
+.tst.top {
+  z-index: 2;
+}
+/* la imagen toma su propia proporción (centrada y entera): así el borde redondeado cae
+   sobre la captura y no sobre la caja (con object-fit: contain quedaba en el vacío) */
+.tst:has(> img) {
+  display: grid;
+  grid-template: 100% / 100%;
+  place-items: center;
+  border-radius: 0;
+  overflow: visible;
+}
+.tst > img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+}
+.tst-phone {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.tst-phone .phone {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9/19.5;
+  max-width: none;
+}
+.stories {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: -18px;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+}
+/* cada línea es una pista fija; solo su relleno avanza (antes se escalaba la línea entera
+   y quedaban huecos desparejos entre ellas) */
+.stories i {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+.stories s {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--soft);
+}
+.stories i.done s {
+  transform: none;
+}
+
+/* pantalla de la app (Aspa Rodeo) dentro del celular */
+.manga-scr {
+  aspect-ratio: 9/19.5;
+  background: #0b0b0d !important;
+  color: #f2f2f3;
+  font-family: var(--sans);
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(7px, 0.7vw, 10px);
+  padding: 22% 9% 9%;
+}
+.mhome {
+  gap: 0.7em;
+}
+.mh-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mh-logo {
+  font-family: var(--cinzel);
+  font-size: 1.25em;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.mh-logo small {
+  font-size: 0.7em;
+  margin-left: 0.15em;
+}
+.mh-av {
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #2a2a30;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+.mh-av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mh-hi {
+  font-size: 1.45em;
+  letter-spacing: -0.02em;
+  margin: 0.2em 0 0.1em;
+}
+.mh-alert {
+  display: flex;
+  gap: 0.7em;
+  align-items: flex-start;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 0.8em;
+  padding: 0.8em;
+}
+.mh-alert.w {
+  background: rgba(245, 184, 74, 0.1);
+  border-color: rgba(245, 184, 74, 0.28);
+}
+.mh-dot {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: #f87171;
+  margin-top: 0.3em;
+  flex: none;
+  box-shadow: 0 0 0 0.3em rgba(248, 113, 113, 0.18);
+  animation: mhPulse 1.6s ease infinite;
+}
+.mh-alert.w .mh-dot {
+  background: #f5b84a;
+  box-shadow: 0 0 0 0.3em rgba(245, 184, 74, 0.15);
+  animation: none;
+}
+@keyframes mhPulse {
+  50% {
+    box-shadow: 0 0 0 0.55em rgba(248, 113, 113, 0);
+  }
+}
+.mh-alert b {
+  display: block;
+  font-size: 1.05em;
+}
+.mh-alert small {
+  color: #a6a6ad;
+  font-size: 0.9em;
+}
+.mh-kpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6em;
+}
+.mh-kpis div {
+  background: #141418;
+  border: 1px solid #1f1f25;
+  border-radius: 0.8em;
+  padding: 0.7em;
+}
+.mh-kpis small {
+  display: block;
+  color: #8b8b93;
+  font-size: 0.85em;
+}
+.mh-kpis b {
+  font-size: 1.35em;
+}
+.m-btn {
+  margin-top: auto;
+  background: #2563eb;
+  border-radius: 10px;
+  padding: 11px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- galería horizontal guiada por el scroll ---------- */
+/* celular, movimiento reducido o sin JS: carrusel nativo con scroll horizontal */
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .nb {
+    height: 460vh;
+  }
+  .nb-txt {
+    top: 96px;
+  }
+  .nb-cap {
+    left: 24px;
+    bottom: 40px;
+  }
+  .nb-cap-t {
+    font-size: 28px;
+  }
+  .nb-cap-s {
+    font-size: 14px;
+  }
+  .tabs {
+    grid-template-columns: 1fr;
+  }
+  .tabs-stage {
+    position: relative;
+    top: 0;
+    order: -1;
+  }
+}

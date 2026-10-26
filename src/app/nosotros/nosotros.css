@@ -1,0 +1,591 @@
+/* Nosotros. Generado del diseño (style1.css) con el mismo proceso que las otras páginas; los números
+   y el marquee de clientes vienen de styles/proof.css. Ajustes propios al final. */
+.team {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gut);
+}
+.person .pic {
+  aspect-ratio: 4/5;
+  border-radius: 6px;
+  background: linear-gradient(160deg, #3a3936, #151516);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.person .pic b {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(56px, 6vw, 104px);
+  color: rgba(255, 255, 255, 0.88);
+}
+.person .pic small {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+.person h3 {
+  margin: 16px 0 2px;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+.person p {
+  margin: 0;
+}
+@media (max-width: 980px) {
+  .team {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.think h3 {
+  font-size: 20px;
+  margin: 12px 0 8px;
+}
+.nhero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 160px 0 80px;
+  overflow: hidden;
+}
+.nhero .hero-t {
+  max-width: 20ch;
+  font-size: clamp(40px, 6vw, 96px);
+  position: relative;
+}
+.nsplit {
+  align-items: center;
+}
+.think {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.think article {
+  padding: 28px;
+  border-radius: 28px;
+}
+.team {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.person {
+  padding: 12px 12px 22px;
+  border-radius: 28px;
+}
+.person .pic {
+  aspect-ratio: 1;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(80% 80% at 30% 20%, color-mix(in srgb, var(--c2) 70%, transparent), transparent 70%),
+    radial-gradient(80% 80% at 80% 90%, color-mix(in srgb, var(--c3) 60%, transparent), transparent 70%), rgba(255, 255, 255, 0.04);
+}
+.person .pic b {
+  font: 600 clamp(48px, 5vw, 80px) var(--disp);
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.person .pic small {
+  display: none;
+}
+.person h3 {
+  font-size: 22px;
+  margin: 16px 8px 2px;
+}
+.person .role {
+  margin: 0 8px;
+  color: var(--ac);
+  font-size: 14px;
+  font-weight: 600;
+}
+.person .mut {
+  margin: 10px 8px 14px;
+  font-size: 15px;
+}
+.person .ul {
+  margin: 0 8px;
+}
+@media (max-width: 980px) {
+  .nums,
+  .team {
+    grid-template-columns: 1fr 1fr;
+  }
+  .think {
+    grid-template-columns: 1fr;
+  }
+  .read {
+    font-size: clamp(26px, 7vw, 40px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mq-track,
+  .grad {
+    animation: none !important;
+  }
+}
+.nsplit {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: clamp(28px, 5vw, 80px) !important;
+}
+@media (max-width: 980px) {
+  .nsplit {
+    grid-template-columns: 1fr !important;
+  }
+}
+.nhero .nh-in {
+  position: relative;
+  z-index: 1;
+}
+.nh-bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: 32px;
+}
+.nh-bot .lead {
+  max-width: 44ch;
+  margin: 0;
+}
+.nos-scroll {
+  flex: none;
+  width: 30px;
+  height: 48px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.35);
+  position: relative;
+}
+.nos-scroll span {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: #fff;
+  animation: nosWheel 1.8s var(--ease) infinite;
+}
+.venn {
+  max-width: 520px;
+  width: 100%;
+  justify-self: center;
+  overflow: visible !important;
+}
+.venn svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.venn .vr {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.venn text {
+  font: 600 15px var(--sans);
+  fill: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+.venn .vc {
+  transition: transform 1.6s var(--expo);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.venn .vc1 {
+  transform: translate(-60px, -30px);
+}
+.venn .vc2 {
+  transform: translate(60px, -30px);
+}
+.venn .vc3 {
+  transform: translate(0, 55px);
+}
+.venn.in .vc {
+  transform: none;
+}
+.venn.in .vr {
+  animation: nosDraw 2s var(--ease) 0.2s forwards;
+}
+.venn .vcore circle {
+  fill: #0b0b10;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1;
+}
+.venn .vcore text {
+  font: 700 15px var(--disp);
+  fill: #fff;
+}
+.venn .vcore {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 0.8s 1.1s,
+    transform 1s var(--spring) 1.1s;
+}
+.venn.in .vcore {
+  opacity: 1;
+  transform: none;
+}
+.venn.in .vc1 {
+  animation: nosB1 10s ease-in-out 1.8s infinite;
+}
+.venn.in .vc2 {
+  animation: nosB2 11s ease-in-out 1.8s infinite;
+}
+.venn.in .vc3 {
+  animation: nosB3 12s ease-in-out 1.8s infinite;
+}
+.nos-think article {
+  padding: 32px 28px 30px;
+  transition: transform 0.7s var(--expo);
+}
+.nos-think article:hover {
+  transform: translateY(-6px);
+}
+.nt-n {
+  position: absolute;
+  right: 22px;
+  top: 14px;
+  font: 700 64px/1 var(--disp);
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.16);
+}
+.nt-ic {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(140deg, rgba(110, 108, 255, 0.35), rgba(53, 173, 242, 0.12));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #fff;
+  margin-bottom: 28px;
+}
+.nt-ic svg {
+  width: 24px;
+  height: 24px;
+}
+.nos-think h3 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+.nos-team .person {
+  transition: transform 0.7s var(--expo);
+}
+.nos-team .person:hover {
+  transform: translateY(-8px);
+}
+.nos-team .person .pic {
+  background-size: 200% 200% !important;
+  animation: nosGrad 12s ease-in-out infinite;
+  position: relative;
+}
+.nos-team .person:nth-child(2) .pic {
+  animation-delay: -3s;
+}
+.nos-team .person:nth-child(3) .pic {
+  animation-delay: -6s;
+}
+.nos-team .person:nth-child(4) .pic {
+  animation-delay: -9s;
+}
+.nos-team .person .pic::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition:
+    transform 1s var(--expo),
+    opacity 0.6s;
+  opacity: 0.6;
+}
+.nos-team .person:hover .pic::before {
+  transform: scale(1.15);
+  opacity: 1;
+}
+.nos-team .person .pic b {
+  position: relative;
+  transition: transform 0.8s var(--expo);
+}
+.nos-team .person:hover .pic b {
+  transform: scale(1.08);
+}
+.nw-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  counter-reset: nw;
+  position: relative;
+}
+.nw-list::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  top: 26px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(110, 108, 255, 0.6), rgba(53, 173, 242, 0.4), transparent);
+}
+.nw-list li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: visible !important;
+}
+.nw-list li:nth-child(2) {
+  transition-delay: 0.1s !important;
+}
+.nw-list li:nth-child(3) {
+  transition-delay: 0.2s !important;
+}
+.nw-list li:nth-child(4) {
+  transition-delay: 0.3s !important;
+}
+.nw-ic {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0d0d14;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 30px -6px rgba(110, 108, 255, 0.6);
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.nw-ic svg {
+  width: 22px;
+  height: 22px;
+}
+.nw-list h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+.nw-list .mut {
+  margin: 0;
+  max-width: 30ch;
+}
+.nos-nums .num {
+  position: relative;
+}
+.nn-bar {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.nn-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #6e6cff, #35adf2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.8s var(--expo) 0.3s;
+}
+.nos-nums .num.in .nn-bar::after {
+  transform: none;
+}
+.nos-nums .num {
+  padding-bottom: 40px;
+}
+.nos-clients {
+  padding: clamp(48px, 6vw, 90px) 0;
+}
+.np-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border-radius: 32px;
+  overflow: hidden !important;
+  min-height: 340px;
+}
+.np-map {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(45, 43, 255, 0.35), transparent 70%);
+}
+.np-grid {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+  transform: perspective(600px) rotateX(55deg);
+  animation: nosGridMove 14s linear infinite;
+}
+.np-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  background: #35adf2;
+  box-shadow: 0 0 24px #35adf2;
+}
+.np-pin::before,
+.np-pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid #35adf2;
+  animation: nosRing 2.6s ease-out infinite;
+}
+.np-pin::after {
+  animation-delay: 1.3s;
+}
+.np-tx {
+  padding: clamp(28px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+}
+.np-tx .h2 {
+  margin: 0;
+}
+.np-tx .mut {
+  margin: 0 0 8px;
+}
+@media (max-width: 980px) {
+  .nw-list {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 36px;
+  }
+  .nw-list::before {
+    display: none;
+  }
+  .np-card {
+    grid-template-columns: 1fr;
+  }
+  .np-map {
+    min-height: 220px;
+  }
+  .nh-bot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nos-scroll {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .nw-list {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .venn .vr {
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
+  .venn .vc,
+  .venn .vcore {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .nos-team .person .pic,
+  .np-grid {
+    animation: none;
+  }
+}
+@keyframes nosWheel {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes nosDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes nosB1 {
+  50% {
+    transform: translate(-5px, -4px);
+  }
+}
+@keyframes nosB2 {
+  50% {
+    transform: translate(5px, -3px);
+  }
+}
+@keyframes nosB3 {
+  50% {
+    transform: translate(0, 5px);
+  }
+}
+@keyframes nosGrad {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+@keyframes nosGridMove {
+  to {
+    background-position: 0 360px;
+  }
+}
+@keyframes nosRing {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
+/* Ajustes sobre el diseño: el equipo es una lista (ul > li) */
+.team {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

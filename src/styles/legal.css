@@ -1,0 +1,30 @@
+/* Páginas de texto (política de privacidad) y avisos del formulario: no estaban en el diseño;
+   usan el hero de página (.phero) y una columna de lectura. */
+.phero {
+  padding: 170px 0 clamp(48px, 6vw, 90px);
+}
+.phero .lead {
+  margin-top: 24px;
+}
+.prose {
+  max-width: 68ch;
+  padding-bottom: clamp(64px, 8vw, 120px);
+  color: var(--mut);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.prose h2 {
+  margin: 48px 0 12px;
+  color: var(--fg);
+  font: 600 clamp(22px, 2vw, 28px) / 1.2 var(--disp);
+  letter-spacing: -0.02em;
+}
+.prose a {
+  color: var(--fg);
+}
+.prose ul {
+  padding-left: 1.2em;
+}
+.notice .btns {
+  margin-top: 32px;
+}

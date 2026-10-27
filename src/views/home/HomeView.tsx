@@ -443,7 +443,7 @@ export function HomeView({ lang }: { lang: Lang }) {
               <li key={w.t}>
                 <Link className="hcard" href={w.rubro ? r.rubro(w.rubro) : r.casoRodeo}>
                   <div className="hc-img">
-                    <Image src={w.img} alt={w.alt} sizes="(max-width: 980px) 78vw, (max-width: 1530px) 34vw, 520px" />
+                    <Image src={w.img} alt={w.alt} sizes="(max-width: 980px) 84vw, (max-width: 1530px) 34vw, 520px" />
                   </div>
                   <div className="hc-meta">
                     <h3>{w.t}</h3>

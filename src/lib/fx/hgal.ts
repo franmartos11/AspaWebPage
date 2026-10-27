@@ -1,7 +1,7 @@
-// Galería horizontal guiada por el scroll ([data-hgal]): en escritorio la sección se alarga
-// y el scroll vertical desplaza la fila de tarjetas; en celular (o con movimiento reducido)
-// queda como carrusel nativo. Compartida entre el Home y Webs.
-import { $, $$, clamp, isDesk, onTick, reducedMotion } from "./core";
+// Galería horizontal guiada por el scroll ([data-hgal]): la sección se alarga y el scroll
+// vertical desplaza la fila de tarjetas (también en celular, para que se vean todas). Con
+// movimiento reducido o sin JS queda como carrusel nativo. Compartida entre el Home y Webs.
+import { $, $$, clamp, onTick, reducedMotion } from "./core";
 
 export function initGallery() {
   const off: (() => void)[] = [];
@@ -11,7 +11,7 @@ export function initGallery() {
   const layout = () =>
     secs.forEach((s) => {
       const tr = $(".hgal-track", s)!;
-      if (!isDesk() || RM) {
+      if (RM) {
         s.style.height = "";
         s.classList.add("native");
         return;
@@ -23,8 +23,12 @@ export function initGallery() {
     });
   layout();
   document.fonts?.ready.then(layout);
-  let rt = 0;
+  let rt = 0,
+    lastW = innerWidth;
   const onResize = () => {
+    // en celular la barra del navegador cambia el alto al scrollear: solo se recalcula si cambia el ancho
+    if (matchMedia("(pointer: coarse)").matches && innerWidth === lastW) return;
+    lastW = innerWidth;
     clearTimeout(rt);
     rt = window.setTimeout(layout, 150);
   };

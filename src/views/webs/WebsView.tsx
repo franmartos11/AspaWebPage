@@ -197,7 +197,7 @@ export function WebsView({ lang }: { lang: Lang }) {
               const body = (
                 <>
                   <div className="hc-img">
-                    <Image src={w.img} alt={t.shotAlt(w.name[lang])} sizes="(max-width: 980px) 78vw, (max-width: 1530px) 34vw, 520px" />
+                    <Image src={w.img} alt={t.shotAlt(w.name[lang])} sizes="(max-width: 980px) 84vw, (max-width: 1530px) 34vw, 520px" />
                   </div>
                   <div className="hc-meta">
                     <h3>{w.name[lang]}</h3>

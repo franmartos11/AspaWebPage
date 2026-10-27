@@ -190,6 +190,9 @@ export function mountNotebook(el: HTMLElement, sec: HTMLElement, isMobileDevice:
     phQ = -1,
     phQV = 0;
   const PW0 = 7;
+  // ancho de escena (unidades 3D) que entra en una pantalla vertical: la notebook más el celular
+  // a cualquiera de los dos lados, con margen
+  const FIT_W = 6.3;
   // centro y normal de la pantalla con la tapa abierta: al final la cámara entra de frente a ella
   lid.rotation.x = LAPTOP.lidOpen;
   scene.updateMatrixWorld(true);
@@ -204,7 +207,8 @@ export function mountNotebook(el: HTMLElement, sec: HTMLElement, isMobileDevice:
       d = sg(p, 0.8, 0.95),
       dd = d * d * (3 - 2 * d);
     const asp = W / H;
-    const R = (mobile ? 10.5 : 8.7) * Math.max(1, (1.55 / asp) * 0.95);
+    // en vertical se encuadra por el ancho (notebook + celular ocupan casi toda la pantalla)
+    const R = mobile ? Math.max(10.5, FIT_W / 2 / (Math.tan((camera.fov * Math.PI) / 360) * asp)) : 8.7 * Math.max(1, (1.55 / asp) * 0.95);
     const a = lerp(0.75, 0, o),
       h = lerp(1.3, 2.0, o);
     v3.set(Math.sin(a) * R, h, Math.cos(a) * R);

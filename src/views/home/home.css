@@ -567,3 +567,25 @@
     order: -1;
   }
 }
+/* celular: los dos botones del hero lado a lado y a todo el ancho (si no entran, uno por fila) */
+@media (max-width: 600px) {
+  .nb-sub .btns {
+    align-self: stretch;
+    justify-content: center;
+    gap: 8px;
+    margin-inline: -6px;
+  }
+  .nb-sub .btn-glass {
+    flex: 1 1 auto;
+    min-height: 50px;
+    padding: 0 12px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 380px) {
+  .nb-sub .btn-glass {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+}

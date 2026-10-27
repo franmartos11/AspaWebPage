@@ -137,7 +137,7 @@ const T = {
     heroTitle: ["We build the software your business ", { em: "needs." }],
     heroLead: "Custom systems, apps and websites for companies that want to work smarter and look their best.",
     heroBtnSys: "Custom software",
-    heroBtnWeb: "Websites for your business",
+    heroBtnWeb: "Business websites",
     capFirst: "Sales management",
     nbAlt: "Open laptop showing Aspa Rodeo",
     fallback: ["Sales management", "Construction company website", "Livestock management system", "Real estate developer website"],

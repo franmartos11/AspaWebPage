@@ -1134,3 +1134,13 @@ a:hover .arrow {
     transform: none;
   }
 }
+/* celular: los botones de la llamada final, uno por fila y del mismo ancho */
+@media (max-width: 600px) {
+  .cta-b .btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cta-b .btn {
+    justify-content: center;
+  }
+}

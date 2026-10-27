@@ -59,12 +59,16 @@ const PAGES = [
 // alto de cada <section> del <main> en el diseño, en 1440×900 (d) y 390×844 (m)
 const DESIGN: Record<string, { d?: number[]; m?: number[] }> = {
   "/sistemas": {
-    // preguntas frecuentes (+5): cada pregunta con su borde completo (el diseño le sacaba el de abajo)
+    // preguntas frecuentes (+5): cada pregunta con su borde completo (el diseño le sacaba el de abajo).
+    // Celular: hero al alto de su contenido con las capturas debajo del texto (el diseño las ocultaba
+    // y dejaba media pantalla vacía), el paso de planilla a sistema más corto (200 vh), el comparador
+    // casi cuadrado (−107), el celular del circuito más cerca de los pasos (−32), la lista de rubros
+    // a todo el ancho (−28) y el botón de cada sistema debajo del texto (+20)
     d: [900, 806, 2430, 709, 2066, 959, 932, 4680, 487, 698, 804, 536],
-    m: [844, 824, 2279, 632, 3409, 794, 1127, 3545, 577, 1325, 798, 599],
+    m: [829, 824, 1688, 525, 3382, 791, 1099, 3545, 577, 1345, 798, 599],
   },
-  // galería en celular: +1 px por la lista accesible (ul > li) alrededor de las tarjetas
-  "/webs": { d: [900, 721, 1161, 3271, 933, 883, 554], m: [844, 1099, 1268, 455, 1303, 1052, 659] },
+  // galería en celular: guiada por el scroll como en escritorio (alto = pantalla + recorrido de las tarjetas)
+  "/webs": { d: [900, 721, 1161, 3271, 933, 883, 554], m: [844, 1099, 1268, 2939, 1303, 1052, 659] },
   "/webs/planes": { d: [414, 646, 1462, 626, 554], m: [336, 1094, 1541, 632, 659] },
   "/webs/arquitectos": { d: [886, 784, 786, 713, 1368, 645, 581], m: [714, 593, 1132, 948, 1167, 703, 669] },
   "/webs/estudios-de-arquitectura": { d: [568, 784, 786, 713, 2055, 645, 581] },
@@ -74,8 +78,9 @@ const DESIGN: Record<string, { d?: number[]; m?: number[] }> = {
   "/webs/constructoras-de-vivienda": { d: [886, 784, 812, 727, 1403, 645, 581], m: [740, 626, 1212, 957, 1118, 675, 699] },
   "/webs/steel-framing": { d: [886, 812, 742, 1524, 645, 581], m: [740, 1156, 948, 729, 703, 699] },
   "/webs/desarrollistas": { d: [568, 786, 727, 3076, 588, 581] },
-  // celular: la lista accesible (ul > li) del listado resta 4 px
-  "/nosotros": { d: [792, 782, 748, 907, 646, 491, 338, 628, 554], m: [743, 1067, 1104, 1143, 998, 594, 190, 640, 659] },
+  // celular: la lista accesible (ul > li) del listado resta 4 px; el hero va al alto de su contenido,
+  // con el link al equipo debajo del texto (el diseño dejaba media pantalla vacía arriba)
+  "/nosotros": { d: [792, 782, 748, 907, 646, 491, 338, 628, 554], m: [531, 1067, 1104, 1143, 998, 594, 190, 640, 659] },
   // el aviso de privacidad debajo de «Enviar» suma una línea al formulario; en celular «¿Qué
   // necesitás?» entra en una fila (el diseño lo partía en dos)
   "/contacto": { d: [518, 716], m: [379, 1178] },

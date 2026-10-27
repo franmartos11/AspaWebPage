@@ -372,7 +372,8 @@ export function initFlow(blk: HTMLElement): () => void {
         resume();
       }
     },
-    { threshold: 0.25 },
+    // en celular el teléfono va arriba del diagrama: arranca apenas asoma, para que lleguen avisos mientras se ve
+    { threshold: innerWidth <= 980 ? 0 : 0.25 },
   );
   io.observe(d);
   off.push(() => io.disconnect());

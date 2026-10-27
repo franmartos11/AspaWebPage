@@ -58,6 +58,7 @@ const T = {
     h1: ["No somos solo una empresa: somos un equipo que respira código y ", { em: "estrategia." }],
     lead: "Programación, diseño y negocio en la misma mesa, para hacer software que se usa todos los días.",
     scroll: "Seguir bajando",
+    meet: "Conocé al equipo",
     story: "Nuestra historia",
     storyText:
       "Aspa nació en Córdoba, fundada por dos programadores y un especialista en marketing, diseño y ventas. Combinamos programación, diseño y negocio para hacer software que mejora los resultados de las empresas.",
@@ -99,6 +100,7 @@ const T = {
     h1: ["We're not just a company: we're a team that lives and breathes code and ", { em: "strategy." }],
     lead: "Engineering, design and business at the same table, building software people rely on every day.",
     scroll: "Keep scrolling",
+    meet: "Meet the team",
     story: "Our story",
     storyText:
       "Aspa was born in Córdoba, founded by two developers and a marketing, design and sales specialist. We bring engineering, design and business together to build software that improves companies' results.",
@@ -212,6 +214,15 @@ export function NosotrosView({ lang }: { lang: Lang }) {
               <span></span>
             </a>
           </div>
+          {/* celular: en vez de media pantalla vacía, el equipo (con link a su sección) */}
+          <a className="nh-team r-late" href="#equipo">
+            <span className="nh-avs" aria-hidden="true">
+              {TEAM.map((p) => (
+                <b key={p.ini}>{p.ini}</b>
+              ))}
+            </span>
+            {t.meet} →
+          </a>
         </div>
       </section>
 
@@ -254,7 +265,7 @@ export function NosotrosView({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="nos-equipo">
+      <section className="section" id="equipo" aria-labelledby="nos-equipo">
         <div className="wrap">
           <div className="sec-head">
             <div>

@@ -82,6 +82,11 @@ scripts/og-images.mjs      regenera las imágenes para redes de los dos idiomas 
 | --- | --- |
 | Acordeón de «Cuatro formas…»: botón dentro de `<h3>` y el link afuera | El original tenía un link dentro de un `<button>` (HTML inválido, falla de accesibilidad). Se ve igual. |
 | Galería en celular: la primera tarjeta respeta el margen de 24 px | En el original quedaba pegada al borde izquierdo. |
+| Galería de trabajos (Home y Webs) guiada por el scroll también en celular, con tarjetas al 84 % del ancho y barra de avance visible | En el diseño, en celular era un carrusel sin indicio de que se podía deslizar y casi nadie veía más que el primer trabajo. Con movimiento reducido sigue el carrusel. |
+| Hero del Home en celular: la cámara encuadra por el ancho (notebook ~60 % de la pantalla) y los dos botones van lado a lado desde 360 px | En el diseño la notebook ocupaba un tercio del ancho y los botones quedaban uno debajo del otro. |
+| Sistemas en celular: hero al alto de su contenido con la pila de capturas debajo del texto y botones del mismo ancho; paso de planilla a sistema en 200 vh; el celular del circuito arriba de los pasos (no fijo); comparador casi cuadrado sin las columnas E y G; proceso centrado como un bloque; «Un sistema que es tuyo» en una columna; botón «Ver caso» debajo del texto; lista de rubros a todo el ancho | En el diseño el hero dejaba media pantalla vacía, el celular tapaba los pasos, la planilla se cortaba, el dibujo del proceso flotaba lejos de su texto, los títulos de las tarjetas no entraban en dos columnas y el texto de cada sistema quedaba angosto. |
+| Llamada final en celular: los dos botones uno por fila y del mismo ancho | Quedaban de anchos distintos y alineados a la izquierda. |
+| Nosotros en celular y tablet: hero al alto de su contenido, alineado con el resto de la página, con «Conocé al equipo» (las iniciales del equipo) debajo del texto | En el diseño el texto quedaba abajo de media pantalla vacía y, en tablet, corrido 60 px hacia adentro. |
 | «Saltar» de la intro al 50 % de opacidad (era 45 %) | Llega al contraste AA. |
 | Título del hero con movimiento reducido | En el original quedaba invisible con `prefers-reduced-motion`. |
 | Botón EN deshabilitado | Todavía no hay versión en inglés. |

@@ -20,7 +20,12 @@
         "http://localhost:3300/casos/aspa-scout",
         "http://localhost:3300/nosotros",
         "http://localhost:3300/contacto",
-        "http://localhost:3300/privacidad"
+        "http://localhost:3300/privacidad",
+        "http://localhost:3300/en",
+        "http://localhost:3300/en/systems",
+        "http://localhost:3300/en/websites",
+        "http://localhost:3300/en/websites/real-estate-developers",
+        "http://localhost:3300/en/contact"
       ],
       "numberOfRuns": 3,
       "settings": {

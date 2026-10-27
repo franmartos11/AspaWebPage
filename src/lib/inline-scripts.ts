@@ -17,18 +17,20 @@ setTimeout(function(){if(!window.__fx)c.remove('fx','intro-pending');c.add('go')
 /**
  * Final del <body>: intro isotipo → logo completo → isotipo → viaja al header.
  * Una vez por sesión; cualquier interacción la saltea. Mismos tiempos y curvas que el diseño.
- * No toca nodos que maneja React antes de la hidratación: arma la intro como último hijo
- * del <body> (React 19 ignora nodos extra ahí) con un clon del logo del header, y la clase
- * que dispara la entrada del contenido (go) va en <html>.
+ * No toca nodos que maneja React antes de la hidratación: arma la intro dentro de #introHost,
+ * un contenedor vacío que React no compara al hidratar (con dos layouts raíz, un nodo extra
+ * en el <body> rompe la hidratación), con un clon del logo del header; la clase que dispara
+ * la entrada del contenido (go) va en <html>.
  */
 export const INTRO_SCRIPT = `(function(){var d=document,h=d.documentElement;
 function go(){h.classList.add('go')}
 if(!h.classList.contains('intro-pending')){go();return}
 var el=d.createElement('div');
 try{el.className='intro';el.id='intro';
-el.innerHTML='<div class="intro-bg" id="introBg"></div><div class="intro-logo" id="introLogo" aria-hidden="true"></div><button class="skip" type="button" aria-label="Saltar intro">Saltar</button>';
+var en=/^en/.test(h.lang);
+el.innerHTML='<div class="intro-bg" id="introBg"></div><div class="intro-logo" id="introLogo" aria-hidden="true"></div><button class="skip" type="button" aria-label="'+(en?'Skip intro':'Saltar intro')+'">'+(en?'Skip':'Saltar')+'</button>';
 el.querySelector('#introLogo').appendChild(d.querySelector('#hdr .brand svg').cloneNode(true));
-d.body.appendChild(el);h.classList.add('intro-ready')}catch(e){h.classList.remove('intro-pending');go();return}
+(d.getElementById('introHost')||d.body).appendChild(el);h.classList.add('intro-ready')}catch(e){h.classList.remove('intro-pending');go();return}
 try{sessionStorage.setItem('aspa-intro','1')}catch(e){}
 var hdr=d.getElementById('hdr'),fin=false,T=[],EV=['wheel','touchstart','keydown','click'];
 window.__introRunning=true;d.body.classList.add('intro-on');if(hdr)hdr.classList.add('compact');

@@ -2,6 +2,7 @@
 // planilla/sistema, menú de rubros que sigue al scroll y las piezas grandes (partículas,
 // flujo automático e historia), cada una en su módulo.
 import { $, $$, isDesk, onTick, reducedMotion } from "./core";
+import { initFaq } from "./faq";
 import { initFlow } from "./flow";
 import { initParts } from "./parts";
 import { initStory } from "./story";
@@ -105,6 +106,7 @@ export function initSistemas() {
   if (flow) off.push(initFlow(flow));
   initRubros(off);
   initTips(off);
+  off.push(initFaq());
   const story = $("section.story");
   if (story) off.push(initStory(story));
   return () => off.forEach((f) => f());

@@ -4,13 +4,67 @@
 // nunca forma parte del JS inicial de la página.
 import * as THREE from "three";
 import rodeo from "@/assets/work/aspa-rodeo.jpg";
+import { pageLang } from "./core";
 
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const ez = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
+// textos de la planilla, por idioma (mismo contenido desprolijo que el comparador de la página)
+const SHEET = {
+  es: {
+    title: "Hacienda_2026_FINAL_v3 (2).xlsx  ·  Guardado hace 3 días",
+    tabs: ["Archivo", "Inicio", "Insertar", "Disposición", "Fórmulas", "Datos", "Revisar", "Vista"],
+    paste: "Pegar",
+    bold: "N   K   S",
+    cond: "Formato condicional",
+    sort: "Ordenar y filtrar",
+    formula: "=SUMA(D2:D6)/CONTAR(C2:C6)",
+    rows: [
+      "LOTE,CATEG,CAB,KG TOTAL,POTRERO,PROM,OBS",
+      "L1,novillos,186,76632,la loma,412,ver con Juan",
+      "L-4,Vaq.,132??,51612,EL BAJO,391,",
+      "lote 7,terneros,248,46128,aguada,#¡DIV/0!,pesar de nuevo",
+      "L9,vacas,310,145080,monte,468,",
+      "L11,TOROS,18,13356,casco,#¡REF!,vacunar??",
+      ".,,=SUMA?,,,#¡VALOR!,",
+      ".,,,,,,",
+      "vacunas aftosa lote 7 fines oct (?),,,,,,",
+      ".,,,,,,",
+    ],
+    sheets: ["Hoja1", "Hoja1 (2)", "pesadas viejo", "NO TOCAR"],
+    ready: "Listo",
+    status: "Promedio: #¡DIV/0!    Recuento: 47    Suma: 332508",
+  },
+  en: {
+    title: "Cattle_2026_FINAL_v3 (2).xlsx  ·  Saved 3 days ago",
+    tabs: ["File", "Home", "Insert", "Page Layout", "Formulas", "Data", "Review", "View"],
+    paste: "Paste",
+    bold: "B   I   U",
+    cond: "Conditional Formatting",
+    sort: "Sort & Filter",
+    formula: "=SUM(D2:D6)/COUNT(C2:C6)",
+    rows: [
+      "LOT,CLASS,HEAD,TOTAL KG,PASTURE,AVG,NOTES",
+      "L1,steers,186,76632,the hill,412,check w/ Juan",
+      "L-4,Heif.,132??,51612,LOW FIELD,391,",
+      "lot 7,calves,248,46128,creek,#DIV/0!,weigh again",
+      "L9,cows,310,145080,woods,468,",
+      "L11,BULLS,18,13356,home lot,#REF!,vaccinate??",
+      ".,,=SUM?,,,#VALUE!,",
+      ".,,,,,,",
+      "vaccines FMD lot 7 late Oct (?),,,,,,",
+      ".,,,,,,",
+    ],
+    sheets: ["Sheet1", "Sheet1 (2)", "old weighings", "DO NOT TOUCH"],
+    ready: "Ready",
+    status: "Average: #DIV/0!    Count: 47    Sum: 332508",
+  },
+};
+
 /** Planilla dibujada como un Excel real (cinta, barra de fórmulas, grilla fina y hojas). */
 function drawSheet() {
+  const S = SHEET[pageLang()];
   const W = 1875,
     H = 1000,
     cv = document.createElement("canvas");
@@ -33,13 +87,13 @@ function drawSheet() {
   x.fillStyle = "#fff";
   x.font = `22px ${F}`;
   x.textAlign = "center";
-  x.fillText("Hacienda_2026_FINAL_v3 (2).xlsx  ·  Guardado hace 3 días", W / 2, 31);
+  x.fillText(S.title, W / 2, 31);
   x.textAlign = "left";
   // pestañas de la cinta
   x.fillStyle = "#f3f3f3";
   x.fillRect(0, 46, W, 40);
   x.font = `20px ${F}`;
-  ["Archivo", "Inicio", "Insertar", "Disposición", "Fórmulas", "Datos", "Revisar", "Vista"].forEach((t, k) => {
+  S.tabs.forEach((t, k) => {
     x.fillStyle = k === 1 ? "#107c41" : "#333";
     x.fillText(t, 24 + k * 120, 73);
   });
@@ -49,13 +103,13 @@ function drawSheet() {
   x.fillStyle = "#fafafa";
   x.fillRect(0, 86, W, 70);
   const tools: [number, string][] = [
-    [24, "Pegar"],
+    [24, S.paste],
     [130, "Calibri  ·  11"],
-    [340, "N   K   S"],
+    [340, S.bold],
     [500, "≡  ≡  ≡"],
     [660, "$  %  ,"],
-    [820, "Formato condicional"],
-    [1080, "Ordenar y filtrar"],
+    [820, S.cond],
+    [1080, S.sort],
   ];
   tools.forEach(([X, t]) => {
     x.fillStyle = "#444";
@@ -78,21 +132,10 @@ function drawSheet() {
   x.fillText("fx", 110, 185);
   x.fillStyle = "#222";
   x.font = `20px Consolas, monospace`;
-  x.fillText("=SUMA(D2:D6)/CONTAR(C2:C6)", 150, 185);
+  x.fillText(S.formula, 150, 185);
   // grilla con los datos (desprolijos a propósito)
   const cols = [56, 170, 230, 150, 210, 220, 190, 330, 320],
-    rows = [
-      "LOTE,CATEG,CAB,KG TOTAL,POTRERO,PROM,OBS",
-      "L1,novillos,186,76632,la loma,412,ver con Juan",
-      "L-4,Vaq.,132??,51612,EL BAJO,391,",
-      "lote 7,terneros,248,46128,aguada,#¡DIV/0!,pesar de nuevo",
-      "L9,vacas,310,145080,monte,468,",
-      "L11,TOROS,18,13356,casco,#¡REF!,vacunar??",
-      ".,,=SUMA?,,,#¡VALOR!,",
-      ".,,,,,,",
-      "vacunas aftosa lote 7 fines oct (?),,,,,,",
-      ".,,,,,,",
-    ];
+    rows = S.rows;
   const top = 200,
     hh = 34,
     rh = 56;
@@ -167,10 +210,10 @@ function drawSheet() {
   x.fillStyle = "#f3f3f3";
   x.fillRect(0, H - 74, W, 40);
   const sheets: [string, number, boolean][] = [
-    ["Hoja1", 24, true],
-    ["Hoja1 (2)", 150, false],
-    ["pesadas viejo", 300, false],
-    ["NO TOCAR", 480, false],
+    [S.sheets[0], 24, true],
+    [S.sheets[1], 150, false],
+    [S.sheets[2], 300, false],
+    [S.sheets[3], 480, false],
     ["+", 640, false],
   ];
   sheets.forEach(([t, X, on]) => {
@@ -189,9 +232,9 @@ function drawSheet() {
   x.fillRect(0, H - 34, W, 34);
   x.fillStyle = "#fff";
   x.font = `18px ${F}`;
-  x.fillText("Listo", 20, H - 11);
+  x.fillText(S.ready, 20, H - 11);
   x.textAlign = "right";
-  x.fillText("Promedio: #¡DIV/0!    Recuento: 47    Suma: 332508", W - 24, H - 11);
+  x.fillText(S.status, W - 24, H - 11);
   x.textAlign = "left";
   return cv;
 }

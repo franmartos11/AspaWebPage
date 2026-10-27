@@ -1,17 +1,26 @@
 // Movimiento del Home: textos del hero según el scroll, acordeón con autoplay,
 // galería horizontal guiada por el scroll y carga diferida de la notebook 3D.
-import { $, $$, EXPO, clamp, onTick, reducedMotion } from "./core";
+import { $, $$, EXPO, clamp, onTick, pageLang, reducedMotion } from "./core";
 import { initGallery } from "./hgal";
 import { initSteps } from "./steps";
 
 const SOFT = "cubic-bezier(.22,1,.36,1)";
 
-const NBI = [
-  ["Aspa Rodeo", "Sistema de gestión de hacienda"],
-  ["Aspa Scout", "Gestión comercial"],
-  ["DH Engineering", "Sitio para constructora"],
-  ["Architecture 360", "Web para desarrollista"],
-];
+// leyendas del hero (las mismas que FALLBACK_CARDS en views/home/HomeView.tsx)
+const NBI_T = {
+  es: [
+    ["Aspa Scout", "Gestión comercial"],
+    ["DH Engineering", "Sitio para constructora"],
+    ["Aspa Rodeo", "Sistema de gestión de hacienda"],
+    ["Architecture 360", "Web para desarrollista"],
+  ],
+  en: [
+    ["Aspa Scout", "Sales management"],
+    ["DH Engineering", "Construction company website"],
+    ["Aspa Rodeo", "Livestock management system"],
+    ["Architecture 360", "Real estate developer website"],
+  ],
+};
 
 /* ---------- hero: la notebook que se abre ---------- */
 function initHero(off: (() => void)[]) {
@@ -33,6 +42,7 @@ function initHero(off: (() => void)[]) {
   let cur = -1,
     shown = false;
   // leyenda: cada renglón sale hacia arriba y el nuevo entra desde abajo, dentro de su máscara
+  const NBI = NBI_T[pageLang()];
   const lines = tag ? $$(".ln > span", tag) : [];
   const bars = mk ? $$("s", mk) : [];
   const fill = (i: number) => {
@@ -151,7 +161,14 @@ function initHero(off: (() => void)[]) {
 
   // Tramo de los trabajos por pasos: un gesto = un trabajo (paradas en el centro de cada uno,
   // donde el celular está quieto). Con movimiento reducido el scroll queda libre.
-  if (!RM) off.push(initSteps(s, [0.56, 1.5, 2.5, 3.42].map((q) => 0.35 + q * 0.1125), () => progress));
+  if (!RM)
+    off.push(
+      initSteps(
+        s,
+        [0.56, 1.5, 2.5, 3.42].map((q) => 0.35 + q * 0.1125),
+        () => progress,
+      ),
+    );
 
   // La escena 3D se descarga en diferido: en escritorio cuando la página queda ociosa,
   // en táctiles recién con la primera interacción. Mientras tanto se ve la imagen fija.
@@ -211,7 +228,8 @@ function initTabs(off: (() => void)[]) {
       const bar = $(".tbar i", tabs[cur])!;
       anim = bar.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 6500, easing: "linear", fill: "forwards" });
       // el relleno de la línea de arriba avanza a la par de la barra de la pestaña
-      markAnim = fills[cur]?.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 6500, easing: "linear", fill: "forwards" }) ?? null;
+      markAnim =
+        fills[cur]?.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 6500, easing: "linear", fill: "forwards" }) ?? null;
       anim.onfinish = () => set((cur + 1) % tabs.length);
       if (!inView || paused) {
         anim.pause();

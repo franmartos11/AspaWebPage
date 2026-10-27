@@ -3,11 +3,20 @@
 // (./scenes/steel) se carga diferida en #trStage y, mientras no está, queda la imagen de respaldo
 // (.m3d-fb). Sin WebGL, con movimiento reducido o si la escena no cargó, el deslizador descubre la
 // casa terminada (.tr-end) sobre la estructura, como en el diseño.
-import { $, $$, reducedMotion } from "./core";
+import { $, $$, pageLang, reducedMotion } from "./core";
 import { lazyScene } from "./scene-loader";
 import type { TramaCtl } from "./scenes/steel";
 
-const NAMES = ["Estructura de perfiles", "Aislación", "Placas OSB", "Terminación exterior", "Techo", "Casa terminada"];
+const T = {
+  es: {
+    step: (n: number, of: number) => `Paso ${n} de ${of}`,
+    names: ["Estructura de perfiles", "Aislación", "Placas OSB", "Terminación exterior", "Techo", "Casa terminada"],
+  },
+  en: {
+    step: (n: number, of: number) => `Step ${n} of ${of}`,
+    names: ["Steel stud frame", "Insulation", "OSB sheathing", "Exterior finish", "Roof", "Finished house"],
+  },
+};
 /** Etapa (0..5) según el avance, con los mismos cortes que el diseño. */
 const stageOf = (v: number) => (v < 0.2 ? 0 : v < 0.38 ? 1 : v < 0.58 ? 2 : v < 0.72 ? 3 : v < 0.88 ? 4 : 5);
 
@@ -17,12 +26,14 @@ export function initTrama(root: HTMLElement): () => void {
     stageEl = $("#trStage", root),
     steps = $$<HTMLButtonElement>(".tr-steps button[data-v]", root);
   if (!rng) return () => {};
+  const t = T[pageLang()],
+    NAMES = t.names;
   const at = steps.map((b) => +(b.dataset.v ?? 0));
 
   let shown = -1;
   const valueText = () => {
     const n = stageOf(ctl.target);
-    rng.setAttribute("aria-valuetext", `Paso ${n + 1} de ${NAMES.length}: ${NAMES[n]}`);
+    rng.setAttribute("aria-valuetext", `${t.step(n + 1, NAMES.length)}: ${NAMES[n]}`);
   };
   const ctl: TramaCtl = {
     target: +rng.value / 100,
@@ -73,7 +84,9 @@ export function initTrama(root: HTMLElement): () => void {
   ctl.show(ctl.target);
   compare();
 
-  const off3d = stageEl ? lazyScene(stageEl, () => import("./scenes/steel").then((m) => ({ mount: (el: HTMLElement) => m.mount(el, ctl) }))) : () => {};
+  const off3d = stageEl
+    ? lazyScene(stageEl, () => import("./scenes/steel").then((m) => ({ mount: (el: HTMLElement) => m.mount(el, ctl) })))
+    : () => {};
   return () => {
     off3d();
     rng.removeEventListener("input", onInput);

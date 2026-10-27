@@ -645,19 +645,26 @@ a.ul {
   border-radius: 999px;
   padding: 3px;
 }
-.lang button {
+.lang a,
+.lang span {
   border: 0;
   background: none;
   padding: 5px 10px;
   border-radius: 999px;
   color: var(--mut);
+  text-decoration: none;
+  transition: color 0.3s;
 }
-.lang button[aria-pressed="true"] {
+.lang a:hover {
+  color: var(--fg);
+}
+.lang [aria-current="true"] {
   background: var(--fg);
   color: var(--bg);
 }
-.lang button:disabled {
-  cursor: default;
+/* el idioma en el menú del celular (en escritorio está el selector ES/EN) */
+.nav .nav-lang {
+  display: none;
 }
 .hdr .btn {
   min-height: 42px;
@@ -1072,6 +1079,14 @@ a:hover .arrow {
     letter-spacing: -0.035em;
     padding: 14px 0;
     border-bottom: 1px solid var(--ln);
+  }
+  .menu-open .hdr .nav .nav-lang {
+    display: block;
+    margin-top: 12px;
+    font: 500 16px var(--sans);
+    letter-spacing: 0.02em;
+    color: var(--mut);
+    border-bottom: 0;
   }
   .cta-p {
     grid-template-columns: 1fr;

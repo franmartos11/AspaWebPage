@@ -8,6 +8,9 @@ export const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 export const EXPO = "cubic-bezier(.16,1,.3,1)";
 
+/** Idioma de la página (lo fija el layout raíz en <html lang>): para los textos que arma el movimiento. */
+export const pageLang = (): "es" | "en" => (document.documentElement.lang.startsWith("en") ? "en" : "es");
+
 export const reducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 export const isDesk = () => innerWidth > 980;
 

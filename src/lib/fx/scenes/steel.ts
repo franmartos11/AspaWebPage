@@ -3,6 +3,7 @@
 // lana → OSB → terminación → techo → aberturas, jardín, deck y luz. Al costado, el corte del muro
 // con sus capas y nombres. La primera vez que se ve, si nadie tocó el control, hace el recorrido solo.
 // Los controles (deslizador, pasos y etiqueta) los cablea ../trama.ts: acá solo se lee y avisa el avance.
+import { pageLang } from "../core";
 import { THREE, mat, stage, box, tree, contactShadow, interact, seen, lerp, easeBack, seg, cssFont } from "./kit";
 
 /** Puente con los controles de la maqueta (vive en trama.ts, sin Three.js). */
@@ -167,7 +168,15 @@ export function mount(el: HTMLElement, ctl: TramaCtl): () => void {
     }
     return sheets;
   });
-  const ridge = box(Lx + 0.55, 0.07, 0.34, new THREE.MeshStandardMaterial({ color: 0x2c2e33, roughness: 0.7, metalness: 0.3 }), 0, y0 + H + rise + 0.07, 0);
+  const ridge = box(
+    Lx + 0.55,
+    0.07,
+    0.34,
+    new THREE.MeshStandardMaterial({ color: 0x2c2e33, roughness: 0.7, metalness: 0.3 }),
+    0,
+    y0 + H + rise + 0.07,
+    0,
+  );
   ridge.visible = false;
   g.add(ridge);
   const gutterM = new THREE.MeshPhysicalMaterial({ color: 0xd9dde2, metalness: 0.7, roughness: 0.3 });
@@ -274,12 +283,16 @@ export function mount(el: HTMLElement, ctl: TramaCtl): () => void {
   [-0.5, 0, 0.5].forEach((x) => studs.add(box(0.05, 1.7, 0.09, steelM, x, 0, 0, true)));
   studs.add(box(1.2, 0.05, 0.09, steelM, 0, 0, 0, true), box(1.2, 0.05, 0.09, steelM, 0, 1.65, 0, true));
   const memM = new THREE.MeshStandardMaterial({ color: 0xdfe6ff, roughness: 0.6 });
+  const L =
+    pageLang() === "en"
+      ? ["Steel stud", "Thermal insulation", "OSB sheathing", "Water and wind barrier", "Exterior finish"]
+      : ["Perfil de acero", "Aislación térmica", "Placa OSB", "Barrera de agua y viento", "Terminación exterior"];
   const layers: [THREE.Object3D, string, number][] = [
-    [studs, "Perfil de acero", 0],
-    [box(1.1, 1.6, 0.07, woolM, 0, 0.05, 0, true), "Aislación térmica", 0.2],
-    [box(1.2, 1.7, 0.025, osbM, 0, 0, 0, true), "Placa OSB", 0.38],
-    [box(1.2, 1.7, 0.008, memM, 0, 0, 0, true), "Barrera de agua y viento", 0.55],
-    [box(1.2, 1.7, 0.035, finM, 0, 0, 0, true), "Terminación exterior", 0.6],
+    [studs, L[0], 0],
+    [box(1.1, 1.6, 0.07, woolM, 0, 0.05, 0, true), L[1], 0.2],
+    [box(1.2, 1.7, 0.025, osbM, 0, 0, 0, true), L[2], 0.38],
+    [box(1.2, 1.7, 0.008, memM, 0, 0, 0, true), L[3], 0.55],
+    [box(1.2, 1.7, 0.035, finM, 0, 0, 0, true), L[4], 0.6],
   ];
   const cutParts = layers.map(([o, t, at], k) => {
     const sp = lbl(t);

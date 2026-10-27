@@ -1,3 +1,4 @@
+import { langOf, type Lang } from "@/i18n";
 import { SITE } from "./site";
 
 const ORG_ID = `${SITE.url}/#organization`;
@@ -32,35 +33,55 @@ export const siteSchema = {
       "@id": `${SITE.url}/#website`,
       url: SITE.url,
       name: SITE.name,
-      inLanguage: SITE.lang,
+      inLanguage: ["es-AR", "en"],
       publisher: { "@id": ORG_ID },
     },
   ],
 };
 
-/** Servicios que se ofrecen desde el Home (cada uno tendrá su página). */
-export const homeServicesSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Servicios de Aspa Software",
-  itemListElement: [
-    ["Sistemas de gestión a medida", "Stock, ventas, clientes, turnos y órdenes de trabajo, en un solo lugar y al día.", "/sistemas"],
-    ["Apps para celular", "iOS y Android, para tu equipo en la calle o para tus clientes.", "/sistemas#apps"],
-    ["Automatizaciones e integraciones", "Las tareas que hoy hace alguien a mano, hechas solas: avisos, cargas, reportes.", "/sistemas#automatizaciones"],
-    ["Webs para empresas y profesionales", "Una web que muestra tu trabajo y convence antes de la primera reunión.", "/webs"],
-  ].map(([name, description, path], i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    item: { "@type": "Service", name, description, url: `${SITE.url}${path}`, provider: { "@id": ORG_ID }, areaServed: "AR" },
-  })),
-};
+const HOME_SERVICES = {
+  es: {
+    name: "Servicios de Aspa Software",
+    items: [
+      ["Sistemas de gestión a medida", "Stock, ventas, clientes, turnos y órdenes de trabajo, en un solo lugar y al día.", "/sistemas"],
+      ["Apps para celular", "iOS y Android, para tu equipo en la calle o para tus clientes.", "/sistemas#apps"],
+      ["Automatizaciones e integraciones", "Las tareas que hoy hace alguien a mano, hechas solas: avisos, cargas, reportes.", "/sistemas#automatizaciones"],
+      ["Webs para empresas y profesionales", "Una web que muestra tu trabajo y convence antes de la primera reunión.", "/webs"],
+    ],
+  },
+  en: {
+    name: "Aspa Software services",
+    items: [
+      ["Custom management systems", "Inventory, sales, customers, bookings and work orders, all in one place and up to date.", "/en/systems"],
+      ["Mobile apps", "iOS and Android, for your field team or for your customers.", "/en/systems#apps"],
+      ["Automations and integrations", "The tasks someone does by hand today, done automatically: alerts, data entry, reports.", "/en/systems#automatizaciones"],
+      ["Websites for companies and professionals", "A website that shows your work and wins people over before the first meeting.", "/en/websites"],
+    ],
+  },
+} as const;
+
+/** Servicios que se ofrecen desde el Home (cada uno con su página). */
+export function homeServicesSchema(lang: Lang) {
+  const s = HOME_SERVICES[lang];
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: s.name,
+    itemListElement: s.items.map(([name, description, path], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: { "@type": "Service", name, description, url: `${SITE.url}${path}`, provider: { "@id": ORG_ID }, areaServed: "AR" },
+    })),
+  };
+}
 
 /** Migas de pan (Inicio › …): las muestra Google en lugar de la URL. */
 export function breadcrumbs(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [{ name: "Inicio", path: "/" }, ...items].map((it, i) => ({
+    // el idioma sale de las rutas: las de /en arrancan en "Home" (/en)
+    itemListElement: [langOf(items[0]?.path ?? "/") === "en" ? { name: "Home", path: "/en" } : { name: "Inicio", path: "/" }, ...items].map((it, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: it.name,
@@ -108,7 +129,7 @@ export function plansSchema({ name, path, plans }: { name: string; path: string;
         description: p.description,
         price: p.usd,
         priceCurrency: "USD",
-        itemOffered: { "@type": "Service", name: `Web ${p.name}` },
+        itemOffered: { "@type": "Service", name: langOf(path) === "en" ? p.name : `Web ${p.name}` },
       })),
     },
   };

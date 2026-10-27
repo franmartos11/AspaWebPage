@@ -3,12 +3,14 @@
 // con sus árboles, aparecen los carteles con el nombre del modelo y al final se prende la luz cálida.
 // Pasando el mouse por una casa la levanta y resalta su cartel. Se arma cuando la escena está en
 // pantalla y se desarma (al doble de velocidad) si subís y queda abajo.
+import { pageLang } from "../core";
 import { THREE, mat, stage, box, edges, lineSet, tree, contactShadow, interact, want, clamp, lerp, easeOut, easeBack, seg, cssFont } from "./kit";
 
-const INFO = [
-  ["Aromo", "2 dorm · 85 m²"],
-  ["Tala", "3 dorm · 120 m²"],
-  ["Espinillo", "3 dorm · 140 m²"],
+// carteles de los modelos (los nombres son propios; los dormitorios, en el idioma de la página)
+const INFO = (bed: string) => [
+  ["Aromo", `2 ${bed} · 85 m²`],
+  ["Tala", `3 ${bed} · 120 m²`],
+  ["Espinillo", `3 ${bed} · 140 m²`],
 ];
 
 export function mount(el: HTMLElement): () => void {
@@ -88,7 +90,8 @@ export function mount(el: HTMLElement): () => void {
   });
   const glowM = new THREE.MeshStandardMaterial({ color: 0x221c14, emissive: 0xffd9a8, emissiveIntensity: 0 });
   houses.forEach((h) => h.add(box(0.86, 0.96, 0.02, glowM, -0.5, 0.22, 1.09, true)));
-  const font = cssFont("--disp");
+  const font = cssFont("--disp"),
+    info = INFO(pageLang() === "en" ? "bed" : "dorm");
   const signs = houses.map((h, k) => {
     const c = document.createElement("canvas");
     c.width = 512;
@@ -103,10 +106,10 @@ export function mount(el: HTMLElement): () => void {
     x.stroke();
     x.fillStyle = "#fff";
     x.font = `700 64px ${font}`;
-    x.fillText(INFO[k][0], 36, 92);
+    x.fillText(info[k][0], 36, 92);
     x.fillStyle = "#b9b9c2";
     x.font = `500 40px ${cssFont()}`;
-    x.fillText(INFO[k][1], 36, 158);
+    x.fillText(info[k][1], 36, 158);
     const tx = new THREE.CanvasTexture(c);
     tx.colorSpace = THREE.SRGBColorSpace;
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tx, transparent: true, opacity: 0, depthWrite: false }));

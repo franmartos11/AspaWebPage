@@ -1,38 +1,57 @@
 import Link from "next/link";
-import { ROUTES, waLink } from "@/lib/site";
+import { routes, type Lang } from "@/i18n";
+import { waLink } from "@/lib/site";
 
-type Props = { question: string; message: string; extra?: React.ReactNode };
+type Props = {
+  lang: Lang;
+  question: string;
+  message: string;
+  extra?: React.ReactNode;
+};
+
+const T = {
+  es: {
+    lbl: "Hablemos",
+    steps: ["Nos escribís", "Te llamamos en 24 h hábiles", "Te mandamos una propuesta sin costo"],
+    wa: "Escribinos por WhatsApp",
+    form: "Completar formulario",
+  },
+  en: {
+    lbl: "Let's talk",
+    steps: ["You write to us", "We call you within 1 business day", "We send you a free proposal"],
+    wa: "Message us on WhatsApp",
+    form: "Fill out the form",
+  },
+} as const;
 
 /** Bloque "Hablemos": pregunta + tres pasos + WhatsApp y formulario. */
-export function Cta({ question, message, extra }: Props) {
+export function Cta({ lang, question, message, extra }: Props) {
+  const t = T[lang];
   return (
     <section className="cta" id="contacto" aria-labelledby="cta-q">
       <div className="wrap">
         <div className="cta-p glass glass-big rv">
           <div className="cta-a">
-            <p className="lbl">Hablemos</p>
+            <p className="lbl">{t.lbl}</p>
             <h2 className="cta-q" id="cta-q">
               {question}
             </h2>
           </div>
           <div className="cta-b">
             <ol className="cta-steps">
-              <li>
-                <b>1</b>Nos escribís
-              </li>
-              <li>
-                <b>2</b>Te llamamos en 24 h hábiles
-              </li>
-              <li>
-                <b>3</b>Te mandamos una propuesta sin costo
-              </li>
+              {t.steps.map((s, i) => (
+                <li key={s}>
+                  <b>{i + 1}</b>
+                  {s}
+                </li>
+              ))}
             </ol>
             <div className="btns">
               <a className="btn btn-glass btn-blue" href={waLink(message)} target="_blank" rel="noopener">
-                <span>Escribinos por WhatsApp</span>
+                <span>{t.wa}</span>
               </a>
-              <Link className="btn btn-glass" href={ROUTES.contacto}>
-                <span>Completar formulario</span>
+              <Link className="btn btn-glass" href={routes(lang).contacto}>
+                <span>{t.form}</span>
               </Link>
             </div>
             {extra}

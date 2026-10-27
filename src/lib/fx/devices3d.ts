@@ -90,7 +90,7 @@ export function mountDevices(el: HTMLElement, sec: HTMLElement, first: WebView, 
     rest = 0;
 
   const rig = new THREE.Group();
-  rig.position.x = -0.12;
+  rig.position.x = -0.58; // centra el conjunto notebook + celular
   scene.add(rig);
 
   /* ---------- MacBook abierta, con la pantalla encendida ---------- */
@@ -105,13 +105,16 @@ export function mountDevices(el: HTMLElement, sec: HTMLElement, first: WebView, 
   mac.refl.renderOrder = 10;
 
   /* ---------- iPhone parado a la derecha, un poco adelante ---------- */
+  // al costado de la notebook con aire real: en el diseño (x = 1,85) se metía en la base
   // un 30 % más grande que el real (como el celular del diseño): la web en celular se lee mejor
   const PS = 1.3;
   const PY = (PHONE.h * PS) / 2 + 0.02;
   const iph = buildIPhone({ glassT: mac.glassT, haloT: mac.haloT });
   const ph = iph.group;
   rig.add(ph);
-  ph.position.set(1.85, PY, 0.55);
+  const PX = 2.55,
+    PZ = 0.25;
+  ph.position.set(PX, PY, PZ);
   ph.rotation.set(0, -0.32, 0.02);
   ph.scale.setScalar(PS);
   iph.halo.material.opacity = 0.3;
@@ -147,7 +150,7 @@ export function mountDevices(el: HTMLElement, sec: HTMLElement, first: WebView, 
   shadow.position.y = -0.035;
   scene.add(shadow);
   const phSd = contactShadow(shadowT, 1.3, 0.62, 0.42);
-  phSd.position.set(1.85, -0.03, 0.55);
+  phSd.position.set(PX, -0.03, PZ);
   phSd.rotation.z = 0.32;
   rig.add(phSd);
 
@@ -283,7 +286,7 @@ export function mountDevices(el: HTMLElement, sec: HTMLElement, first: WebView, 
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     const narrow = w / h < 1;
-    camera.position.set(0.15, 1.95, fitDist(narrow ? 5.6 : 4.1) * (narrow ? 1.1 / camera.aspect : 1));
+    camera.position.set(0.15, 1.95, fitDist(narrow ? 5.9 : 4.4) * (narrow ? 1.1 / camera.aspect : 1));
     camera.lookAt(0.15, 1.05, 0);
     kick();
   }
@@ -297,6 +300,37 @@ export function mountDevices(el: HTMLElement, sec: HTMLElement, first: WebView, 
     (window as Window & { __dev3d?: unknown }).__dev3d = {
       stats: () => ({ ...renderer.info.render, geometries: renderer.info.memory.geometries, textures: renderer.info.memory.textures }),
       cur: () => curKey,
+      // contornos en pantalla (para comprobar que el celular no se encima con la notebook)
+      rects: () => {
+        const r = el.getBoundingClientRect();
+        const skip = new Set<THREE.Object3D>([mac.refl, mac.halo, mac.kGlow, iph.halo, ...L, ...P]);
+        const rect = (root: THREE.Object3D) => {
+          let x0 = Infinity,
+            y0 = Infinity,
+            x1 = -Infinity,
+            y1 = -Infinity;
+          root.updateWorldMatrix(true, true);
+          root.traverse((o) => {
+            const m = o as THREE.Mesh;
+            if (!m.isMesh || skip.has(m) || !m.geometry) return;
+            m.geometry.computeBoundingBox();
+            const b = m.geometry.boundingBox!;
+            for (const x of [b.min.x, b.max.x])
+              for (const y of [b.min.y, b.max.y])
+                for (const z of [b.min.z, b.max.z]) {
+                  const v = m.localToWorld(new THREE.Vector3(x, y, z)).project(camera);
+                  const sx = r.left + ((v.x + 1) / 2) * r.width,
+                    sy = r.top + ((1 - v.y) / 2) * r.height;
+                  x0 = Math.min(x0, sx);
+                  x1 = Math.max(x1, sx);
+                  y0 = Math.min(y0, sy);
+                  y1 = Math.max(y1, sy);
+                }
+          });
+          return { left: x0, top: y0, right: x1, bottom: y1 };
+        };
+        return { phone: rect(ph), laptop: rect(mac.group), box: r.toJSON() };
+      },
     };
 
   /* ---------- bucle: dibuja solo en pantalla y mientras algo se mueve ---------- */

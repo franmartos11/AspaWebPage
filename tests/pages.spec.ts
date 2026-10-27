@@ -59,8 +59,9 @@ const PAGES = [
 // alto de cada <section> del <main> en el diseño, en 1440×900 (d) y 390×844 (m)
 const DESIGN: Record<string, { d?: number[]; m?: number[] }> = {
   "/sistemas": {
-    d: [900, 806, 2430, 709, 2066, 959, 932, 4680, 487, 698, 799, 536],
-    m: [844, 824, 2279, 632, 3409, 794, 1127, 3545, 577, 1325, 793, 599],
+    // preguntas frecuentes (+5): cada pregunta con su borde completo (el diseño le sacaba el de abajo)
+    d: [900, 806, 2430, 709, 2066, 959, 932, 4680, 487, 698, 804, 536],
+    m: [844, 824, 2279, 632, 3409, 794, 1127, 3545, 577, 1325, 798, 599],
   },
   // galería en celular: +1 px por la lista accesible (ul > li) alrededor de las tarjetas
   "/webs": { d: [900, 721, 1161, 3271, 933, 883, 554], m: [844, 1099, 1268, 455, 1303, 1052, 659] },

@@ -1,3 +1,5 @@
+import { routes, type Lang } from "@/i18n";
+
 // Datos de la empresa y rutas del sitio: una sola fuente para la UI, la metadata y el JSON-LD.
 
 export const SITE = {
@@ -6,7 +8,10 @@ export const SITE = {
   url: "https://www.aspasoftware.com",
   locale: "es_AR",
   lang: "es-AR",
-  tagline: "Sistemas a medida, apps y webs para empresas.",
+  tagline: {
+    es: "Sistemas a medida, apps y webs para empresas.",
+    en: "Custom software, apps and websites for companies.",
+  } as Record<Lang, string>,
   // datos de contacto del sitio anterior (github.com/franmartos11/AspaWebPage)
   email: "aspasoftwaredevelopment@gmail.com",
   // WhatsApp en formato internacional sin "+" ni espacios (+54 9 3517 87-8609)
@@ -26,19 +31,8 @@ export const SITE = {
   },
 } as const;
 
-export const ROUTES = {
-  home: "/",
-  sistemas: "/sistemas",
-  webs: "/webs",
-  planes: "/webs/planes",
-  nosotros: "/nosotros",
-  contacto: "/contacto",
-  privacidad: "/privacidad",
-  casos: "/casos",
-  casoRodeo: "/casos/aspa-rodeo",
-  casoScout: "/casos/aspa-scout",
-  rubro: (slug: string) => `/webs/${slug}`,
-} as const;
+// Rutas en español (las de siempre). Para el otro idioma: routes(lang) de "@/i18n".
+export const ROUTES = routes("es");
 
 /** Link de WhatsApp con mensaje prellenado (o email mientras no haya número cargado). */
 export function waLink(text: string) {

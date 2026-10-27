@@ -1,11 +1,41 @@
-/* Preguntas frecuentes (details/summary): compartidas entre páginas. */
+/* Preguntas frecuentes (details/summary): compartidas entre Sistemas y Planes.
+   Rehechas sobre el diseño: allí la lista decía grid-column 6/13 dentro de una grilla de dos
+   columnas, el navegador inventaba columnas que dependían del contenido y al abrir una respuesta
+   todo se corría hacia los costados (y el título quedaba tan angosto que se cortaba). Ahora son dos
+   columnas fijas, el título acompaña mientras se recorre la lista y las respuestas se abren con
+   una animación de alto (fx/faq.ts); sin JavaScript se abren igual, sin animación. */
 
-.faq {
-  grid-column: 6/13;
-  border-top: 1px solid var(--ln);
+.faq-grid {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) !important;
+  align-items: start;
 }
+.faq-grid > div:first-child {
+  position: sticky;
+  top: 120px;
+}
+.faq-grid .h2 {
+  max-width: 11ch;
+  overflow-wrap: break-word;
+}
+.faq {
+  grid-column: 2;
+  display: grid;
+  gap: 10px;
+}
+
 .faq details {
-  border-bottom: 1px solid var(--ln);
+  border-radius: 20px;
+  padding: 0 24px;
+  overflow: hidden;
+  transition:
+    background-color 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+}
+.faq details[open] {
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ac) 45%, transparent),
+    0 24px 60px -30px rgba(0, 0, 0, 0.8);
 }
 .faq summary {
   list-style: none;
@@ -13,15 +43,25 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  padding: 24px 0;
+  padding: 20px 0;
   font-size: clamp(19px, 1.6vw, 24px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   cursor: pointer;
+  transition: color 0.4s var(--ease);
 }
 .faq summary::-webkit-details-marker {
   display: none;
 }
+.faq summary:hover,
+.faq details[open] > summary {
+  color: #fff;
+}
+.faq summary:hover i {
+  border-color: var(--ac);
+}
+
+/* + que pasa a − */
 .faq summary i {
   width: 28px;
   height: 28px;
@@ -29,6 +69,10 @@
   border-radius: 50%;
   border: 1.5px solid var(--ln);
   position: relative;
+  transition:
+    transform 0.6s var(--ease),
+    border-color 0.4s,
+    background-color 0.4s;
 }
 .faq summary i::before,
 .faq summary i::after {
@@ -38,62 +82,66 @@
   top: 50%;
   width: 12px;
   height: 1.5px;
+  border-radius: 1px;
   background: currentColor;
   transform: translate(-50%, -50%);
 }
 .faq summary i::after {
   transform: translate(-50%, -50%) rotate(90deg);
-  transition: transform 0.4s var(--ease);
-}
-.faq details[open] summary i::after {
-  transform: translate(-50%, -50%) rotate(0);
-}
-.faq .ans p {
-  margin: 0 0 26px;
-  max-width: 62ch;
-  color: var(--mut);
-}
-@media (max-width: 980px) {
-  .faq {
-    grid-column: 1/-1;
-  }
-}
-.faq-grid {
-  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr) !important;
-  align-items: start;
-}
-.faq {
-  display: grid;
-  gap: 10px;
-}
-.faq details {
-  border-radius: 20px;
-  padding: 0 22px;
-  border-bottom: 0 !important;
-}
-.faq summary {
-  padding: 20px 0;
-  font-weight: 600;
-}
-.faq details {
-  overflow: hidden;
-  transition:
-    background-color 0.5s var(--ease),
-    box-shadow 0.5s var(--ease);
-}
-.faq details > summary {
-  transition: color 0.4s var(--ease);
-}
-.faq details > summary:hover {
-  color: var(--ac);
-}
-.faq summary i {
-  transition:
-    transform 0.6s var(--ease),
-    border-color 0.4s,
-    background-color 0.4s;
+  transition: transform 0.5s var(--ease);
 }
 .faq details[open] > summary i {
   transform: rotate(180deg);
   border-color: var(--ac);
+  background-color: var(--ac);
+  color: #fff;
+}
+.faq details[open] > summary i::after {
+  transform: translate(-50%, -50%) rotate(0);
+}
+
+.faq .ans p {
+  margin: 0;
+  padding: 0 0 24px;
+  max-width: 62ch;
+  color: var(--mut);
+}
+/* el texto entra un poco después de que se abre el espacio */
+.faq .ans {
+  transition:
+    opacity 0.5s var(--ease) 0.08s,
+    transform 0.6s var(--ease) 0.08s;
+}
+.faq details:not([open]) .ans,
+.faq details.closing .ans {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition-delay: 0s;
+}
+
+@media (max-width: 980px) {
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .faq-grid > div:first-child {
+    position: static;
+  }
+  .faq-grid .h2 {
+    max-width: none;
+  }
+  .faq {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 560px) {
+  .faq details {
+    padding: 0 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq .ans,
+  .faq summary i,
+  .faq summary i::after {
+    transition: none;
+  }
 }

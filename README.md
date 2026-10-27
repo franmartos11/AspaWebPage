@@ -1,6 +1,13 @@
 # Aspa Software · sitio web
 
-Next.js 16 (App Router, TypeScript), generado estático. Hechas todas las páginas del diseño: **Home**, **Sistemas**, **Webs**, **Planes**, las **7 páginas por rubro**, **Casos** (listado + Aspa Rodeo y Aspa Scout), **Nosotros** y **Contacto** (con formulario que envía mails), más la **política de privacidad**.
+Next.js 16 (App Router, TypeScript), generado estático. Hechas todas las páginas del diseño: **Home**, **Sistemas**, **Webs**, **Planes**, las **7 páginas por rubro**, **Casos** (listado + Aspa Rodeo y Aspa Scout), **Nosotros** y **Contacto** (con formulario que envía mails), más la **política de privacidad**. **Todo el sitio está en español y en inglés** (ver «Idiomas»).
+
+## Idiomas
+
+- Español en las URLs de siempre; inglés bajo `/en` con URLs en inglés (`/en/systems`, `/en/websites/architects`, `/en/work`, `/en/about`, `/en/contact`…). Cada página tiene su par: el botón ES/EN del header (y «English/Español» en el menú del celular) lleva a la misma página en el otro idioma.
+- SEO por idioma: `<html lang>`, canónica, `hreflang` (es-AR, en, x-default), `og:locale`, imagen para redes y sitemap con las dos versiones de cada página. No se redirige según el idioma del navegador: elige la persona (y Google indexa las dos).
+- El formulario contesta, valida y confirma en el idioma de la página; el mail que llega a Aspa dice en qué idioma escribió la persona.
+- Cómo agregar o cambiar textos, convenciones y glosario: `src/i18n/README.md`. `tests/i18n.spec.ts` revisa cada página en inglés (idioma, hreflang, botón, accesibilidad y que no quede texto en español).
 
 ## Formulario de contacto
 
@@ -32,20 +39,18 @@ Los tests usan el Chrome instalado (`channel: "chrome"`), no hace falta descarga
 ## Estructura
 
 ```
-src/app/layout.tsx         metadata global, fuentes, header/footer, intro, JSON-LD de la empresa
-src/app/page.tsx           Home (todo server-rendered; el movimiento se engancha después)
-src/app/globals.css        tokens y componentes compartidos (header, vidrio, botones, CTA, footer)
-src/app/home.css           estilos propios del Home (solo se cargan en esa ruta)
-src/app/sistemas/          Sistemas: página, CSS propio e imagen para redes
-src/app/webs/              Webs, planes/ y [rubro]/ (las 7 páginas por rubro salen de src/lib/rubros.ts)
-src/app/casos/             Casos: listado, aspa-rodeo/ y aspa-scout/ (datos en src/lib/casos.ts, vista en components/Caso.tsx)
-src/app/contacto/          Contacto (formulario; enviado/ y error/ son los avisos sin JavaScript)
+src/i18n/                  idiomas: tabla de rutas ES/EN (routes, counterpart, RUBRO_SLUGS), convenciones y glosario
+src/app/(es)/              rutas en español (las de siempre) + su layout raíz; cada page.tsx es una línea
+src/app/(en)/en/           rutas en inglés + su layout raíz
+src/app/global-not-found.tsx  404 bilingüe de las URLs que no existen
 src/app/api/contacto/      endpoint del formulario (validación en src/lib/contact.ts)
-src/app/privacidad/        política de privacidad
-src/app/nosotros/          Nosotros (equipo, ideas, forma de trabajo, números, clientes y ubicación)
+src/app/globals.css        tokens y componentes compartidos (header, vidrio, botones, CTA, footer)
+src/views/                 cada página como vista con lang: home, sistemas, webs, planes, rubro (los 7 rubros),
+                           casos, caso (Aspa Rodeo y Aspa Scout), nosotros, contacto, privacidad; con su CSS propio
+src/components/SiteShell.tsx  lo común de los dos layouts raíz: fuentes, metadata base, header, footer, intro
 src/styles/                CSS compartido entre páginas: pains, hgal, plans, faq, seg (control segmentado), prodname, proof (números y marquee de clientes)
-src/components/            Header, Footer, Cta, Logo (+LogoDefs), CharTitle, PainArt, Fx (PageFx carga el movimiento de cada página)
-src/lib/seo.ts             metadata de cada página (título, canónica, redes)
+src/components/            Header, NavLinks (menú + botón ES/EN), Footer, Cta, Proof, Plans, Rubros, Logo, CharTitle, PainArt, Fx
+src/lib/seo.ts             metadata de cada página (título, canónica, hreflang, redes)
 src/lib/site.ts            datos de la empresa y rutas (una sola fuente)
 src/lib/schema.ts          datos estructurados schema.org
 src/lib/inline-scripts.ts  scripts en línea: flags antes del primer pintado + intro de marca
@@ -57,8 +62,8 @@ src/lib/fx/                movimiento (vanilla TS): core, site, reveal, home, no
                            los rubros sobre kit.ts), trama (steel framing), devdemo (sala de ventas de desarrollistas)
 src/fonts/                 Inter e Inter Tight recortadas (ver README ahí)
 public/3d/                 texturas WebP de la notebook 3D e imágenes fijas del hero
-tests/                     Playwright + axe; pages.spec.ts repite los chequeos del Home en cada página interna
-scripts/og-images.mjs      regenera las imágenes para redes (captura del hero de cada página)
+tests/                     Playwright + axe; pages.spec.ts (páginas en español, paridad con el diseño), i18n.spec.ts (inglés)
+scripts/og-images.mjs      regenera las imágenes para redes de los dos idiomas (captura del hero de cada página)
 ```
 
 ## Cómo se tradujo el diseño
@@ -95,6 +100,7 @@ scripts/og-images.mjs      regenera las imágenes para redes (captura del hero d
 | Qué | Por qué |
 | --- | --- |
 | El visor de rubros usa la MacBook y el iPhone del sitio, con la pantalla compuesta como en una Mac | Un solo modelo en todo el sitio. |
+| En el visor de rubros el celular va al costado de la notebook, con aire (x = 2,55; el conjunto se recentró) | En el diseño (x = 1,85) el celular, agrandado un 30 %, se metía en la base de la notebook. |
 | La línea de tiempo es un `div` con la línea y la lista adentro | En el diseño había un `<i>` dentro del `<ol>` (HTML inválido). |
 | Tabla de planes con encabezados de fila (`th scope="row"`) y desplazable con teclado en celular | Accesibilidad. |
 | El ✓ de la tabla usa el de Inter | El diseño lo dibujaba con la fuente del sistema. |
@@ -163,6 +169,7 @@ Se mantuvieron a propósito dos rarezas del diseño porque son parte de cómo se
 | Rubros (arquitectos / desarrollistas) | 93–94 | 100 | 100 | 100 |
 | Casos / Aspa Rodeo | 91–92 / 96–97 | 100 | 100 | 100 |
 | Nosotros | 96–97 | 100 | 100 | 100 |
+| En inglés: /en, /en/systems, /en/contact, /en/websites/real-estate-developers | 91–96 | 100 | 100 | 100 |
 
 - Chrome real con CPU 4x y 4G lento, primera visita (con intro): FCP 0,66–0,74 s, LCP 0,67–0,74 s, CLS 0, TBT ≈ 0.
 - Escena 3D: ~25 mil triángulos y 64 llamadas de dibujo por cuadro (tope del test: 150 mil y 120).

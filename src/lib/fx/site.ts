@@ -1,7 +1,7 @@
 // Movimiento común a todo el sitio: scroll suave, header, menú, campo de luz,
 // brillo del vidrio, línea del footer y marquees que aceleran con el scroll.
 import Lenis from "lenis";
-import { $, $$, lerp, onTick, reducedMotion, requestTick, wireScroll } from "./core";
+import { $, $$, lerp, onTick, reducedMotion, requestTick, wireScroll, pageLang } from "./core";
 
 declare global {
   interface Window {
@@ -51,7 +51,8 @@ export function initSite() {
   const setMenu = (o: boolean) => {
     document.body.classList.toggle("menu-open", o);
     btn?.setAttribute("aria-expanded", String(o));
-    btn?.setAttribute("aria-label", o ? "Cerrar menú" : "Abrir menú");
+    const en = pageLang() === "en";
+    btn?.setAttribute("aria-label", o ? (en ? "Close menu" : "Cerrar menú") : en ? "Open menu" : "Abrir menú");
     if (o) lenis?.stop();
     else lenis?.start();
   };

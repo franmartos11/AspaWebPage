@@ -2,9 +2,9 @@
 // La sección es alta y su escenario queda fijo; al bajar se dibuja el boceto, el wireframe,
 // el diseño, el código, los dispositivos y la versión 1.0, mientras avanzan la barra,
 // los pasos y la leyenda.
-import { $, $$, EXPO, clamp, onTick, reducedMotion } from "./core";
+import { $, $$, EXPO, clamp, onTick, pageLang, reducedMotion } from "./core";
 
-const CAPS = [
+const CAPS_ES = [
   "Entendemos el negocio, los objetivos y a quienes lo van a usar.",
   "Definimos qué funcionalidades valen más y en qué orden.",
   "Diseñamos un prototipo interactivo que podés tocar antes de programar.",
@@ -12,9 +12,17 @@ const CAPS = [
   "Probamos todo, con datos reales y en todos los dispositivos.",
   "Lo ponemos en marcha y seguimos al lado.",
 ];
+const CAPS_EN: typeof CAPS_ES = [
+  "We learn the business, the goals and the people who will use it.",
+  "We define which features matter most and in what order.",
+  "We design an interactive prototype you can try before any code is written.",
+  "We build in short stages: you're testing the system within the first few weeks.",
+  "We test everything, with real data and on every device.",
+  "We launch it and stay by your side.",
+];
 
 /** Arma el SVG de la narrativa (mismo dibujo que el diseño). */
-function buildSvg() {
+function buildSvg(version: string) {
   // línea "a mano alzada": 8 tramos con un temblor determinístico
   const wob = (x1: number, y1: number, x2: number, y2: number) => {
     let s = `M${x1} ${y1}`;
@@ -25,8 +33,7 @@ function buildSvg() {
     return s;
   };
   type B = [number, number, number, number];
-  const rw = ([x, y, w, h]: B) =>
-    [wob(x, y, x + w, y), wob(x + w, y, x + w, y + h), wob(x + w, y + h, x, y + h), wob(x, y + h, x, y)].join(" ");
+  const rw = ([x, y, w, h]: B) => [wob(x, y, x + w, y), wob(x + w, y, x + w, y + h), wob(x + w, y + h, x, y + h), wob(x, y + h, x, y)].join(" ");
   const r = ([x, y, w, h]: B) => `M${x} ${y}h${w}v${h}h${-w}Z`;
   // bloques de la pantalla: barra superior, menú lateral, 4 tarjetas, gráfico y panel
   const blocks: B[] = [
@@ -39,8 +46,7 @@ function buildSvg() {
     [252, 202, 250, 180],
     [512, 202, 138, 180],
   ];
-  const sketch =
-    blocks.map(rw).join(" ") + " " + wob(270, 330, 330, 280) + " " + wob(330, 280, 380, 310) + " " + wob(380, 310, 470, 240);
+  const sketch = blocks.map(rw).join(" ") + " " + wob(270, 330, 330, 280) + " " + wob(330, 280, 380, 310) + " " + wob(380, 310, 470, 240);
   const wire = blocks.map(r).join(" ");
   const fills = blocks
     .map((b, k) => `<rect class="sf sf${k}" x="${b[0] + 3}" y="${b[1] + 3}" width="${b[2] - 6}" height="${b[3] - 6}" rx="5"/>`)
@@ -62,7 +68,7 @@ function buildSvg() {
    <g class="s4g"><rect x="690" y="96" width="210" height="270" rx="16" class="scbg"/>${code}</g>
    <g class="s5g"><path class="dv s5" pathLength="1" d="M110 410 h580 l40 34 h-660 z M120 60 h560 a12 12 0 0 1 12 12 v338 h-584 v-338 a12 12 0 0 1 12 -12 z"/><path class="dv s5" pathLength="1" d="M760 210 h120 a16 16 0 0 1 16 16 v220 a16 16 0 0 1 -16 16 h-120 a16 16 0 0 1 -16 -16 v-220 a16 16 0 0 1 16 -16 z"/>
      <g class="s5p"><rect x="756" y="236" width="128" height="22" rx="6" class="sf sf0"/><rect x="756" y="268" width="60" height="50" rx="8" class="sf sf2"/><rect x="824" y="268" width="60" height="50" rx="8" class="sf sf3"/><rect x="756" y="328" width="128" height="110" rx="8" class="sf sf6"/></g></g>
-   <g class="s6g"><text x="480" y="488" class="sver" text-anchor="middle">Versión <tspan class="sver-n">0.1</tspan></text><circle class="sck s6" pathLength="1" cx="652" cy="70" r="30"/><path class="sck s6" pathLength="1" d="M638 70 l10 10 l20 -22"/></g>
+   <g class="s6g"><text x="480" y="488" class="sver" text-anchor="middle">${version} <tspan class="sver-n">0.1</tspan></text><circle class="sck s6" pathLength="1" cx="652" cy="70" r="30"/><path class="sck s6" pathLength="1" d="M638 70 l10 10 l20 -22"/></g>
   </svg>`;
 }
 
@@ -71,7 +77,9 @@ export function initStory(sec: HTMLElement): () => void {
   const host = $("#storyDraw", sec) || $(".story-draw", sec);
   if (!host) return () => {};
   const RM = reducedMotion();
-  host.innerHTML = buildSvg();
+  const en = pageLang() === "en";
+  const CAPS = en ? CAPS_EN : CAPS_ES;
+  host.innerHTML = buildSvg(en ? "Version" : "Versión");
   const draw = $(".sdraw", host);
   const ver = $(".sver-n", host);
   const bar = $(".sb-line i", sec);

@@ -33,8 +33,8 @@ const PAGES = {
   rubro: () => import("@/lib/fx/rubro").then((m) => m.initRubro),
   casos: () => import("@/lib/fx/casos").then((m) => m.initCasos),
   caso: () => import("@/lib/fx/casos").then((m) => m.initCaso),
+  planes: () => import("@/lib/fx/faq").then((m) => m.initFaq),
   // páginas sin movimiento propio: solo los revelados
-  planes: async () => () => () => {},
   nosotros: async () => () => () => {},
   texto: async () => () => () => {},
   contacto: () => import("@/lib/fx/contacto").then((m) => m.initContacto),

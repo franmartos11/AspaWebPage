@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   poweredByHeader: false,
   experimental: {
+    // dos layouts raíz (español e inglés): el 404 de URLs que no existen va en app/global-not-found.tsx
+    globalNotFound: true,
     // ~10 KB de CSS comprimido: va en línea en el <head> y se ahorra un viaje de red antes del primer pintado
     inlineCss: true,
   },

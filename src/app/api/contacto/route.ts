@@ -2,7 +2,8 @@
 // Gmail de EMAIL_USER / EMAIL_PASS (contraseña de aplicación). Destino: CONTACT_TO o la casilla de
 // siempre. Con CONTACT_DRY_RUN=1 no envía nada (tests y desarrollo).
 import nodemailer from "nodemailer";
-import { checkContact, contactMail } from "@/lib/contact";
+import { routes } from "@/i18n";
+import { checkContact, contactMail, formLang, LANG_FIELD, MSG } from "@/lib/contact";
 
 const TO = process.env.CONTACT_TO || "aspasoftwaredevelopment@gmail.com";
 
@@ -29,15 +30,21 @@ async function read(req: Request): Promise<(k: string) => unknown> {
 
 export async function POST(req: Request) {
   const json = (req.headers.get("accept") || "").includes("application/json");
+  // un cuerpo ilegible cuenta como formulario vacío (y pasa igual por el límite por IP)
+  const get = await read(req).catch((): ((k: string) => unknown) => () => undefined);
+  // el formulario en inglés manda lang=en: mensajes y páginas de aviso en ese idioma
+  const lang = formLang(get(LANG_FIELD)),
+    m = MSG[lang],
+    r = routes(lang);
   // sin JavaScript el formulario se envía igual: se responde con una página en lugar de JSON
   const reply = (status: number, body: { ok: boolean; error?: string; field?: string }) =>
-    json ? Response.json(body, { status }) : Response.redirect(new URL(body.ok ? "/contacto/enviado" : "/contacto/error", req.url), 303);
+    json ? Response.json(body, { status }) : Response.redirect(new URL(body.ok ? r.enviado : r.error, req.url), 303);
 
   const now = Date.now();
   const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "local";
-  if (limited(ip, now)) return reply(429, { ok: false, error: "Recibimos varios mensajes seguidos. Probá de nuevo en unos minutos." });
+  if (limited(ip, now)) return reply(429, { ok: false, error: m.rate });
 
-  const check = checkContact(await read(req), now);
+  const check = checkContact(get, now);
   // a los bots se les contesta como si hubiera salido bien, para que no prueben otra cosa
   if (!check.ok && "spam" in check) return reply(200, { ok: true });
   if (!check.ok) return reply(400, { ok: false, error: check.error, field: check.field });
@@ -52,7 +59,7 @@ export async function POST(req: Request) {
     pass = process.env.EMAIL_PASS;
   if (!user || !pass) {
     console.error("[contacto] faltan EMAIL_USER / EMAIL_PASS");
-    return reply(500, { ok: false, error: "No pudimos enviar el mensaje." });
+    return reply(500, { ok: false, error: m.send });
   }
   try {
     await nodemailer.createTransport({ service: "gmail", auth: { user, pass } }).sendMail({
@@ -65,6 +72,6 @@ export async function POST(req: Request) {
     return reply(200, { ok: true });
   } catch (err) {
     console.error("[contacto] error al enviar:", err);
-    return reply(502, { ok: false, error: "No pudimos enviar el mensaje." });
+    return reply(502, { ok: false, error: m.send });
   }
 }

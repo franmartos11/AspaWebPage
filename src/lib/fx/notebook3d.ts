@@ -28,9 +28,9 @@ const sg = (p: number, a: number, b: number) => clamp((p - a) / (b - a), 0, 1);
 
 // captura de escritorio, captura de celular y lo que muestra la barra del navegador
 const SHOTS: [string, string, string][] = [
-  ["rodeo-desktop", "rodeo-mobile", "Aspa Rodeo"],
   ["scout-desktop", "scout-mobile", "Aspa Scout"],
   ["dh-engineering-desktop", "dh-engineering-mobile", "DH Engineering"],
+  ["rodeo-desktop", "rodeo-mobile", "Aspa Rodeo"],
   ["architecture-360-desktop", "architecture-360-mobile", "Architecture 360"],
 ];
 
@@ -247,6 +247,33 @@ export function mountNotebook(el: HTMLElement, sec: HTMLElement, isMobileDevice:
               y0 = Math.min(y0, y);
               y1 = Math.max(y1, y);
             }
+        return { left: x0, top: y0, right: x1, bottom: y1 };
+      },
+      // contorno en pantalla de la notebook (base + tapa): para comprobar que el celular no se le encima
+      laptopRect: () => {
+        const r = el.getBoundingClientRect();
+        const pts: THREE.Vector3[] = [];
+        nb.updateWorldMatrix(true, true);
+        nb.traverse((o) => {
+          const m = o as THREE.Mesh;
+          if (!m.isMesh || !m.visible || !m.geometry || m === (refl as unknown) || m === (halo as unknown) || m === (kGlow as unknown)) return;
+          m.geometry.computeBoundingBox();
+          const b = m.geometry.boundingBox!;
+          for (const x of [b.min.x, b.max.x]) for (const y of [b.min.y, b.max.y]) for (const z of [b.min.z, b.max.z]) pts.push(m.localToWorld(new THREE.Vector3(x, y, z)));
+        });
+        let x0 = Infinity,
+          y0 = Infinity,
+          x1 = -Infinity,
+          y1 = -Infinity;
+        for (const p of pts) {
+          const v = p.project(camera);
+          const x = r.left + ((v.x + 1) / 2) * r.width,
+            y = r.top + ((1 - v.y) / 2) * r.height;
+          x0 = Math.min(x0, x);
+          x1 = Math.max(x1, x);
+          y0 = Math.min(y0, y);
+          y1 = Math.max(y1, y);
+        }
         return { left: x0, top: y0, right: x1, bottom: y1 };
       },
     };

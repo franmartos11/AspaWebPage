@@ -95,6 +95,19 @@ test.describe("Home · layout", () => {
 
   test("página completa (versión fija, movimiento reducido)", async ({ page }) => {
     await open(page, { reducedMotion: true });
+    // las imágenes diferidas cargan al acercarse: se recorre la página y se espera a que todas estén
+    // decodificadas (si no, la captura sale a veces con la versión chica y a veces con la grande)
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.documentElement.scrollHeight; y += 600) {
+        scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 40));
+      }
+      scrollTo(0, 0);
+      // solo las visibles (las de bloques ocultos, como el respaldo sin 3D, nunca cargan) y con tope de 8 s
+      const imgs = [...document.images].filter((i) => i.getClientRects().length > 0);
+      const ready = Promise.all(imgs.map((i) => (i.complete ? i.decode().catch(() => {}) : new Promise((r) => (i.onload = i.onerror = r)))));
+      await Promise.race([ready, new Promise((r) => setTimeout(r, 8000))]);
+    });
     await page.waitForTimeout(500);
     await expect(page).toHaveScreenshot("full.png", { fullPage: true });
   });

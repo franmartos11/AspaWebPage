@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: SITE.name,
     short_name: "Aspa",
-    description: SITE.tagline,
+    description: SITE.tagline.es,
     start_url: "/",
     display: "standalone",
     background_color: "#0a0a0c",

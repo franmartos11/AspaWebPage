@@ -20,17 +20,36 @@
   inset: 0;
   z-index: 1;
 }
-/* imagen fija de la notebook cerrada hasta que arranca el 3D (mismo encuadre que la escena) */
-.nb-poster,
-.nb-poster img {
+/* imagen fija de la notebook cerrada hasta que arranca el 3D. Tiene que medir lo mismo que la escena
+   en cualquier pantalla (si no, al arrancar el 3D la notebook "crece"), así que copia el encuadre de
+   la cámara de notebook3d.ts (camAt):
+   - horizontal: encuadra por el alto; debajo de 1,4725:1 (1,55 × 0,95) la cámara se aleja y pasa a
+     encuadrar por el ancho → alto de la imagen = min(alto, ancho / 1,4725).
+   - vertical: encuadra por el ancho (FIT_W); por encima de 0,7425:1 la cámara no se acerca más que
+     R = 10,5 → ancho de la imagen = min(ancho, alto × 0,7425).
+   Con object-fit: contain, en un celular con la barra del navegador (pantalla más baja que la imagen)
+   la notebook salía ~20 % más chica que en el 3D. */
+.nb-poster {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.nb-poster {
+  overflow: hidden;
+  container-type: size;
   transition: opacity 0.6s var(--ease);
+}
+.nb-poster img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: min(100cqh, 67.91cqw);
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+@media (max-aspect-ratio: 1/1) {
+  .nb-poster img {
+    width: min(100cqw, 74.25cqh);
+    height: auto;
+  }
 }
 .m3d.live .nb-poster {
   opacity: 0;

@@ -39,11 +39,22 @@ for (const [path, sel] of SCENES) {
     // al entrar al tramo la escena queda fija en pantalla
     await go(0.5);
     await page.waitForTimeout(300);
+    // (con la página bajo carga, la carga de la escena puede mover el scroll: si no quedó en el tramo, se repite el salto)
+    await expect
+      .poll(
+        async () => {
+          const top = await page.evaluate(
+            (s) => Math.abs(document.querySelector(s)!.closest("[data-scrub]")!.firstElementChild!.getBoundingClientRect().top),
+            sel,
+          );
+          if (top > 1) await go(0.5);
+          return top;
+        },
+        { timeout: 10_000, intervals: [300, 500, 1000] },
+      )
+      .toBeLessThanOrEqual(1);
+    // ya en el tramo, la escena se carga y arranca
     await page.waitForFunction((s) => document.querySelector(s)?.classList.contains("live"), sel, { timeout: 20_000 });
-    // (se espera a que se asiente: con la página bajo carga el scroll puede tardar unos cuadros)
-    await page.waitForFunction((s) => Math.abs(document.querySelector(s)!.closest("[data-scrub]")!.firstElementChild!.getBoundingClientRect().top) <= 1, sel, {
-      timeout: 5_000,
-    });
     // al final del tramo: la obra terminada, medida
     await go(1);
     await page.waitForTimeout(2500);

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CharTitle } from "@/components/CharTitle";
 import { Cta } from "@/components/Cta";
 import { PageFx } from "@/components/Fx";
@@ -9,6 +10,7 @@ import { routes, type Lang } from "@/i18n";
 import { aboutSchema, breadcrumbs } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import mapa from "@/assets/nosotros/mapa-cordoba.jpg";
 import "@/styles/proof.css";
 import "./nosotros.css";
 
@@ -57,7 +59,6 @@ const T = {
       "Aspa Software es un equipo de Córdoba que combina programación, diseño y negocio para hacer sistemas de gestión, apps y webs a medida. Conocé quiénes somos y cómo trabajamos.",
     h1: ["No somos solo una empresa: somos un equipo que respira código y ", { em: "estrategia." }],
     lead: "Programación, diseño y negocio en la misma mesa, para hacer software que se usa todos los días.",
-    scroll: "Seguir bajando",
     meet: "Conocé al equipo",
     story: "Nuestra historia",
     storyText:
@@ -99,7 +100,6 @@ const T = {
       "Aspa Software is a Córdoba-based team that brings engineering, design and business together to build custom management systems, apps and websites. Meet who we are and how we work.",
     h1: ["We're not just a company: we're a team that lives and breathes code and ", { em: "strategy." }],
     lead: "Engineering, design and business at the same table, building software people rely on every day.",
-    scroll: "Keep scrolling",
     meet: "Meet the team",
     story: "Our story",
     storyText:
@@ -210,9 +210,6 @@ export function NosotrosView({ lang }: { lang: Lang }) {
           <CharTitle id="nos-title" parts={[...t.h1]} />
           <div className="nh-bot r-late">
             <p className="lead">{t.lead}</p>
-            <a className="nos-scroll" href="#historia" aria-label={t.scroll}>
-              <span></span>
-            </a>
           </div>
           {/* celular: en vez de media pantalla vacía, el equipo (con link a su sección) */}
           <a className="nh-team r-late" href="#equipo">
@@ -336,11 +333,14 @@ export function NosotrosView({ lang }: { lang: Lang }) {
       <section className="section nos-place" aria-labelledby="nos-lugar">
         <div className="wrap">
           <div className="np-card glass glass-big rv">
+            {/* mapa real (OpenStreetMap, con los colores del sitio) centrado en la oficina: el pin cae en
+                la coordenada de SITE.address.geo; se genera una vez y se sirve desde el sitio */}
             <div className="np-map" aria-hidden="true">
-              <i className="np-grid"></i>
+              <Image src={mapa} alt="" sizes="(max-width: 980px) calc(100vw - 48px), 640px" />
               <span className="np-pin">
                 <b></b>
               </span>
+              <small className="np-attr">© OpenStreetMap</small>
             </div>
             <div className="np-tx">
               <p className="lbl">{t.where}</p>

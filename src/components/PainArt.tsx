@@ -180,9 +180,10 @@ export function PainArt({ text, lang }: { text: string; lang?: Lang }) {
 export function PainCard({ text, n, lang }: { text: string; n: number; lang?: Lang }) {
   return (
     <article className="pcard glass rv">
-      <PainArt text={text} lang={lang} />
+      {/* primero el texto (se lee antes) y el dibujo abajo */}
       <span className="n">0{n}</span>
       <p>{text}</p>
+      <PainArt text={text} lang={lang} />
     </article>
   );
 }

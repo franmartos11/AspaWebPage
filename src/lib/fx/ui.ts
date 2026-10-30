@@ -87,20 +87,20 @@ export function initCompare(cmp: HTMLElement) {
   cmp.addEventListener("pointerup", up);
   cmp.addEventListener("pointercancel", up);
   knob.addEventListener("keydown", key);
-  // barrido de demostración (50 → 92 → 8 → 50) la primera vez que se ve, si nadie lo tocó
+  // barrido de demostración (50 → 82 → 50, un solo rebote) la primera vez que se ve, si nadie lo tocó
   let raf = 0;
   const io = new IntersectionObserver(
     (es) => {
       if (!es[0].isIntersecting || reducedMotion()) return;
       io.disconnect();
-      const keys = [50, 92, 8, 50],
-        T = 3000,
+      const keys = [50, 82, 50],
+        T = 1200,
         t0 = performance.now();
       const step = (t: number) => {
         if (touched) return;
         const u = clamp((t - t0) / T, 0, 1),
-          sg = u * 3,
-          i = Math.min(2, sg | 0),
+          sg = u * (keys.length - 1),
+          i = Math.min(keys.length - 2, sg | 0),
           f = sg - i,
           e = f < 0.5 ? 4 * f * f * f : 1 - Math.pow(-2 * f + 2, 3) / 2;
         set(lerp(keys[i], keys[i + 1], e));

@@ -1,9 +1,10 @@
 // Escena "site" (Constructoras: la obra en marcha), portada del diseño (script8): se arma la grúa,
 // suben las columnas piso por piso con su encofrado, bajan las losas, aparecen el obrador, la pila
 // de vigas, el mixer, los conos, los operarios y el andamio, y al final el vidriado de los primeros
-// pisos. La grúa gira y sube una viga en loop. Se arma cuando la escena está en pantalla y se
-// desarma (al doble de velocidad) si subís y queda abajo.
-import { THREE, P, mat, stage, box, edges, lineSet, contactShadow, interact, want, clamp, lerp, easeOut, easeBack, seg } from "./kit";
+// pisos. La grúa gira y sube una viga en loop. Se arma con el scroll (scrub en kit.ts) y se
+// desarma si volvés a subir.
+import { THREE, P, mat, stage, box, edges, lineSet, contactShadow, interact, clamp, lerp, easeOut, easeBack, seg, scrub } from "./kit";
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 export function mount(el: HTMLElement): () => void {
   const { S, run, dispose } = stage(el, 30, [17.2, 12.2, 19.6], [0.4, 3.1, 0.4]);
@@ -187,20 +188,23 @@ export function mount(el: HTMLElement): () => void {
   const scaf = new THREE.Group();
   g.add(scaf);
   const scafM = new THREE.MeshStandardMaterial({ color: P.blueL });
-  for (let k = 0; k <= 6; k++) scaf.add(box(0.025, FLR * H, 0.025, scafM, -2.9 + k * 0.62, 0, 1.98, true));
-  for (let k = 1; k < FLR; k++) scaf.add(box(3.75, 0.02, 0.02, scafM, -1, k * H, 1.98));
+  // andamio: 12 caños en una sola geometría (1 llamada de dibujo en vez de 12)
+  const pipes: THREE.BufferGeometry[] = [];
+  for (let k = 0; k <= 6; k++) pipes.push(new THREE.BoxGeometry(0.025, FLR * H, 0.025).translate(-2.9 + k * 0.62, (FLR * H) / 2, 1.98));
+  for (let k = 1; k < FLR; k++) pipes.push(new THREE.BoxGeometry(3.75, 0.02, 0.02).translate(-1, k * H, 1.98));
+  scaf.add(new THREE.Mesh(mergeGeometries(pipes), scafM));
+  pipes.forEach((q) => q.dispose());
   scaf.scale.y = 0.001;
   scaf.visible = false;
   const sh = contactShadow(11, 9, 0.5);
   sh.position.y = -0.12;
   scene.add(sh);
 
-  let t0 = -0.2;
+  // se arma con el scroll: el segundo número es el final de su línea de tiempo (la obra completa)
+  const prog = scrub(el, FLR * 0.62 + 2.65);
   const spin = interact(S, -0.2);
   run((dt, t) => {
-    const wv = want(el);
-    t0 = clamp(t0 + dt * (wv > 0 ? 1 : wv < 0 ? -2 : 0), -0.2, 8);
-    const e = t0;
+    const e = prog(dt);
     const pc = easeOut(seg(e, 0.1, 1));
     crane.visible = pc > 0;
     crane.scale.y = Math.max(0.001, pc);
@@ -239,7 +243,7 @@ export function mount(el: HTMLElement): () => void {
     cable.scale.y = 6.4 - drop;
     beam.position.y = -(6.4 - drop);
     beam.visible = cyc < 0.5;
-    spin(t);
+    spin(t, prog.p);
   });
   return dispose;
 }

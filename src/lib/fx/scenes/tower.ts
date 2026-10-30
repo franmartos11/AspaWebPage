@@ -2,7 +2,8 @@
 // y cada unidad es tocable (cálida = disponible, ámbar = reservada, oscura = vendida).
 // Los datos de las unidades y lo que se muestra (tooltip, ficha, cotizador) viven en ../devdemo:
 // acá solo se dibuja, se detecta el puntero y se avisa con onHover / onPick.
-import { THREE, P, mat, box, edges, tree, contactShadow, stage, interact, want, seg, clamp, lerp, easeOut, easeBack } from "./kit";
+import { THREE, P, mat, box, edges, tree, contactShadow, stage, interact, seg, lerp, easeOut, easeBack, scrub } from "./kit";
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { towerUnits, TOWER_FLOORS, type TowerUnit } from "../devdemo";
 
 export type TowerOpts = {
@@ -49,6 +50,7 @@ export function mountTower(el: HTMLElement, opts: TowerOpts): Tower {
     fg.userData.y = fg.position.y;
     fg.add(box(3.3, 0.07, 2.5, slabM, 0, H - 0.04, 0)); // losa: children[0]
     fg.add(box(0.6, H - 0.07, 0.6, coreM, 0, 0, 0, true));
+    const fins: THREE.BufferGeometry[] = [];
     POS.forEach(([x, z], k) => {
       const i = f * 4 + k;
       const u = box(1.5, H - 0.1, 1.08, mat.lit(), x, 0, z, true) as THREE.Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial>;
@@ -56,9 +58,12 @@ export function mountTower(el: HTMLElement, opts: TowerOpts): Tower {
       u.userData = { i, lit: Math.random() < 0.35, floor: fg };
       fg.add(u);
       units[i] = u;
-      // parasoles verticales
-      for (let q = 0; q < 4; q++) fg.add(box(0.035, H - 0.1, 0.14, slabM, x - 0.6 + q * 0.4, 0, z + (z > 0 ? 0.6 : -0.6), true));
+      // parasoles verticales (se juntan en una sola geometría por piso, abajo)
+      for (let q = 0; q < 4; q++) fins.push(new THREE.BoxGeometry(0.035, H - 0.1, 0.14).translate(x - 0.6 + q * 0.4, (H - 0.1) / 2, z + (z > 0 ? 0.6 : -0.6)));
     });
+    // 16 parasoles = 1 llamada de dibujo en vez de 16 (la torre pasa de ~270 a ~110 por cuadro)
+    fg.add(new THREE.Mesh(mergeGeometries(fins), slabM));
+    fins.forEach((f) => f.dispose());
     fg.scale.y = 0.001;
     fg.visible = false;
     g.add(fg);
@@ -146,11 +151,10 @@ export function mountTower(el: HTMLElement, opts: TowerOpts): Tower {
 
   // ---------- armado por tiempo (se arma al entrar, se desarma si volvés a subir) ----------
   const spin = interact(S, -0.35);
-  let t0 = -0.2;
+  // se arma con el scroll: el segundo número es el final de su línea de tiempo (la obra completa)
+  const prog = scrub(el, 0.4 + FL * 0.14 + 1.2);
   run((dt, t) => {
-    const wv = want(el);
-    t0 = clamp(t0 + dt * (wv > 0 ? 1 : wv < 0 ? -2 : 0), -0.2, 8);
-    const e = t0;
+    const e = prog(dt);
     floors.forEach((f, i) => {
       const p = seg(e, 0.25 + i * 0.14, 0.55);
       f.visible = p > 0;
@@ -176,7 +180,7 @@ export function mountTower(el: HTMLElement, opts: TowerOpts): Tower {
     floors.forEach((f) => {
       (f.children[0] as THREE.Mesh).material = hover && hover.userData.floor === f ? hiSlab : slabM;
     });
-    spin(t);
+    spin(t, prog.p);
   });
 
   return {

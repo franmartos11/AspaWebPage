@@ -662,6 +662,278 @@ a.ul {
   background: var(--fg);
   color: var(--bg);
 }
+/* menú de Webs: panel a todo el ancho del header con los rubros por familia a la izquierda y la
+   ilustración del rubro con el mouse (o el foco) a la derecha; se abre con hover o con el teclado */
+.hdr .pill {
+  position: relative;
+}
+@media (min-width: 981px) {
+  .hdr .nav,
+  .nav-dd {
+    position: static;
+  }
+}
+.nav-dd {
+  display: flex;
+}
+.nav-mega {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(300px, 2fr);
+  grid-template-rows: 1fr auto;
+  border-radius: 22px;
+  background: rgba(14, 14, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(28px);
+  backdrop-filter: blur(28px);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.3s var(--expo),
+    transform 0.4s var(--expo),
+    visibility 0s 0.3s;
+}
+/* puente invisible entre el link y el panel: el mouse no lo pierde al bajar */
+.nav-mega::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+}
+.nav-dd:hover .nav-mega,
+.nav-dd:focus-within .nav-mega {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.3s var(--expo),
+    transform 0.4s var(--expo);
+}
+/* recién elegida una opción: cerrado aunque el mouse siga encima (NavLinks, Mega) */
+.nav-dd.shut:hover .nav-mega,
+.nav-dd.shut .nav-mega {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    visibility 0s 0.2s;
+}
+.nm-cols {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+}
+.nm-col {
+  padding: 22px 14px 18px;
+}
+.nm-col + .nm-col {
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+.nm-fam {
+  margin: 0 12px 10px;
+  font: 500 12px var(--sans);
+  color: var(--mut);
+}
+.nav-sub {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hdr .nav .nav-sub a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+.hdr .nav .nav-sub a::after {
+  display: none;
+}
+.nav-sub b {
+  display: block;
+  font: 600 14px var(--sans);
+  color: #fff;
+}
+.nav-sub span {
+  display: block;
+  margin-top: 3px;
+  font: 400 13px/1.35 var(--sans);
+  color: var(--mut);
+}
+.nav-sub li.on a,
+.hdr .nav .nav-sub a:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+}
+.nm-art {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  background: radial-gradient(70% 70% at 50% 45%, color-mix(in srgb, var(--g1) 18%, transparent), transparent 75%);
+}
+.nm-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+.hdr .nav .nm-foot a {
+  font-size: 13px;
+}
+
+/* ilustraciones del menú (NavArt): se arman con cada cambio de rubro */
+.nav-art {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  --ln: rgba(255, 255, 255, 0.62);
+  --ac: #8a88ff;
+}
+.nav-art .s {
+  fill: none;
+  stroke: var(--ln);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.nav-art .s.a {
+  stroke: var(--ac);
+}
+.nav-art .s.wood {
+  stroke: #c08a5a;
+  stroke-width: 3;
+}
+.nav-art .s.leaf {
+  stroke: #7fb08a;
+}
+.nav-art .dash {
+  stroke-dasharray: 0.02 0.02;
+}
+.nav-art .fa {
+  fill: color-mix(in srgb, var(--ac) 32%, transparent);
+}
+.nav-art .fw {
+  fill: rgba(255, 255, 255, 0.82);
+}
+.nav-art .fw2 {
+  fill: rgba(255, 255, 255, 0.5);
+}
+.nav-art .dark {
+  fill: rgba(255, 255, 255, 0.1);
+}
+.nav-art .warm {
+  fill: rgba(255, 214, 160, 0.5);
+}
+.nav-art .res {
+  fill: rgba(255, 190, 90, 0.55);
+}
+.nav-art .tree {
+  fill: #7fb08a;
+}
+.nav-art .ins {
+  fill: rgba(240, 216, 120, 0.7);
+}
+.nav-art .osb {
+  fill: rgba(196, 150, 96, 0.8);
+}
+.nav-art .card {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.25);
+}
+.nav-art .d {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: naDraw 0.9s var(--expo) var(--d, 0s) forwards;
+}
+.nav-art .dash.d {
+  stroke-dasharray: 0.02 0.02;
+  stroke-dashoffset: 0;
+  opacity: 0;
+  animation: naFade 0.6s ease var(--d, 0s) forwards;
+}
+.nav-art .p {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transform: scale(0);
+  animation: naPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d, 0s) forwards;
+}
+.nav-art .r {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: naRise 0.7s var(--expo) var(--d, 0s) forwards;
+}
+.nav-art .f {
+  opacity: 0;
+  animation: naFade 0.6s ease var(--d, 0s) forwards;
+}
+.nav-art .gl {
+  opacity: 0;
+  animation:
+    naFade 0.6s ease var(--d, 0s) forwards,
+    naGlow 2.4s ease-in-out calc(var(--d, 0s) + 0.6s) infinite alternate;
+}
+.nav-art .sway {
+  transform-box: view-box;
+  transform-origin: 200px 46px;
+  animation: naSway 3s ease-in-out var(--d, 0s) infinite alternate;
+}
+@keyframes naDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes naPop {
+  to {
+    transform: none;
+  }
+}
+@keyframes naRise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes naFade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes naGlow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+@keyframes naSway {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-art *,
+  .nav-art .sway {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
 /* el idioma en el menú del celular (en escritorio está el selector ES/EN) */
 .nav .nav-lang {
   display: none;
@@ -1073,12 +1345,73 @@ a:hover .arrow {
     right: 24px;
     flex-direction: column;
     padding: 12px var(--pad) 0;
+    /* con el submenú de Webs el menú es más largo: en celulares bajos se desplaza */
+    max-height: calc(100svh - 110px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .menu-open .hdr .nav a {
     font: 600 32px var(--disp);
     letter-spacing: -0.035em;
     padding: 14px 0;
     border-bottom: 1px solid var(--ln);
+  }
+  /* en el menú del celular el menú de Webs va desplegado debajo de Webs: solo los nombres, en dos columnas */
+  .menu-open .hdr .nav .nav-dd {
+    flex-direction: column;
+  }
+  .menu-open .hdr .nav .nav-mega {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: block;
+    padding: 6px 0 12px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--ln);
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .menu-open .hdr .nav .nav-mega::before,
+  .menu-open .hdr .nav .nm-art,
+  .menu-open .hdr .nav .nm-fam,
+  .menu-open .hdr .nav .nav-sub span {
+    display: none;
+  }
+  /* los rubros de las tres familias fluyen en dos columnas parejas */
+  .menu-open .hdr .nav .nm-cols {
+    display: block;
+    columns: 2;
+    column-gap: 12px;
+  }
+  .menu-open .hdr .nav .nm-col {
+    padding: 0;
+    border: 0;
+  }
+  .menu-open .hdr .nav .nav-sub li {
+    break-inside: avoid;
+  }
+  .menu-open .hdr .nav .nav-sub a,
+  .menu-open .hdr .nav .nm-foot a {
+    font: 500 15px var(--sans);
+    letter-spacing: 0;
+    padding: 8px 0;
+    border-bottom: 0;
+    background: none;
+  }
+  .menu-open .hdr .nav .nav-sub b {
+    font: inherit;
+    color: rgba(255, 255, 255, 0.78);
+  }
+  .menu-open .hdr .nav .nm-foot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 12px;
+    padding: 0;
+    border: 0;
   }
   .menu-open .hdr .nav .nav-lang {
     display: block;

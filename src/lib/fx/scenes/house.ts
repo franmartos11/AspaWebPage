@@ -1,8 +1,8 @@
 // Escena "house" (Arquitectos: del plano a la casa), portada del diseño (script8): se dibuja el
 // plano en el piso, crecen los volúmenes, bajan las losas, aparecen vidrios, pileta y árboles y al
-// final se prende la luz cálida adentro. Se arma cuando la escena está en pantalla y se desarma
-// (al doble de velocidad) si subís y queda abajo.
-import { THREE, P, mat, stage, box, edges, lineSet, tree, contactShadow, interact, want, clamp, lerp, easeOut, easeBack, seg } from "./kit";
+// final se prende la luz cálida adentro. Se arma con el scroll (scrub en kit.ts) y se desarma
+// si volvés a subir.
+import { THREE, P, mat, stage, box, edges, lineSet, tree, contactShadow, interact, lerp, easeOut, easeBack, seg, tex, skin, scrub } from "./kit";
 
 export function mount(el: HTMLElement): () => void {
   const { S, run, dispose } = stage(el, 30, [12, 9, 13.8], [0.3, 1.5, 0.3]);
@@ -100,15 +100,52 @@ export function mount(el: HTMLElement): () => void {
   deck.position.y = -0.01;
   deck.visible = false;
   g.add(deck);
+  const leaf = mat.white();
   const trees = [
-    [3.6, 2.4, 1.3],
+    [4.4, -0.7, 1.3],
     [-3.8, -1.9, 1.6],
     [3.9, -2.9, 1.1],
   ].map(([x, z, s]) => {
-    const t = tree(x, z, s, mat.white());
+    const t = tree(x, z, s, leaf);
     t.scale.setScalar(0.001);
     g.add(t);
     return t;
+  });
+  // baranda de vidrio en la terraza (sobre la planta baja, delante del volumen alto)
+  const railM = new THREE.MeshPhysicalMaterial({ color: 0xbfd4e6, roughness: 0.05, metalness: 0.1, transparent: true, opacity: 0.35 });
+  const rails = [box(4.4, 0.42, 0.03, railM, -1, 2.61, 1.72, true), box(0.03, 0.42, 1.02, railM, -3.22, 2.61, 1.22, true)];
+  rails.forEach((o) => {
+    edges(o, 0xffffff, 0.35);
+    o.visible = false;
+    g.add(o);
+  });
+  // acceso de hormigón con el auto, y cercos verdes en el borde del lote
+  const drive = box(1.3, 0.02, 3.2, new THREE.MeshStandardMaterial({ color: 0x5d5d63, roughness: 0.9 }), 4.15, 0.012, 2.3, true);
+  drive.visible = false;
+  g.add(drive);
+  const car = new THREE.Group();
+  const paint = new THREE.MeshPhysicalMaterial({ color: 0x2b2f38, roughness: 0.35, metalness: 0.6, clearcoat: 1, clearcoatRoughness: 0.2 });
+  car.add(box(0.78, 0.32, 1.7, paint, 0, 0.1, 0, true));
+  car.add(box(0.7, 0.26, 0.92, mat.glass(), 0, 0.42, -0.08, true));
+  const wheelGeo = new THREE.CylinderGeometry(0.14, 0.14, 0.08, 16).rotateZ(Math.PI / 2);
+  const tire = new THREE.MeshStandardMaterial({ color: 0x0c0c0e, roughness: 0.9 });
+  [-0.4, 0.4].forEach((x) =>
+    [-0.55, 0.55].forEach((z) => {
+      const w = new THREE.Mesh(wheelGeo, tire);
+      w.position.set(x, 0.14, z);
+      car.add(w);
+    }),
+  );
+  const beams = new THREE.MeshStandardMaterial({ color: 0x111, emissive: 0xfff1d6, emissiveIntensity: 0 });
+  [-0.26, 0.26].forEach((x) => car.add(box(0.14, 0.05, 0.02, beams, x, 0.3, 0.86)));
+  car.position.set(4.15, 0, 2.9);
+  car.visible = false;
+  g.add(car);
+  const hedgeM = new THREE.MeshStandardMaterial({ color: 0x2c4a33, roughness: 0.95 });
+  const hedges = [box(0.38, 0.42, 3.4, hedgeM, -4.35, 0, 1.4, true), box(3.6, 0.36, 0.34, hedgeM, -2.55, 0, 3.8, true)];
+  hedges.forEach((o) => {
+    o.scale.y = 0.001;
+    g.add(o);
   });
   const lawnM = new THREE.MeshStandardMaterial({ color: 0x1d2621, roughness: 1, transparent: true, opacity: 0 });
   g.add(box(9.2, 0.02, 7.2, lawnM, 0, 0.005, 0, true));
@@ -140,12 +177,18 @@ export function mount(el: HTMLElement): () => void {
   sh.position.y = -0.12;
   scene.add(sh);
 
-  let t0 = -0.2;
+  // al final la maqueta se materializa: hormigón visto abajo, madera en el volumen que vuela
+  const conc = tex.concrete();
+  const toConc = skin([A, B], conc, [2, 1.2]),
+    toWood = skin([C], tex.wood(), [3, 1], 0.7);
+  const white = new THREE.Color(P.white),
+    green = new THREE.Color(0x4d7a52);
+
+  // se arma con el scroll: el segundo número es el final de su línea de tiempo (la obra completa)
+  const prog = scrub(el, 6.4);
   const spin = interact(S, -0.12);
   run((dt, t) => {
-    const wv = want(el);
-    t0 = clamp(t0 + dt * (wv > 0 ? 1 : wv < 0 ? -2 : 0), -0.2, 8);
-    const e = t0;
+    const e = prog(dt);
     lines.geometry.setDrawRange(0, Math.floor(lines.userData.n * easeOut(seg(e, 0, 1.8))) & ~1);
     linesM.opacity = lerp(1, 0.28, seg(e, 2.4, 0.8));
     (
@@ -176,6 +219,17 @@ export function mount(el: HTMLElement): () => void {
       mullions.get(o)!.forEach((m) => (m.visible = pg > 0.5));
     });
     deck.visible = e > 3.6;
+    const pr = easeOut(seg(e, 3.5, 0.5));
+    rails.forEach((o) => {
+      o.visible = pr > 0;
+      o.scale.y = Math.max(0.001, pr);
+    });
+    drive.visible = e > 3.7;
+    // el auto entra por el acceso y frena
+    const pc = seg(e, 4.2, 0.8);
+    car.visible = pc > 0;
+    car.position.z = 2.9 + (1 - easeOut(pc)) * 1.6;
+    hedges.forEach((o, i) => (o.scale.y = Math.max(0.001, easeBack(seg(e, 3.9 + i * 0.15, 0.5)))));
     pool.scale.y = Math.max(0.001, easeOut(seg(e, 3.8, 0.6)));
     trees.forEach((tr, i) => tr.scale.setScalar(Math.max(0.001, easeBack(seg(e, 4 + i * 0.15, 0.6)))));
     lawnM.opacity = seg(e, 0.2, 1) * 0.9;
@@ -184,7 +238,12 @@ export function mount(el: HTMLElement): () => void {
     warm.emissiveIntensity = li * 0.9;
     glow.forEach((o) => (o.visible = li > 0));
     lampM.emissiveIntensity = li * 2.2;
-    spin(t);
+    beams.emissiveIntensity = li * 1.6;
+    const mt = easeOut(seg(e, 5.2, 1.2));
+    toConc(mt);
+    toWood(mt);
+    leaf.color.lerpColors(white, green, mt);
+    spin(t, prog.p);
   });
   return dispose;
 }

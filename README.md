@@ -161,6 +161,29 @@ scripts/og-images.mjs      regenera las imágenes para redes de los dos idiomas 
 | Sin el reflector que sigue al mouse en las tarjetas (`data-spot`) | Se dejó afuera en todo el sitio. |
 | El equipo y los números son listas; «Nuestra historia» y «Empresas que confían» son títulos (h2) | Lectores de pantalla. |
 
+### Revisión con capturas (octubre): diferencias deliberadas
+
+| Qué | Por qué |
+| --- | --- |
+| «Cuatro formas…» sin autoplay ni barras de arriba: cambia solo al elegir una pestaña | Pasaba sola cada 6,5 s y no dejaba leer. |
+| Galería de trabajos: un solo componente (`WorkGallery`) en el Home y en Webs; cada web abre su sitio en vivo y Aspa Rodeo, su caso | Estaba copiada en dos vistas con estilos distintos, y en el Home llevaba a la página del rubro. |
+| Marquee de clientes: la caja de cada nombre se agranda `0,08em` a la derecha | Con el tracking negativo la última letra quedaba sin el relleno del degradado. |
+| Menú con «Inicio» y paneles a todo el ancho en Sistemas (Aspa Rodeo y Aspa Scout) y en Webs: los rubros por familia (con una línea cada uno) a la izquierda y, a la derecha, una ilustración 2D del rubro con el mouse o el foco (`NavArt`); en celular, desplegado debajo de Webs | Los rubros solo se encontraban desde la página de Webs. Las ilustraciones son SVG con CSS: no suman descargas ni JavaScript aparte. |
+| Hero común en los 7 rubros: título, bajada, WhatsApp (con el mensaje del rubro), «Ver ejemplos» y visual de la misma caja | Con foto medía 886 px y con captura 568; en 1366×768 la bajada quedaba bajo la pantalla y no había ningún botón. |
+| Webs: «De tus fotos a tu web online» después de «Lo que pasa hoy», con cada paso que entra al llegar la línea; sin «¿Otro rubro?» | Estaba casi al final; el link solo bajaba a la llamada de la misma página. |
+| Tarjetas de «Lo que pasa hoy»: el texto arriba y el dibujo abajo | Se lee primero el problema. |
+| Comparador boceto → web y planilla → sistema: un solo rebote (50 → 82 → 50) en 1,2 s | Iba y volvía dos veces en 3 s. |
+| Sistemas: «De la primera charla a la versión 1.0» va justo debajo del hero | Pedido de Aspa: el proceso es lo primero que hay que contar. |
+| Sistemas: «Seis cosas que hacemos todos los días» no se muestra (`SHOW_SEIS = false` en `SistemasView.tsx`) | Pedido de Aspa; el código queda para volver a usarla. |
+| Escenas 3D de los rubros y torre de desarrollistas: se arman con el scroll (`scrub` en `scenes/kit.ts`). La sección es un tramo de 400 % de la pantalla (320 % la torre) con la escena fija; al subir se desarma. La cámara arranca cerca y casi cenital (el plano) y gira y se aleja hasta la obra terminada, y al costado una línea de tiempo de etapas (`STEP_AT` en `RubroView.tsx`, sacadas de la línea de tiempo de cada escena): números en círculos unidos por conectores que se pintan al completar cada etapa, contador «Etapa 03 / 05» y la descripción de lo que se está armando; en celular, solo la etapa activa con una barra. Sin 3D, la imagen fija con su alto normal y las etapas como lista | Antes se reproducían solas y había que esperar ~5,5 s; ahora la obra avanza al ritmo de quien scrollea. |
+| Escenas 3D: en reposo (sin scroll que mueva la obra ni mouse) dibujan a 30 cuadros por segundo; los 16 parasoles de cada piso de la torre y el andamio de la obra van en una sola geometría | La torre pasó de ~270 a ~110 llamadas de dibujo por cuadro. `tests/scenes.spec.ts` comprueba que cada escena quede fija en su tramo y no pase de 150 llamadas ni 50 mil triángulos. |
+| Arquitectos: la casa suma baranda de vidrio en la terraza, acceso con un auto que entra y prende las luces, y cercos verdes | El modelo se veía pobre al lado de la foto del hero. |
+| Arquitectos y estudios: al terminar de armarse, la maqueta se materializa (hormigón visto con encofrado, madera, árboles verdes) con `skin()` y `tex` de `scenes/kit.ts` | La maqueta blanca sola no mostraba cómo queda la obra. Las texturas se dibujan en canvas: no suman descargas. La imagen fija (sin 3D) sigue siendo la maqueta. |
+| «Cómo se vería» de interiorismo (Nogal) y steel framing (Trama): imagen o escena a la izquierda y miniaturas apiladas a la derecha, con alto atado a la pantalla | Medían 915 y 1160 px en 1366×768 y había que scrollear dentro de la maqueta; ahora entran enteras desde 1366×768. |
+| «Inversión» de cada rubro en una frase corta («Un solo cliente nuevo y ya la pagaste.») | El texto anterior era largo y raro. |
+| Contacto: título en una línea y formulario más compacto en escritorio | El formulario y los datos entran enteros en 1366×768 (antes se cortaban 300 px). |
+| Nosotros: hero alineado con el logo, a la altura de la pantalla y con el link al equipo; mapa real (OpenStreetMap con los colores del sitio) centrado en Av. Colón 730 y `geo` en los datos estructurados | El título quedaba corrido 70 px hacia adentro; el «mapa» era una grilla con un punto. La imagen se generó una vez desde los tiles de OSM (z17); la coordenada está en `SITE.address.geo`. |
+
 Se mantuvieron a propósito dos rarezas del diseño porque son parte de cómo se ve: la sangría de 40 px de los títulos del acordeón (venía de una colisión de la clase `.tl`) y la posición del fénix durante la intro.
 
 ## Mediciones (build de producción, local)

@@ -1,10 +1,10 @@
 // Escena "homes" (Constructoras de vivienda: un barrio de modelos), portada del diseño (script8): se
 // dibujan los lotes, crecen las tres casas modelo (dos aguas, techo plano con planta alta y un agua)
 // con sus árboles, aparecen los carteles con el nombre del modelo y al final se prende la luz cálida.
-// Pasando el mouse por una casa la levanta y resalta su cartel. Se arma cuando la escena está en
-// pantalla y se desarma (al doble de velocidad) si subís y queda abajo.
+// Pasando el mouse por una casa la levanta y resalta su cartel. Se arma con el scroll (scrub en
+// kit.ts) y se desarma si volvés a subir.
 import { pageLang } from "../core";
-import { THREE, mat, stage, box, edges, lineSet, tree, contactShadow, interact, want, clamp, lerp, easeOut, easeBack, seg, cssFont } from "./kit";
+import { THREE, mat, stage, box, edges, lineSet, tree, contactShadow, interact, lerp, easeOut, easeBack, seg, cssFont, scrub } from "./kit";
 
 // carteles de los modelos (los nombres son propios; los dormitorios, en el idioma de la página)
 const INFO = (bed: string) => [
@@ -147,12 +147,11 @@ export function mount(el: HTMLElement): () => void {
   sh.position.y = -0.12;
   scene.add(sh);
 
-  let t0 = -0.2;
+  // se arma con el scroll: el segundo número es el final de su línea de tiempo (la obra completa)
+  const prog = scrub(el, 4.7);
   const spin = interact(S, -0.1);
   run((dt, t) => {
-    const wv = want(el);
-    t0 = clamp(t0 + dt * (wv > 0 ? 1 : wv < 0 ? -2 : 0), -0.2, 8);
-    const e = t0;
+    const e = prog(dt);
     lines.geometry.setDrawRange(0, Math.floor(lines.userData.n * easeOut(seg(e, 0, 1.3))) & ~1);
     linesM.opacity = lerp(1, 0.3, seg(e, 3, 0.8));
     houses.forEach((h, i) => {
@@ -169,7 +168,7 @@ export function mount(el: HTMLElement): () => void {
       sp.material.opacity = base * (hovH < 0 || hovH === k ? 1 : 0.35);
       sp.position.y = 3.3 + (k === 1 ? 0.45 : 0) + (1 - easeOut(base)) * 0.4 + (hovH === k ? 0.2 : 0) + Math.sin(t * 1.5 + k) * 0.04;
     });
-    spin(t);
+    spin(t, prog.p);
   });
   return () => {
     el.removeEventListener("pointermove", aimH);

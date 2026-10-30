@@ -10,7 +10,30 @@ declare global {
   }
 }
 
+export function resetScroll(to: number | string | HTMLElement = 0) {
+  if (typeof window === "undefined") return;
+  if (typeof to === "string" && to.startsWith("#")) {
+    const el = document.querySelector(to);
+    if (el) {
+      if (window.__lenis) window.__lenis.scrollTo(el as HTMLElement, { immediate: true, force: true });
+      else el.scrollIntoView();
+      requestTick();
+      return;
+    }
+  }
+  const y = typeof to === "number" ? to : 0;
+  if (window.__lenis) {
+    window.__lenis.scrollTo(y, { immediate: true, force: true });
+    window.__lenis.resize();
+  }
+  window.scrollTo({ top: y, left: 0, behavior: "instant" });
+  requestTick();
+}
+
 export function initSite() {
+  if (typeof window !== "undefined" && "scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
   const RM = reducedMotion();
   const off: (() => void)[] = [];
   wireScroll();
@@ -57,8 +80,15 @@ export function initSite() {
     else lenis?.start();
   };
   const onMenu = () => setMenu(!document.body.classList.contains("menu-open"));
-  const onNav = (e: Event) => {
-    if ((e.target as Element).closest("#nav a")) setMenu(false);
+  const onNav = (e: MouseEvent) => {
+    const a = (e.target as Element).closest<HTMLAnchorElement>("#nav a, .brand");
+    if (!a) return;
+    setMenu(false);
+    const href = a.getAttribute("href");
+    if (href && (href === location.pathname || href === location.pathname + "/")) {
+      if (window.__lenis) window.__lenis.scrollTo(0, { immediate: false, force: true });
+      else window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
   };
   const onKey = (e: KeyboardEvent) => {
     if (e.key === "Escape" && document.body.classList.contains("menu-open")) {

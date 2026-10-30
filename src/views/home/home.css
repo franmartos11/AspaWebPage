@@ -337,6 +337,11 @@
   background: #fff;
   transform: scaleX(0);
   transform-origin: left;
+  transition: transform 0.6s var(--soft);
+}
+/* sin autoplay: la línea de la pestaña elegida se llena al elegirla */
+.tab.on .tbar i {
+  transform: none;
 }
 .tabs-stage {
   position: sticky;
@@ -387,38 +392,6 @@
   aspect-ratio: 9/19.5;
   max-width: none;
 }
-.stories {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  top: -18px;
-  z-index: 5;
-  display: flex;
-  gap: 6px;
-}
-/* cada línea es una pista fija; solo su relleno avanza (antes se escalaba la línea entera
-   y quedaban huecos desparejos entre ellas) */
-.stories i {
-  flex: 1;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.22);
-  position: relative;
-  overflow: hidden;
-}
-.stories s {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: #fff;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s var(--soft);
-}
-.stories i.done s {
-  transform: none;
-}
-
 /* pantalla de la app (Aspa Rodeo) dentro del celular */
 .manga-scr {
   aspect-ratio: 9/19.5;

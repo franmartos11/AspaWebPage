@@ -144,15 +144,6 @@
   opacity: 1;
   color: var(--ac);
 }
-.other2 {
-  border-top: 1px solid var(--ln);
-  margin-top: 12px;
-  padding-top: 24px;
-}
-.other2 em {
-  font: inherit;
-  color: inherit;
-}
 .rb-viewer {
   position: sticky;
   top: 110px;
@@ -281,6 +272,21 @@
 .tl li.on .tl-dot {
   background: var(--g1);
   box-shadow: 0 0 0 8px color-mix(in srgb, var(--g1) 25%, transparent);
+}
+/* cada paso entra cuando la línea llega a su punto (sin JS o con movimiento reducido se ven todos) */
+.fx .tl li {
+  transition:
+    opacity 0.7s var(--soft),
+    transform 0.9s var(--expo),
+    background 0.7s,
+    border-color 0.7s;
+}
+.fx .tl li:not(.on) {
+  opacity: 0.32;
+  transform: translateX(28px) scale(0.98);
+}
+.fx .tl li.on {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--g1) 22%, transparent), rgba(255, 255, 255, 0.03));
 }
 .whero {
   min-height: 100vh;

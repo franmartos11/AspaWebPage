@@ -23,6 +23,8 @@ export const SITE = {
     region: "Córdoba",
     country: "AR",
     maps: "https://maps.google.com/?q=Av.+Col%C3%B3n+730,+C%C3%B3rdoba",
+    // Av. Colón 730 en OpenStreetMap (Nominatim): el centro del mapa de Nosotros y `geo` en los datos estructurados
+    geo: { lat: -31.4106156, lng: -64.1930532 },
   },
   social: {
     // "company/aspa-software" no existe (daba 404); este es el id de la página de la empresa

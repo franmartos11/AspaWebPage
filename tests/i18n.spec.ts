@@ -112,7 +112,8 @@ test("una URL que no existe da 404 con aviso en los dos idiomas", async ({ page 
   const r = await page.goto("/en/no-existe");
   expect(r?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.locator('a[href="/en"]')).toBeVisible();
+  // el botón al sitio en inglés (el menú también tiene «Home» → /en)
+  await expect(page.locator('main a[href="/en"]')).toBeVisible();
 });
 
 test("formulario en inglés: valida en inglés y confirma en inglés", async ({ page }) => {

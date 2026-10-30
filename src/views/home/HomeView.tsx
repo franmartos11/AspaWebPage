@@ -6,8 +6,10 @@ import { Cta } from "@/components/Cta";
 import { PageFx } from "@/components/Fx";
 import { Clients, Nums } from "@/components/Proof";
 import { JsonLd } from "@/components/JsonLd";
+import { WorkGallery } from "@/components/WorkGallery";
 import { LOCALE, routes, type Lang } from "@/i18n";
 import { homeServicesSchema } from "@/lib/schema";
+import { GALLERY } from "@/lib/webs";
 import alero from "@/assets/work/alero.jpg";
 import architecture360 from "@/assets/work/architecture-360.jpg";
 import avatarCampo from "@/assets/work/avatar-campo.jpg";
@@ -18,7 +20,6 @@ import dh from "@/assets/work/dh-engineering.jpg";
 import notebookRodeo from "@/assets/work/notebook-aspa-rodeo.jpg";
 import obliqua from "@/assets/work/obliqua.jpg";
 import paulaGil from "@/assets/work/paula-gil.jpg";
-import "@/styles/hgal.css";
 import "@/styles/proof.css";
 import "./home.css";
 
@@ -34,7 +35,7 @@ export function homeMeta(lang: Lang): Metadata {
 }
 
 type Service = { title: string; text: string; hash: "" | "#apps" | "#automatizaciones"; to: "sistemas" | "webs"; cta: string };
-type Work = { t: string; s: string; img: StaticImageData; alt: string; rubro?: string; cta: string };
+type Work = { t: string; s: string; img: StaticImageData; alt: string };
 
 const T = {
   es: {
@@ -93,39 +94,31 @@ const T = {
     stagePaulaAlt: "Web de Paula Gil Arquitectura",
     workTitle: ["Sistemas y webs que ya ", "están andando"],
     works: [
-      { t: "Aspa Rodeo", s: "Sistema · Campo", img: rodeo, alt: "Panel de Aspa Rodeo, sistema de gestión de hacienda", cta: "Ver caso" },
+      { t: "Aspa Rodeo", s: "Sistema · Campo", img: rodeo, alt: "Panel de Aspa Rodeo, sistema de gestión de hacienda" },
       {
         t: "DH Engineering",
         s: "Web · Ingeniería",
         img: dh,
         alt: "Web de DH Engineering, empresa de ingeniería",
-        rubro: "constructoras",
-        cta: "Ver rubro",
       },
-      { t: "Paula Gil", s: "Web · Arquitecta", img: paulaGil, alt: "Web de Paula Gil, arquitecta", rubro: "arquitectos", cta: "Ver rubro" },
+      { t: "Paula Gil", s: "Web · Arquitecta", img: paulaGil, alt: "Web de Paula Gil, arquitecta" },
       {
         t: "Architecture 360",
         s: "Web · Desarrollista",
         img: architecture360,
         alt: "Web de Architecture 360, proyecto inmobiliario",
-        rubro: "desarrollistas",
-        cta: "Ver rubro",
       },
       {
         t: "Obliqua",
         s: "Web · Estudio de arquitectura",
         img: obliqua,
         alt: "Web de Obliqua, estudio de arquitectura",
-        rubro: "estudios-de-arquitectura",
-        cta: "Ver rubro",
       },
       {
         t: "Alero",
         s: "Web · Constructora de viviendas",
         img: alero,
         alt: "Web de Alero, constructora de viviendas",
-        rubro: "constructoras-de-vivienda",
-        cta: "Ver rubro",
       },
     ] as Work[],
     numsTitle: ["Nuestro recorrido, ", "en números"],
@@ -189,39 +182,31 @@ const T = {
     stagePaulaAlt: "Paula Gil Arquitectura website",
     workTitle: ["Systems and websites already ", "up and running"],
     works: [
-      { t: "Aspa Rodeo", s: "System · Agriculture", img: rodeo, alt: "Aspa Rodeo dashboard, livestock management system", cta: "View case" },
+      { t: "Aspa Rodeo", s: "System · Agriculture", img: rodeo, alt: "Aspa Rodeo dashboard, livestock management system" },
       {
         t: "DH Engineering",
         s: "Website · Engineering",
         img: dh,
         alt: "DH Engineering website, engineering firm",
-        rubro: "constructoras",
-        cta: "View industry",
       },
-      { t: "Paula Gil", s: "Website · Architect", img: paulaGil, alt: "Paula Gil website, architect", rubro: "arquitectos", cta: "View industry" },
+      { t: "Paula Gil", s: "Website · Architect", img: paulaGil, alt: "Paula Gil website, architect" },
       {
         t: "Architecture 360",
         s: "Website · Real estate developer",
         img: architecture360,
         alt: "Architecture 360 website, real estate project",
-        rubro: "desarrollistas",
-        cta: "View industry",
       },
       {
         t: "Obliqua",
         s: "Website · Architecture studio",
         img: obliqua,
         alt: "Obliqua website, architecture studio",
-        rubro: "estudios-de-arquitectura",
-        cta: "View industry",
       },
       {
         t: "Alero",
         s: "Website · Home builder",
         img: alero,
         alt: "Alero website, home builder",
-        rubro: "constructoras-de-vivienda",
-        cta: "View industry",
       },
     ] as Work[],
     numsTitle: ["Our track record, ", "by the numbers"],
@@ -353,20 +338,6 @@ export function HomeView({ lang }: { lang: Lang }) {
               ))}
             </div>
             <div className="tabs-stage">
-              <div className="stories" aria-hidden="true">
-                <i>
-                  <s />
-                </i>
-                <i>
-                  <s />
-                </i>
-                <i>
-                  <s />
-                </i>
-                <i>
-                  <s />
-                </i>
-              </div>
               <div className="tst on top">
                 <Image src={rodeo} alt={t.stageRodeoAlt} sizes={STAGE_SIZES} />
               </div>
@@ -428,41 +399,16 @@ export function HomeView({ lang }: { lang: Lang }) {
       </section>
 
       {/* ---------- trabajos: galería horizontal guiada por el scroll ---------- */}
-      <section className="hgal native" data-hgal aria-labelledby="work-title">
-        <div className="hgal-stage">
-          <div className="wrap hgal-head">
-            <div>
-              <h2 className="h2" id="work-title" data-lines>
-                {t.workTitle[0]}
-                <em className="grad">{t.workTitle[1]}</em>
-              </h2>
-            </div>
-          </div>
-          <ul className="hgal-track" id="workTrack">
-            {t.works.map((w) => (
-              <li key={w.t}>
-                <Link className="hcard" href={w.rubro ? r.rubro(w.rubro) : r.casoRodeo}>
-                  <div className="hc-img">
-                    <Image src={w.img} alt={w.alt} sizes="(max-width: 980px) 84vw, (max-width: 1530px) 34vw, 520px" />
-                  </div>
-                  <div className="hc-meta">
-                    <h3>{w.t}</h3>
-                    <span className="sr-only">{w.s}</span>
-                  </div>
-                  <span className="hc-pill glass" aria-hidden="true">
-                    {w.cta} →
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="wrap">
-            <div className="hgal-bar" aria-hidden="true">
-              <i></i>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WorkGallery
+        lang={lang}
+        id="work-title"
+        trackId="workTrack"
+        title={t.workTitle}
+        works={t.works.map((w) => {
+          const url = GALLERY.find((g) => g.name.es === w.t)?.url;
+          return { name: w.t, tipo: w.s, img: w.img, alt: w.alt, url, href: url ? undefined : r.casoRodeo };
+        })}
+      />
 
       {/* ---------- números ---------- */}
       <section className="section" aria-labelledby="nums-title">

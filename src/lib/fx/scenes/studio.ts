@@ -1,8 +1,8 @@
 // Escena "studio" (Estudios de arquitectura: de la grilla a la maqueta), portada del diseño
 // (script8): se trazan los ejes con sus letras, suben columnas y núcleo, bajan las losas
-// escalonadas, aparece el vidrio, giran las lamas y se prende la luz adentro. Se arma cuando la
-// escena está en pantalla y se desarma (al doble de velocidad) si subís y queda abajo.
-import { THREE, mat, stage, box, edges, lineSet, tree, contactShadow, interact, want, clamp, lerp, easeOut, easeBack, seg } from "./kit";
+// escalonadas, aparece el vidrio, giran las lamas y se prende la luz adentro. Se arma con el scroll
+// (scrub en kit.ts) y se desarma si volvés a subir.
+import { THREE, P, mat, stage, box, edges, lineSet, tree, contactShadow, interact, lerp, easeOut, easeBack, seg, tex, skin, scrub } from "./kit";
 
 /** Letra de eje (A–E) en una textura de canvas. */
 function lblTex(t: string) {
@@ -127,12 +127,13 @@ export function mount(el: HTMLElement): () => void {
     g.add(o);
     return o;
   });
+  const leaf = mat.white();
   const trees = [
     [-4.5, 2.8, 1.1],
     [4.3, 2.6, 1.3],
     [4.6, -2.4, 1],
   ].map(([x, z, sc]) => {
-    const t = tree(x, z, sc, mat.white());
+    const t = tree(x, z, sc, leaf);
     t.scale.setScalar(0.001);
     g.add(t);
     return t;
@@ -141,12 +142,18 @@ export function mount(el: HTMLElement): () => void {
   sh.position.y = -0.12;
   scene.add(sh);
 
-  let t0 = -0.2;
+  // al final la maqueta se materializa: losas y núcleo de hormigón, lamas de madera
+  const conc = tex.concrete();
+  const toConc = skin([...slabs, core], conc, [3, 0.4]),
+    toWood = skin(fins, tex.wood(), [0.2, 1], 0.7);
+  const white = new THREE.Color(P.white),
+    green = new THREE.Color(0x4d7a52);
+
+  // se arma con el scroll: el segundo número es el final de su línea de tiempo (la obra completa)
+  const prog = scrub(el, 6.8);
   const spin = interact(S, 0.2);
   run((dt, t) => {
-    const wv = want(el);
-    t0 = clamp(t0 + dt * (wv > 0 ? 1 : wv < 0 ? -2 : 0), -0.2, 8);
-    const e = t0;
+    const e = prog(dt);
     lines.geometry.setDrawRange(0, Math.floor(lines.userData.n * easeOut(seg(e, 0, 1.5))) & ~1);
     linesM.opacity = lerp(1, 0.3, seg(e, 3.2, 0.8));
     cols.forEach((c, i) => {
@@ -182,7 +189,11 @@ export function mount(el: HTMLElement): () => void {
     lightsIn.forEach((o) => (o.visible = lt > 0));
     trees.forEach((tr, q) => tr.scale.setScalar(Math.max(0.001, easeBack(seg(e, 4.6 + q * 0.15, 0.6)))));
     people.forEach((p, i) => (p.visible = e > 4.8 + i * 0.1));
-    spin(t);
+    const mt = easeOut(seg(e, 5.6, 1.2));
+    toConc(mt);
+    toWood(mt);
+    leaf.color.lerpColors(white, green, mt);
+    spin(t, prog.p);
   });
   return dispose;
 }

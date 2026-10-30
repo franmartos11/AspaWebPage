@@ -159,25 +159,6 @@
   max-width: 44ch;
   margin: 0;
 }
-.nos-scroll {
-  flex: none;
-  width: 30px;
-  height: 48px;
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.35);
-  position: relative;
-}
-.nos-scroll span {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  width: 4px;
-  height: 8px;
-  margin-left: -2px;
-  border-radius: 2px;
-  background: #fff;
-  animation: nosWheel 1.8s var(--ease) infinite;
-}
 .venn {
   max-width: 520px;
   width: 100%;
@@ -433,14 +414,19 @@
   overflow: hidden;
   background: radial-gradient(60% 60% at 50% 50%, rgba(45, 43, 255, 0.35), transparent 70%);
 }
-.np-grid {
+.np-map img {
   position: absolute;
-  inset: -20%;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 36px 36px;
-  transform: perspective(600px) rotateX(55deg);
-  animation: nosGridMove 14s linear infinite;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.np-attr {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font: 400 10px var(--sans);
+  color: rgba(255, 255, 255, 0.45);
 }
 .np-pin {
   position: absolute;
@@ -497,9 +483,6 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .nos-scroll {
-    display: none;
-  }
 }
 @media (max-width: 600px) {
   .nw-list {
@@ -517,25 +500,8 @@
     opacity: 1 !important;
     animation: none !important;
   }
-  .nos-team .person .pic,
-  .np-grid {
+  .nos-team .person .pic {
     animation: none;
-  }
-}
-@keyframes nosWheel {
-  0% {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  30% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  100% {
-    opacity: 0;
   }
 }
 @keyframes nosDraw {
@@ -567,11 +533,6 @@
     background-position: 100% 100%;
   }
 }
-@keyframes nosGridMove {
-  to {
-    background-position: 0 360px;
-  }
-}
 @keyframes nosRing {
   from {
     transform: scale(1);
@@ -589,59 +550,67 @@
   margin: 0;
   padding: 0;
 }
-/* hero en celular: alto según el contenido y, debajo del texto, el equipo con link a su sección */
-.nh-team {
-  display: none;
-}
+/* hero en celular: alto según el contenido */
 @media (max-width: 980px) {
   .nhero {
     min-height: 0;
     align-items: flex-start;
     padding: 132px 0 40px;
   }
-  /* en el flex del hero el .wrap se achicaba y se centraba: queda alineado con el resto */
-  .nhero .nh-in {
-    width: 100%;
-  }
-  .nh-team {
-    display: inline-flex;
+}
+
+/* Hero con el mismo criterio que el resto del sitio: alineado con el logo y el contenido (el .wrap
+   del flex se achicaba y se centraba también en escritorio), a la altura de la pantalla y con el
+   equipo como acceso directo, sin media pantalla vacía arriba. */
+@media (min-width: 981px) {
+  .nhero {
+    min-height: min(100svh, 940px);
     align-items: center;
-    gap: 14px;
-    margin-top: 36px;
-    padding: 8px 18px 8px 8px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
+    padding: 124px 0 clamp(40px, 5vw, 80px);
+    box-sizing: border-box;
   }
-  .nh-avs {
-    display: flex;
-  }
-  .nh-avs b {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: -7px;
-    background: linear-gradient(160deg, #3a3936, #151516);
-    box-shadow: 0 0 0 2px #0f0f1a;
-    font: italic 400 15px var(--serif);
-    color: rgba(255, 255, 255, 0.88);
-  }
-  /* cada inicial queda por encima de la siguiente, para que se lea entera */
-  .nh-avs b:first-child {
-    margin-left: 0;
-    z-index: 4;
-  }
-  .nh-avs b:nth-child(2) {
-    z-index: 3;
-  }
-  .nh-avs b:nth-child(3) {
-    z-index: 2;
-  }
+}
+.nhero .nh-in {
+  width: 100%;
+}
+.nh-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 36px;
+  padding: 8px 18px 8px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+.nh-avs {
+  display: flex;
+}
+.nh-avs b {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: -7px;
+  background: linear-gradient(160deg, #3a3936, #151516);
+  box-shadow: 0 0 0 2px #0f0f1a;
+  font: italic 400 15px var(--serif);
+  color: rgba(255, 255, 255, 0.88);
+}
+/* cada inicial queda por encima de la siguiente, para que se lea entera */
+.nh-avs b:first-child {
+  margin-left: 0;
+  z-index: 4;
+}
+.nh-avs b:nth-child(2) {
+  z-index: 3;
+}
+.nh-avs b:nth-child(3) {
+  z-index: 2;
 }

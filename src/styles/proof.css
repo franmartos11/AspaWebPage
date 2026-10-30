@@ -56,6 +56,10 @@
 .mq-big {
   font: 700 clamp(54px, 8vw, 128px) / 1.15 var(--disp);
   letter-spacing: -0.045em;
+  /* con el tracking negativo la última letra sale de la caja y el degradado no la cubría:
+     se agranda la caja y se devuelve el espacio con el margen */
+  padding-inline-end: 0.08em;
+  margin-inline-end: -0.08em;
   white-space: nowrap;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.38);

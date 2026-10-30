@@ -197,3 +197,25 @@
   padding: 0;
   min-width: 0;
 }
+
+/* Escritorio: el formulario y los datos de contacto entran en la primera pantalla (desde 1366×768).
+   El título va en una línea y más bajo; el mensaje arranca con 3 renglones (se puede agrandar). */
+@media (min-width: 981px) {
+  .phero {
+    padding: 124px 0 26px;
+  }
+  .phero .hero-t {
+    font-size: clamp(44px, 4.2vw, 72px);
+    max-width: none;
+  }
+  .phero .lead {
+    margin-top: 10px;
+  }
+  .cform {
+    padding: clamp(22px, 2.2vw, 34px);
+    gap: 12px;
+  }
+  .cform textarea {
+    height: 92px;
+  }
+}

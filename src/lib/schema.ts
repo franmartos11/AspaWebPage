@@ -24,6 +24,7 @@ export const siteSchema = {
         addressRegion: SITE.address.region,
         addressCountry: SITE.address.country,
       },
+      geo: { "@type": "GeoCoordinates", latitude: SITE.address.geo.lat, longitude: SITE.address.geo.lng },
       areaServed: { "@type": "Country", name: "Argentina" },
       sameAs: [SITE.social.linkedin, SITE.social.instagram],
       knowsAbout: ["Software a medida", "Sistemas de gestión", "Apps para celular", "Automatizaciones", "Integraciones", "Desarrollo web"],

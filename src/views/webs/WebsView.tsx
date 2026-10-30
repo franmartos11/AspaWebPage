@@ -6,6 +6,7 @@ import { Cta } from "@/components/Cta";
 import { PageFx } from "@/components/Fx";
 import { JsonLd } from "@/components/JsonLd";
 import { PainCard } from "@/components/PainArt";
+import { WorkGallery } from "@/components/WorkGallery";
 import { Plans } from "@/components/Plans";
 import { routes, type Lang } from "@/i18n";
 import { breadcrumbs, serviceSchema } from "@/lib/schema";
@@ -14,7 +15,6 @@ import { FAMS, GALLERY, RUBROS } from "@/lib/webs";
 import hero from "@/assets/webs/casa-moderna-atardecer.jpg";
 import paulaGil from "@/assets/work/paula-gil.jpg";
 import "@/styles/pains.css";
-import "@/styles/hgal.css";
 import "@/styles/plans.css";
 import "./webs.css";
 
@@ -34,11 +34,8 @@ const T = {
     ],
     rubro: ["¿Cuál es tu ", "rubro?"],
     navLabel: "Webs por rubro",
-    other: "¿Otro rubro? Hablemos",
     shots: ["Capturas ", "reales"],
     shotAlt: (name: string) => `Web de ${name}`,
-    live: "Ver en vivo ↗",
-    newTab: "(se abre en otra pestaña)",
     prices: ["Precios ", "claros"],
     compare: "Ver comparación completa →",
     steps: ["De tus fotos a tu web ", "online"],
@@ -70,11 +67,8 @@ const T = {
     ],
     rubro: ["What's your ", "industry?"],
     navLabel: "Websites by industry",
-    other: "Another industry? Let's talk",
     shots: ["Real ", "screenshots"],
     shotAlt: (name: string) => `${name} website`,
-    live: "View live ↗",
-    newTab: "(opens in a new tab)",
     prices: ["Clear ", "pricing"],
     compare: "See the full comparison →",
     steps: ["From your photos to a ", "live website"],
@@ -136,6 +130,32 @@ export function WebsView({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="webs-pasos">
+        <div className="wrap grid tl-grid">
+          <div className="tl-head">
+            <h2 className="h2" id="webs-pasos" data-lines>
+              {t.steps[0]}
+              <em className="grad">{t.steps[1]}</em>
+            </h2>
+            <p className="mut">{t.stepsLead}</p>
+          </div>
+          <div className="tl" data-tl>
+            <i className="tl-line" aria-hidden="true">
+              <b></b>
+            </i>
+            <ol>
+              {t.stepList.map(([s, d]) => (
+                <li className="glass" key={s}>
+                  <span className="tl-dot" aria-hidden="true"></span>
+                  <h3>{s}</h3>
+                  <p className="mut">{d}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
       <section className="section" id="rubros" aria-labelledby="webs-rubro">
         <div className="wrap">
           <div className="sec-head">
@@ -161,12 +181,6 @@ export function WebsView({ lang }: { lang: Lang }) {
                   ))}
                 </div>
               ))}
-              <a className="rb-row other2" href="#contacto">
-                <b>{t.other}</b>
-                <span className="arrow" aria-hidden="true">
-                  →
-                </span>
-              </a>
             </nav>
             <div className="rb-viewer">
               <div className="m3d dev-3d" aria-hidden="true">
@@ -182,53 +196,13 @@ export function WebsView({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="hgal native" data-hgal aria-labelledby="webs-capturas">
-        <div className="hgal-stage">
-          <div className="wrap hgal-head">
-            <div>
-              <h2 className="h2" id="webs-capturas" data-lines>
-                {t.shots[0]}
-                <em className="grad">{t.shots[1]}</em>
-              </h2>
-            </div>
-          </div>
-          <ul className="hgal-track" id="gallery">
-            {GALLERY.map((w) => {
-              const body = (
-                <>
-                  <div className="hc-img">
-                    <Image src={w.img} alt={t.shotAlt(w.name[lang])} sizes="(max-width: 980px) 84vw, (max-width: 1530px) 34vw, 520px" />
-                  </div>
-                  <div className="hc-meta">
-                    <h3>{w.name[lang]}</h3>
-                    <span className="sr-only">{w.tipo[lang]}</span>
-                  </div>
-                </>
-              );
-              return (
-                <li key={w.name.es}>
-                  {w.url ? (
-                    <a className="hcard glass" href={`https://${w.url}`} target="_blank" rel="noopener">
-                      {body}
-                      <span className="hc-pill glass" aria-hidden="true">
-                        {t.live}
-                      </span>
-                      <span className="sr-only">{t.newTab}</span>
-                    </a>
-                  ) : (
-                    <div className="hcard glass">{body}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-          <div className="wrap">
-            <div className="hgal-bar" aria-hidden="true">
-              <i></i>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WorkGallery
+        lang={lang}
+        id="webs-capturas"
+        trackId="gallery"
+        title={t.shots}
+        works={GALLERY.map((w) => ({ name: w.name[lang], tipo: w.tipo[lang], img: w.img, alt: t.shotAlt(w.name[lang]), url: w.url }))}
+      />
 
       <section className="section" aria-labelledby="webs-precios">
         <div className="wrap">
@@ -244,32 +218,6 @@ export function WebsView({ lang }: { lang: Lang }) {
             </Link>
           </div>
           <Plans lang={lang} />
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="webs-pasos">
-        <div className="wrap grid tl-grid">
-          <div className="tl-head">
-            <h2 className="h2" id="webs-pasos" data-lines>
-              {t.steps[0]}
-              <em className="grad">{t.steps[1]}</em>
-            </h2>
-            <p className="mut">{t.stepsLead}</p>
-          </div>
-          <div className="tl" data-tl>
-            <i className="tl-line" aria-hidden="true">
-              <b></b>
-            </i>
-            <ol>
-              {t.stepList.map(([s, d]) => (
-                <li className="glass" key={s}>
-                  <span className="tl-dot" aria-hidden="true"></span>
-                  <h3>{s}</h3>
-                  <p className="mut">{d}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
         </div>
       </section>
 

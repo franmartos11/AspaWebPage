@@ -297,6 +297,9 @@ const EN: Copy = {
 
 const T: Record<Lang, Copy> = { es: ES, en: EN };
 
+// «Seis cosas que hacemos todos los días»: no se muestra por ahora (pedido de Aspa). En true vuelve a aparecer.
+const SHOW_SEIS = false;
+
 // trazos de los íconos de "Seis cosas que hacemos" (se dibujan al entrar: pathLength=1)
 const BUILD: { id: string; icon: React.ReactNode }[] = [
   {
@@ -399,6 +402,33 @@ export function SistemasView({ lang }: { lang: Lang }) {
             <a className="btn btn-glass" href="#nuestros">
               <span>{t.heroBtn2}</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="story" id="story" aria-labelledby="sis-story">
+        <div className="story-stage">
+          <div className="wrap story-head">
+            <h2 className="h2" id="sis-story">
+              {t.storyT[0]}
+              <em className="grad">{t.storyT[1]}</em>
+            </h2>
+          </div>
+          <div className="story-draw" id="storyDraw"></div>
+          <div className="wrap">
+            <div className="story-bar">
+              <div className="sb-line">
+                <i></i>
+              </div>
+              <ol className="sb-steps">
+                {t.steps.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ol>
+            </div>
+            <p className="story-cap mut" id="storyCap">
+              {t.storyCap}
+            </p>
           </div>
         </div>
       </section>
@@ -526,82 +556,85 @@ export function SistemasView({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="section" id="que-construimos" aria-labelledby="sis-seis">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <h2 className="h2" id="sis-seis" data-lines>
-                {t.buildT[0]}
-                <em className="grad">{t.buildT[1]}</em>
-              </h2>
-            </div>
-          </div>
-          <div className="bgrid">
-            {build.map((b) => (
-              <article className="bcard glass rv" id={b.id} key={b.id}>
-                <svg
-                  className="ic"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  {b.icon}
-                </svg>
-                <h3>{b.title}</h3>
-                <p className="mut">{b.text}</p>
-              </article>
-            ))}
-          </div>
-          <div className="flow-blk">
+      {/* «Seis cosas que hacemos…»: oculta por ahora (SHOW_SEIS); el código queda por si se vuelve a usar */}
+      {SHOW_SEIS && (
+        <section className="section" id="que-construimos" aria-labelledby="sis-seis">
+          <div className="wrap">
             <div className="sec-head">
-              <h3 className="h3 flow-t" data-lines>
-                {t.flowT[0]}
-                <em className="grad">{t.flowT[1]}</em>
-              </h3>
-              <p className="mut">{t.flowText}</p>
+              <div>
+                <h2 className="h2" id="sis-seis" data-lines>
+                  {t.buildT[0]}
+                  <em className="grad">{t.buildT[1]}</em>
+                </h2>
+              </div>
             </div>
-            <div className="seg glass" data-seg="flow" role="tablist" aria-label={t.flowSeg}>
-              <span className="seg-drop" aria-hidden="true"></span>
-              {t.flows.map((f, i) => (
-                <button key={f} type="button" className={i === 0 ? "on" : undefined} role="tab" aria-selected={i === 0}>
-                  {f}
-                </button>
+            <div className="bgrid">
+              {build.map((b) => (
+                <article className="bcard glass rv" id={b.id} key={b.id}>
+                  <svg
+                    className="ic"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {b.icon}
+                  </svg>
+                  <h3>{b.title}</h3>
+                  <p className="mut">{b.text}</p>
+                </article>
               ))}
             </div>
-            <div className="flow-grid">
-              <div className="flow-dia" id="flowDia">
-                <svg className="flow-svg" id="flowSvg" aria-hidden="true"></svg>
-                <i className="flow-pulse" id="flowPulse" aria-hidden="true"></i>
-                <div className="flow-sum glass" id="flowSum" aria-live="polite">
-                  {t.flowSum}
-                </div>
+            <div className="flow-blk">
+              <div className="sec-head">
+                <h3 className="h3 flow-t" data-lines>
+                  {t.flowT[0]}
+                  <em className="grad">{t.flowT[1]}</em>
+                </h3>
+                <p className="mut">{t.flowText}</p>
               </div>
-              <div className="flow-ph">
-                <div className="iph" aria-label={t.phone} role="img">
-                  <i className="iph-isl"></i>
-                  <div className="iph-scr">
-                    <div className="iph-wall"></div>
-                    <div className="iph-time">
-                      <small>{t.phoneDate}</small>
-                      <b>9:41</b>
+              <div className="seg glass" data-seg="flow" role="tablist" aria-label={t.flowSeg}>
+                <span className="seg-drop" aria-hidden="true"></span>
+                {t.flows.map((f, i) => (
+                  <button key={f} type="button" className={i === 0 ? "on" : undefined} role="tab" aria-selected={i === 0}>
+                    {f}
+                  </button>
+                ))}
+              </div>
+              <div className="flow-grid">
+                <div className="flow-dia" id="flowDia">
+                  <svg className="flow-svg" id="flowSvg" aria-hidden="true"></svg>
+                  <i className="flow-pulse" id="flowPulse" aria-hidden="true"></i>
+                  <div className="flow-sum glass" id="flowSum" aria-live="polite">
+                    {t.flowSum}
+                  </div>
+                </div>
+                <div className="flow-ph">
+                  <div className="iph" aria-label={t.phone} role="img">
+                    <i className="iph-isl"></i>
+                    <div className="iph-scr">
+                      <div className="iph-wall"></div>
+                      <div className="iph-time">
+                        <small>{t.phoneDate}</small>
+                        <b>9:41</b>
+                      </div>
+                      <div className="iph-stack" id="iphStack"></div>
                     </div>
-                    <div className="iph-stack" id="iphStack"></div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="flow-foot">
-              <a className="ul" href="#contacto">
-                {t.flowLink}
-              </a>
+              <div className="flow-foot">
+                <a className="ul" href="#contacto">
+                  {t.flowLink}
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="section" id="rubros" aria-labelledby="sis-rubros">
         <div className="wrap">
@@ -673,33 +706,6 @@ export function SistemasView({ lang }: { lang: Lang }) {
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="story" id="story" aria-labelledby="sis-story">
-        <div className="story-stage">
-          <div className="wrap story-head">
-            <h2 className="h2" id="sis-story">
-              {t.storyT[0]}
-              <em className="grad">{t.storyT[1]}</em>
-            </h2>
-          </div>
-          <div className="story-draw" id="storyDraw"></div>
-          <div className="wrap">
-            <div className="story-bar">
-              <div className="sb-line">
-                <i></i>
-              </div>
-              <ol className="sb-steps">
-                {t.steps.map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ol>
-            </div>
-            <p className="story-cap mut" id="storyCap">
-              {t.storyCap}
-            </p>
           </div>
         </div>
       </section>

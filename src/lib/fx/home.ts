@@ -207,47 +207,24 @@ function initHero(off: (() => void)[]) {
   });
 }
 
-/* ---------- «Cuatro formas…»: acordeón con escenario sticky y autoplay ---------- */
-function initTabs(off: (() => void)[]) {
+/* ---------- «Cuatro formas…»: acordeón con escenario sticky; cambia solo al elegir ---------- */
+function initTabs() {
   $$("[data-tabs]").forEach((T) => {
     const RM = reducedMotion();
     const tabs = $$(".tab", T),
       btns = tabs.map((x) => $<HTMLButtonElement>(".tl button", x)!),
-      st = $$(".tst", T),
-      marks = $$(".stories i", T);
-    const fills = marks.map((m) => $("s", m)!);
-    let cur = 0,
-      anim: Animation | null = null,
-      markAnim: Animation | null = null,
-      inView = false,
-      paused = false;
-    const run = () => {
-      anim?.cancel();
-      markAnim?.cancel();
-      if (RM) return;
-      const bar = $(".tbar i", tabs[cur])!;
-      anim = bar.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 6500, easing: "linear", fill: "forwards" });
-      // el relleno de la línea de arriba avanza a la par de la barra de la pestaña
-      markAnim =
-        fills[cur]?.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 6500, easing: "linear", fill: "forwards" }) ?? null;
-      anim.onfinish = () => set((cur + 1) % tabs.length);
-      if (!inView || paused) {
-        anim.pause();
-        markAnim?.pause();
-      }
-    };
+      st = $$(".tst", T);
+    let cur = 0;
     const set = (i: number) => {
-      if (i === cur && anim) return;
+      if (i === cur) return;
       const prev = st[cur];
       cur = i;
       tabs.forEach((x, k) => x.classList.toggle("on", k === i));
       btns.forEach((x, k) => x.setAttribute("aria-expanded", String(k === i)));
-      marks.forEach((x, k) => x.classList.toggle("done", RM ? k <= i : k < i));
       st.forEach((x) => x.classList.remove("top"));
       const nx = st[i];
       nx.classList.add("on", "top");
       if (!RM && prev !== nx) {
-        prev.classList.remove("on");
         prev.animate(
           [
             { opacity: 1, transform: "scale(1)" },
@@ -264,7 +241,6 @@ function initTabs(off: (() => void)[]) {
         );
       }
       st.forEach((x) => x !== nx && x.classList.remove("on"));
-      run();
     };
     tabs.forEach((x, k) =>
       x.addEventListener("click", (e) => {
@@ -272,50 +248,13 @@ function initTabs(off: (() => void)[]) {
         set(k);
       }),
     );
-    const pz = (v: boolean) => {
-      paused = v;
-      if (!anim) return;
-      if (v || !inView) {
-        anim.pause();
-        markAnim?.pause();
-      } else {
-        anim.play();
-        markAnim?.play();
-      }
-    };
-    T.addEventListener("mouseenter", () => pz(true));
-    T.addEventListener("mouseleave", () => pz(false));
-    T.addEventListener("focusin", () => pz(true));
-    T.addEventListener("focusout", () => pz(false));
-    const io = new IntersectionObserver(
-      (es) => {
-        inView = es[0].isIntersecting;
-        if (!anim) return;
-        if (inView && !paused) {
-          anim.play();
-          markAnim?.play();
-        } else {
-          anim.pause();
-          markAnim?.pause();
-        }
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(T);
-    if (RM) marks[0]?.classList.add("done");
-    run();
-    off.push(() => {
-      io.disconnect();
-      anim?.cancel();
-      markAnim?.cancel();
-    });
   });
 }
 
 export function initHome() {
   const off: (() => void)[] = [];
   initHero(off);
-  initTabs(off);
+  initTabs();
   off.push(initGallery());
   return () => off.forEach((f) => f());
 }

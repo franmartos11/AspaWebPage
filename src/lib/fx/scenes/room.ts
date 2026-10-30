@@ -1,8 +1,8 @@
 // Escena "room" (Interiorismo: el ambiente se amuebla), portada del diseño (script8): se dibuja
 // la planta, suben las paredes, aparecen ventana, cortinas y el rayo de luz, y los muebles entran
-// uno por uno hasta que se prenden las lámparas. Se arma cuando la escena está en pantalla y se
-// desarma (al doble de velocidad) si subís y queda abajo.
-import { THREE, mat, stage, box, lineSet, contactShadow, interact, want, clamp, lerp, easeOut, easeBack, seg } from "./kit";
+// uno por uno hasta que se prenden las lámparas. Se arma con el scroll (scrub en kit.ts) y se
+// desarma si volvés a subir.
+import { THREE, mat, stage, box, lineSet, contactShadow, interact, lerp, easeOut, easeBack, seg, scrub } from "./kit";
 
 /** Alfombra: rectángulos concéntricos sobre canvas. */
 function rugMat() {
@@ -214,12 +214,11 @@ export function mount(el: HTMLElement): () => void {
   sh.position.y = -0.12;
   scene.add(sh);
 
-  let t0 = -0.2;
+  // se arma con el scroll: el segundo número es el final de su línea de tiempo (la obra completa)
+  const prog = scrub(el, 4.7);
   const spin = interact(S, 0.35);
   run((dt, t) => {
-    const wv = want(el);
-    t0 = clamp(t0 + dt * (wv > 0 ? 1 : wv < 0 ? -2 : 0), -0.2, 8);
-    const e = t0;
+    const e = prog(dt);
     plan.geometry.setDrawRange(0, Math.floor(plan.userData.n * easeOut(seg(e, 0, 1.2))) & ~1);
     planM.opacity = lerp(1, 0, seg(e, 2.2, 0.6));
     [wb, wl].forEach((w, i) => (w.scale.y = Math.max(0.001, easeBack(seg(e, 0.8 + i * 0.15, 0.7)))));
@@ -230,7 +229,7 @@ export function mount(el: HTMLElement): () => void {
     beamM.opacity = seg(e, 1.8, 1) * 0.12 * (1 - seg(e, 3.6, 1) * 0.6);
     items.forEach(({ o, d }) => o.scale.setScalar(Math.max(0.001, easeBack(seg(e, d, 0.55)))));
     lampM.emissiveIntensity = seg(e, 3.4, 0.8) * 1.8;
-    spin(t);
+    spin(t, prog.p);
   });
   return dispose;
 }

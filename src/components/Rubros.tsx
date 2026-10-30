@@ -277,15 +277,7 @@ export function Boceto({ lang }: { lang: Lang }) {
         </div>
         <div className="handle">
           <button className="knob" type="button" role="slider" aria-label={t.knob} aria-valuemin={0} aria-valuemax={100} aria-valuenow={50}>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" />
             </svg>
           </button>
@@ -355,17 +347,20 @@ export function DevDemo({ lang }: { lang: Lang }) {
   const caps = [a360Unidad, a360Galeria, a360Amenities];
   return (
     <div data-devdemo>
-      <div className="tower-wrap">
-        <div className="tw-txt">
-          <h3 className="h3">{t.tower}</h3>
-          <p className="mut">{t.towerTxt}</p>
-          <div className="unit-card" id="unitCard" aria-live="polite">
-            <b>{t.pick}</b>
+      {/* con 3D la torre queda fija y el scroll la arma piso por piso (scenes/kit.ts, scrub) */}
+      <div className="scrub-track" data-scrub>
+        <div className="tower-wrap">
+          <div className="tw-txt">
+            <h3 className="h3">{t.tower}</h3>
+            <p className="mut">{t.towerTxt}</p>
+            <div className="unit-card" id="unitCard" aria-live="polite">
+              <b>{t.pick}</b>
+            </div>
           </div>
-        </div>
-        <div className="m3d tower-3d" aria-hidden="true">
-          <Image className="m3d-fb" src={fbTower} alt="" sizes="(max-width: 980px) 100vw, 60vw" />
-          <div className="tw-tip" id="twTip" hidden></div>
+          <div className="m3d tower-3d" aria-hidden="true">
+            <Image className="m3d-fb" src={fbTower} alt="" sizes="(max-width: 980px) 100vw, 60vw" />
+            <div className="tw-tip" id="twTip" hidden></div>
+          </div>
         </div>
       </div>
       <div className="bento-wrap">

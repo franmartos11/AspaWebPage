@@ -64,26 +64,37 @@ const DESIGN: Record<string, { d?: number[]; m?: number[] }> = {
     // y dejaba media pantalla vacía), el paso de planilla a sistema más corto (200 vh), el comparador
     // casi cuadrado (−107), el celular del circuito más cerca de los pasos (−32), la lista de rubros
     // a todo el ancho (−28) y el botón de cada sistema debajo del texto (+20)
-    d: [900, 806, 2430, 709, 2066, 959, 932, 4680, 487, 698, 804, 536],
-    m: [829, 824, 1688, 525, 3382, 791, 1099, 3545, 577, 1345, 798, 599],
+    // «De la primera charla a la versión 1.0» va justo debajo del hero (en el diseño estaba después de «Nuestros sistemas»);
+    // «Seis cosas que hacemos todos los días» no se muestra por ahora (SHOW_SEIS en la vista)
+    d: [900, 4680, 806, 2430, 709, 959, 932, 487, 698, 804, 536],
+    m: [829, 3545, 824, 1688, 525, 791, 1099, 577, 1345, 798, 599],
   },
-  // galería en celular: guiada por el scroll como en escritorio (alto = pantalla + recorrido de las tarjetas)
-  "/webs": { d: [900, 721, 1161, 3271, 933, 883, 554], m: [844, 1099, 1268, 2939, 1303, 1052, 659] },
+  // galería en celular: guiada por el scroll como en escritorio (alto = pantalla + recorrido de las tarjetas).
+  // Los pasos («De tus fotos a tu web») van antes de los rubros, y los rubros sin «¿Otro rubro?» (−90 / −85)
+  "/webs": { d: [900, 721, 883, 1071, 3271, 933, 554], m: [844, 1099, 1052, 1183, 2939, 1303, 659] },
   "/webs/planes": { d: [414, 646, 1462, 626, 554], m: [336, 1094, 1541, 632, 659] },
-  "/webs/arquitectos": { d: [886, 784, 786, 713, 1368, 645, 581], m: [714, 593, 1132, 948, 1167, 703, 669] },
-  "/webs/estudios-de-arquitectura": { d: [568, 784, 786, 713, 2055, 645, 581] },
-  "/webs/interiorismo": { d: [886, 784, 786, 644, 1270, 645, 581] },
-  "/webs/constructoras": { d: [568, 784, 786, 727, 1378, 645, 581] },
+  // Rubros: el mismo hero en los 7 (a la altura de la pantalla en escritorio, con WhatsApp y «Ver
+  // ejemplos»; en el diseño medía 886 con foto y 568 con captura). En celular los botones suman ~74 px.
+  // La frase de «Inversión», más corta, ocupa una línea menos en celular (−28).
+  // La escena 3D se arma con el scroll: su sección es un tramo de 400 % de la pantalla con la escena fija
+  // (3600 / 3376); en desarrollistas, la torre va en un tramo de 320 % (+2178 en «Cómo se vería»).
+  "/webs/arquitectos": { d: [900, 3600, 786, 713, 1368, 644, 581], m: [788, 3376, 1132, 948, 1166, 675, 669] },
+  "/webs/estudios-de-arquitectura": { d: [900, 3600, 786, 713, 2055, 644, 581] },
+  // «Cómo se vería» de interiorismo y steel framing: la maqueta (Nogal, Trama) en dos columnas, entera en la pantalla
+  "/webs/interiorismo": { d: [900, 3600, 786, 644, 1024, 644, 581] },
+  "/webs/constructoras": { d: [900, 3600, 786, 727, 1379, 644, 581] },
   // celular: el título del hero entra en 3 líneas (el diseño lo partía por letra y perdía el kerning: 4)
-  "/webs/constructoras-de-vivienda": { d: [886, 784, 812, 727, 1403, 645, 581], m: [740, 626, 1212, 957, 1118, 675, 699] },
-  "/webs/steel-framing": { d: [886, 812, 742, 1524, 645, 581], m: [740, 1156, 948, 729, 703, 699] },
-  "/webs/desarrollistas": { d: [568, 786, 727, 3076, 588, 581] },
+  "/webs/constructoras-de-vivienda": { d: [900, 3600, 812, 727, 1404, 644, 581], m: [814, 3376, 1212, 957, 1118, 675, 699] },
+  "/webs/steel-framing": { d: [900, 812, 742, 1003, 644, 581], m: [814, 1156, 948, 730, 675, 699] },
+  "/webs/desarrollistas": { d: [900, 786, 727, 5255, 588, 581] },
   // celular: la lista accesible (ul > li) del listado resta 4 px; el hero va al alto de su contenido,
-  // con el link al equipo debajo del texto (el diseño dejaba media pantalla vacía arriba)
-  "/nosotros": { d: [792, 782, 748, 907, 646, 491, 338, 628, 554], m: [531, 1067, 1104, 1143, 998, 594, 190, 640, 659] },
+  // con el link al equipo debajo del texto (el diseño dejaba media pantalla vacía arriba). Escritorio:
+  // el hero a la altura de la pantalla, alineado con el logo y con el mismo link al equipo
+  "/nosotros": { d: [900, 782, 748, 907, 646, 491, 338, 628, 554], m: [531, 1067, 1104, 1143, 998, 594, 190, 640, 659] },
   // el aviso de privacidad debajo de «Enviar» suma una línea al formulario; en celular «¿Qué
-  // necesitás?» entra en una fila (el diseño lo partía en dos)
-  "/contacto": { d: [518, 716], m: [379, 1178] },
+  // necesitás?» entra en una fila (el diseño lo partía en dos). Escritorio: título en una línea y
+  // formulario más compacto, para que el formulario y los datos entren enteros en 1366×768
+  "/contacto": { d: [248, 629], m: [379, 1178] },
   "/casos": { d: [443, 1096, 554], m: [405, 2236, 659] },
   // celular: "Movimientos" se salía de su tarjeta en el diseño; ahora se corta con guion (+21 px)
   "/casos/aspa-rodeo": { d: [631, 514, 475, 1893, 341, 226, 536], m: [684, 435, 766, 871, 272, 170, 599] },
@@ -116,7 +127,7 @@ for (const P of PAGES) {
       // el menú marca la sección actual ("page" si es la página misma; los casos son de Sistemas)
       const sec = P.path.startsWith("/casos") ? "/sistemas" : `/${P.path.split("/")[1]}`;
       // la política de privacidad no está en el menú
-      if (P.path !== "/privacidad") await expect(page.locator(`#nav a[href="${sec}"]`)).toHaveAttribute("aria-current", sec === P.path ? "page" : "true");
+      if (P.path !== "/privacidad") await expect(page.locator(`:is(#nav > a, #nav > .nav-dd > a)[href="${sec}"]`)).toHaveAttribute("aria-current", sec === P.path ? "page" : "true");
     });
 
     test("está en el sitemap", async ({ request }) => {

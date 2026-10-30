@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 declare global {
   interface Window {
@@ -10,6 +11,9 @@ declare global {
 
 /** Movimiento común a todo el sitio (header, menú, scroll suave, campo de luz, revelados del footer). */
 export function SiteFx() {
+  const pathname = usePathname();
+  const prevPath = useRef(pathname);
+
   useEffect(() => {
     window.__fx = true;
     let off: (() => void) | undefined;
@@ -22,6 +26,24 @@ export function SiteFx() {
       off?.();
     };
   }, []);
+
+  useEffect(() => {
+    if (prevPath.current !== pathname) {
+      prevPath.current = pathname;
+      import("@/lib/fx/site").then(({ resetScroll }) => {
+        resetScroll(window.location.hash || 0);
+      });
+      // Fallback nativo inmediato para no esperar la carga del módulo
+      if (!window.location.hash) {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(0, { immediate: true, force: true });
+          window.__lenis.resize();
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+    }
+  }, [pathname]);
+
   return null;
 }
 
@@ -45,8 +67,11 @@ export function PageFx({ page }: { page: keyof typeof PAGES }) {
   useEffect(() => {
     let off: (() => void)[] = [];
     let alive = true;
-    Promise.all([PAGES[page](), import("@/lib/fx/reveal")]).then(([init, reveal]) => {
+    Promise.all([PAGES[page](), import("@/lib/fx/reveal"), import("@/lib/fx/site")]).then(([init, reveal, { resetScroll }]) => {
       if (!alive) return;
+      if (!window.location.hash) {
+        resetScroll(0);
+      }
       const main = document.getElementById("main")!;
       off = [init(), reveal.initReveals(main)];
     });

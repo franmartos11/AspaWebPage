@@ -17,14 +17,57 @@ export const FAMS = {
 } as const;
 
 export const RUBROS = [
-  // slug: el de la URL en español (en inglés se traduce con RUBRO_SLUGS de "@/i18n"); menuEn: nombre en inglés
-  { slug: "arquitectos", menu: "Arquitectos", menuEn: "Architects", fam: 0 },
-  { slug: "estudios-de-arquitectura", menu: "Estudios de arquitectura", menuEn: "Architecture studios", fam: 0 },
-  { slug: "interiorismo", menu: "Interiorismo", menuEn: "Interior design", fam: 0 },
-  { slug: "constructoras", menu: "Constructoras", menuEn: "Construction companies", fam: 1 },
-  { slug: "constructoras-de-vivienda", menu: "Constructoras de viviendas", menuEn: "Home builders", fam: 1 },
-  { slug: "steel-framing", menu: "Steel framing", menuEn: "Steel framing", fam: 1 },
-  { slug: "desarrollistas", menu: "Desarrollistas", menuEn: "Real estate developers", fam: 2 },
+  // slug: el de la URL en español (en inglés se traduce con RUBRO_SLUGS de "@/i18n"); menuEn: nombre en inglés;
+  // desc/descEn: la línea corta del menú de Webs
+  { slug: "arquitectos", menu: "Arquitectos", menuEn: "Architects", fam: 0, desc: "Tus obras en un solo link", descEn: "Your work in one link" },
+  {
+    slug: "estudios-de-arquitectura",
+    menu: "Estudios de arquitectura",
+    menuEn: "Architecture studios",
+    fam: 0,
+    desc: "Portfolio, equipo y servicios",
+    descEn: "Portfolio, team and services",
+  },
+  {
+    slug: "interiorismo",
+    menu: "Interiorismo",
+    menuEn: "Interior design",
+    fam: 0,
+    desc: "Antes y después que convencen",
+    descEn: "Before-and-afters that sell",
+  },
+  {
+    slug: "constructoras",
+    menu: "Constructoras",
+    menuEn: "Construction companies",
+    fam: 1,
+    desc: "Para cada comitente y licitación",
+    descEn: "For every client and bid",
+  },
+  {
+    slug: "constructoras-de-vivienda",
+    menu: "Constructoras de viviendas",
+    menuEn: "Home builders",
+    fam: 1,
+    desc: "Las casas que ya hiciste",
+    descEn: "The homes you've already built",
+  },
+  {
+    slug: "steel-framing",
+    menu: "Steel framing",
+    menuEn: "Steel framing",
+    fam: 1,
+    desc: "El sistema explicado por dentro",
+    descEn: "The system, explained inside out",
+  },
+  {
+    slug: "desarrollistas",
+    menu: "Desarrollistas",
+    menuEn: "Real estate developers",
+    fam: 2,
+    desc: "Sala de ventas abierta 24 h",
+    descEn: "A sales room open 24/7",
+  },
 ] as const;
 export type RubroSlug = (typeof RUBROS)[number]["slug"];
 

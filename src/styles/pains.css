@@ -28,7 +28,8 @@
   max-width: 260px;
   height: auto;
   aspect-ratio: 220/108;
-  margin: 0 0 22px;
+  /* abajo de la tarjeta: con alturas parejas los dibujos quedan alineados */
+  margin: auto 0 0;
   overflow: hidden;
   color: var(--fg);
   flex: none;
@@ -224,7 +225,7 @@
 .pcard p {
   font: 600 clamp(18px, 1.4vw, 22px)/1.3 var(--disp);
   letter-spacing: -0.015em;
-  margin: 8px 0 0;
+  margin: 8px 0 22px;
 }
 .pcard .n {
   color: var(--ac);

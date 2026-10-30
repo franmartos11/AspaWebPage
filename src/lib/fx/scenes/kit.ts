@@ -65,6 +65,85 @@ export const mat = {
   },
 };
 
+/* ---------- materialización: al terminar de armarse, la maqueta blanca pasa a materiales reales ---------- */
+function canvasTex(w: number, h: number, draw: (x: CanvasRenderingContext2D) => void) {
+  const c = document.createElement("canvas");
+  c.width = w;
+  c.height = h;
+  draw(c.getContext("2d")!);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  return t;
+}
+export const tex = {
+  /** Hormigón visto: tablas de encofrado horizontales, cada una con su tono, y poros. */
+  concrete: () =>
+    canvasTex(512, 512, (x) => {
+      for (let b = 0; b < 8; b++) {
+        const v = 168 + Math.random() * 22;
+        x.fillStyle = `rgb(${v | 0},${(v * 0.985) | 0},${(v * 0.955) | 0})`;
+        x.fillRect(0, b * 64, 512, 64);
+        x.fillStyle = "rgba(0,0,0,.14)";
+        x.fillRect(0, b * 64, 512, 2);
+      }
+      for (let i = 0; i < 9000; i++) {
+        const a = Math.random() * 0.12;
+        x.fillStyle = Math.random() < 0.5 ? `rgba(0,0,0,${a})` : `rgba(255,255,255,${a})`;
+        x.fillRect(Math.random() * 512, Math.random() * 512, 1.5, 1.5);
+      }
+    }),
+  /** Madera en listones verticales con veta. */
+  wood: () =>
+    canvasTex(512, 256, (x) => {
+      for (let i = 0; i < 16; i++) {
+        const v = 128 + Math.random() * 46;
+        x.fillStyle = `rgb(${v | 0},${(v * 0.68) | 0},${(v * 0.44) | 0})`;
+        x.fillRect(i * 32, 0, 30, 256);
+        x.fillStyle = "rgba(0,0,0,.35)";
+        x.fillRect(i * 32 + 30, 0, 2, 256);
+        for (let k = 0; k < 6; k++) {
+          x.fillStyle = `rgba(60,30,10,${0.08 + Math.random() * 0.1})`;
+          x.fillRect(i * 32 + Math.random() * 28, 0, 1, 256);
+        }
+      }
+    }),
+};
+
+/**
+ * Recubre cada pieza con un material texturado que aparece con `p` (0 → 1): una cáscara apenas más
+ * grande que comparte la geometría, así la maqueta blanca queda debajo y no hay que cambiar materiales.
+ * `rep`: cuántas veces se repite la textura en cada cara.
+ */
+export function skin(meshes: THREE.Object3D[], map: THREE.Texture, rep: [number, number], roughness = 0.85) {
+  const t = map.clone();
+  t.repeat.set(rep[0], rep[1]);
+  t.needsUpdate = true;
+  // polygonOffset: la cáscara siempre gana en profundidad (en piezas finas, como lamas, parpadeaba)
+  const m = new THREE.MeshStandardMaterial({
+    map: t,
+    roughness,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+    polygonOffset: true,
+    polygonOffsetFactor: -2,
+    polygonOffsetUnits: -2,
+  });
+  m.visible = false;
+  meshes.forEach((o) => {
+    if (!(o instanceof THREE.Mesh)) return;
+    const s = new THREE.Mesh(o.geometry, m);
+    s.scale.setScalar(1.004);
+    o.add(s);
+  });
+  return (p: number) => {
+    m.opacity = p;
+    m.visible = p > 0;
+    m.depthWrite = p > 0.99;
+  };
+}
+
 export const box = (w: number, h: number, d: number, m: THREE.Material, x = 0, y = 0, z = 0, base = false) => {
   const geo = new THREE.BoxGeometry(w, h, d);
   if (base) geo.translate(0, h / 2, 0);
@@ -134,13 +213,36 @@ export const seen = (el: HTMLElement) => {
     vis = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
   return vis > Math.min(r.height, innerHeight) * 0.55;
 };
-/** 1 = en pantalla (se arma) · -1 = quedó abajo porque subiste (se desarma) · 0 = quedó arriba (se mantiene). */
-export const want = (el: HTMLElement) => {
-  const r = el.getBoundingClientRect();
-  if (r.top < innerHeight * 0.62 && r.bottom > innerHeight * 0.15) return 1;
-  if (r.top > innerHeight * 0.82) return -1;
-  return 0;
-};
+/**
+ * La obra se arma con el scroll: devuelve una función que, en cada cuadro, da el tiempo de la línea de
+ * la escena (0 → `end`) según cuánto se scrolleó. Si la escena está dentro de un tramo fijo
+ * (`[data-scrub]`, la sección queda quieta mientras se scrollea) se usa ese tramo; si no, el paso de la
+ * escena por la pantalla. Se acerca al objetivo con suavidad, así un scroll brusco no la hace saltar.
+ */
+export function scrub(el: HTMLElement, end: number) {
+  const track = el.closest<HTMLElement>("[data-scrub]");
+  const host = el as HTMLElement & { __poke?: () => void };
+  let e = -0.2;
+  const step = Object.assign(
+    (dt: number) => {
+      const vh = innerHeight,
+        r = (track ?? el).getBoundingClientRect();
+      // con tramo: arranca un poco antes de fijarse y termina al final del tramo
+      const p = track ? clamp((vh * 0.3 - r.top) / Math.max(1, r.height - vh * 0.7), 0, 1) : clamp((vh * 0.9 - r.top) / (vh * 0.6), 0, 1);
+      const d = p * end - e;
+      e += d * Math.min(1, dt * 6);
+      // mientras la obra se mueve, la escena dibuja a ritmo completo (ver `run`)
+      if (Math.abs(d) > 0.002) host.__poke?.();
+      step.p = clamp(e / end, 0, 1);
+      return e;
+    },
+    { p: 0 },
+  );
+  return step;
+}
+
+/** Curva suave (0..1) para el recorrido de la cámara. */
+const smooth = (x: number) => x * x * (3 - 2 * x);
 
 export type Stage = {
   scene: THREE.Scene;
@@ -189,9 +291,13 @@ export function stage(el: HTMLElement, fov: number, cam: [number, number, number
   scene.add(rim);
 
   const mouse = { x: 0, y: 0 };
+  // último movimiento (mouse o la obra con el scroll): sin movimiento, la escena dibuja a 30 cuadros por segundo
+  let motion = performance.now();
+  (el as HTMLElement & { __poke?: () => void }).__poke = () => (motion = performance.now());
   const onMove = (e: PointerEvent) => {
     mouse.x = (e.clientX / innerWidth) * 2 - 1;
     mouse.y = (e.clientY / innerHeight) * 2 - 1;
+    motion = performance.now();
   };
   addEventListener("pointermove", onMove, { passive: true });
 
@@ -221,15 +327,28 @@ export function stage(el: HTMLElement, fov: number, cam: [number, number, number
 
   const S: Stage = { scene, camera, g, renderer, el, mouse, mobile };
   let raf = 0;
+  // para los tests de presupuesto: lo que cuesta dibujar el último cuadro
+  (el as HTMLElement & { __stats?: () => Record<string, number> }).__stats = () => ({
+    ...renderer.info.render,
+    geometries: renderer.info.memory.geometries,
+    textures: renderer.info.memory.textures,
+    pixelRatio: renderer.getPixelRatio(),
+  });
   const run = (update: (dt: number, t: number) => void, opts: { onResize?: (w: number, h: number) => void } = {}) => {
     onResize = opts.onResize ?? null;
     resize();
-    let last = performance.now();
+    let last = performance.now(),
+      skip = false;
     const loop = (t: number) => {
       raf = requestAnimationFrame(loop);
+      if (!visible || document.hidden) {
+        last = t;
+        return;
+      }
+      // en reposo (nada se arma ni se mueve el mouse) un cuadro sí y uno no: la mitad de trabajo para la GPU
+      if (t - motion > 700 && (skip = !skip)) return;
       const dt = Math.min(0.05, (t - last) / 1000);
       last = t;
-      if (!visible || document.hidden) return;
       update(dt, t / 1000);
       renderer.render(scene, camera);
       if (!el.classList.contains("live")) el.classList.add("live");
@@ -262,11 +381,21 @@ export function stage(el: HTMLElement, fov: number, cam: [number, number, number
 /** Giro suave del grupo con el mouse y una oscilación lenta (como en el diseño). */
 export function interact(S: Stage, base = -0.15) {
   let rx = 0,
-    ry = 0;
-  return (t: number) => {
+    ry = 0,
+    zoom = 0;
+  /** `p`: avance de la obra (0..1). La cámara arranca cerca y casi cenital (el plano) y, a medida que
+   *  se arma, gira y se aleja hasta la vista de la obra terminada. */
+  return (t: number, p = 1) => {
     rx = lerp(rx, S.mouse.y * 0.05, 0.05);
     ry = lerp(ry, S.mouse.x * 0.16, 0.05);
-    S.g.rotation.set(rx, base + ry + Math.sin(t * 0.12) * 0.03, 0);
+    const k = smooth(p);
+    S.g.rotation.set(rx + (1 - k) * 0.1, base + ry + (1 - k) * -0.42 + Math.sin(t * 0.12) * 0.03, 0);
+    const z = 1 + (1 - k) * 0.1;
+    if (Math.abs(z - zoom) > 1e-4) {
+      zoom = z;
+      S.camera.zoom = z;
+      S.camera.updateProjectionMatrix();
+    }
   };
 }
 

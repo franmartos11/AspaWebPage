@@ -439,3 +439,445 @@ dialog.lb::backdrop {
   hyphens: auto;
   overflow-wrap: break-word;
 }
+/* Módulos de Scout como selector: lista de pestañas con ícono a la izquierda (arriba en celular) y el
+   módulo elegido a la derecha, con su captura y su explicación. Con JS se ve un solo módulo a la vez
+   (fx/casos.ts cambia .on) y la pestaña activa lleva una barra que se llena hasta pasar al siguiente;
+   sin JS se ven todos, uno debajo del otro. */
+.mt {
+  display: grid;
+  grid-template-columns: minmax(230px, 260px) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+  overflow: visible;
+}
+.mt-list {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mt-tab {
+  all: unset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 12px 7px 7px;
+  border-radius: 16px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  font: 500 15px var(--sans);
+  overflow: hidden;
+  transition:
+    color 0.4s,
+    background 0.4s;
+}
+.mt-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.mt-tab:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: -2px;
+}
+.mt-tab.on {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(110, 108, 255, 0.28), rgba(110, 108, 255, 0.08));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(140, 138, 255, 0.3);
+}
+.mt-ico {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  flex: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.75);
+  transition:
+    background 0.4s,
+    color 0.4s,
+    box-shadow 0.4s,
+    transform 0.6s var(--spring);
+}
+.mt-tab:hover .mt-ico {
+  transform: scale(1.06);
+}
+.mt-tab.on .mt-ico {
+  background: linear-gradient(135deg, #6e6cff, #2d2bff);
+  color: #fff;
+  box-shadow: 0 8px 22px -8px rgba(110, 108, 255, 0.9);
+}
+/* barra de tiempo del avance solo (solo en la pestaña activa y mientras avanza solo) */
+.mt-bar {
+  position: absolute;
+  left: 55px;
+  right: 14px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mt-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #8c8aff, #6ee7ff);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+.mt.auto .mt-tab.on .mt-bar {
+  opacity: 1;
+}
+.mt.auto .mt-tab.on .mt-bar i {
+  animation: mtBar 7s linear forwards;
+}
+.mt.auto.paused .mt-tab.on .mt-bar i {
+  animation-play-state: paused;
+}
+@keyframes mtBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* módulo elegido */
+.mt-stage {
+  position: relative;
+  min-width: 0;
+}
+.mt-panel + .mt-panel {
+  margin-top: 96px;
+}
+.fx .mt-panel:not(.on) {
+  display: none;
+}
+.fx .mt-panel + .mt-panel {
+  margin-top: 0;
+}
+.mt-shot {
+  position: relative;
+}
+.mt-glow {
+  position: absolute;
+  inset: 10% 8% -6%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(110, 108, 255, 0.55), transparent);
+  filter: blur(50px);
+  pointer-events: none;
+}
+.mt-shot .shot {
+  position: relative;
+  padding: 6px;
+  border-radius: 22px;
+}
+.mt-shot .shot img {
+  border-radius: 16px;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.9);
+}
+.mt-info {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(24px, 3vw, 48px);
+  margin-top: clamp(28px, 3vw, 44px);
+}
+.mt-info .h3 {
+  font-size: clamp(30px, 3vw, 44px);
+  margin: 0 0 14px;
+  padding-bottom: 0.06em;
+}
+.mt-d {
+  margin: 0;
+  font-size: clamp(16px, 1.2vw, 18.5px);
+  line-height: 1.55;
+  color: var(--fg);
+  max-width: 46ch;
+}
+.mt-pts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.mt-pts li {
+  position: relative;
+  padding: 12px 0 12px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--mut);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.mt-pts li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 17px;
+  width: 11px;
+  height: 6px;
+  border-left: 1.5px solid var(--ac);
+  border-bottom: 1.5px solid var(--ac);
+  transform: rotate(-45deg);
+}
+
+/* entrada de cada módulo al elegirlo: la captura sube y se enfoca, el texto llega detrás */
+.fx .mt-panel.on .mt-shot {
+  animation: mtIn 0.9s var(--soft) both;
+}
+.fx .mt-panel.on .mt-glow {
+  animation: mtGlow 1.2s var(--soft) both;
+}
+.fx .mt-panel.on .mt-info > * {
+  animation: mtIn 0.8s var(--soft) both;
+  animation-delay: 0.12s;
+}
+.fx .mt-panel.on .mt-info > * + * {
+  animation-delay: 0.22s;
+}
+@keyframes mtIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.985);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes mtGlow {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 980px) {
+  .mt {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* en celular las pestañas son una grilla de 4 × 2: ícono arriba y nombre abajo */
+  .mt-list {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    padding: 6px;
+    border-radius: 22px;
+  }
+  .mt-tab {
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 4px 12px;
+    border-radius: 16px;
+    font-size: 11.5px;
+    text-align: center;
+  }
+  .mt-name {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .mt-ico {
+    width: 36px;
+    height: 36px;
+  }
+  .mt-bar {
+    left: 14px;
+    right: 14px;
+    bottom: 5px;
+  }
+  .mt-info {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+/* en 375 px "Conversaciones" no entra en una línea: se parte con guion */
+@media (max-width: 420px) {
+  .mt-tab {
+    font-size: 11px;
+    padding-inline: 2px;
+  }
+  .mt-name {
+    white-space: normal;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+    line-height: 1.15;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mt-bar {
+    display: none;
+  }
+}
+
+/* El problema como antes / después (Scout). Cada fila: lo de antes (tachado), una flecha y lo que hace
+   el sistema. Sin JS se ve el estado final; con JS, al revelarse la fila (.rv.in) se dibuja el tachado
+   y después llega la respuesta. */
+.pf-head {
+  margin-bottom: clamp(40px, 5vw, 72px);
+  align-items: end !important;
+}
+.pf-lead {
+  max-width: 48ch;
+}
+.pf {
+  padding: 10px clamp(18px, 3vw, 44px) 14px;
+}
+.pf-cols,
+.pf-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+  align-items: center;
+}
+.pf-cols {
+  padding: 18px 0 14px;
+  font: 500 12px/1.2 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.pf-cols span:first-child {
+  color: rgba(255, 150, 150, 0.75);
+}
+.pf-cols span:last-child {
+  color: #b9b8ff;
+}
+.pf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pf-row {
+  padding: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+.pf-old,
+.pf-new {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.pf-old {
+  color: rgba(245, 245, 247, 0.5);
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.4;
+}
+.pf-t {
+  position: relative;
+}
+/* tachado que se dibuja de izquierda a derecha */
+.pf-t::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 52%;
+  height: 1.5px;
+  border-radius: 2px;
+  background: rgba(255, 130, 130, 0.65);
+  transform-origin: 0 50%;
+  transition: transform 0.9s var(--expo) 0.35s;
+}
+.pf-x,
+.pf-ok {
+  position: relative;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+.pf-x {
+  background: rgba(255, 110, 110, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 110, 110, 0.3);
+}
+.pf-x::before,
+.pf-x::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 12px;
+  height: 1.5px;
+  background: rgba(255, 140, 140, 0.9);
+  transform: rotate(45deg);
+}
+.pf-x::after {
+  transform: rotate(-45deg);
+}
+.pf-ok {
+  background: linear-gradient(135deg, #6e6cff, #2d2bff);
+  box-shadow: 0 6px 18px -6px rgba(110, 108, 255, 0.9);
+}
+.pf-ok::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 9px;
+  height: 5px;
+  border-left: 1.8px solid #fff;
+  border-bottom: 1.8px solid #fff;
+  transform: rotate(-45deg);
+}
+.pf-arrow {
+  display: grid;
+  place-items: center;
+  color: #8c8aff;
+  transition:
+    transform 0.8s var(--expo) 0.5s,
+    opacity 0.6s 0.5s;
+}
+.pf-new {
+  color: var(--fg);
+  font-size: clamp(16px, 1.25vw, 18.5px);
+  font-weight: 500;
+  line-height: 1.4;
+  transition:
+    transform 0.9s var(--expo) 0.65s,
+    opacity 0.7s 0.65s;
+}
+/* estado inicial (solo con JS y antes de revelarse) */
+.fx .pf-row:not(.in) .pf-t::after {
+  transform: scaleX(0);
+}
+.fx .pf-row:not(.in) .pf-arrow {
+  opacity: 0;
+  transform: translate3d(-12px, 0, 0);
+}
+.fx .pf-row:not(.in) .pf-new {
+  opacity: 0;
+  transform: translate3d(-16px, 0, 0);
+}
+.pf-row:hover .pf-arrow {
+  transform: translate3d(4px, 0, 0);
+  transition-delay: 0s;
+}
+@media (max-width: 980px) {
+  .pf-cols {
+    display: none;
+  }
+  .pf-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px 0;
+  }
+  .pf-list li:first-child {
+    border-top: 0;
+  }
+  .pf-arrow {
+    display: none;
+  }
+}

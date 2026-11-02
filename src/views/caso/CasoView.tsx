@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import { Cta } from "@/components/Cta";
@@ -9,8 +10,10 @@ import { routes, type Lang } from "@/i18n";
 import { caso, NEXT, type Caso, type CasoSlug } from "@/lib/casos";
 import { breadcrumbs, softwareSchema } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
+import { waLink } from "@/lib/site";
 import "@/styles/prodname.css";
 import "../casos/casos.css";
+import "./showcase.css";
 
 const T = {
   es: {
@@ -18,6 +21,25 @@ const T = {
     own: "Sistema propio",
     problem: ["El ", "problema"],
     mods: ["Los ", "módulos"],
+    tourNav: "Módulos",
+    before: "Antes",
+    after: "Con Aspa",
+    sx: {
+      title: ["De la búsqueda al cobro, ", "en un solo sistema."],
+      see: "Ver los módulos",
+      demo: "Pedir una demo",
+      demoMsg: "Hola Aspa, quiero ver una demo de Aspa Scout",
+      shot: "Aspa Scout: resultados del equipo comercial, con la tasa de respuesta y qué ciudades responden mejor",
+      cand: ["378", "candidatos esperando tu revisión"],
+      chat: ["Parrilla Don Ramón", "Dale, pasame más info"],
+      send: ["Programar envío", "Programar 6 envíos"],
+      sendRows: [
+        ["10:15", "Parrilla Don Ramón"],
+        ["10:42", "Hotel Las Piedras"],
+        ["11:06", "Salón Los Álamos"],
+      ],
+      cobro: ["Por cobrar", "$180.000", "2 clientes con deuda"],
+    },
     looks: ["Cómo ", "se ve"],
     result: "Resultado",
     other: "Otro caso",
@@ -44,6 +66,25 @@ const T = {
     own: "Our own product",
     problem: ["The ", "problem"],
     mods: ["The ", "modules"],
+    tourNav: "Modules",
+    before: "Before",
+    after: "With Aspa",
+    sx: {
+      title: ["From search to payment, ", "in a single system."],
+      see: "See the modules",
+      demo: "Book a demo",
+      demoMsg: "Hi Aspa, I'd like a demo of Aspa Scout",
+      shot: "Aspa Scout: sales team results, with response rate and which cities respond best",
+      cand: ["378", "candidates waiting for your review"],
+      chat: ["Parrilla Don Ramón", "Sure, send me more info"],
+      send: ["Schedule outreach", "Schedule 6 messages"],
+      sendRows: [
+        ["10:15", "Parrilla Don Ramón"],
+        ["10:42", "Hotel Las Piedras"],
+        ["11:06", "Salón Los Álamos"],
+      ],
+      cobro: ["Outstanding", "$180,000", "2 customers owing"],
+    },
     looks: ["How it ", "looks"],
     result: "Result",
     other: "Another case",
@@ -88,22 +129,316 @@ function ProdName({ name }: { name: string }) {
   );
 }
 
+const SHOT_FULL = "(max-width: 1328px) calc(100vw - 64px), 1264px",
+  SHOT_HALF = "(max-width: 1328px) calc(50vw - 40px), 624px",
+  /** la captura del módulo elegido: lo que queda al lado de la lista en escritorio, todo el ancho en celular */
+  SHOT_TOUR = "(max-width: 980px) calc(100vw - 32px), (max-width: 1328px) calc(100vw - 420px), 920px";
+
+/** id de cada módulo: "Búsquedas" → "mod-busquedas". */
+const modId = (h: string) =>
+  "mod-" +
+  h
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+/** Íconos de los módulos de Scout, en el orden del recorrido (trazos de 24 × 24). */
+const MOD_ICONS: string[][] = [
+  ["M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z", "m20 20-3.5-3.5"],
+  ["M9 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z", "M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6", "M16 4.6a3.5 3.5 0 0 1 0 6.8", "M21 20c0-2.6-1.6-4.8-3.8-5.6"],
+  ["M21 12a8.5 8.5 0 0 1-12.4 7.6L3.5 21l1.4-4.6A8.5 8.5 0 1 1 21 12z"],
+  ["M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z", "M3 10h18", "M8 3v4", "M16 3v4"],
+  ["M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z", "m8.5 12 2.5 2.5 4.5-5"],
+  [
+    "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z",
+    "M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1.3 1.7 3 2 3 .9 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5",
+    "M12 6v2",
+    "M12 16v2",
+  ],
+  ["M3 20h18", "M6 16v-5", "M11 16V6", "M16 16V9", "M20 16v-3"],
+  ["M12 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z", "M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"],
+];
+
+function ModIcon({ i }: { i: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {(MOD_ICONS[i] ?? MOD_ICONS[0]).map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </svg>
+  );
+}
+
+/** Módulos de Scout como selector: a la izquierda la lista (pestañas con ícono), a la derecha el módulo
+ *  elegido con su captura y su explicación. Avanza solo, con una barra que marca el tiempo, hasta
+ *  que se elige uno a mano. Sin JS se ven todos los módulos, uno debajo del otro. El cambio de
+ *  pestaña, el avance y el teclado los pone fx/casos.ts. */
+function Tour({ c, t }: { c: Caso; t: Tx }) {
+  const tour = c.tour!;
+  return (
+    <section className="section" style={{ paddingTop: 0 }} aria-labelledby="caso-modulos">
+      <div className="wrap">
+        <div className="sec-head">
+          <div>
+            <h2 className="h2" id="caso-modulos" data-lines>
+              {t.mods[0]}
+              <em className="grad">{t.mods[1]}</em>
+            </h2>
+          </div>
+        </div>
+        <div className="mt" data-mt>
+          <div className="mt-list rv" role="tablist" aria-label={t.tourNav}>
+            {tour.map((m, i) => (
+              <button
+                key={m.h}
+                type="button"
+                role="tab"
+                id={`${modId(m.h)}-tab`}
+                aria-controls={modId(m.h)}
+                aria-selected={i === 0}
+                tabIndex={i === 0 ? 0 : -1}
+                className={i === 0 ? "mt-tab on" : "mt-tab"}
+              >
+                <span className="mt-ico">
+                  <ModIcon i={i} />
+                </span>
+                <span className="mt-name">{m.h}</span>
+                <span className="mt-bar" aria-hidden="true">
+                  <i />
+                </span>
+              </button>
+            ))}
+          </div>
+          <div className="mt-stage" data-lb-group>
+            {tour.map((m, i) => (
+              <div key={m.h} role="tabpanel" id={modId(m.h)} aria-labelledby={`${modId(m.h)}-tab`} className={i === 0 ? "mt-panel on" : "mt-panel"}>
+                <div className="mt-shot">
+                  <span className="mt-glow" aria-hidden="true" />
+                  <Shot img={m.img} cap={m.cap} sizes={SHOT_TOUR} zoom={t.zoom} />
+                </div>
+                <div className="mt-info">
+                  <div>
+                    <h3 className="h3">{m.h}</h3>
+                    <p className="mt-d">{m.d}</p>
+                  </div>
+                  <ul className="mt-pts">
+                    {m.pts.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Captura que se amplía: el lightbox usa el srcset grande (hasta 2200 px), no el de la miniatura. */
-function Shot({ img, cap, first, zoom }: { img: Caso["shots"][number]["img"]; cap: string; first: boolean; zoom: string }) {
-  const sizes = first ? "(max-width: 1328px) calc(100vw - 64px), 1264px" : "(max-width: 1328px) calc(50vw - 40px), 624px";
+function Shot({ img, cap, sizes, zoom }: { img: Caso["shots"][number]["img"]; cap: string; sizes: string; zoom: string }) {
   const big = getImageProps({ src: img, alt: "", sizes: "min(1176px, 92vw)" }).props;
   return (
-    <button
-      className="shot glass rv-img"
-      type="button"
-      data-lb
-      data-cap={cap}
-      data-srcset={big.srcSet}
-      data-sizes={big.sizes}
-      aria-label={`${zoom}: ${cap}`}
-    >
+    <button className="shot glass rv-img" type="button" data-lb data-cap={cap} data-srcset={big.srcSet} data-sizes={big.sizes} aria-label={`${zoom}: ${cap}`}>
       <Image src={img} alt={cap} sizes={sizes} />
     </button>
+  );
+}
+
+/** El problema como antes / después (Scout): a la izquierda cómo se trabajaba, a la derecha qué hace el
+ *  sistema. Al entrar cada fila, lo de antes se tacha y llega la respuesta (CSS sobre .rv.in). */
+function Pains({ c, t }: { c: Caso; t: Tx }) {
+  return (
+    <section className="section pf-sec" aria-labelledby="caso-problema">
+      <div className="wrap">
+        <div className="grid case-split pf-head">
+          <div>
+            <h2 className="h2" id="caso-problema" data-lines>
+              {t.problem[0]}
+              <em className="grad">{t.problem[1]}</em>
+            </h2>
+          </div>
+          <p className="lead pf-lead">{c.problem}</p>
+        </div>
+        <div className="pf glass glass-big">
+          <div className="pf-cols" aria-hidden="true">
+            <span>{t.before}</span>
+            <span />
+            <span>
+              {t.after} {c.name}
+            </span>
+          </div>
+          <ul className="pf-list">
+            {c.pains!.map(([a, b], i) => (
+              <li className="pf-row rv" key={a} style={{ "--rv-i": i % 2 } as CSSProperties}>
+                <span className="pf-old">
+                  <span className="pf-x" aria-hidden="true" />
+                  <span className="pf-t">
+                    <span className="sr-only">{t.before}: </span>
+                    {a}
+                  </span>
+                </span>
+                <span className="pf-arrow" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 12h15" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </span>
+                <span className="pf-new">
+                  <span className="pf-ok" aria-hidden="true" />
+                  <span>
+                    <span className="sr-only">
+                      {t.after} {c.name}:{" "}
+                    </span>
+                    {b}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Hero con escena (Scout): título grande, botones y la pantalla de Resultados en 3D con tarjetas que
+ *  flotan alrededor (candidatos, un chat de WhatsApp, el envío programado y lo que falta cobrar).
+ *  Las tarjetas repiten lo que ya dice la página: son decorativas (aria-hidden). El movimiento con el
+ *  puntero y el scroll lo pone fx/casos.ts; la entrada y la flotación, el CSS. */
+function Showcase({ c, t }: { c: Caso; t: Tx }) {
+  const x = t.sx;
+  return (
+    <section className="case-hero sx-hero" aria-label={`Aspa ${c.name}`}>
+      <div className="sx-bg" aria-hidden="true">
+        <span className="sx-blob sx-b1" />
+        <span className="sx-blob sx-b2" />
+        <span className="sx-grid" />
+      </div>
+      <div className="wrap sx-top">
+        <ProdName name={c.name} />
+        <p className="sx-title r-late">
+          {x.title[0]}
+          <span className="sx-grad">{x.title[1]}</span>
+        </p>
+        <p className="lead sx-lead r-late">{c.lead}</p>
+        <div className="btns sx-btns r-late">
+          <a className="btn btn-glass btn-blue" href="#caso-modulos">
+            <span>{x.see}</span>
+          </a>
+          <a className="btn btn-glass" href={waLink(x.demoMsg)} target="_blank" rel="noopener">
+            <span>{x.demo}</span>
+          </a>
+        </div>
+      </div>
+
+      <div className="sx-stage" data-sx>
+        <div className="sx-scene">
+          <div className="sx-screen">
+            <div className="sx-screen-in">
+              <Image src={c.showcase!} alt={x.shot} sizes="(max-width: 980px) calc(100vw - 32px), min(1120px, 78vw)" priority />
+            </div>
+          </div>
+
+          <div className="sx-chip sx-c1" style={{ "--d": 1.3 } as CSSProperties} aria-hidden="true">
+            <div className="sx-float">
+              <div className="sx-card glass">
+                <span className="sx-ico">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-3.5-3.5" />
+                  </svg>
+                </span>
+                <span>
+                  <b className="sx-big">{x.cand[0]}</b>
+                  <span className="sx-sm">{x.cand[1]}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="sx-chip sx-c2" style={{ "--d": 1.8 } as CSSProperties} aria-hidden="true">
+            <div className="sx-float">
+              <div className="sx-card glass sx-chat">
+                <span className="sx-av">PD</span>
+                <span>
+                  <span className="sx-sm" lang="es">
+                    {x.chat[0]}
+                  </span>
+                  <span className="sx-bub">
+                    <span className="sx-typing">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    <span className="sx-msg">{x.chat[1]}</span>
+                    <span className="sx-time">09:12 ✓✓</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="sx-chip sx-c3" style={{ "--d": 0.9 } as CSSProperties} aria-hidden="true">
+            <div className="sx-float">
+              <div className="sx-card glass sx-send">
+                <b>{x.send[0]}</b>
+                {x.sendRows.map(([h, n]) => (
+                  <span className="sx-row" key={h}>
+                    <span>{h}</span>
+                    <span lang="es">{n}</span>
+                  </span>
+                ))}
+                <span className="sx-btn">{x.send[1]}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="sx-chip sx-c4" style={{ "--d": 1.5 } as CSSProperties} aria-hidden="true">
+            <div className="sx-float">
+              <div className="sx-card glass">
+                <span>
+                  <span className="sx-sm">{x.cobro[0]}</span>
+                  <b className="sx-big sx-amber">{x.cobro[1]}</b>
+                  <span className="sx-sm">{x.cobro[2]}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="wrap">
+        <ul className="feat sx-feat glass r-late">
+          {c.feat.map(([k, v]) => (
+            <li key={k}>
+              <span>{k}</span>
+              <span>{v}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
@@ -173,82 +508,96 @@ export function CasoView({ slug, lang }: { slug: CasoSlug; lang: Lang }) {
     casos = routes(lang).casos;
   return (
     <main id="main" className="view">
-      <section className="case-hero" aria-label={`Aspa ${c.name}`}>
-        <div className="wrap">
-          <p className="crumb2">
-            <Link className="ul" href={casos}>
-              {t.crumb}
-            </Link>{" "}
-            {`· ${t.own}`}
-          </p>
-          <ProdName name={c.name} />
-          <div className="grid case-intro r-late">
-            <p className="lead">{c.lead}</p>
-            <ul className="feat glass">
-              {c.feat.map(([k, v]) => (
-                <li key={k}>
-                  <span>{k}</span>
-                  <span>{v}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="caso-problema">
-        <div className="wrap">
-          <div className="grid case-split">
-            <div>
-              <h2 className="h2" id="caso-problema" data-lines>
-                {t.problem[0]}
-                <em className="grad">{t.problem[1]}</em>
-              </h2>
-            </div>
-            <p className="lead2">{c.problem}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ paddingTop: 0 }} aria-labelledby="caso-modulos">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <h2 className="h2" id="caso-modulos" data-lines>
-                {t.mods[0]}
-                <em className="grad">{t.mods[1]}</em>
-              </h2>
+      {c.showcase ? (
+        <Showcase c={c} t={t} />
+      ) : (
+        <section className="case-hero" aria-label={`Aspa ${c.name}`}>
+          <div className="wrap">
+            <p className="crumb2">
+              <Link className="ul" href={casos}>
+                {t.crumb}
+              </Link>{" "}
+              {`· ${t.own}`}
+            </p>
+            <ProdName name={c.name} />
+            <div className="grid case-intro r-late">
+              <p className="lead">{c.lead}</p>
+              <ul className="feat glass">
+                {c.feat.map(([k, v]) => (
+                  <li key={k}>
+                    <span>{k}</span>
+                    <span>{v}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className="mods">
-            {c.mods.map(([h, d]) => (
-              <article className="mod glass rv" key={h}>
-                <h3>{h}</h3>
-                <p className="mut">{d}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="section" style={{ paddingTop: 0 }} aria-labelledby="caso-pantallas">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <h2 className="h2" id="caso-pantallas" data-lines>
-                {t.looks[0]}
-                <em className="grad">{t.looks[1]}</em>
-              </h2>
+      {c.pains ? (
+        <Pains c={c} t={t} />
+      ) : (
+        <section className="section" aria-labelledby="caso-problema">
+          <div className="wrap">
+            <div className="grid case-split">
+              <div>
+                <h2 className="h2" id="caso-problema" data-lines>
+                  {t.problem[0]}
+                  <em className="grad">{t.problem[1]}</em>
+                </h2>
+              </div>
+              <p className="lead2">{c.problem}</p>
             </div>
           </div>
-          <div className="shots">
-            {c.shots.map((s, i) => (
-              <Shot key={s.cap} img={s.img} cap={s.cap} first={i === 0} zoom={t.zoom} />
-            ))}
-          </div>
-          {c.manga && <Manga m={t.manga} />}
-        </div>
-      </section>
+        </section>
+      )}
+
+      {c.tour ? (
+        <Tour c={c} t={t} />
+      ) : (
+        <>
+          <section className="section" style={{ paddingTop: 0 }} aria-labelledby="caso-modulos">
+            <div className="wrap">
+              <div className="sec-head">
+                <div>
+                  <h2 className="h2" id="caso-modulos" data-lines>
+                    {t.mods[0]}
+                    <em className="grad">{t.mods[1]}</em>
+                  </h2>
+                </div>
+              </div>
+              <div className="mods">
+                {c.mods.map(([h, d]) => (
+                  <article className="mod glass rv" key={h}>
+                    <h3>{h}</h3>
+                    <p className="mut">{d}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="section" style={{ paddingTop: 0 }} aria-labelledby="caso-pantallas">
+            <div className="wrap">
+              <div className="sec-head">
+                <div>
+                  <h2 className="h2" id="caso-pantallas" data-lines>
+                    {t.looks[0]}
+                    <em className="grad">{t.looks[1]}</em>
+                  </h2>
+                </div>
+              </div>
+              <div className="shots">
+                {c.shots.map((s, i) => (
+                  <Shot key={s.cap} img={s.img} cap={s.cap} sizes={i === 0 ? SHOT_FULL : SHOT_HALF} zoom={t.zoom} />
+                ))}
+              </div>
+              {c.manga && <Manga m={t.manga} />}
+            </div>
+          </section>
+        </>
+      )}
 
       <section className="section" style={{ paddingTop: 0 }} aria-label={t.result}>
         <div className="wrap">

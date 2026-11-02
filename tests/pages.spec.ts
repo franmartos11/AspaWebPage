@@ -98,7 +98,11 @@ const DESIGN: Record<string, { d?: number[]; m?: number[] }> = {
   "/casos": { d: [443, 1096, 554], m: [405, 2236, 659] },
   // celular: "Movimientos" se salía de su tarjeta en el diseño; ahora se corta con guion (+21 px)
   "/casos/aspa-rodeo": { d: [631, 514, 475, 1893, 341, 226, 536], m: [684, 435, 766, 871, 272, 170, 599] },
-  "/casos/aspa-scout": { d: [631, 479, 475, 1819, 341, 226, 536], m: [709, 407, 810, 612, 272, 170, 599] },
+  // Scout: en vez de la grilla de módulos y la de capturas, un selector con los 8 módulos del PDF
+  // (pestañas y el módulo elegido con su captura y su texto), así que hay una sección menos; el hero
+  // lleva la escena con la pantalla de Resultados y las tarjetas que flotan, y la ficha debajo; el
+  // problema es una tabla de antes / después (6 filas)
+  "/casos/aspa-scout": { d: [1496, 954, 733, 370, 226, 536], m: [1269, 1196, 817, 298, 170, 599] },
 };
 
 async function open(page: Page, path: string, opts: { reducedMotion?: boolean } = {}) {

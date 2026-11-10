@@ -19,7 +19,7 @@ Next.js 16 (App Router, TypeScript), generado estático. Hechas todas las págin
 | `EMAIL_PASS` | Una **contraseña de aplicación** de esa cuenta (Google › Seguridad › Verificación en dos pasos › Contraseñas de aplicaciones), no la contraseña normal. |
 | `CONTACT_TO` | Opcional: quién recibe. Por defecto `aspasoftwaredevelopment@gmail.com`, la del sitio anterior. |
 
-Los datos de contacto (email aspasoftwaredevelopment@gmail.com, WhatsApp +54 9 3517 87-8609, dirección) y el envío son los del sitio anterior ([AspaWebPage](https://github.com/franmartos11/AspaWebPage)); el diseño traía otro email. Sin `EMAIL_USER`/`EMAIL_PASS` el formulario avisa que no pudo enviar y sugiere WhatsApp o email (no se pierde en silencio). El mail llega con «Responder a» apuntando al visitante. Contra el spam: campo trampa, envío en menos de 3 s, más de 3 links en el mensaje y hasta 5 envíos cada 10 minutos por IP; a los bots se les contesta «ok» sin enviar. Sin JavaScript el formulario también funciona (lleva a `/contacto/enviado` o `/contacto/error`). Los tests corren con `CONTACT_DRY_RUN=1`: validan todo sin mandar mails.
+Los datos de contacto (email aspasoftwaredevelopment@gmail.com, WhatsApp +54 9 3517 87-8609, dirección) y el envío son los del sitio anterior ([AspaWebPage](https://github.com/franmartos11/AspaWebPage)); el diseño traía otro email. Sin `EMAIL_USER`/`EMAIL_PASS` el formulario avisa que no pudo enviar y sugiere WhatsApp o email (no se pierde en silencio). El mail llega con «Responder a» apuntando al visitante. Contra el spam: campo trampa, envío en menos de 3 s, más de 3 links en el mensaje y hasta 5 envíos cada 10 minutos por IP; además el POST tiene que venir del propio sitio (`Origin`) y traer `t0`, el momento en que se mostró el formulario, que completa un script en línea. A los bots se les contesta «ok» sin enviar. Por eso el formulario necesita JavaScript: con JavaScript desactivado el envío se descarta. Si el envío sale antes de que cargue el bundle, va como formulario común y lleva a `/contacto/enviado` o `/contacto/error`. Los tests corren con `CONTACT_DRY_RUN=1`: validan todo sin mandar mails.
 
 ## Comandos
 
@@ -33,6 +33,8 @@ npm run test:e2e:update   # regenera las capturas base (solo si el cambio visual
 npm run test:e2e:engines  # el tramo por pasos también en WebKit (Safari) y Firefox
 npm run lhci           # Lighthouse CI: 3 corridas con umbrales (lighthouserc.json)
 ```
+
+En cada push a `main` y en cada pull request, GitHub Actions (`.github/workflows/ci.yml`) corre lint, build, tipos y los tests en 1440 y 375 px sin comparar capturas (las base son de macOS).
 
 Los tests usan el Chrome instalado (`channel: "chrome"`), no hace falta descargar navegadores. Solo `test:e2e:engines` necesita una vez `npx playwright install webkit firefox`.
 
@@ -89,7 +91,6 @@ scripts/og-images.mjs      regenera las imágenes para redes de los dos idiomas 
 | Nosotros en celular y tablet: hero al alto de su contenido, alineado con el resto de la página, con «Conocé al equipo» (las iniciales del equipo) debajo del texto | En el diseño el texto quedaba abajo de media pantalla vacía y, en tablet, corrido 60 px hacia adentro. |
 | «Saltar» de la intro al 50 % de opacidad (era 45 %) | Llega al contraste AA. |
 | Título del hero con movimiento reducido | En el original quedaba invisible con `prefers-reduced-motion`. |
-| Botón EN deshabilitado | Todavía no hay versión en inglés. |
 | Título del hero entra por palabra (enfoque + subida, ~1,7 s) | Por letra tardaba 3,5 s, perdía el kerning y animaba 34 capas con blur (tirones en celulares). |
 | Subtítulo y botones entran al final del título | Antes aparecían cuando el título iba por la primera línea. |
 | Hero de la notebook: más recorrido (640 vh / 460 vh en celular), progreso con inercia y límite de velocidad en el tramo de los trabajos | Pasaba muy rápido, en táctiles seguía los tirones del dedo y con un scroll rápido se pasaban todos los trabajos de una. Ahora avanza como máximo un trabajo cada 2 s y después alcanza al scroll. |
@@ -223,8 +224,7 @@ La verificación definitiva es el dato de campo: Core Web Vitals en Search Conso
 - [ ] Precios de Planes (USD 200 / 600 / 20 por mes, del diseño): confirmar que son los vigentes y si incluyen IVA (`src/lib/webs.ts`).
 - [ ] Permiso de los clientes que aparecen en Casos (DH Engineering y los diseños de ejemplo con nombre).
 - [ ] **Variables del formulario** en el hosting: `EMAIL_USER` y `EMAIL_PASS` (contraseña de aplicación de Gmail). Ver «Formulario de contacto».
-- [ ] Fotos del equipo para Nosotros (hoy van las iniciales, como en el diseño: `TEAM` en `src/app/nosotros/page.tsx`) y el LinkedIn personal de Agustín y Joaquín (hoy van al de la empresa).
-- [ ] Revisión legal de la política de privacidad (`src/app/privacidad/page.tsx`).
-- [ ] Versión en inglés (si se hace: rutas `/en`, `hreflang` y activar el botón EN).
+- [ ] Fotos del equipo para Nosotros (hoy van las iniciales, como en el diseño: `TEAM` en `src/views/nosotros/NosotrosView.tsx`) y el LinkedIn personal de Agustín y Joaquín (hoy van al de la empresa).
+- [ ] Revisión legal de la política de privacidad (`src/views/privacidad/PrivacidadView.tsx`).
 - [ ] Confirmar que los clientes del marquee y los números («+5 años», «8 empresas»…) son definitivos.
 - [ ] Al publicar: verificar el dominio en Google Search Console, enviar el sitemap y revisar la URL con la herramienta de inspección y el [Rich Results Test](https://search.google.com/test/rich-results).

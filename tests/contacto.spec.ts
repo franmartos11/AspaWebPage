@@ -42,6 +42,12 @@ test.describe("Contacto · formulario", () => {
     await expect(page.getByLabel("Sistema", { exact: true })).toBeChecked();
   });
 
+  test("t0 se completa con el script en línea, aunque el bundle no cargue", async ({ page }) => {
+    await page.route("**/_next/static/**/*.js", (r) => r.abort());
+    await page.goto("/contacto");
+    expect(Number(await page.locator('input[name="t0"]').inputValue())).toBeGreaterThan(0);
+  });
+
   test("el selector se maneja con el teclado (radios)", async ({ page }) => {
     await page.getByLabel("Sistema", { exact: true }).focus();
     await page.keyboard.press("ArrowRight");

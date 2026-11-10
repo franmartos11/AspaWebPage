@@ -199,6 +199,9 @@ export function ContactoView({ lang }: { lang: Lang }) {
               <input id="f-hp" name={HONEYPOT} tabIndex={-1} autoComplete="off" />
             </div>
             <input type="hidden" name={STARTED} defaultValue="" />
+            {/* completa t0 apenas se dibuja el formulario, sin esperar al bundle: si alguien envía antes de que
+                cargue contacto.ts, el envío nativo igual lo lleva (el endpoint descarta los que llegan sin t0) */}
+            <script dangerouslySetInnerHTML={{ __html: "document.currentScript.previousElementSibling.value=Date.now()" }} />
             {/* el idioma solo lo manda el formulario en inglés (sin él, el endpoint responde en español) */}
             {lang === "en" && <input type="hidden" name={LANG_FIELD} value="en" />}
             <button className="btn btn-glass btn-blue" type="submit">

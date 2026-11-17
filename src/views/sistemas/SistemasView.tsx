@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CharTitle } from "@/components/CharTitle";
@@ -12,7 +11,6 @@ import { PainCard } from "@/components/PainArt";
 import { routes, type Lang } from "@/i18n";
 import { breadcrumbs, serviceSchema } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
-import { TECH_ICONS } from "@/lib/tech-icons";
 import { waLink } from "@/lib/site";
 import rodeo from "@/assets/work/aspa-rodeo.jpg";
 import scoutClientes from "@/assets/work/aspa-scout-clientes.jpg";
@@ -27,8 +25,6 @@ import "@/styles/pains.css";
 import "@/styles/prodname.css";
 import "@/styles/seg.css";
 import "./sistemas.css";
-
-type Cell = string | [string, string];
 
 // ---------- textos (la forma de `en` es la misma que la de `es`) ----------
 const ES = {
@@ -52,32 +48,6 @@ const ES = {
   partsAText: "Celdas sueltas, fórmulas rotas y tres versiones del mismo archivo.",
   partsB: ["Tu información, ", "ordenada."],
   partsBText: "Indicadores, tablas y gráficos que se actualizan solos, en un solo lugar.",
-  cmpT: "Arrastrá para comparar",
-  xlsFile: "Hacienda_2026_FINAL_v3 (2).xlsx",
-  xlsSaved: "Guardado hace 3 días",
-  xlsFormula: "=SUMA(D2:D6)/CONTAR(C2:C6)",
-  // planilla "de antes" del comparador (contenido de ejemplo del diseño)
-  xls: [
-    [
-      ["LOTE", "b"],
-      ["CATEG", "b"],
-      ["CAB", "b"],
-      ["KG TOTAL", "b"],
-      ["POTRERO", "b"],
-      ["PROM", "b"],
-      ["OBS", "b"],
-    ],
-    ["L1", "novillos", "186", "76632", "la loma", "412", ["ver con Juan", "g"]],
-    ["L-4", "Vaq.", ["132??", "y"], "51612", "EL BAJO", "391", ""],
-    ["lote 7", "terneros", "248", ["46128", "y"], "aguada", ["#¡DIV/0!", "r"], ["pesar de nuevo", "g"]],
-    ["L9", "vacas", "310", "145080", "monte", "468", ""],
-    ["L11", "TOROS", "18", "13356", "casco", ["#¡REF!", "r"], ["vacunar??", "g"]],
-    ["", "", ["=SUMA?", "y"], "", "", ["#¡VALOR!", "r"], ""],
-    ["", "", "", "", "", "", ""],
-    [["vacunas: aftosa lote 7 fines oct (?)", "g"], "", "", "", "", "", ""],
-  ] as Cell[][],
-  xlsTabs: ["Hoja1", "Hoja1 (2)", "pesadas viejo", "NO TOCAR"],
-  cmpKnob: "Comparar planilla y sistema",
   buildT: ["Seis cosas que hacemos ", "todos los días"],
   build: {
     "b-gestion": ["Sistemas de gestión", "Todo lo que hoy está en planillas, en un sistema que tu equipo entiende."],
@@ -122,19 +92,6 @@ const ES = {
   storyT: ["De la primera charla a la ", "versión 1.0"],
   steps: ["Descubrimiento", "Análisis", "Diseño UI/UX", "Desarrollo ágil", "Testing", "Lanzamiento y soporte"],
   storyCap: "Entendemos el negocio, los objetivos y a quienes lo van a usar.",
-  toolsT: ["Herramientas ", "probadas"],
-  techs: [
-    ["React", "Interfaces web rápidas y fáciles de mantener."],
-    ["Next.js", "Webs y sistemas que cargan rápido y aparecen en Google."],
-    ["TypeScript", "Código más seguro: menos errores antes de que lleguen a vos."],
-    ["Node.js", "El servidor y las integraciones con otros sistemas."],
-    ["React Native", "Una sola app para iOS y Android."],
-    ["Flutter", "Apps con interfaces muy fluidas en los dos sistemas."],
-    ["Swift", "Apps nativas para iPhone cuando hace falta lo máximo."],
-    ["Kotlin", "Apps nativas para Android."],
-    ["Firebase", "Datos en tiempo real, avisos y acceso de usuarios."],
-    ["Tailwind", "Diseño consistente en todas las pantallas."],
-  ] as [string, string][],
   ownT: ["Un sistema que es ", "tuyo"],
   own: [
     ["El código y los datos son tuyos", "Todo queda a nombre de tu empresa. Si mañana querés seguir con otro equipo, podés."],
@@ -184,31 +141,6 @@ const EN: Copy = {
   partsAText: "Scattered cells, broken formulas and three versions of the same file.",
   partsB: ["Your data, ", "organized."],
   partsBText: "Metrics, tables and charts that update themselves, all in one place.",
-  cmpT: "Drag to compare",
-  xlsFile: "Cattle_2026_FINAL_v3 (2).xlsx",
-  xlsSaved: "Saved 3 days ago",
-  xlsFormula: "=SUM(D2:D6)/COUNT(C2:C6)",
-  xls: [
-    [
-      ["LOT", "b"],
-      ["CLASS", "b"],
-      ["HEAD", "b"],
-      ["TOTAL KG", "b"],
-      ["PASTURE", "b"],
-      ["AVG", "b"],
-      ["NOTES", "b"],
-    ],
-    ["L1", "steers", "186", "76632", "the hill", "412", ["check w/ Juan", "g"]],
-    ["L-4", "Heif.", ["132??", "y"], "51612", "LOW FIELD", "391", ""],
-    ["lot 7", "calves", "248", ["46128", "y"], "creek", ["#DIV/0!", "r"], ["weigh again", "g"]],
-    ["L9", "cows", "310", "145080", "woods", "468", ""],
-    ["L11", "BULLS", "18", "13356", "home lot", ["#REF!", "r"], ["vaccinate??", "g"]],
-    ["", "", ["=SUM?", "y"], "", "", ["#VALUE!", "r"], ""],
-    ["", "", "", "", "", "", ""],
-    [["vaccines: FMD lot 7 late Oct (?)", "g"], "", "", "", "", "", ""],
-  ],
-  xlsTabs: ["Sheet1", "Sheet1 (2)", "old weighings", "DO NOT TOUCH"],
-  cmpKnob: "Compare spreadsheet and system",
   buildT: ["Six things we do ", "every day"],
   build: {
     "b-gestion": ["Management systems", "Everything that lives in spreadsheets today, in a system your team gets."],
@@ -250,19 +182,6 @@ const EN: Copy = {
   storyT: ["From the first call to ", "version 1.0"],
   steps: ["Discovery", "Analysis", "UI/UX design", "Agile development", "Testing", "Launch and support"],
   storyCap: "We learn the business, the goals and the people who will use it.",
-  toolsT: ["Proven ", "tools"],
-  techs: [
-    ["React", "Fast web interfaces that are easy to maintain."],
-    ["Next.js", "Websites and systems that load fast and show up on Google."],
-    ["TypeScript", "Safer code: fewer bugs before they ever reach you."],
-    ["Node.js", "The server and the integrations with other systems."],
-    ["React Native", "One app for both iOS and Android."],
-    ["Flutter", "Apps with silky-smooth interfaces on both platforms."],
-    ["Swift", "Native iPhone apps when you need the very best."],
-    ["Kotlin", "Native Android apps."],
-    ["Firebase", "Real-time data, notifications and user sign-in."],
-    ["Tailwind", "Consistent design across every screen."],
-  ],
   ownT: ["A system that's ", "yours"],
   own: [
     ["The code and the data are yours", "Everything is in your company's name. If you ever want to move to another team, you can."],
@@ -477,85 +396,6 @@ export function SistemasView({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }} aria-labelledby="sis-cmp">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <h2 className="h3" id="sis-cmp">
-                {t.cmpT}
-              </h2>
-            </div>
-          </div>
-          <div className="cmp" data-cmp>
-            <div className="pane" aria-hidden="true">
-              <div className="xls">
-                <div className="xls-bar">
-                  <b>{t.xlsFile}</b>
-                  <span style={{ opacity: 0.7 }}>{t.xlsSaved}</span>
-                </div>
-                <div className="xls-fx">
-                  <span>F7</span>
-                  <span>{t.xlsFormula}</span>
-                </div>
-                <table>
-                  <tbody>
-                    <tr>
-                      <th></th>
-                      {"ABCDEFG".split("").map((c) => (
-                        <th key={c}>{c}</th>
-                      ))}
-                    </tr>
-                    {t.xls.map((row, ri) => (
-                      <tr key={ri}>
-                        <td>{ri + 1}</td>
-                        {row.map((cell, c) =>
-                          typeof cell === "string" ? (
-                            <td key={c}>{cell}</td>
-                          ) : cell[1] === "b" ? (
-                            <td key={c}>
-                              <b>{cell[0]}</b>
-                            </td>
-                          ) : (
-                            <td key={c} className={cell[1]}>
-                              {cell[0]}
-                            </td>
-                          ),
-                        )}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <div className="xls-tabs">
-                  {t.xlsTabs.map((x, i) => (
-                    <span key={x} className={i === 0 ? "on" : undefined}>
-                      {x}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="pane p2" aria-hidden="true">
-              <Image className="pane-img" src={rodeo} alt="" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" />
-            </div>
-            <div className="handle">
-              <button className="knob" type="button" role="slider" aria-label={t.cmpKnob} aria-valuemin={0} aria-valuemax={100} aria-valuenow={50}>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* «Seis cosas que hacemos…»: oculta por ahora (SHOW_SEIS); el código queda por si se vuelve a usar */}
       {SHOW_SEIS && (
         <section className="section" id="que-construimos" aria-labelledby="sis-seis">
@@ -707,39 +547,6 @@ export function SistemasView({ lang }: { lang: Lang }) {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="sis-tools">
-        <div className="wrap">
-          <div className="sec-head">
-            <div>
-              <h2 className="h2" id="sis-tools" data-lines>
-                {t.toolsT[0]}
-                <em className="grad">{t.toolsT[1]}</em>
-              </h2>
-            </div>
-          </div>
-          <ul className="techs">
-            {t.techs.map(([name, tip], i) => (
-              <li
-                className="tech glass rv"
-                tabIndex={0}
-                key={name}
-                aria-describedby={`tip-${i}`}
-                data-spin={name.startsWith("React") || undefined}
-                style={{ "--c": TECH_ICONS[name].color, "--rv-i": i } as CSSProperties}
-              >
-                <svg className="tech-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill={TECH_ICONS[name].color}>
-                  <path d={TECH_ICONS[name].path} />
-                </svg>
-                <span>{name}</span>
-                <span className="tip glass" role="tooltip" id={`tip-${i}`}>
-                  {tip}
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

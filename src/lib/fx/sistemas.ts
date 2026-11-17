@@ -1,12 +1,11 @@
-// Movimiento de Sistemas: pantallas del hero que rotan y siguen al mouse, comparador
-// planilla/sistema, menú de rubros que sigue al scroll y las piezas grandes (partículas,
+// Movimiento de Sistemas: pantallas del hero que rotan y siguen al mouse,
+// menú de rubros que sigue al scroll y las piezas grandes (partículas,
 // flujo automático e historia), cada una en su módulo.
 import { $, $$, isDesk, onTick, reducedMotion } from "./core";
 import { initFaq } from "./faq";
 import { initFlow } from "./flow";
 import { initParts } from "./parts";
 import { initStory } from "./story";
-import { initCompare } from "./ui";
 
 /* ---------- hero: la de adelante pasa atrás cada 3,6 s; parallax suave con el mouse ---------- */
 function initShero(off: (() => void)[]) {
@@ -77,35 +76,15 @@ function initRubros(off: (() => void)[]) {
   );
 }
 
-/* ---------- tooltips de herramientas: se corren lo justo para no salirse de la pantalla ---------- */
-function initTips(off: (() => void)[]) {
-  const tips = $$(".tech .tip");
-  const fit = () =>
-    tips.forEach((t) => {
-      t.style.setProperty("--tipx", "0px");
-      // clientWidth y no innerWidth: si algo ya desbordó, en celular innerWidth crece con el desborde
-      const r = t.getBoundingClientRect(),
-        m = 12,
-        W = document.documentElement.clientWidth;
-      const dx = r.left < m ? m - r.left : r.right > W - m ? W - m - r.right : 0;
-      t.style.setProperty("--tipx", Math.round(dx) + "px");
-    });
-  fit();
-  addEventListener("resize", fit);
-  off.push(() => removeEventListener("resize", fit));
-}
-
 export function initSistemas() {
   const off: (() => void)[] = [];
   initShero(off);
   const parts = $("#parts");
   if (parts) off.push(initParts(parts));
-  $$("[data-cmp]").forEach((c) => off.push(initCompare(c)));
   // flow.ts también maneja su control segmentado
   const flow = $(".flow-blk");
   if (flow) off.push(initFlow(flow));
   initRubros(off);
-  initTips(off);
   off.push(initFaq());
   const story = $("section.story");
   if (story) off.push(initStory(story));

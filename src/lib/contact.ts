@@ -66,8 +66,9 @@ export const EMAIL_RE = /^[^\s@<>()",;:]+@[^\s@<>()",;:]+\.[a-z]{2,}$/i;
 /** Valida lo que llega del formulario (FormData o JSON). `now` se pasa para poder probarlo. */
 export function checkContact(get: (k: string) => unknown, now = Date.now()): Check {
   if (line(get(HONEYPOT), 200)) return { ok: false, spam: true };
+  // t0 lo completa el navegador al mostrar el formulario: quien le pega directo al endpoint no lo manda
   const t0 = Number(get(STARTED));
-  if (t0 && now - t0 < MIN_FILL_MS) return { ok: false, spam: true };
+  if (!t0 || now - t0 < MIN_FILL_MS) return { ok: false, spam: true };
 
   const nombre = line(get("nombre"), 100);
   const email = line(get("email"), 200);

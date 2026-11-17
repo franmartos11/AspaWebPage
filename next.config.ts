@@ -1,6 +1,23 @@
 import type { NextConfig } from "next";
 
+// El sitio no carga nada de terceros: todo sale del propio dominio. Sin nonces (obligarían a renderizar
+// cada página en el servidor y el sitio es estático): los scripts y estilos en línea quedan permitidos.
+// En desarrollo, React necesita eval para las herramientas de depuración.
+const csp = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
+  "style-src 'self' 'unsafe-inline'",
+  // data: y blob: por los SVG en línea del CSS y las texturas que las escenas 3D dibujan en canvas
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+].join("; ");
+
 const securityHeaders = [
+  { key: "Content-Security-Policy", value: csp },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },

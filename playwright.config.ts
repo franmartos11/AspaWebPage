@@ -14,7 +14,8 @@ export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
-  reporter: [["list"]],
+  // en CI, además, cada falla queda como anotación del run en GitHub
+  reporter: process.env.CI ? [["list"], ["github"]] : [["list"]],
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01, animations: "disabled" } },
   use: {
     baseURL: `http://localhost:${PORT}`,

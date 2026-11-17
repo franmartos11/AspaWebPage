@@ -40,6 +40,15 @@ export async function POST(req: Request) {
   const reply = (status: number, body: { ok: boolean; error?: string; field?: string }) =>
     json ? Response.json(body, { status }) : Response.redirect(new URL(body.ok ? r.enviado : r.error, req.url), 303);
 
+  // un navegador siempre manda Origin en un POST: si falta o es de otro sitio, es un script (o un formulario ajeno)
+  const origin = req.headers.get("origin"),
+    host = req.headers.get("x-forwarded-host") || req.headers.get("host");
+  let sameSite = false;
+  try {
+    sameSite = !!origin && !!host && new URL(origin).host === host;
+  } catch {}
+  if (!sameSite) return reply(200, { ok: true });
+
   const now = Date.now();
   const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "local";
   if (limited(ip, now)) return reply(429, { ok: false, error: m.rate });

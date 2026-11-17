@@ -42,6 +42,12 @@ test.describe("Contacto · formulario", () => {
     await expect(page.getByLabel("Sistema", { exact: true })).toBeChecked();
   });
 
+  test("t0 se completa con el script en línea, aunque el bundle no cargue", async ({ page }) => {
+    await page.route("**/_next/static/**/*.js", (r) => r.abort());
+    await page.goto("/contacto");
+    expect(Number(await page.locator('input[name="t0"]').inputValue())).toBeGreaterThan(0);
+  });
+
   test("el selector se maneja con el teclado (radios)", async ({ page }) => {
     await page.getByLabel("Sistema", { exact: true }).focus();
     await page.keyboard.press("ArrowRight");
@@ -50,8 +56,10 @@ test.describe("Contacto · formulario", () => {
 });
 
 test.describe("Contacto · endpoint", () => {
-  const json = () => ({ accept: "application/json", "x-forwarded-for": ip() });
-  const base = { nombre: "Ana", email: "ana@empresa.com", necesidad: "Web", mensaje: "Hola" };
+  // como un navegador: Origin del propio sitio y t0 (momento en que se mostró el formulario) de hace un rato
+  const origin = "http://localhost:3200";
+  const json = () => ({ accept: "application/json", "x-forwarded-for": ip(), origin });
+  const base = { nombre: "Ana", email: "ana@empresa.com", necesidad: "Web", mensaje: "Hola", t0: String(Date.now() - 60_000) };
 
   test("valida en el servidor", async ({ request }) => {
     const r = await request.post("/api/contacto", { headers: json(), form: { ...base, email: "no-es-mail" } });
@@ -60,14 +68,22 @@ test.describe("Contacto · endpoint", () => {
   });
 
   test("a los bots (campo trampa o envío instantáneo) les contesta ok sin enviar", async ({ request }) => {
-    for (const extra of [{ sitio_web: "http://spam.example" }, { t0: String(Date.now()) }] as Record<string, string>[]) {
+    for (const extra of [{ sitio_web: "http://spam.example" }, { t0: String(Date.now()) }, { t0: "" }] as Record<string, string>[]) {
       const r = await request.post("/api/contacto", { headers: json(), form: { ...base, ...extra } });
       expect(await r.json()).toEqual({ ok: true });
     }
   });
 
+  test("un POST sin Origin del sitio (script) se descarta sin enviar", async ({ request }) => {
+    const h = { accept: "application/json", "x-forwarded-for": ip() };
+    for (const o of [undefined, "https://otro-sitio.example"]) {
+      const r = await request.post("/api/contacto", { headers: o ? { ...h, origin: o } : h, form: base });
+      expect(await r.json()).toEqual({ ok: true });
+    }
+  });
+
   test("sin JavaScript: el formulario lleva a una página de confirmación o de error", async ({ request }) => {
-    const h = { "x-forwarded-for": ip() };
+    const h = { "x-forwarded-for": ip(), origin };
     const ok = await request.post("/api/contacto", { form: base, maxRedirects: 0, headers: h });
     expect(ok.status()).toBe(303);
     expect(ok.headers().location).toMatch(/\/contacto\/enviado$/);
